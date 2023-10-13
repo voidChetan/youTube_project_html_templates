@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-white bg-white">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="/images/naukri_Logo.png" alt="" class="d-inline-block align-text-top">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Jobs</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Companies</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Services</a>
+                    </li>
+
+                </ul>
+                <form class="d-flex">
+                    <button class="btn btn-outline-primary round-button mx-2" type="button">Login</button>
+                    <button class="btn btn-success round-button" type="button">Register</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+    <div class="container-fluid body-background">
+        <div class="header">
+            <h1>Find your dream job now</h1>
+            <div>5 lakh+ jobs for you to explore</div>
+        </div>
+        <div class="Wrapper ">
+            <div>
+                <div class="logoContainer">
+                    <img src="https://static.naukimg.com/s/7/103/i/search.9ec0e1ac.svg" id="searchIcon">
+                    <input type="text" placeholder="Enter Skills / designations / companies" class="sugginput"
+                        id="input1">
+                    <div class="pipe1"></div>
+                    <input type="text" placeholder="Enter location" class="sugginput" id="input2">
+                    <div class="pipe1"></div>
+                    <select id="input3" class="sugginput">
+                        <option value="" hidden="">Select Experience</option>
+                        <!-- Available Options -->
+                        <option value="1">Freshers</option>
+                        <option value="2">1 year</option>
+                        <option value="3">2 years</option>
+                        <option value="4">3 years</option>
+                        <option value="5">4 years</option>
+                        <option value="6">5 years</option>
+
+                    </select>
+
+                    <input type="submit" class="search" value="Search">
+                </div>
+            </div>
+        </div>
+        <div id="Slidhsow-container">
+            <h4 id="trendHead">Trending on Naukri today</h4>
+            <div id="main-slider">
+                <!-- --left arrow  -->
+               
+                <div class="slide" id="c1" onclick="window.open('https://www.youtube.com/','mywindow');"
+                    style="cursor: pointer; display: inline-block;">
+                    <div class="images">
+                        <img src="https://static.naukimg.com/s/0/0/i/trending-naukri/remote.svg">
+                    </div>
+                    <div class="text">
+                        <h6>Remote </h6>
+                        <p>5.3k + jobs</p>
+                    </div>
+                </div>
+                <div class="slide" id="c2" onclick="window.open('https://www.youtube.com/','mywindow');"
+                    style="cursor: pointer; display: inline-block;">
+                    <div class="images">
+                        <img src="https://static.naukimg.com/s/0/0/i/trending-naukri/mnc.svg">
+                    </div>
+                    <div class="text">
+                        <h6>MNC</h6>
+                        <p>19.3k+ jobs</p>
+                    </div>
+                </div>
+
+                <div class="slide" id="c3" onclick="window.open('https://www.youtube.com/','mywindow');"
+                    style="cursor: pointer; display: inline-block;">
+                    <div class="images">
+                        <img src="https://static.naukimg.com/s/0/0/i/trending-naukri/engineering.svg">
+                    </div>
+                    <div class="text">
+                        <h6>Engineering</h6>
+                        <p>16.3k +jobs</p>
+                    </div>
+                </div> 
+            </div>
+            <h4 style="text-align: center;">Featured companies actively hiring</h4>
+
+            <!-- ---2nd Slider - -->
+            <div id="main-slider">
+                <!-- --left arrow   -->
+               
+                <div class="slide" id="d1" style="cursor: pointer; display: inline-block;">
+                    <div class="images">
+                        <img src="https://img.naukimg.com/logo_images/groups/v2/226728.gif">
+                    </div>
+                    <div class="text">
+                        <h6>L&amp;T Infotech (LTI) </h6>
+                        <p>3.4 reviews</p>
+                    </div>
+                    <a href="http://example.com">
+                        <span class="linkSpanner"></span>
+                    </a>
+                </div>
+                <div class="slide " id="d2" style="cursor: pointer; display: inline-block;">
+                    <div class="images">
+                        <img src="https://img.naukimg.com/logo_images/groups/v2/58550.gif">
+                    </div>
+                    <div class="text">
+                        <h6>FIITJEE</h6>
+                        <p>3.5 reviews</p>
+                    </div>
+                </div>
+
+                <div class="slide" id="d3" style="cursor: pointer; display: inline-block;">
+                    <div class="images">
+                        <img src="https://img.naukimg.com/logo_images/groups/v2/1288.gif">
+                    </div>
+                    <div class="text">
+                        <h6>Capgemini</h6>
+                        <p>16.3k +reviews</p>
+                    </div>
+                </div>
+                <div class="slide" id="d4" style="cursor: pointer; display: inline-block;">
+                    <div class="images">
+                        <img src="https://img.naukimg.com/logo_images/groups/v2/419316.gif">
+                    </div>
+                    <div class="text">
+                        <h6>Software &amp;It</h6>
+                        <p>204.5k + reviews</p>
+                    </div>
+                </div>
+                
+
+ 
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

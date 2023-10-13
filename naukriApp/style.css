@@ -1,0 +1,129 @@
+.round-button {
+    border-radius: 30px;
+}
+.body-background {
+    background: #f7f6fb;
+}
+.header {
+    margin: 0px 0 28px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding-top: 20px;
+
+}
+.Wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.logoContainer {
+    display: flex;
+    align-items: center;
+    padding: 9px 9px 9px 24px;
+    background: #fff;
+    border: 1.26923px solid #eaf1f5;
+    box-sizing: border-box;
+    box-shadow: 0 4px 12px rgb(86 141 187 / 12%);
+    border-radius: 100px;
+    width: 995px;
+    height: 68px;
+    border: 1px solid white;
+}
+#searchIcon {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin-right: 8px;
+}
+#input1 {
+    width: 324px;
+    height: 38px;
+    border: none;
+}
+
+.sugginput {
+    font-size: 15px;
+    line-height: 22px;
+    font-family: "Inter";
+    color: #9098b5;
+    font-weight: 400;
+}
+.pipe1 {
+    background: #eaf1f5;
+    border-radius: 2.53846px;
+    width: 1px;
+    height: 28px;
+}
+#input3 {
+    width: 223px;
+    height: 40px;
+    border: none;
+}
+#input2 {
+    width: 208px;
+    height: 38px;
+    border: none;
+}
+input, select {
+    outline: none;
+}
+.search {
+    padding: 11px 28px;
+    font-weight: 600;
+    font-size: 19px;
+    line-height: 26px;
+    background: #457eff;
+    box-shadow: 0 5.07692px 12.6923px rgb(69 126 255 / 10%);
+    border-radius: 100px;
+    cursor: pointer;
+    color: white;
+    margin-left: 110px;
+    border: none;
+}
+#trendHead {
+    padding: 20px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 27px;
+    line-height: 10px;
+    color: #1b2437;
+}
+#main-slider {
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    padding-top: 5px;
+}
+.slide {
+    /* border-radius: 16px 6px; */
+    width: 15%;
+    display: none; 
+}
+.images {
+    text-align: center;
+}
+.slide img {
+    height: auto;
+    width: auto;
+}
+.text {
+    text-align: center;
+}
+
+.compo_logo {
+    height: 50px;
+    width: 50px;
+    border-radius: 14px; 
+}
+
+.job .card {
+    border-radius: 20px;
+}
+
+.filter .card {
+    border-radius: 10px;
+}
