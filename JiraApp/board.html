@@ -1,0 +1,708 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link rel="stylesheet" href="main.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <!-- font awsome icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/fontawesome.min.css"
+        integrity="sha512-SgaqKKxJDQ/tAUAAXzvxZz33rmn7leYDYfBP+YoMRSENhf3zJyx3SBASt/OfeQwBHA1nxMis7mM3EV/oYT6Fdw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+        .mynav  {
+    background-color: #0747a6!important;
+    color: #fff!important;
+}
+.content-hover:hover {
+    background-color: #033681!important;
+}
+.nav-link, .navbar-brand {
+    color: #fff!important;
+}
+        .breadcrumb-Hover:hover {
+            color: darkgrey;
+            text-decoration: underline;
+        }
+
+        .search-Border {
+            height: 40px;
+        }
+
+        .space-board-icon-hover:hover {
+            background-color: lightgrey;
+        }
+
+        .group-By-Font {
+            font-size: 13px;
+        }
+
+        .ct {
+            background-color: blue;
+            border-radius: 17px;
+            width: 34px;
+            padding: 5px;
+        }
+
+        .icon-CT {
+            background-color: lightgray;
+            border-radius: 17px;
+            width: 34px;
+            padding: 5px;
+        }
+
+        .user {
+            background-color: gray;
+            padding: 6px;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        .user-selected {
+            padding: 6px;
+            cursor: pointer;
+            border-radius: 50%;
+        }
+
+
+        .card-Height {
+            height: 100%;
+        }
+
+        .card-Body-Hover {
+            background-color: #ffff;
+            padding: 6px;
+            border: 1px solid lightgray;
+            border-bottom: 1px solid gray;
+        }
+
+        #draggable {
+            width: 100px;
+            height: 50px;
+            background-color: #f5f5f5;
+            padding: 10px;
+            cursor: move;
+        }
+
+        #droppable {
+            width: 200px;
+            height: 200px;
+            background-color: #ccc;
+            margin-top: 20px;
+        }
+
+        #board {
+            display: flex;
+            gap: 20px;
+        }
+
+        .grabbable {
+            cursor: move;
+            /* fallback if grab cursor is unsupported */
+            cursor: grab;
+            cursor: -moz-grab;
+            cursor: -webkit-grab;
+        }
+
+        /* (Optional) Apply a "closed-hand" cursor during drag operation. */
+        .grabbable:active {
+            cursor: grabbing;
+            cursor: -moz-grabbing;
+            cursor: -webkit-grabbing;
+        }
+
+        .column {
+            flex: 1 0 auto;
+            border: 1px solid #ccc;
+            padding: 10px;
+        }
+
+        .task {
+            background-color: #f5f5f5;
+            padding: 5px;
+            margin-bottom: 10px !important;
+            cursor: move;
+        }
+
+        .card-Body-Hover:hover {
+            background-color: rgba(238, 244, 244, 0.973);
+        }
+
+        .create-Hover:hover {
+            background-color: rgba(238, 244, 244, 0.973);
+            color: rgb(54, 53, 53);
+        }
+
+        .space-font {
+            font-size: 13px;
+        }
+
+        .create-Font {
+            font-size: 15px;
+        }
+
+        .board {
+            position: absolute;
+        }
+
+        .card-body {
+            background-color: #ffff !important;
+            padding: 5px;
+        }
+        .logUser {
+            position: absolute;
+    right: 20px !important;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- navbar -->
+    <nav class="navbar navbar-expand-lg bg-white fixed-top mynav pb-0 pt-0">
+        <div class="container-fluid">
+
+            <a class="navbar-brand align-self-baseline" href="#"><i class="fa-solid fa-bars me-3"></i>Jira Software</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02"
+                aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 text-dark">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle text-dark content-hover" href="#" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Your Work
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle text-dark content-hover" href="#" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Projects
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle text-dark content-hover" href="#" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Filters
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle text-dark content-hover" href="#" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Dashboard
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle text-dark content-hover" href="#" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Teams
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle text-dark content-hover" href="#" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Apps
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">
+                            <button class="btn bg-primary p-0 px-1  text-white " data-bs-toggle="modal"
+                                data-bs-target="#exampleModal">Create</button></a>
+                    </li>
+                </ul>
+                <form class="d-flex" role="search">
+                    <input class="form-control " type="search" placeholder="Search" aria-label="Search">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 text-dark">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-dark content-hover" href="#" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                               user
+                            </a>
+                            <ul class="dropdown-menu logUser">
+                                <li><a class="dropdown-item" href="#">Profile</a></li>
+                                <li><a class="dropdown-item" href="#">Logo</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="#">Log-Off</a></li>
+                            </ul>
+                        </li>
+                    </ul> 
+                </form>
+            </div>
+        </div>
+    </nav>
+
+
+
+    <div class="container-fluid pt-2">
+        <div class="row pt-5">
+            <div class="col-12">
+                <div class="d-flex justify-content-between">
+                    <div>
+                        <h4>Annadata</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col-12">
+                <div class="d-flex">
+                    <div><input type="text" placeholder="Search Here"
+                            class="form-control ng-pristine ng-valid ng-touched">
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="row pt-1">
+            <div class="col" id="3">
+                <div class="card card-bg">
+                    <div class="card-header border-0 py-1"> To Do <span> 4
+                            issue</span><!----></div>
+                    <div class="card-body ticket-bg border" id="3"><!---->
+                        <div draggable="true" class="card-Body-Hover m-1 rounded-1 task" id="3">
+                            <div class="my-1 fw-bold"> Vendor Verification </div>
+                            <div class="row">
+                                <div class="col-3">
+                                    <p class="text-muted space-font m-0 pointer">Anna-101</p>
+                                </div>
+                                <div class="col-9 text-end">
+                                    <p class="text-muted space-font m-0">aishupatil9696@gmail.com
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12 text-end"><span>5
+                                        hrs</span></div>
+                            </div>
+                        </div>
+                        <div draggable="true" class="card-Body-Hover m-1 rounded-1 task" id="3">
+                            <div class="my-1 fw-bold"> Create RFQ (Quotation) </div>
+                            <div class="row">
+                                <div class="col-3">
+                                    <p class="text-muted space-font m-0 pointer">Anna-141</p>
+                                </div>
+                                <div class="col-9 text-end">
+                                    <p class="text-muted space-font m-0">
+                                        gaikwadashwini481@gmail.com</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12 text-end"><span>12
+                                        hrs</span></div>
+                            </div>
+                        </div>
+                        <div draggable="true" class="card-Body-Hover m-1 rounded-1 task" id="3">
+                            <div class="my-1 fw-bold"> Anndata User Page </div>
+                            <div class="row">
+                                <div class="col-3">
+                                    <p class="text-muted space-font m-0 pointer">Anna-181</p>
+                                </div>
+                                <div class="col-9 text-end">
+                                    <p class="text-muted space-font m-0">yoginig1005@gmail.com</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12 text-end"><span>8
+                                        hrs</span></div>
+                            </div>
+                        </div>
+                        <div draggable="true" class="card-Body-Hover m-1 rounded-1 task" id="3">
+                            <div class="my-1 fw-bold"> BreadCrum Reusable Component </div>
+                            <div class="row">
+                                <div class="col-3">
+                                    <p class="text-muted space-font m-0 pointer">Anna-191</p>
+                                </div>
+                                <div class="col-9 text-end">
+                                    <p class="text-muted space-font m-0">
+                                        kshitijagaikwad1998@gmail.com</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12 text-end"><span>6
+                                        hrs</span></div>
+                            </div>
+                        </div><!----><!----><!---->
+                    </div>
+                </div>
+            </div>
+            <div class="col" id="2">
+                <div class="card card-bg">
+                    <div class="card-header border-0 py-1"> In Progress <span> 4 issue</span><!----></div>
+                    <div class="card-body ticket-bg border" id="2"><!---->
+                        <div draggable="true" class="card-Body-Hover m-1 rounded-1 task" id="2">
+                            <div class="my-1 fw-bold"> Vendor Crud Page </div>
+                            <div class="row">
+                                <div class="col-3">
+                                    <p class="text-muted space-font m-0 pointer">Anna-81</p>
+                                </div>
+                                <div class="col-9 text-end">
+                                    <p class="text-muted space-font m-0">aishupatil9696@gmail.com
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12 text-end"><span>12
+                                        hrs</span></div>
+                            </div>
+                        </div>
+                        <div draggable="true" class="card-Body-Hover m-1 rounded-1 task" id="2">
+                            <div class="my-1 fw-bold"> Famer Verification </div>
+                            <div class="row">
+                                <div class="col-3">
+                                    <p class="text-muted space-font m-0 pointer">Anna-91</p>
+                                </div>
+                                <div class="col-9 text-end">
+                                    <p class="text-muted space-font m-0">aishupatil9696@gmail.com
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12 text-end"><span>6
+                                        hrs</span></div>
+                            </div>
+                        </div>
+                        <div draggable="true" class="card-Body-Hover m-1 rounded-1 task" id="2">
+                            <div class="my-1 fw-bold"> Executive Crud </div>
+                            <div class="row">
+                                <div class="col-3">
+                                    <p class="text-muted space-font m-0 pointer">Anna-111</p>
+                                </div>
+                                <div class="col-9 text-end">
+                                    <p class="text-muted space-font m-0">
+                                        kshitijagaikwad1998@gmail.com</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12 text-end"><span>6
+                                        hrs</span></div>
+                            </div>
+                        </div>
+                        <div draggable="true" class="card-Body-Hover m-1 rounded-1 task" id="2">
+                            <div class="my-1 fw-bold"> Whole Application Loader </div>
+                            <div class="row">
+                                <div class="col-3">
+                                    <p class="text-muted space-font m-0 pointer">Anna-201</p>
+                                </div>
+                                <div class="col-9 text-end">
+                                    <p class="text-muted space-font m-0">kanchanmundhe00@gmail.com
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12 text-end"><span>0
+                                        hrs</span></div>
+                            </div>
+                        </div><!----><!----><!---->
+                    </div>
+                </div>
+            </div>
+            <div class="col" id="1">
+                <div class="card card-bg">
+                    <div class="card-header border-0 py-1"> Done <span> 13
+                            issue</span><!----></div>
+                    <div class="card-body ticket-bg border" id="1"><!---->
+                        <div draggable="true" class="card-Body-Hover m-1 rounded-1 task" id="1">
+                            <div class="my-1 fw-bold"> Project Creation Setup </div>
+                            <div class="row">
+                                <div class="col-3">
+                                    <p class="text-muted space-font m-0 pointer">Anna-01</p>
+                                </div>
+                                <div class="col-9 text-end">
+                                    <p class="text-muted space-font m-0">
+                                        gaikwadashwini481@gmail.com</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12 text-end"><span>4
+                                        hrs</span></div>
+                            </div>
+                        </div>
+                        <div draggable="true" class="card-Body-Hover m-1 rounded-1 task" id="1">
+                            <div class="my-1 fw-bold"> State Master Crud </div>
+                            <div class="row">
+                                <div class="col-3">
+                                    <p class="text-muted space-font m-0 pointer">Anna-11</p>
+                                </div>
+                                <div class="col-9 text-end">
+                                    <p class="text-muted space-font m-0">
+                                        kshitijagaikwad1998@gmail.com</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12 text-end"><span>6
+                                        hrs</span></div>
+                            </div>
+                        </div>
+                        <div draggable="true" class="card-Body-Hover m-1 rounded-1 task" id="1">
+                            <div class="my-1 fw-bold"> District Crud </div>
+                            <div class="row">
+                                <div class="col-3">
+                                    <p class="text-muted space-font m-0 pointer">Anna-21</p>
+                                </div>
+                                <div class="col-9 text-end">
+                                    <p class="text-muted space-font m-0">savitag096@gmail.com</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12 text-end"><span>6
+                                        hrs</span></div>
+                            </div>
+                        </div>
+                        <div draggable="true" class="card-Body-Hover m-1 rounded-1 task" id="1">
+                            <div class="my-1 fw-bold"> City Master </div>
+                            <div class="row">
+                                <div class="col-3">
+                                    <p class="text-muted space-font m-0 pointer">Anna-31</p>
+                                </div>
+                                <div class="col-9 text-end">
+                                    <p class="text-muted space-font m-0">kanchanmundhe00@gmail.com
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12 text-end"><span>12
+                                        hrs</span></div>
+                            </div>
+                        </div>
+                        <div draggable="true" class="card-Body-Hover m-1 rounded-1 task" id="1">
+                            <div class="my-1 fw-bold"> Food Category Crud </div>
+                            <div class="row">
+                                <div class="col-3">
+                                    <p class="text-muted space-font m-0 pointer">Anna-41</p>
+                                </div>
+                                <div class="col-9 text-end">
+                                    <p class="text-muted space-font m-0">yoginig1005@gmail.com</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12 text-end"><span>6
+                                        hrs</span></div>
+                            </div>
+                        </div>
+                        <div draggable="true" class="card-Body-Hover m-1 rounded-1 task" id="1">
+                            <div class="my-1 fw-bold"> Food Item Crud </div>
+                            <div class="row">
+                                <div class="col-3">
+                                    <p class="text-muted space-font m-0 pointer">Anna-51</p>
+                                </div>
+                                <div class="col-9 text-end">
+                                    <p class="text-muted space-font m-0">poojamane2294@gmail.com
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12 text-end"><span>6
+                                        hrs</span></div>
+                            </div>
+                        </div>
+                        <div draggable="true" class="card-Body-Hover m-1 rounded-1 task" id="1">
+                            <div class="my-1 fw-bold"> Farmer Create - only </div>
+                            <div class="row">
+                                <div class="col-3">
+                                    <p class="text-muted space-font m-0 pointer">Anna-61</p>
+                                </div>
+                                <div class="col-9 text-end">
+                                    <p class="text-muted space-font m-0">pavanborde1999@gmail.com
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12 text-end"><span>12
+                                        hrs</span></div>
+                            </div>
+                        </div>
+                        <div draggable="true" class="card-Body-Hover m-1 rounded-1 task" id="1">
+                            <div class="my-1 fw-bold"> Farmer List </div>
+                            <div class="row">
+                                <div class="col-3">
+                                    <p class="text-muted space-font m-0 pointer">Anna-71</p>
+                                </div>
+                                <div class="col-9 text-end">
+                                    <p class="text-muted space-font m-0">ashgodase1995@gmail.com
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12 text-end"><span>12
+                                        hrs</span></div>
+                            </div>
+                        </div>
+                        <div draggable="true" class="card-Body-Hover m-1 rounded-1 task" id="1">
+                            <div class="my-1 fw-bold"> Login Page Anna </div>
+                            <div class="row">
+                                <div class="col-3">
+                                    <p class="text-muted space-font m-0 pointer">Anna-121</p>
+                                </div>
+                                <div class="col-9 text-end">
+                                    <p class="text-muted space-font m-0">
+                                        shalaka.d.shinde@gmail.com</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12 text-end"><span>12
+                                        hrs</span></div>
+                            </div>
+                        </div>
+                        <div draggable="true" class="card-Body-Hover m-1 rounded-1 task" id="1">
+                            <div class="my-1 fw-bold"> Role Based Menu - Layout Page </div>
+                            <div class="row">
+                                <div class="col-3">
+                                    <p class="text-muted space-font m-0 pointer">Anna-131</p>
+                                </div>
+                                <div class="col-9 text-end">
+                                    <p class="text-muted space-font m-0">savitag096@gmail.com</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12 text-end"><span>12
+                                        hrs</span></div>
+                            </div>
+                        </div>
+                        <div draggable="true" class="card-Body-Hover m-1 rounded-1 task" id="1">
+                            <div class="my-1 fw-bold"> RFQ List (Quotation List) </div>
+                            <div class="row">
+                                <div class="col-3">
+                                    <p class="text-muted space-font m-0 pointer">Anna-151</p>
+                                </div>
+                                <div class="col-9 text-end">
+                                    <p class="text-muted space-font m-0">nickskadam99@gmail.com
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12 text-end"><span>12
+                                        hrs</span></div>
+                            </div>
+                        </div>
+                        <div draggable="true" class="card-Body-Hover m-1 rounded-1 task" id="1">
+                            <div class="my-1 fw-bold"> Taluka page Crud </div>
+                            <div class="row">
+                                <div class="col-3">
+                                    <p class="text-muted space-font m-0 pointer">Anna-161</p>
+                                </div>
+                                <div class="col-9 text-end">
+                                    <p class="text-muted space-font m-0">poojamane2294@gmail.com
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12 text-end"><span>6
+                                        hrs</span></div>
+                            </div>
+                        </div>
+                        <div draggable="true" class="card-Body-Hover m-1 rounded-1 task" id="1">
+                            <div class="my-1 fw-bold"> Annadata Customer Page </div>
+                            <div class="row">
+                                <div class="col-3">
+                                    <p class="text-muted space-font m-0 pointer">Anna-171</p>
+                                </div>
+                                <div class="col-9 text-end">
+                                    <p class="text-muted space-font m-0">ashgodase1995@gmail.com
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12 text-end"><span>6
+                                        hrs</span></div>
+                            </div>
+                        </div><!----><!----><!---->
+                    </div>
+                </div>
+            </div><!---->
+        </div>
+        <div id="myModal" class="modal">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h6 class="modal-title"><svg class="svg-inline--fa fa-square-check" aria-hidden="true"
+                                focusable="false" data-prefix="fas" data-icon="square-check" role="img"
+                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg="">
+                                <path fill="currentColor"
+                                    d="M64 32C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H64zM337 209L209 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L303 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z">
+                                </path>
+                            </svg><!-- <i  class="fa fa-square-check"></i> Font Awesome fontawesome.com -->
+                        </h6><button type="button" data-bs-dismiss="modal" class="btn-close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row"><!----></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

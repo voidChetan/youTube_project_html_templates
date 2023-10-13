@@ -1,0 +1,89 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:wght@300&family=Oxygen&family=Roboto:wght@500&family=Ubuntu:wght@300&display=swap');
+
+body{
+    color: #172B4D;
+    font-family: 'Fira Sans','Oxygen', 'Roboto','Ubuntu',sans-serif;
+    font-size: 14px;
+
+}
+.navbar{
+    box-shadow: 0px 2px 14px #d7d8d8;
+}
+.dropdown:hover .dropdown-menu {
+    display: block;
+    margin-top: 0;
+
+}
+.content-hover:hover{
+    background-color: rgb(199, 227, 243);
+}
+.first-col{
+    height: 100vh;
+    overflow-y: auto;
+    
+}
+
+.heading-hover :hover{
+    background-color: rgb(194, 189, 189);
+}
+.description-div:hover{
+    background-color: rgb(229, 222, 222);
+}
+.description-div img{
+    height: 150px;
+    width: 300px;
+}
+
+.attachment .card{
+    height: 150px;
+    width: 300px;
+}
+
+.activity p{
+    margin: 0;
+}
+
+.circle-div p{
+    padding-bottom: 5px;
+}
+.comment p{
+    font-size: 12px;
+}
+.comment button{
+    font-size: 12px;
+    border-radius: none !important;
+    padding: 0 5px;
+}
+
+.configure p{
+    font-size: 13px;
+}
+/* model CSS */
+.project-model a {
+    font-size: 10px;
+}
+
+.status p {
+    font-size: 10px;
+}
+
+.inputbg {
+    background-color: rgb(248, 246, 247);
+}
+
+.inputbg:hover {
+    background-color: rgb(194, 194, 194) !important;
+}
+
+.rounded-circle {
+    width: 12%;
+    padding: 7px 0;
+}
+label{
+    font-size: 14px;
+    font-weight: bold;
+    color: grey;
+}
+
+

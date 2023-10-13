@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link rel="stylesheet" href="main.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <!-- font awsome icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/fontawesome.min.css"
+        integrity="sha512-SgaqKKxJDQ/tAUAAXzvxZz33rmn7leYDYfBP+YoMRSENhf3zJyx3SBASt/OfeQwBHA1nxMis7mM3EV/oYT6Fdw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+        .sidebar-img {
+            height: 40px;
+            width: 40px;
+        }
+
+        details ul li:hover {
+            background-color: rgb(192, 236, 238);
+        }
+        .sidebarFooter p{
+            font-size: 12px;
+        }
+    </style>
+
+
+</head>
+
+<body>
+
+    <!-- navbar start-->
+    <nav class="navbar navbar-expand-lg bg-white fixed-top ">
+        <div class="container-fluid">
+
+            <a class="navbar-brand align-self-baseline" href="#"><i class="fa-solid fa-bars me-3"></i>Jira Software</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02"
+                aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 text-dark">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle text-dark content-hover" href="#" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Your Work
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle text-dark content-hover" href="#" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Projects
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle text-dark content-hover" href="#" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Filters
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle text-dark content-hover" href="#" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Dashboard
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle text-dark content-hover" href="#" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Teams
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle text-dark content-hover" href="#" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Apps
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">
+                            <button class="btn bg-primary p-0 px-1  text-white " data-bs-toggle="modal"
+                                data-bs-target="#exampleModal">Create</button></a>
+                    </li>
+                </ul>
+                <form class="d-flex" role="search">
+                    <input class="form-control " type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn m-0 p-0 " type="submit"><i
+                            class="fa-solid fa-bell content-hover p-2"></i></button>
+                    <button class="btn m-0 p-0 " type="submit"><i
+                            class="fa-solid fa-question content-hover p-2"></i></i></button>
+                    <button class="btn m-0 p-0 " type="submit"><i
+                            class="fa-solid fa-gear content-hover p-2"></i></button>
+                    <div class="bg-primary rounded-circle text-white w-25 h-25 py-2 text-center">
+                        CT
+                    </div>
+                </form>
+            </div>
+        </div>
+    </nav>
+    <!-- navbar end -->
+    <div class="col-lg-3 col-md-3">
+        <div class="mt-5 pt-1  h-100">
+            <!-- sidebar start -->
+            <nav id="sidebarMenu" class=" d-lg-block sidebar  bg-white">
+                <div class="position-sticky m-0 p-0 border border-3">
+                    <div class="list-group list-group-flush mx-3 mt-4">
+                        <div class="row">
+                            <div class="col-2">
+                                <a href="#" class="  " aria-current="true">
+
+                                    <img class=" sidebar-img ms-2" src="/img/sidebar-img.svg" alt=""></a>
+                            </div>
+                            <div class="col-10">
+                                <span class="ms-1">BookMySpace</span>
+                                <p class="text-muted ">Software project</p>
+                            </div>
+                        </div>
+                        <details>
+                            <summary class="show text-uppercase my-2">Planning</summary>
+                            <ul class="list-unstyled">
+                                <li class="p-2">
+                                    <a href="#" class="text-decoration-none text-muted active">
+                                        <i class="fas fa-chart-area fa-fw me-3"></i><span>RoadMap</span>
+                                </li>
+                                <li class="p-2">
+                                    <a href="#" class="text-decoration-none  text-muted">
+                                        <i class="fas fa-chart-area fa-fw me-3"></i><span>Board</span>
+
+                                    </a>
+                                </li>
+                            </ul>
+                        </details>
+                        <details>
+                            <summary class="show text-uppercase">devlopment</summary>
+                            <ul class="list-unstyled">
+                                <li class="p-2">
+                                    <a href="#" class="text-decoration-none text-muted active">
+                                        <i class="fas fa-chart-area fa-fw me-3"></i><span>Code</span>
+                                </li>
+
+                            </ul>
+
+
+
+
+                        </details>
+                        <hr>
+                        <ul class="list-unstyled">
+                            <li class="py-2">
+                                <a href="#" class="text-decoration-none py-2 text-black ">
+                                    <i class="fas fa-chart-area fa-fw me-3"></i><span>Project Pages</span></a>
+                            </li>
+                            <li class="py-2">
+                                <a href="#" class="text-decoration-none py-2 text-black ">
+                                    <i class="fas fa-chart-area fa-fw me-3"></i><span>Add Shortcut</span></a>
+                            </li>
+                            <li class="py-2">
+                                <a href="#" class="text-decoration-none py-2 text-black ">
+                                    <i class="fas fa-chart-area fa-fw me-3"></i><span>Project Setting</span></a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="text-center  sidebarFooter">
+
+                        <p class="p-0 m-0">You're in a team-managed project
+                            </p>
+                    <a href="#" class="text-decoration-none fw-bold text-secondary">Learn more</a>
+                    </div>
+                </div>
+            </nav>
+            <!-- sidebar end -->
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

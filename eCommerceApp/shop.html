@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ShopWise Demo</title>
+    <link rel="stylesheet" href="main.css">
+    <link rel="shortcut icon" href="../ShopWise/product img/favicon.png" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <!-- font awsome icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/fontawesome.min.css"
+        integrity="sha512-SgaqKKxJDQ/tAUAAXzvxZz33rmn7leYDYfBP+YoMRSENhf3zJyx3SBASt/OfeQwBHA1nxMis7mM3EV/oYT6Fdw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+</head>
+
+<body>
+    <!-- nav  start-->
+    <header>
+        <!-- NavBar -->
+        <nav class="navbar navbar-expand-lg navbar-light nav-yellow  border-bottom border-top p-0">
+            <div class="container">
+                <a class="navbar-brand fs-4 fw-bold " href="#"><i class="fa fa-cart-shopping fs-4"
+                        style="color: #f54242;"></i><span class="textBlur">Shopwise</span></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <!--Toggle  -->
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <!-- Nav Items -->
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0  text-center ">
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle fw-semibold text-uppercase  me-1 text-danger" href="#"
+                                id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                home
+                            </a>
+                            <ul class="dropdown-menu  " aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item " href="#">Fashion 1</a></li>
+                                <li><a class="dropdown-item" href="#">Fashion 2</a></li>
+                                <li><a class="dropdown-item" href="#">furniture 1</a></li>
+                                <li><a class="dropdown-item" href="#">furniture 2</a></li>
+                                <li><a class="dropdown-item" href="#">Electronics 1</a></li>
+                                <li><a class="dropdown-item" href="#">Electronics 1</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle redHover fw-semibold text-uppercase text-black  me-1"
+                                href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                pages
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="#">About Us</a></li>
+                                <li><a class="dropdown-item" href="#">Cotact Us</a></li>
+
+                                <li><a class="dropdown-item" href="#">Terms and Conditions</a></li>
+                            </ul>
+                        </li>
+                         
+                        
+                        
+                        <li class="nav-item">
+                            <a class="nav-link fw-semibold text-uppercase text-black  me-1" href="#">Contact us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#"><i class="fa-solid fa-magnifying-glass fs-5"
+                                    style="color: #0c0d0d;"></i></a>
+                        </li>
+                        <!-- cart -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown3" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="fa fa-cart-shopping fs-5 me-1" style="color: #202122;"></i>
+                            </a>
+                             <ul class="dropdown-menu menuOnLeft   rounded-0 mt-2" aria-labelledby="navbarDropdown3">
+                                <li class="p-2"> 
+                                    <div class="d-flex w-100 border-bottom justify-content-evenly">
+                                       <div>
+                                        <img style="height: 80px !important;" class="img-fluid     p-2" src="../ShopWise/product img/cartImg1.jfif"
+                                        alt="">
+                                       </div>
+                                       
+
+                                        <div style="">
+                                            <a href="#" class="text-decoration-none text-black fw-semibold">
+                                                <p class="m-0 p-0">Varibale Product 001</p>
+                                            </a>
+                                            <p>1 <i class="fa-solid fa-xmark" style="color: #0d0d0d;"></i> $ 78.00</p>
+                                        </div>
+                                        <button type="button" class="btn fs-5 closeBtn"><i
+                                                class="fa-solid fa-xmark"></i></button>
+                                    </div>
+
+                                </li>
+                                <li class="p-2">
+                                    <div class="d-flex w-100 border-bottom justify-content-evenly">
+
+                                        <img style="height: 80px !important;" class="img-fluid  p-2" src="../ShopWise/product img/cartImg2.jfif"
+                                            alt="">
+                                        <div>
+                                            <a href="#" class="text-decoration-none text-black fw-semibold">
+                                                <p class="m-0 p-0">Ornare consequat</p>
+                                            </a>
+                                            <p>1 <i class="fa-solid fa-xmark" style="color: #0d0d0d;"></i> $ 81.00</p>
+                                        </div>
+
+                                        <button type="button" class="btn fs-5 closeBtn"><i
+                                                class="fa-solid fa-xmark"></i></button>
+
+                                    </div>
+                                </li>
+                                <li class="p-2">
+                                    <div class=" w-100 ">
+                                        <div class="d-flex justify-content-between">
+                                            <h6>SubTotal :</h6>
+                                            <h6>$159.00</h6>
+                                        </div>
+                                        <div class="d-flex justify-content-evenly mt-2">
+                                            <button class="btn btn-dark rounded-0 px-3"> View Cart</button>
+                                            <a href="checkout.html"> <button
+                                                    class="btn btn-danger rounded-0 px-3">Checkout</button></a>
+                                        </div>
+
+                                    </div>
+                                </li>
+                               
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle redHover fw-semibold text-uppercase text-black  me-1"
+                                href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                <i class="fa fa-user fs-5 me-1" style="color: #202122;"></i>
+                            </a>
+                            <ul class="dropdown-menu" style="left:-50px" aria-labelledby="navbarDropdown">
+                                <li>
+                                    <div class="d-flex justify-content-evenly mt-2"> 
+                                        <a href="#" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
+                                        aria-controls="offcanvasRight"> <button
+                                            class="btn btn-danger rounded-0 px-3">Login</button></a>
+                                        <a href="#" data-bs-toggle="modal"
+                                        data-bs-target="#exampleModal"> <button
+                                                class="btn btn-danger rounded-0 px-3">Register</button></a>
+                                    </div>
+                                    
+                                     </li>
+                               
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#"> </a>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <!-- nav End-->
+
+    <!-- login offcanvas -->
+    <div class="offcanvas offcanvas-end m-5" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+        <div class="offcanvas-header">
+            <h5 id="offcanvasRightLabel">Sign In</h5>
+            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <section class="ftco-section">
+                <div class="container">
+
+                    <div class="row ">
+                        <div class="col-md-7 col-lg-12">
+                            <div class="wrap">
+                                <div class="img" style="background-image: url(images/bg-1.jpg);"></div>
+                                <div class="login-wrap ">
+
+                                    <form action="#" class="signin-form">
+                                        <div class="form-group mt-3">
+                                            <input type="text" class="form-control" required>
+                                            <label class="form-control-placeholder" for="username">Username</label>
+                                        </div>
+                                        <div class="form-group mt-4">
+                                            <input id="password-field" type="password" class="form-control" required>
+                                            <label class="form-control-placeholder" for="password">Password</label>
+                                            <span toggle="#password-field"
+                                                class="fa fa-fw fa-eye field-icon toggle-password"></span>
+                                        </div>
+                                        <div class="form-group">
+                                            <button type="submit"
+                                                class=" my-4 form-control btn btn-primary rounded submit px-3">Sign
+                                                In</button>
+                                        </div>
+                                        <div class="form-group d-md-flex">
+                                            <div class="w-50 text-left">
+                                                <label class="checkbox-wrap checkbox-primary mb-0">Remember Me
+                                                    <input type="checkbox" checked>
+                                                    <span class="checkmark"></span>
+                                                </label>
+                                            </div>
+                                            <div class="w-50 text-md-right">
+                                                <a href="#">Forgot Password</a>
+                                            </div>
+                                        </div>
+                                    </form>
+                                    <p class="text-center mt-4">Not a member? <a data-toggle="tab" href="#signup">Sign
+                                            Up</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </div>
+
+    <!-- register model -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Register</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body ">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-12 my-2">
+                                <input type="text" class="form-control">
+                                <label for="">Full Name</label>
+                            </div>
+                            <div class="col-12 my-2">
+                                <input type="text" class="form-control">
+                                <label for="">Set Username</label>
+                            </div>
+                            <div class="col-12 my-2">
+                                <input type="password" class="form-control">
+                                <label for="">Set Password</label>
+                            </div>
+                            <div class="col-12 my-2">
+                                <input type="email" class="form-control">
+                                <label for="">E-mail Id</label>
+                            </div>
+                            <div class="col-12 my-2">
+                                <input type="date" class="form-control">
+                                <label for="">DOB</label>
+                            </div>
+                            <div class="col-12 my-2">
+                                <input type="number" class="form-control">
+                                <label for="">Conatct Number</label>
+                            </div>
+
+                            <div class="col-12 my-2">
+                                <input type="radio" name="gender" id=""><label for="">Male</label>
+                                <input type="radio" name="gender" id=""><label for="">Female</label>
+                            </div>
+                            <div class="col-12 my-2">
+                                <textarea name="" id="" class="form-control"></textarea>
+                                <label for="">Full Address</label>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Register</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section id="product">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="productHeading text-center">
+                        <h2 class="mb-3">Exclusive Products</h2>
+
+                        <ul class="list-unstyled d-flex flex-md-row  justify-content-center ">
+                            <li><a href="#" class=" m-4  text-decoration-none text-danger fw-semibold  ">New Arrival</a>
+                            </li>
+                            <li><a href="#" class=" m-4  text-decoration-none fw-semibold text-black">Best Sellers</a>
+                            </li>
+                            <li><a href="#" class=" m-4  text-decoration-none fw-semibold text-black">Featured</a></li>
+                            <li><a href="#" class=" m-4  text-decoration-none fw-semibold text-black ">Special Offer</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="row mt-3">
+                        <div class="col-lg-3 col-md-6 ">
+                            <div class="box-shadow">
+                                <div class="card mt-2">
+                                    <img class="img-fluid" src="../ShopWise/product img/blueDressImg.webp"
+                                        class="card-img-top" alt="...">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Blue Dress For Woman</h5>
+                                        <p class="card-text"><span
+                                                class="text-danger fw-semibold me-2">$45.00</span><del> $55.25</del>
+                                            <span class="text-success ms-2">35% Off</span>
+                                        </p>
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <span><i class="fa-solid fa-star  m-0" style="color: #f1f50f;"></i></span> 
+                                                <span><i class="fa-solid fa-star  m-0" style="color: #f1f50f;"></i></span>
+                                                <span><i class="fa-solid fa-star-half-stroke  m-0"
+                                                        style="color: #f1f50f;"></i></span>
+                                                <span class="text-muted">(25)</span>
+                                            </div>
+                                            <div class="col-6">
+                                                <p class="text-end pb-0 mb-0"><button
+                                                    class="btn  text-end btn-sm btn-success p-2"><i
+                                                        class="fa-solid fa-cart-plus fs-5"
+                                                        style="color: #0c0d0d;"></i></button></p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6">
+                            <div class="box-shadow">
+                                <div class="card mt-2">
+                                    <img class="img-fluid" src="../ShopWise/product img/greyMan.webp"
+                                        class="card-img-top" alt="...">
+
+                                    <div class="card-body">
+                                        <h5 class="card-title">Lether Gray Tuxedo</h5>
+                                        <p class="card-text"><span
+                                                class="text-danger fw-semibold me-2">$55.00</span><del> $95.25</del>
+                                            <span class="text-success ms-2">25% Off</span>
+                                        </p>
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <span><i class="fa-solid fa-star  m-0" style="color: #f1f50f;"></i></span> 
+                                                <span><i class="fa-solid fa-star  m-0" style="color: #f1f50f;"></i></span>
+                                                <span><i class="fa-solid fa-star-half-stroke  m-0"
+                                                        style="color: #f1f50f;"></i></span>
+                                                <span class="text-muted">(25)</span>
+                                            </div>
+                                            <div class="col-6">
+                                                <p class="text-end pb-0 mb-0"><button
+                                                    class="btn  text-end btn-sm btn-success p-2"><i
+                                                        class="fa-solid fa-cart-plus fs-5"
+                                                        style="color: #0c0d0d;"></i></button></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6">
+                            <div class="box-shadow">
+                                <div class="card mt-2">
+                                    <img class="img-fluid" src="../ShopWise/product img/fullsleeves.webp"
+                                        class="card-img-top" alt="...">
+                                    
+
+                                    <div class="card-body">
+                                        <h5 class="card-title">Woman Full Sliv Dress</h5>
+                                        <p class="card-text"><span
+                                                class="text-danger fw-semibold me-2">$68.00</span><del> $99.25</del>
+                                        </p>
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <span><i class="fa-solid fa-star  m-0" style="color: #f1f50f;"></i></span> 
+                                                <span><i class="fa-solid fa-star  m-0" style="color: #f1f50f;"></i></span>
+                                                <span><i class="fa-solid fa-star-half-stroke  m-0"
+                                                        style="color: #f1f50f;"></i></span>
+                                                <span class="text-muted">(25)</span>
+                                            </div>
+                                            <div class="col-6">
+                                                <p class="text-end pb-0 mb-0"><button
+                                                    class="btn  text-end btn-sm btn-success p-2"><i
+                                                        class="fa-solid fa-cart-plus fs-5"
+                                                        style="color: #0c0d0d;"></i></button></p>
+                                            </div>
+                                        </div>
+                                      
+                                       
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6">
+                            <div class="box-shadow">
+                                <div class="card mt-2">
+                                    <img class="img-fluid" src="../ShopWise/product img/lightblueshirt.jfif"
+                                        class="card-img-top" alt="...">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Light Blue Shirt</h5>
+                                        <p class="card-text"><span
+                                                class="text-danger fw-semibold me-2">$69.00</span><del> $89.25</del>
+                                            <span class="text-success ms-2">20% Off</span>
+                                        </p>
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <span><i class="fa-solid fa-star  m-0" style="color: #f1f50f;"></i></span> 
+                                                <span><i class="fa-solid fa-star  m-0" style="color: #f1f50f;"></i></span>
+                                                <span><i class="fa-solid fa-star-half-stroke  m-0"
+                                                        style="color: #f1f50f;"></i></span>
+                                                <span class="text-muted">(25)</span>
+                                            </div>
+                                            <div class="col-6">
+                                                <p class="text-end pb-0 mb-0"><button
+                                                    class="btn  text-end btn-sm btn-success p-2"><i
+                                                        class="fa-solid fa-cart-plus fs-5"
+                                                        style="color: #0c0d0d;"></i></button></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6">
+                            <div class="box-shadow">
+                                <div class="card mt-2">
+                                    <img class="img-fluid" src="../ShopWise/product img/greyMan.webp"
+                                        class="card-img-top" alt="...">
+
+                                    <div class="card-body">
+                                        <h5 class="card-title">Lether Gray Tuxedo</h5>
+                                        <p class="card-text"><span
+                                                class="text-danger fw-semibold me-2">$55.00</span><del> $95.25</del>
+                                            <span class="text-success ms-2">25% Off</span>
+                                        </p>
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <span><i class="fa-solid fa-star  m-0" style="color: #f1f50f;"></i></span> 
+                                                <span><i class="fa-solid fa-star  m-0" style="color: #f1f50f;"></i></span>
+                                                <span><i class="fa-solid fa-star-half-stroke  m-0"
+                                                        style="color: #f1f50f;"></i></span>
+                                                <span class="text-muted">(25)</span>
+                                            </div>
+                                            <div class="col-6">
+                                                <p class="text-end pb-0 mb-0"><button
+                                                    class="btn  text-end btn-sm btn-success p-2"><i
+                                                        class="fa-solid fa-cart-plus fs-5"
+                                                        style="color: #0c0d0d;"></i></button></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6">
+                            <div class="box-shadow">
+                                <div class="card mt-2">
+                                    <img class="img-fluid" src="../ShopWise/product img/fullsleeves.webp"
+                                        class="card-img-top" alt="...">
+                                    
+
+                                    <div class="card-body">
+                                        <h5 class="card-title">Woman Full Sliv Dress</h5>
+                                        <p class="card-text"><span
+                                                class="text-danger fw-semibold me-2">$68.00</span><del> $99.25</del>
+                                        </p>
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <span><i class="fa-solid fa-star  m-0" style="color: #f1f50f;"></i></span> 
+                                                <span><i class="fa-solid fa-star  m-0" style="color: #f1f50f;"></i></span>
+                                                <span><i class="fa-solid fa-star-half-stroke  m-0"
+                                                        style="color: #f1f50f;"></i></span>
+                                                <span class="text-muted">(25)</span>
+                                            </div>
+                                            <div class="col-6">
+                                                <p class="text-end pb-0 mb-0"><button
+                                                    class="btn  text-end btn-sm btn-success p-2"><i
+                                                        class="fa-solid fa-cart-plus fs-5"
+                                                        style="color: #0c0d0d;"></i></button></p>
+                                            </div>
+                                        </div>
+                                      
+                                       
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 ">
+                            <div class="box-shadow">
+                                <div class="card mt-2">
+                                    <img class="img-fluid" src="../ShopWise/product img/blueDressImg.webp"
+                                        class="card-img-top" alt="...">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Blue Dress For Woman</h5>
+                                        <p class="card-text"><span
+                                                class="text-danger fw-semibold me-2">$45.00</span><del> $55.25</del>
+                                            <span class="text-success ms-2">35% Off</span>
+                                        </p>
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <span><i class="fa-solid fa-star  m-0" style="color: #f1f50f;"></i></span> 
+                                                <span><i class="fa-solid fa-star  m-0" style="color: #f1f50f;"></i></span>
+                                                <span><i class="fa-solid fa-star-half-stroke  m-0"
+                                                        style="color: #f1f50f;"></i></span>
+                                                <span class="text-muted">(25)</span>
+                                            </div>
+                                            <div class="col-6">
+                                                <p class="text-end pb-0 mb-0"><button
+                                                    class="btn  text-end btn-sm btn-success p-2"><i
+                                                        class="fa-solid fa-cart-plus fs-5"
+                                                        style="color: #0c0d0d;"></i></button></p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6">
+                            <div class="box-shadow">
+                                <div class="card mt-2">
+                                    <img class="img-fluid" src="../ShopWise/product img/greyMan.webp"
+                                        class="card-img-top" alt="...">
+
+                                    <div class="card-body">
+                                        <h5 class="card-title">Lether Gray Tuxedo</h5>
+                                        <p class="card-text"><span
+                                                class="text-danger fw-semibold me-2">$55.00</span><del> $95.25</del>
+                                            <span class="text-success ms-2">25% Off</span>
+                                        </p>
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <span><i class="fa-solid fa-star  m-0" style="color: #f1f50f;"></i></span> 
+                                                <span><i class="fa-solid fa-star  m-0" style="color: #f1f50f;"></i></span>
+                                                <span><i class="fa-solid fa-star-half-stroke  m-0"
+                                                        style="color: #f1f50f;"></i></span>
+                                                <span class="text-muted">(25)</span>
+                                            </div>
+                                            <div class="col-6">
+                                                <p class="text-end pb-0 mb-0"><button
+                                                    class="btn  text-end btn-sm btn-success p-2"><i
+                                                        class="fa-solid fa-cart-plus fs-5"
+                                                        style="color: #0c0d0d;"></i></button></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

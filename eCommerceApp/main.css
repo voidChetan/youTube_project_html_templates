@@ -1,0 +1,82 @@
+.textBlur {
+    color: transparent;
+    text-shadow: 0 0 1px #202122;
+}
+
+.navbar {
+    box-shadow: none;
+}
+
+a:hover {
+    color: red !important;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block !important;
+    margin-top: 0;
+
+}
+.log_Reg_Border{
+    border: 1px solid pink;
+    border-radius: 20%;
+    margin-left: 10px;
+  
+}
+
+.fa:hover {
+    color: red !important;
+}
+
+.box-shadow {
+    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.2), 0 4px 15px 0 rgba(0, 0, 0, 0.19);
+}
+
+.img-fluid {
+    height: 200px !important;
+    width: 100% !important;
+    margin-top: 0% !important;
+}
+
+.nav-yellow {
+    background-color: #e6bd6d  !important;
+}
+.menuOnLeft { 
+    background-color: #f9f9f9;
+    width: 280px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    left: auto;
+    right: 0px;
+    /* Adjust the value to position the dropdown */
+}
+.menuOnLeft2 { 
+    background-color: #f9f9f9;
+    width: 280px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    left: auto;
+    right: 100px;
+    /* Adjust the value to position the dropdown */
+}
+.closeBtn {
+    font-size: 25px;
+    color: black;
+    margin-top: -56px;
+}
+
+#checkout {
+    background-color: transparent;
+    background-image: linear-gradient(226.69deg, #E5F8FF8C 38.63%, #F9E0B014 82.88%);
+
+}
+@media (min-width:375px) {
+    .productHeading ul {
+        flex-direction: column;
+    }
+    
+}
+/* login */
+img {
+    margin: 0 auto;
+    display: block;
+    margin-top: 20%;
+  }
+  

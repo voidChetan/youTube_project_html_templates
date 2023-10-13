@@ -1,0 +1,614 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Jira Ticket Creation Demo</title>
+    <link rel="stylesheet" href="main.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <!-- font awsome icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/fontawesome.min.css"
+        integrity="sha512-SgaqKKxJDQ/tAUAAXzvxZz33rmn7leYDYfBP+YoMRSENhf3zJyx3SBASt/OfeQwBHA1nxMis7mM3EV/oYT6Fdw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <!-- navbar -->
+    <nav class="navbar navbar-expand-lg bg-white fixed-top ">
+        <div class="container-fluid">
+
+            <a class="navbar-brand align-self-baseline" href="#"><i class="fa-solid fa-bars me-3"></i>Jira Software</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02"
+                aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 text-dark">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle text-dark content-hover" href="#" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Your Work
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle text-dark content-hover" href="#" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Projects
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle text-dark content-hover" href="#" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Filters
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle text-dark content-hover" href="#" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Dashboard
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle text-dark content-hover" href="#" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Teams
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle text-dark content-hover" href="#" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Apps
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">
+                            <button class="btn bg-primary p-0 px-1  text-white " data-bs-toggle="modal"
+                                data-bs-target="#exampleModal">Create</button></a>
+                    </li>
+                </ul>
+                <form class="d-flex" role="search">
+                    <input class="form-control " type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn m-0 p-0 " type="submit"><i
+                            class="fa-solid fa-bell content-hover p-2"></i></button>
+                    <button class="btn m-0 p-0 " type="submit"><i
+                            class="fa-solid fa-question content-hover p-2"></i></i></button>
+                    <button class="btn m-0 p-0 " type="submit"><i
+                            class="fa-solid fa-gear content-hover p-2"></i></button>
+                    <div class="bg-primary rounded-circle text-white w-25 h-25 py-2 text-center">
+                        CT
+                    </div>
+                </form>
+            </div>
+        </div>
+    </nav>
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
+            <div class="modal-content">
+                <!-- model header -->
+                <div class="modal-header d-flex ">
+                    <div>
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Create Issue</h1>
+                    </div>
+                    <div>
+                        <button type="button" class="btn"><i class="fa fa-minus fs-5"></i></button>
+                        <button type="button" class="btn"><i class="fa-solid fa-arrow-down fs-5"></i></button>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                </div>
+                <!-- model body -->
+                <div class="modal-body">
+                    <div class="container">
+                        <!-- project  first row -->
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="project-model">
+                                    <label for="">Project <span class="text-danger">*</span></label>
+                                    <select name="" id="" class="form-select mb-3 bg-light">
+                                        <option value="">option1</option>
+                                        <option value="">option2</option>
+                                        <option value="">option3</option>
+                                    </select>
+
+                                    <label for="">Issue Type<span class="text-danger">*</span></label>
+                                    <select name="" id="" class="form-select bg-light">
+                                        <option value=""><i class="fa-solid fa-square-check"
+                                                style="color: #7ea6ec;"></i> Task</option>
+                                        <option value="">option2</option>
+                                        <option value="">option3</option>
+                                    </select>
+                                    <a href="#">Learn More</a>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="d-flex justify-content-end">
+                                    <button type="button" class="btn text-primary"><i class="fa-solid fa-eye"
+                                            style="color: #093177;"></i>1</button>
+                                    <button type="button" class="btn">Import Issue</button>
+                                    <button type="button" class="btn"><i class="fa fa-ellipsis"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                        <hr>
+                        <!-- status Secoond row -->
+                        <div class="row">
+                            <!-- Status -->
+                            <div class="col-12">
+                                <label for="">Status <span><i class="fa fa-circle-info"></i></span></label>
+                            </div>
+                            <div class="col-12  mb-3 status">
+                                <select name="" id="" class="mb-1 bg-light form-select-sm">
+                                    <option value="">To Do</option>
+                                    <option value="">option2</option>
+                                    <option value="">option3</option>
+                                </select>
+                                <p class="text-secondary m-0 p-0 fw-semibold">This is the issue's initial status upon
+                                    creation</p>
+                            </div>
+                            <!-- Summary -->
+                            <div class="col-12  mb-3">
+                                <label for="">Summary <span class="text-danger">*</span></label>
+                                <input type="text" name="" id="" class="form-control border inputbg border-2">
+                            </div>
+                            <!-- Description -->
+                            <div class="col-12 mb-3">
+                                <label for="">Description</label>
+                                <textarea name="" id="" cols="30" rows="5" class="form-control"></textarea>
+                            </div>
+                            <!-- Assignee -->
+
+                            <div class="col-6 mb-3">
+                                <label for="">Assignee</label>
+                                <div class=" border border-2 bg-light p-1">
+                                    <i class="fa-solid fa-circle-user fs-5" style="color: #a5a5a6;"></i>
+                                    <input type="text" name="" id="" placeholder="Automatic" class="border-0 bg-light ">
+                                </div>
+                                <span><a href="" class="text-decoration-none fw-semibold">Assign to me</a></span>
+                            </div>
+
+                            <!-- labels -->
+                            <div class="col-12  ">
+                                <label for="">labels</label>
+                            </div>
+                            <div class="col-6  mb-3">
+                                <div>
+                                    <select name="" id="" class="mb-1 form-select bg-light">
+                                        <option value="">Select label</option>
+                                        <option value="">option2</option>
+                                        <option value="">option3</option>
+                                    </select>
+                                </div>
+
+                            </div>
+
+                            <!-- Reporter -->
+                            <div class="col-12">
+                                <label for="">Reporter <span class="text-danger">*</span></label>
+                            </div>
+                            <div class="col-6 mb-3">
+                                <div class=" border border-2 bg-light p-1 d-flex">
+                                    <div class=" rounded-circle  text-center bg-primary text-white">CT</div>
+                                    <input type="text" name="" id="" placeholder="CodeFirst Text"
+                                        class="border-0 bg-light ">
+                                </div>
+                            </div>
+                            <!-- Attachment -->
+                            <div class="col-12 mb-3">
+                                <label for="">Attachment</label>
+                                <div class="border border-dotted text-center p-5">
+                                    <span><i class="fa fa-cloud-arrow-up"></i>Drop files to attach or <a href="#"
+                                            class="text-decoration-none">browse</a></span>
+                                </div>
+                            </div>
+                            <!-- Linked Issues -->
+                            <div class="col-6 mb-3">
+                                <div>
+                                    <label for="">Linked Issues</label>
+                                    <select name="" id="" class="mb-1 form-select bg-light">
+                                        <option value="">Select label</option>
+                                        <option value="">option2</option>
+                                        <option value="">option3</option>
+                                    </select>
+                                    <select name="" id="" class="mb-1 form-select bg-light">
+                                        <option value="">Select label</option>
+                                        <option value="">option2</option>
+                                        <option value="">option3</option>
+                                    </select>
+                                </div>
+
+                            </div>
+                            <!-- Flagged -->
+                            <div class="col-12">
+                                <label for="">Flagged</label>
+                            </div>
+                            <div class="col-6 mb-3">
+                                <div class=" rounded-2 bg-light border border-2 d-flex justify-content-between">
+                                    <input type="text" name="" id="" class="border-0 bg-light form-control">
+                                    <button class="btn border-0"><i class="fa fa-chevron-down"></i></button>
+                                </div>
+                                <p class="text-secondary fw-semibold">Allows to flag issues with impediments.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- model footer -->
+                <div class="modal-footer justify-content-between">
+                    <div>
+                        <input type="checkbox" name="" id=""><span>
+                            Create another issue</span>
+                    </div>
+                    <div>
+
+                        <button type="button" class="btn btn-light" data-bs-dismiss="modal">Cancel</button>
+                        <button type="button" class="btn btn-primary">Create</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- main content -->
+    <section class="mt-5 pt-3">
+        <div class=" container-fluid">
+            <div class="row ">
+                <div class="col-lg-8 col-md-12 first-col">
+                    <div class="border border-top-0 px-3">
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12">
+                                <div>
+                                    <nav aria-label="breadcrumb ">
+                                        <ol class="breadcrumb">
+                                            <li class="breadcrumb-item"><a class="text-decoration-none text-muted"
+                                                    href="#">Projects</a>
+                                            </li>
+                                            <li class="breadcrumb-item"><a class="text-decoration-none text-muted"
+                                                    href="#">Glitch-Found</a>
+                                            </li>
+                                            <li class="breadcrumb-item "><i class="fa fa-pencil"></i><a
+                                                    class="text-decoration-none text-muted" href="#">Add-epic</a></li>
+                                            <li class="breadcrumb-item active" aria-current="page">
+                                                <input type="checkbox" name="" id=""><span> <a
+                                                        class="text-decoration-none text-muted"
+                                                        href="#">GF-20</a></span>
+                                            </li>
+                                        </ol>
+                                    </nav>
+                                </div>
+                            </div>
+                            <div class="col-lg-12 col-md-12 ">
+                                <div class="heading-hover">
+                                    <h1>Extra Fields in Ticket Creation</h1>
+                                </div>
+                            </div>
+                            <div class="col-lg-12 col-md-12">
+                                <div>
+                                    <button type="button" class="btn btn-light attach me-1"><i
+                                            class="fa-solid fa-paperclip"></i>Attach</button>
+                                    <button type="button" class="btn btn-light child-issue me-1">Add a child
+                                        issue</button>
+                                    <button type="button" class="btn btn-light link-issue "><i
+                                            class="fa-solid fa-link"></i>Link
+                                        issue
+                                    </button>
+                                    <button type="button" class="btn btn-light down-arrow border-start "><i
+                                            class="fa fa-angle-down"></i></button>
+                                </div>
+                            </div>
+                            <div class="col-lg-12 col-md-12 mt-3 desciption">
+                                <p class="fw-semibold pb-2 m-0">Description</p>
+                                <div class="description-div  pb-3 px-1 ">
+                                    <p>While Creating Ticket Scrum Master will be able to add Ticket Estimate Time to be
+                                        required For
+                                        ticket Completion and he can label ticket.</p>
+                                    <img class="img-fluid mt-3 px-3" src="/TicketCreation/img/description-img.png"
+                                        alt="">
+                                </div>
+                            </div>
+                            <div class="col-lg-12 col-md-12 mt-5">
+                                <div class="attachment d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <p class="fw-semibold">Attachment (1)</p>
+                                    </div>
+
+                                    <div class="">
+                                        <button type="button" class="btn btn-light down-arrow border-start "><i
+                                                class="fa-solid fa-ellipsis"></i></button>
+                                        <button type="button" class="btn btn-light down-arrow border-start "><i
+                                                class="fa-solid fa-plus"></i></button>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="col-lg-12 col-md-12 attachment-card">
+                                <div class="card" style="width: 18rem;">
+                                    <img src="/TicketCreation/img/description-img.png" class="card-img-top" alt="...">
+                                    <div class="card-footer">
+                                        <p class="fw-bold m-0">imgage-20230417...134.png</p>
+                                        <p class="text-muted m-0">17 April 2023,12:31 PM</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-12 col-md-12 mt-5">
+                                <p class="fw-semibold">Activity</p>
+                                <div class="d-flex justify-content-between">
+                                    <div>
+                                        <span>Show :</span>
+                                        <button type="button" class="btn btn-light attach me-2"> All</button>
+                                        <button type="button" class="btn btn-light attach me-2 active commnets-btn">
+                                            Comments</button>
+                                        <button type="button" class="btn btn-light attach me-2"> History</button>
+                                    </div>
+
+                                    <div>
+                                        <button type="button" class="btn btn-light attach me-2"><i
+                                                class="fa  fa-bars-sort"></i>
+                                            Order First </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-12 col-md-12 mt-4">
+                                <div class="row activity">
+                                    <div class="col-lg-1 col-md-1  ">
+                                        <div class="rounded-circle bg-dark text-center w-75  py-1">
+                                            <p class="text-white">SB</p>
+                                        </div>
+
+                                    </div>
+                                    <div class="col-lg-11 col-md-11">
+                                        <div class="d-flex">
+                                            <p class="me-3 fw-semibold">Shankar bokade</p>
+                                            <p>3 days ago</p>
+                                        </div>
+                                        <div>
+                                            <p>This is Test</p>
+                                            <p><a class="me-1 text-decoration-none text-muted fw-semibold"
+                                                    href="#">Edit</a>.
+                                                <a class="me-1 text-decoration-none text-muted fw-semibold"
+                                                    href="#">Delete</a>.
+                                                <button type="button" class="btn btn-light attach me-1">
+                                                    <i class="fa-solid fa-face-smile"></i></button>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="col-lg-12 col-md-12 mt-2">
+                                <div class="row activity">
+                                    <div class="col-lg-1 col-md-1   ">
+                                        <div class="rounded-circle bg-primary text-center  w-75 py-1">
+                                            <p class="text-white">CT</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-11 col-md-11">
+                                        <div class="d-flex">
+                                            <p class="me-3 fw-semibold">CodeFirst test</p>
+                                            <p>3 days ago</p>
+                                        </div>
+                                        <div>
+                                            <p>This is Test</p>
+                                            <p><a class="me-1 text-decoration-none text-muted fw-semibold"
+                                                    href="#">Edit</a>.
+                                                <a class="me-1 text-decoration-none text-muted fw-semibold"
+                                                    href="#">Delete</a>.
+                                                <button type="button" class="btn btn-light attach me-1">
+                                                    <i class="fa-solid fa-face-smile"></i></button>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="col-lg-12 col-md-12 mt-2 ">
+                                <div class="row activity">
+                                    <div class="col-lg-1 col-md-1  ">
+                                        <div class="rounded-circle bg-primary text-center  w-75 py-1">
+                                            <p class="text-white">CT</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-11 col-md-11 mt-2">
+                                        <div class=" comment">
+                                            <input type="text" name="" id="" placeholder="Add Comments...."
+                                                class="form-control">
+                                            <p class=""><span class="fw-bold">Pro Tip :</span> press
+                                                <button type="button" class="btn btn-secondary me-2"> M</button>to
+                                                comment
+                                            </p>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- seccond column -->
+                <div class="col-lg-4 col-md-12 second-col">
+                    <div class="container">
+                        <div class="row mt-5">
+                            <div class="col-12">
+                                <div class="d-flex justify-content-end">
+                                    <button type="button" class="btn btn-light attach me-1"><i
+                                            class="fa-solid fa-eye"></i>2</button>
+                                    <button type="button" class="btn btn-light attach me-1"><i
+                                            class="fa-solid fa-thumbs-up"></i></button>
+                                    <button type="button" class="btn btn-light attach me-1"><i
+                                            class="fa-solid fa-share-nodes"></i></button>
+                                    <button type="button" class="btn btn-light attach me-1"><i
+                                            class="fa-solid fa-ellipsis"></i></button>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12">
+                                <div>
+                                    <button type="button" class="btn btn-light active attach me-1">To Do<i
+                                            class="fa fa-angle-down ms-2"></i></button>
+                                    <button type="button" class="btn btn-light attach me-1"><i
+                                            class="fa-solid fa-bolt me-2"></i>Action<i
+                                            class="fa fa-angle-down ms-2"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12">
+                                <div class="mt-3">
+                                    <div class="card">
+                                        <div class="card-header bg-white d-flex justify-content-between">
+                                            <p>Your pinned fields</p>
+                                            <span><i class="fa fa-angle-down ms-2"></i></span>
+
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <div class="col-lg-6 col-md-6">
+                                                    <p class="fw-bold text-secondary">Assignee</p>
+                                                </div>
+                                                <div class="col-lg-6 col-md-6 align-items-center">
+                                                    <div class="d-flex">
+                                                        <i class="fa-solid fa-circle-user fs-3 me-2"></i>
+                                                        <span>UnAssigned</span>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-lg-12 col-md-12">
+                                                            <a href="#" class="text-decoration-none">Assign to me</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12">
+                                <div class="mt-3">
+                                    <div class="card">
+                                        <div class="card-header bg-white d-flex justify-content-between">
+                                            <p>Details</p>
+                                            <span><i class="fa fa-angle-down ms-2"></i></span>
+
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <div class="col-lg-6 col-md-6">
+                                                    <p class="fw-bold text-secondary">Labels</p>
+
+                                                </div>
+                                                <div class="col-lg-6 col-md-6">
+                                                    <p class="fw-bold text-secondary">None</p>
+                                                </div>
+                                                <div class="col-lg-6 col-md-6">
+                                                    <p class="fw-bold text-secondary">Reporter</p>
+                                                </div>
+                                                <div class="col-lg-6 col-md-6">
+                                                    
+                                                        <div class="row">
+                                                            <div class="d-flex align-items-center">
+                                                            <div class="col-lg-3 col-md-3">
+                                                                <div class="rounded-circle bg-primary text-center w-75 ">
+                                                                    <p class="text-white m-0 p-0">SB</p>
+                                                                </div>
+                                                            </div>
+                                                           <div class="col-lg-9 col-md-9">
+                                                            <div>
+                                                                <p class="ms-2">shankar bokde</p>
+                                                            </div>
+                                                           </div>
+                                                        </div>
+                                                       
+                                                        
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mt-2">
+                            <div class="col-lg-12 col-md-12">
+                                <div class="d-flex justify-content-between configure">
+                                    <p class=" ">Created last week</p>
+                                    <div>
+                                        <i class="fa-solid fa-gear"></i><a href="#"
+                                            class="text-decoration-none text-muted fw-semibold ">Configure</a>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="col-lg-12 col-md-12 configure">
+
+                                <p> Updated 3 days ago</p>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- </div> -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
