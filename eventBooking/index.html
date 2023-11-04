@@ -1,0 +1,905 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <style>
+        .myNav {
+            background-color: #f4f3f3 !important;
+        }
+        .book-div {
+            padding: 80px 0;
+        }
+
+        .primary-btn {
+            display: inline-block;
+            font-size: 16px;
+            font-weight: 600;
+            padding: 12px 40px;
+            color: #ffffff;
+            text-align: center;
+            border-radius: 50px;
+            background-image: -webkit-gradient(linear, left top, right top, from(#ee8425), to(#f9488b)), -webkit-gradient(linear, left top, right top, from(#ee8425), to(#f9488b));
+            background-image: -o-linear-gradient(left, #ee8425 0%, #f9488b 100%), -o-linear-gradient(left, #ee8425 0%, #f9488b 100%);
+            background-image: linear-gradient(to right, #ee8425 0%, #f9488b 100%), linear-gradient(to right, #ee8425 0%, #f9488b 100%);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 52px;
+        }
+
+        .schedule-section {
+            padding-bottom: 60px;
+        }
+
+        .schedule-tab .nav-tabs {
+            border: none;
+            border-radius: 2px;
+            margin-bottom: 60px;
+            -webkit-box-shadow: 3px 10px 30px rgba(74, 74, 77, 0.15);
+            box-shadow: 3px 10px 30px rgba(74, 74, 77, 0.15);
+        }
+
+        .schedule-tab .nav-tabs .nav-item {
+            border-right: 1px solid #e7e7e8;
+            width: 20%;
+            text-align: center;
+        }
+
+        .schedule-tab .nav-tabs .nav-item:last-child {
+            border-right: none;
+        }
+
+        .schedule-tab .nav-tabs .nav-item .nav-link {
+            padding: 14px 0 13px 0;
+            border: none;
+            border-top-left-radius: 0;
+            border-top-right-radius: 0;
+        }
+
+        .schedule-tab .nav-tabs .nav-item .nav-link.active {
+            border-radius: 2px;
+            border-color: #e7e7e8;
+        }
+
+        .schedule-tab .nav-tabs .nav-item .nav-link.active h5 {
+            color: #ffffff;
+        }
+
+        .schedule-tab .nav-tabs .nav-item .nav-link.active p {
+            color: #ffffff;
+        }
+
+        .schedule-tab .nav-tabs .nav-item .nav-link h5 {
+            color: #171822;
+            font-weight: 600;
+        }
+
+        .schedule-tab .nav-tabs .nav-item .nav-link p {
+            margin-bottom: 0;
+        }
+
+        .schedule-tab .st-content {
+            border: 1px solid #ebebeb;
+            border-radius: 2px;
+            margin-bottom: 40px;
+            -webkit-transition: all 0.3s;
+            background-color: lavender;
+            -o-transition: all 0.3s;
+            transition: all 0.3s;
+        }
+
+        .schedule-tab .st-content:hover {
+            -webkit-box-shadow: 3px 12px 30px rgba(23, 24, 34, 0.05);
+            box-shadow: 3px 12px 30px rgba(23, 24, 34, 0.05);
+            border: 1px solid transparent;
+            background-color: #91e2c7;
+        }
+
+        .schedule-tab .st-content .sc-pic {
+            text-align: center;
+            padding: 30px 0;
+        }
+
+        .schedule-tab .st-content .sc-pic img {
+            height: 120px;
+            width: 120px;
+            border-radius: 50%;
+        }
+
+        .schedule-tab .st-content .sc-text {
+            padding: 58px 0;
+        }
+
+        .schedule-tab .st-content .sc-text h4 {
+            color: #171822;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .schedule-tab .st-content .sc-text ul li {
+            list-style: none;
+            display: inline-block;
+            font-size: 16px;
+            color: #6a6b7c;
+            margin-right: 25px;
+            position: relative;
+        }
+
+        .schedule-tab .st-content .sc-text ul li:last-child:after {
+            display: none;
+        }
+
+        .schedule-tab .st-content .sc-text ul li:after {
+            position: absolute;
+            right: -18px;
+            top: 0;
+            content: "/";
+        }
+
+        .schedule-tab .st-content .sc-text ul li i {
+            color: #f44949;
+            font-size: 14px;
+        }
+
+        .schedule-tab .st-content .sc-widget {
+            padding: 58px 0;
+        }
+
+        .bg-gradient,
+        .bd-text .bd-tag-share .s-share a:hover,
+        .bh-text .play-btn,
+        .schedule-table-tab .nav-tabs .nav-item .nav-link.active,
+        .newslatter-inner .ni-form button,
+        .latest-item .li-tag,
+        .price-item .price-btn:hover,
+        .price-item .pi-price,
+        .price-item .tr-tag,
+        .schedule-tab .nav-tabs .nav-item .nav-link.active,
+        .site-btn {
+            background-image: -o-linear-gradient(330deg, #ee8425 0%, #f9488b 100%), -o-linear-gradient(330deg, #ee8425 0%, #f9488b 100%);
+            background-image: linear-gradient(120deg, #ee8425 0%, #f9488b 100%), linear-gradient(120deg, #ee8425 0%, #f9488b 100%);
+        }
+
+        .schedule-tab .st-content .sc-widget li {
+            list-style: none;
+            font-size: 16px;
+            color: #6a6b7c;
+            line-height: 32px;
+            position: relative;
+            padding-left: 22px;
+        }
+
+        .schedule-tab .st-content .sc-widget li i {
+            color: #f44949;
+            position: absolute;
+            left: 0;
+            top: 7px;
+        }
+    </style>
+</head>
+
+<body> 
+    <nav class="navbar navbar-expand-lg navbar-white myNav">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="eventLogo.png" alt="" class="d-inline-block align-text-top">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                   
+
+                </ul>
+                <form class="d-flex"> 
+                    <button class="btn btn-outline-primary round-button mx-2" type="button" >Login</button>
+                    <button class="btn btn-success round-button" type="button">Register</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+    <section class="schedule-section spad pt-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="section-title">
+                        <h2>Upcoming Events</h2>
+                        <p>browse various ongoing events</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="schedule-tab">
+                        <ul class="nav nav-tabs" role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-link active" data-toggle="tab" href="#tabs-1" role="tab"
+                                    aria-selected="true">
+                                    <h5>Day 1</h5>
+                                    <p>May 04, 2019</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" data-toggle="tab" href="#tabs-2" role="tab" aria-selected="false">
+                                    <h5>Day 2</h5>
+                                    <p>May 05, 2019</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" data-toggle="tab" href="#tabs-3" role="tab" aria-selected="false">
+                                    <h5>Day 3</h5>
+                                    <p>May 06, 2019</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" data-toggle="tab" href="#tabs-4" role="tab" aria-selected="false">
+                                    <h5>Day 4</h5>
+                                    <p>May 07, 2019</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" data-toggle="tab" href="#tabs-5" role="tab" aria-selected="false">
+                                    <h5>Day 5</h5>
+                                    <p>May 08, 2019</p>
+                                </a>
+                            </li>
+                        </ul><!-- Tab panes -->
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="tabs-1" role="tabpanel">
+                                <div class="st-content">
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-lg-2">
+                                                <div class="sc-pic">
+                                                    <img src="https://themewagon.github.io/manup/img/schedule/schedule-1.jpg"
+                                                        alt="">
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4">
+                                                <div class="sc-text">
+                                                    <h4>Dealing with Difficult People</h4>
+                                                    <ul>
+                                                        <li><i class="fa fa-user"></i> John Smith</li>
+                                                        <li><i class="fa fa-envelope"></i> john@Colorlib.com
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4">
+                                                <ul class="sc-widget">
+                                                    <li><i class="fa fa-clock-o"></i> 08:00 am - 10:00 AM</li>
+                                                    <li><i class="fa fa-map-marker"></i> 59 Breanne Canyon Suite, USA
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div class="col-lg-2">
+                                                <div class="book-div">
+                                                    <button class="primary-btn">Book Now</button>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="st-content">
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-lg-3">
+                                                <div class="sc-pic">
+                                                    <img src="https://themewagon.github.io/manup/img/schedule/schedule-1.jpg"
+                                                        alt="">
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-5">
+                                                <div class="sc-text">
+                                                    <h4>V7 Digital Photo Printing</h4>
+                                                    <ul>
+                                                        <li><i class="fa fa-user"></i> John Smith</li>
+                                                        <li><i class="fa fa-envelope"></i> john@Colorlib.com
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4">
+                                                <ul class="sc-widget">
+                                                    <li><i class="fa fa-clock-o"></i> 08:00 am - 10:00 AM</li>
+                                                    <li><i class="fa fa-map-marker"></i> 59 Breanne Canyon Suite, USA
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="st-content">
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-lg-3">
+                                                <div class="sc-pic">
+                                                    <img src="https://themewagon.github.io/manup/img/schedule/schedule-1.jpg"
+                                                        alt="">
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-5">
+                                                <div class="sc-text">
+                                                    <h4>Beyond The Naked Eye</h4>
+                                                    <ul>
+                                                        <li><i class="fa fa-user"></i> John Smith</li>
+                                                        <li><i class="fa fa-envelope"></i> john@Colorlib.com
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4">
+                                                <ul class="sc-widget">
+                                                    <li><i class="fa fa-clock-o"></i> 08:00 am - 10:00 AM</li>
+                                                    <li><i class="fa fa-map-marker"></i> 59 Breanne Canyon Suite, USA
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="st-content">
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-lg-3">
+                                                <div class="sc-pic">
+                                                    <img src="img/schedule/schedule-4.jpg" alt="">
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-5">
+                                                <div class="sc-text">
+                                                    <h4>Influencing The Influencer</h4>
+                                                    <ul>
+                                                        <li><i class="fa fa-user"></i> John Smith</li>
+                                                        <li><i class="fa fa-envelope"></i> john@Colorlib.com
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4">
+                                                <ul class="sc-widget">
+                                                    <li><i class="fa fa-clock-o"></i> 08:00 am - 10:00 AM</li>
+                                                    <li><i class="fa fa-map-marker"></i> 59 Breanne Canyon Suite, USA
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane" id="tabs-2" role="tabpanel">
+                                <div class="st-content">
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-lg-3">
+                                                <div class="sc-pic">
+                                                    <img src="img/schedule/schedule-1.jpg" alt="">
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-5">
+                                                <div class="sc-text">
+                                                    <h4>Dealing with Easy People</h4>
+                                                    <ul>
+                                                        <li><i class="fa fa-user"></i> John Smith</li>
+                                                        <li><i class="fa fa-envelope"></i> john@Colorlib.com
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4">
+                                                <ul class="sc-widget">
+                                                    <li><i class="fa fa-clock-o"></i> 08:00 am - 10:00 AM</li>
+                                                    <li><i class="fa fa-map-marker"></i> 59 Breanne Canyon Suite, USA
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="st-content">
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-lg-3">
+                                                <div class="sc-pic">
+                                                    <img src="img/schedule/schedule-2.jpg" alt="">
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-5">
+                                                <div class="sc-text">
+                                                    <h4>V7 Digital Photo Printing</h4>
+                                                    <ul>
+                                                        <li><i class="fa fa-user"></i> John Smith</li>
+                                                        <li><i class="fa fa-envelope"></i> john@Colorlib.com
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4">
+                                                <ul class="sc-widget">
+                                                    <li><i class="fa fa-clock-o"></i> 08:00 am - 10:00 AM</li>
+                                                    <li><i class="fa fa-map-marker"></i> 59 Breanne Canyon Suite, USA
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="st-content">
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-lg-3">
+                                                <div class="sc-pic">
+                                                    <img src="https://themewagon.github.io/manup/img/schedule/schedule-1.jpg"
+                                                        alt="">
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-5">
+                                                <div class="sc-text">
+                                                    <h4>Beyond The Naked Eye</h4>
+                                                    <ul>
+                                                        <li><i class="fa fa-user"></i> John Smith</li>
+                                                        <li><i class="fa fa-envelope"></i> john@Colorlib.com
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4">
+                                                <ul class="sc-widget">
+                                                    <li><i class="fa fa-clock-o"></i> 08:00 am - 10:00 AM</li>
+                                                    <li><i class="fa fa-map-marker"></i> 59 Breanne Canyon Suite, USA
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="st-content">
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-lg-3">
+                                                <div class="sc-pic">
+                                                    <img src="img/schedule/schedule-4.jpg" alt="">
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-5">
+                                                <div class="sc-text">
+                                                    <h4>Influencing The Influencer</h4>
+                                                    <ul>
+                                                        <li><i class="fa fa-user"></i> John Smith</li>
+                                                        <li><i class="fa fa-envelope"></i> john@Colorlib.com
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4">
+                                                <ul class="sc-widget">
+                                                    <li><i class="fa fa-clock-o"></i> 08:00 am - 10:00 AM</li>
+                                                    <li><i class="fa fa-map-marker"></i> 59 Breanne Canyon Suite, USA
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane" id="tabs-3" role="tabpanel">
+                                <div class="st-content">
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-lg-3">
+                                                <div class="sc-pic">
+                                                    <img src="img/schedule/schedule-1.jpg" alt="">
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-5">
+                                                <div class="sc-text">
+                                                    <h4>Dealing with Intermediate People</h4>
+                                                    <ul>
+                                                        <li><i class="fa fa-user"></i> John Smith</li>
+                                                        <li><i class="fa fa-envelope"></i> john@Colorlib.com
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4">
+                                                <ul class="sc-widget">
+                                                    <li><i class="fa fa-clock-o"></i> 08:00 am - 10:00 AM</li>
+                                                    <li><i class="fa fa-map-marker"></i> 59 Breanne Canyon Suite, USA
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="st-content">
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-lg-3">
+                                                <div class="sc-pic">
+                                                    <img src="img/schedule/schedule-2.jpg" alt="">
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-5">
+                                                <div class="sc-text">
+                                                    <h4>V7 Digital Photo Printing</h4>
+                                                    <ul>
+                                                        <li><i class="fa fa-user"></i> John Smith</li>
+                                                        <li><i class="fa fa-envelope"></i> john@Colorlib.com
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4">
+                                                <ul class="sc-widget">
+                                                    <li><i class="fa fa-clock-o"></i> 08:00 am - 10:00 AM</li>
+                                                    <li><i class="fa fa-map-marker"></i> 59 Breanne Canyon Suite, USA
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="st-content">
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-lg-3">
+                                                <div class="sc-pic">
+                                                    <img src="https://themewagon.github.io/manup/img/schedule/schedule-1.jpg"
+                                                        alt="">
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-5">
+                                                <div class="sc-text">
+                                                    <h4>Beyond The Naked Eye</h4>
+                                                    <ul>
+                                                        <li><i class="fa fa-user"></i> John Smith</li>
+                                                        <li><i class="fa fa-envelope"></i> john@Colorlib.com
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4">
+                                                <ul class="sc-widget">
+                                                    <li><i class="fa fa-clock-o"></i> 08:00 am - 10:00 AM</li>
+                                                    <li><i class="fa fa-map-marker"></i> 59 Breanne Canyon Suite, USA
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="st-content">
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-lg-3">
+                                                <div class="sc-pic">
+                                                    <img src="img/schedule/schedule-4.jpg" alt="">
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-5">
+                                                <div class="sc-text">
+                                                    <h4>Influencing The Influencer</h4>
+                                                    <ul>
+                                                        <li><i class="fa fa-user"></i> John Smith</li>
+                                                        <li><i class="fa fa-envelope"></i> john@Colorlib.com
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4">
+                                                <ul class="sc-widget">
+                                                    <li><i class="fa fa-clock-o"></i> 08:00 am - 10:00 AM</li>
+                                                    <li><i class="fa fa-map-marker"></i> 59 Breanne Canyon Suite, USA
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane" id="tabs-4" role="tabpanel">
+                                <div class="st-content">
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-lg-3">
+                                                <div class="sc-pic">
+                                                    <img src="img/schedule/schedule-1.jpg" alt="">
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-5">
+                                                <div class="sc-text">
+                                                    <h4>Dealing with Expert People</h4>
+                                                    <ul>
+                                                        <li><i class="fa fa-user"></i> John Smith</li>
+                                                        <li><i class="fa fa-envelope"></i> john@Colorlib.com
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4">
+                                                <ul class="sc-widget">
+                                                    <li><i class="fa fa-clock-o"></i> 08:00 am - 10:00 AM</li>
+                                                    <li><i class="fa fa-map-marker"></i> 59 Breanne Canyon Suite, USA
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="st-content">
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-lg-3">
+                                                <div class="sc-pic">
+                                                    <img src="img/schedule/schedule-2.jpg" alt="">
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-5">
+                                                <div class="sc-text">
+                                                    <h4>V7 Digital Photo Printing</h4>
+                                                    <ul>
+                                                        <li><i class="fa fa-user"></i> John Smith</li>
+                                                        <li><i class="fa fa-envelope"></i> john@Colorlib.com
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4">
+                                                <ul class="sc-widget">
+                                                    <li><i class="fa fa-clock-o"></i> 08:00 am - 10:00 AM</li>
+                                                    <li><i class="fa fa-map-marker"></i> 59 Breanne Canyon Suite, USA
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="st-content">
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-lg-3">
+                                                <div class="sc-pic">
+                                                    <img src="https://themewagon.github.io/manup/img/schedule/schedule-1.jpg"
+                                                        alt="">
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-5">
+                                                <div class="sc-text">
+                                                    <h4>Beyond The Naked Eye</h4>
+                                                    <ul>
+                                                        <li><i class="fa fa-user"></i> John Smith</li>
+                                                        <li><i class="fa fa-envelope"></i> john@Colorlib.com
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4">
+                                                <ul class="sc-widget">
+                                                    <li><i class="fa fa-clock-o"></i> 08:00 am - 10:00 AM</li>
+                                                    <li><i class="fa fa-map-marker"></i> 59 Breanne Canyon Suite, USA
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="st-content">
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-lg-3">
+                                                <div class="sc-pic">
+                                                    <img src="img/schedule/schedule-4.jpg" alt="">
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-5">
+                                                <div class="sc-text">
+                                                    <h4>Influencing The Influencer</h4>
+                                                    <ul>
+                                                        <li><i class="fa fa-user"></i> John Smith</li>
+                                                        <li><i class="fa fa-envelope"></i> john@Colorlib.com
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4">
+                                                <ul class="sc-widget">
+                                                    <li><i class="fa fa-clock-o"></i> 08:00 am - 10:00 AM</li>
+                                                    <li><i class="fa fa-map-marker"></i> 59 Breanne Canyon Suite, USA
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane" id="tabs-5" role="tabpanel">
+                                <div class="st-content">
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-lg-3">
+                                                <div class="sc-pic">
+                                                    <img src="img/schedule/schedule-1.jpg" alt="">
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-5">
+                                                <div class="sc-text">
+                                                    <h4>Dealing with Too Difficult People</h4>
+                                                    <ul>
+                                                        <li><i class="fa fa-user"></i> John Smith</li>
+                                                        <li><i class="fa fa-envelope"></i> john@Colorlib.com
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4">
+                                                <ul class="sc-widget">
+                                                    <li><i class="fa fa-clock-o"></i> 08:00 am - 10:00 AM</li>
+                                                    <li><i class="fa fa-map-marker"></i> 59 Breanne Canyon Suite, USA
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="st-content">
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-lg-3">
+                                                <div class="sc-pic">
+                                                    <img src="img/schedule/schedule-2.jpg" alt="">
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-5">
+                                                <div class="sc-text">
+                                                    <h4>V7 Digital Photo Printing</h4>
+                                                    <ul>
+                                                        <li><i class="fa fa-user"></i> John Smith</li>
+                                                        <li><i class="fa fa-envelope"></i> john@Colorlib.com
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4">
+                                                <ul class="sc-widget">
+                                                    <li><i class="fa fa-clock-o"></i> 08:00 am - 10:00 AM</li>
+                                                    <li><i class="fa fa-map-marker"></i> 59 Breanne Canyon Suite, USA
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="st-content">
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-lg-3">
+                                                <div class="sc-pic">
+                                                    <img src="https://themewagon.github.io/manup/img/schedule/schedule-1.jpg"
+                                                        alt="">
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-5">
+                                                <div class="sc-text">
+                                                    <h4>Beyond The Naked Eye</h4>
+                                                    <ul>
+                                                        <li><i class="fa fa-user"></i> John Smith</li>
+                                                        <li><i class="fa fa-envelope"></i> john@Colorlib.com
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4">
+                                                <ul class="sc-widget">
+                                                    <li><i class="fa fa-clock-o"></i> 08:00 am - 10:00 AM</li>
+                                                    <li><i class="fa fa-map-marker"></i> 59 Breanne Canyon Suite, USA
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="st-content">
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-lg-3">
+                                                <div class="sc-pic">
+                                                    <img src="img/schedule/schedule-4.jpg" alt="">
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-5">
+                                                <div class="sc-text">
+                                                    <h4>Influencing The Influencer</h4>
+                                                    <ul>
+                                                        <li><i class="fa fa-user"></i> John Smith</li>
+                                                        <li><i class="fa fa-envelope"></i> john@Colorlib.com
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4">
+                                                <ul class="sc-widget">
+                                                    <li><i class="fa fa-clock-o"></i> 08:00 am - 10:00 AM</li>
+                                                    <li><i class="fa fa-map-marker"></i> 59 Breanne Canyon Suite, USA
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="offcanvas offcanvas-end m-5" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+        <div class="offcanvas-header">
+            <h5 id="offcanvasRightLabel">Sign In</h5>
+            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <section class="ftco-section">
+                <div class="container">
+
+                    <div class="row ">
+                        <div class="col-md-7 col-lg-12">
+                            <div class="wrap">
+                                <div class="img" style="background-image: url(images/bg-1.jpg);"></div>
+                                <div class="login-wrap ">
+
+                                    <form action="#" class="signin-form">
+                                        <div class="form-group mt-3">
+                                            <input type="text" class="form-control" required>
+                                            <label class="form-control-placeholder" for="username">Username</label>
+                                        </div>
+                                        <div class="form-group mt-4">
+                                            <input id="password-field" type="password" class="form-control" required>
+                                            <label class="form-control-placeholder" for="password">Password</label>
+                                            <span toggle="#password-field"
+                                                class="fa fa-fw fa-eye field-icon toggle-password"></span>
+                                        </div>
+                                        <div class="form-group">
+                                            <button type="submit"
+                                                class=" my-4 form-control btn btn-primary rounded submit px-3">Sign
+                                                In</button>
+                                        </div>
+                                        <div class="form-group d-md-flex">
+                                            <div class="w-50 text-left">
+                                                <label class="checkbox-wrap checkbox-primary mb-0">Remember Me
+                                                    <input type="checkbox" checked>
+                                                    <span class="checkmark"></span>
+                                                </label>
+                                            </div>
+                                            <div class="w-50 text-md-right">
+                                                <a href="#">Forgot Password</a>
+                                            </div>
+                                        </div>
+                                    </form>
+                                    <p class="text-center mt-4">Not a member? <a data-toggle="tab" href="#signup">Sign
+                                            Up</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </div>
+</body>
+
+</html>
