@@ -78,10 +78,12 @@ body {
     text-decoration: none;
     color: white;
   }
-  
+  .card {
+    background-image: linear-gradient(to top, #fff1eb 0%, #ace0f9 100%) !important; 
+  }
   #booking {
     width: 100%;
-    height: 700px;
+    height: 500px;
     display: flex;
     background-repeat: no-repeat;
     background-size: cover;
