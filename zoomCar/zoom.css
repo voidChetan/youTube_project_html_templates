@@ -3,37 +3,15 @@ body {
       Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
     color: #413a45;
     margin: 0;
+    background-color: #f5f5f5 !important;
   }
   #top {
     width: 100%;
     position: fixed;
   }
   
-  #navBar {
-    background-color: black;
-    width: auto;
-    height: 70px;
-    display: flex;
-    margin: auto;
-    font-size: 18px;
-    font-weight: bold;
-  }
-  .navBarLeft {
-    display: flex;
-    width: 40%;
-    height: 100%;
-    margin: auto;
-    justify-content: left;
-  }
-  .navBarRight {
-    display: flex;
-    width: 60%;
-    height: 100%;
-    margin: auto;
-    justify-content: space-between;
-    margin-left: 250px;
-    font-size: 24px;
-  }
+  
+  
   /* .icon {
     margin: auto;
     margin-left: 8px;
@@ -56,8 +34,7 @@ body {
   
     margin: 16px;
   }
-  #logoSize {
-    margin-left: 55px;
+  #logoSize { 
     width: 200px;
     height: 50px;
   }
@@ -114,6 +91,9 @@ body {
   .makeTrip {
     width: 33%;
     height: 100%;
+  }
+  .navbar {
+    background: black !important;
   }
   #primaryButton {
     width: 408px;
@@ -474,7 +454,14 @@ body {
     cursor: pointer;
     background: white
 }
-
+.round {
+  text-align: center;
+    width: 40px;
+    height: 40px;
+    background: red;
+    border-radius: 50%;
+    line-height: 40px;
+}
 .car-list-home-container .car-list-home .car-list-card-image {
     border-top-left-radius: 16px;
     border-top-right-radius: 16px;
