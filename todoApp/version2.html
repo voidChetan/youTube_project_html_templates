@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Todo App Page</title>
+    <style>
+        .form-control {
+            border: 1px solid black !important;
+        }
+
+        .rounded-btn {
+            border-radius: 20px;
+        }
+    </style>
+    <script>
+        var totitems = [
+            { item: 'Market', tags: ['general', 'market'] },
+            { item: 'Scrum Meeting', tags: ["meeting", "calls"] },
+            { item: 'Interview', tags: ["calls"] }, { item: 'Scrum Ticket', tags: ["work", "defect"] },
+            { item: 'Wpork On defect', tags: ["defect"] }
+        ];
+        var myString = "work,defect";
+        var arrr = ['defect', 'calls']; 
+        const myArrayFiltered = totitems.filter((el) => {
+            return arrr.some((f) => {
+                return el.tags.includes(f);
+            });
+        }); 
+        console.log(myArrayFiltered);
+        debugger;
+    </script>
+</head>
+
+<body>
+    
+    <div class="container pt-3">
+        <div class="mt-2 p-1 bg-primary text-white rounded text-center">
+            <h1>ToDo App</h1>
+            <p>Advance Version With Filter </p>
+          </div>
+        <div class="row">
+            <div class="col-12 pt-2">
+                <textarea class="form-control" rows="3" placeholder="Add a new task"></textarea>
+            </div>
+        </div>
+        <div class="row pt-2">
+            <div class="col-2">
+                <input type="date" class="form-control" placeholder="Due Date">
+
+            </div>
+            <div class="col-6">
+                <input type="text" placeholder="Enter Comma Seperated tags" class="form-control">
+            </div>
+            <div class="col">
+                <button class="btn btn-success">Add Task</button>
+            </div>
+        </div>
+        <div class="row pt-4">
+            <div class="col ">
+                <button class="btn btn-primary btn-sm">Filter By Tags</button>
+                <button class="btn btn-secondary  btn-sm">Show All</button> 
+                <button class="btn btn-secondary  btn-sm">Show Completed</button> 
+            </div>
+        </div>
+        <div class="row pt-4">
+            <div class="col ">
+                <button class="btn btn-secondary  btn-sm">Tags Group</button>
+                <button class="btn btn-secondary  btn-sm">default</button>
+                <button class="btn btn-secondary  btn-sm">Hobby </button>
+                <button class="btn btn-success  btn-sm">Holiday</button>
+                <button class="btn btn-success text-light  btn-sm">Financial </button>
+                <button class="btn btn-secondary  btn-sm">Fun </button>
+                <button class="btn btn-success  btn-sm">Emergency </button>
+                <button class="btn btn-secondary  btn-sm text-light">Health </button>
+                <button class="btn btn-secondary  btn-sm">Work</button>
+                <button class="btn btn-secondary  btn-sm">Education</button>
+                <button class="btn btn-secondary  btn-sm">Social</button>
+                <button class="btn btn-secondary  btn-sm">Travel</button>
+
+            </div>
+        </div>
+        <div class="row pt-3">
+            <div class="col-12">
+                <table class="table table-bordered table-striped table-sm">
+                    <thead>
+                        <tr>
+                            <th><strong>Index</strong></th>
+                            <th><strong>Task Name</strong></th>
+                            <th><strong>Due Date</strong></th>
+                            <th class="text-center"><strong>Tags</strong></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="text-align: center;">1</td>
+                            <td>
+                                <div class="row">
+                                    <div class="col-1">
+                                        <input type="checkbox">
+                                    </div>
+                                    <div class="col-6">
+                                        Daily Exterise Routine
+                                    </div>
+                                    <div class="col-4 text-end ">
+                                        <i class="fa fa-close text-secondary px-3 text-danger "></i>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>12/05/2023</td>
+                            <td class="text-center">
+                                <button class="btn btn-warning btn-sm rounded-btn">Health</button>
+                                <button class="btn btn-secondary btn-sm rounded-btn">fitness</button>
+                                <button class="btn btn-success btn-sm rounded-btn">default</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: center;">2</td>
+                            <td>
+                                <div class="row">
+                                    <div class="col-1">
+                                        <input type="checkbox">
+                                    </div>
+                                    <div class="col-6">
+                                        Daily Exterise Routine
+                                    </div>
+                                    <div class="col-4 text-end ">
+                                        <i class="fa fa-close text-secondary px-3 text-danger "></i>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>12/05/2023</td>
+                            <td class="text-center">
+                                <button class="btn btn-warning btn-sm rounded-btn">Health</button>
+                                <button class="btn btn-secondary btn-sm rounded-btn">fitness</button>
+                                <button class="btn btn-success btn-sm rounded-btn">default</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: center;">3</td>
+                            <td>
+                                <div class="row">
+                                    <div class="col-1">
+                                        <input type="checkbox">
+                                    </div>
+                                    <div class="col-6">
+                                        Daily Exterise Routine
+                                    </div>
+                                    <div class="col-4 text-end ">
+                                        <i class="fa fa-close text-secondary px-3 text-danger "></i>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>12/05/2023</td>
+                            <td class="text-center">
+                                <button class="btn btn-warning btn-sm rounded-btn">Health</button>
+                                <button class="btn btn-secondary btn-sm rounded-btn">fitness</button>
+                                <button class="btn btn-success btn-sm rounded-btn">default</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: center;">4</td>
+                            <td>
+                                <div class="row">
+                                    <div class="col-1">
+                                        <input type="checkbox">
+                                    </div>
+                                    <div class="col-6">
+                                        Daily Exterise Routine
+                                    </div>
+                                    <div class="col-4 text-end ">
+                                        <i class="fa fa-close text-secondary px-3 text-danger "></i>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>12/05/2023</td>
+                            <td class="text-center">
+                                <button class="btn btn-warning btn-sm rounded-btn">Health</button>
+                                <button class="btn btn-secondary btn-sm rounded-btn">fitness</button>
+                                <button class="btn btn-success btn-sm rounded-btn">default</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: center;">5</td>
+                            <td>
+                                <div class="row">
+                                    <div class="col-1">
+                                        <input type="checkbox">
+                                    </div>
+                                    <div class="col-6">
+                                        Daily Exterise Routine
+                                    </div>
+                                    <div class="col-4 text-end ">
+                                        <i class="fa fa-close text-secondary px-3 text-danger "></i>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>12/05/2023</td>
+                            <td class="text-center">
+                                <button class="btn btn-warning btn-sm rounded-btn">Health</button>
+                                <button class="btn btn-secondary btn-sm rounded-btn">fitness</button>
+                                <button class="btn btn-success btn-sm rounded-btn">default</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
+</body>
+
+</html>
