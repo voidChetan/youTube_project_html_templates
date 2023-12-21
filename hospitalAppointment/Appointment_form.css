@@ -1,0 +1,140 @@
+body {
+    width: 100%;
+   
+    height: 80%;
+    margin: 0;
+    
+    
+    background-color: rgb(40, 225, 238);
+    font-size: 16px;
+  
+  }
+
+ .division{
+    
+    margin-top: 3%;
+    
+    display: flex;
+    flex-direction: row;
+    justify-content:center;
+ }
+
+ .left_division{
+    
+    background-color:#e4d7d7;
+    width: 45%;
+    
+    display:flex;
+    flex-direction: column;
+    justify-content:start;
+    align-items: center;
+    background-image: url(back_img.jpg);
+    background-size: 90rem;
+    opacity: 0.8;
+ }
+ .right_division{
+    background-color:azure;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content:start;
+    align-items: center;
+
+    
+ }
+
+ .first,.second,.third, .fourth{
+    display: flex;
+    padding-top: 4rem;
+
+ }
+
+ .first > p, .second > p , .third > p, .fourth > p{
+    color: rgb(0, 0, 0);
+    padding-left: 4rem;
+    font-size: large;
+    padding-top: 1rem;
+ }
+ .all_left{
+    display: flex;
+    flex-direction: column;
+ }
+ .form_head{
+    margin-top: 2rem;
+    display: flex;
+
+ }
+  form {
+    
+    display: flex;
+    padding-top: 4rem;
+    flex-direction: column;
+    align-items: center;
+    
+    
+  }
+  
+
+  
+  input, select{
+    border-radius: 0.6rem;
+    padding: 0.2rem 0.2rem 0.2rem 0.2rem;
+  }
+  #dropdown_hospital{
+    min-width: 40rem;
+    
+    height: 3rem;
+
+  }
+#dropdown_time, #date{
+    height: 3rem;
+    width: 20rem;
+    
+}
+  form>fieldset>div{
+    margin-top: 2rem;
+    
+  }
+
+
+  #age_gen{
+    display: flex;
+  }
+  #age, #dropdown_gen{
+    width: 19rem;
+    height: 3rem;
+    
+    
+    
+  }
+  #dropdown_gen{
+    margin-left: 2rem;
+  }
+
+  
+  
+  input[type="submit"] {
+    display: block;
+    width: 40rem;
+    margin: 1em auto;
+    height: 4rem;
+    font-size: 2rem;
+    font-weight: 500;
+    background-color: #fbff00;
+    border-color: rgb(252, 252, 252);
+    min-width: 300px;
+  }
+ 
+  .input-group{
+    display: flex;
+    flex-direction: row;
+  }
+.input-group>button{
+    margin-right: ;
+}
+  
+  
+  .form-outline{
+    display: flex;
+
+  }

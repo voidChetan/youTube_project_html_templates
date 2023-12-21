@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Goal Tracker</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link" routerLink="category">Category</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" routerLink="addGoal">Goal</a>
+              </li>
+              
+              
+            </ul>
+            <form class="d-flex">
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-success me-2" type="submit">Search</button>
+              <button class="btn btn-outline-danger" type="submit" routerLink="login">Login/SignUp</button>
+            </form>
+          </div>
+        </div>
+      </nav>
+      <div className='card-body'>
+        <div className='row'>
+            <div className='col-6'>
+                <label>Name</label>
+                <input type='text'    className='form-control' />
+            </div>
+            <div className='col-6'>
+                <label>Contact No</label>
+                <input type='text'   className='form-control' />
+            </div> 
+        </div>  
+        <div className='row'>
+            <div className='col-6'>
+                <label>Alt Contact</label>
+                <input type='text' className='form-control' />
+            </div>
+            <div className='col-6'>
+                <label>Email</label>
+                <input type='text'   className='form-control' />
+            </div> 
+        </div>         
+        <div className='row'>
+            <div className='col-4'>
+                <label>Pin Code</label>
+                <input type='text'   className='form-control' />
+            </div>
+            <div className='col-4'>
+                <label>City</label>
+                <input type='text'   className='form-control' />
+            </div> 
+            <div className='col-4'>
+                <label>State</label>
+                <input type='text'   className='form-control' />
+            </div> 
+        </div>   
+        <div className='row'>
+            <div className='col-6'>
+                <label>Address Line 1</label>
+              <textarea  className='form-control' ></textarea>
+            </div>
+            <div className='col-6'>
+            <label>Address Line 2</label>
+              <textarea  className='form-control'  ></textarea>
+            </div> 
+        </div> 
+        <div className='row'>
+            <div className='col-6'>
+                <label>Bank Name</label>
+                <input type='text' />
+            </div>
+            <div className='col-6'>
+                <label>Acc No</label>
+                <input type='text'  />
+            </div> 
+        </div>   
+        <div className='row'>
+            <div className='col-6'>
+                <label>IFSC </label>
+                <input type='text'   />
+            </div>
+            <div className='col-6'>
+                <label>Branch</label>
+                <input type='text'   />
+            </div> 
+        </div>   
+        <div className='row'>
+            <div className='col-6'>
+                <label>Salary </label>
+                <input type='text'  />
+            </div> 
+        </div>   
+        <div className='row pt-2'>
+            <div className='col-6 text-center'>
+                 <button className='btn btn-sm btn-success'> Reset</button>
+            </div>
+            <div className='col-6 text-center'>
+            
+                  <button className='btn btn-sm btn-success' onClick={saveEmployee}> Save Employee</button> 
+               <button className='btn btn-sm btn-warning' onClick={updateEmployee}> Update Employee</button> 
+            </div> 
+        </div>  
+    </div>
+</body>
+</html>

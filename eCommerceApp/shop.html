@@ -18,7 +18,39 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<script>
+    var newarray = [{
+  Email: "test1@gmail.com",
+  ID: "A"
+}, {
+  Email: "test2@gmail.com",
+  ID: "B"
+}, {
+  Email: "test3@gmail.com",
+  ID: "A"
+}, {
+  Email: "test4@gmail.com",
+  ID: "C"
+}, {
+  Email: "test5@gmail.com",
+  ID: "C"
+}];
+   
+// Array to keep track of duplicates
+var dups = [];
+var arr = newarray.filter(function(el) {
+  // If it is not a duplicate, return true
+  if (dups.indexOf(el.ID) == -1) {
+    dups.push(el.ID);
+    return true;
+  }
 
+  return false;
+  
+});
+
+console.log(arr);
+</script>
 </head>
 
 <body>
