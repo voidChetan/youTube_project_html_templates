@@ -2,11 +2,12 @@
 <html lang="en">
 
 <head>
-    <title>Appointment Form</title>
+    <title>New Appointment </title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+ 
     <style>
         .form-control {
             border: 1px solid black !important;
@@ -15,127 +16,164 @@
         .form-select {
             border: 1px solid black !important;
         }
- 
 
-         
+       
     </style>
 </head>
 
-<body>
-    <section class="vh-100" style="background-color: #eee;">
-        <div class="container h-100">
-            <div class="row d-flex justify-content-center align-items-center h-100">
-                <div class="col-lg-12 col-xl-11">
-                    <div class="card text-black" style="border-radius: 25px;">
-                        <div class="card-body p-md-1">
-                            <div class="row justify-content-center">
-                                <div class="col-md-10 col-lg-6 col-xl-7 order-2 order-lg-1">
-                                    <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">New Appointment</p>
-                                    <form class="mx-1 mx-md-4">
-                                        <div class="row">
-                                            <div class="col-6">
-                                                <div class="d-flex flex-row align-items-center mb-4">
-                                                    <i class="fa fa-user fa-lg me-3 fa-fw"></i>
-                                                    <div class="   mb-0">
-                                                        <input type="text" id="form3Example1c" placeholder="Enter Name"
-                                                            class="form-control" />
+<body style="background-color: #eee;">
+    <nav class="navbar fixed-bottom navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">
+                            Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">New Appointment</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"> Appointment List</a>
+                    </li>
+
+                </ul>
+                <form class="d-flex">
+                    <button class="btn btn-outline-success" type="button">Logout</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+    <div class="container-fluid">
+        <section class="vh-100" >
+            <div class="container-fluid h-100">
+                <div class="row d-flex justify-content-center align-items-center h-100">
+                    <div class="col-lg-12 col-xl-11 mb-5">
+                        <div class="card text-black" style="border-radius: 25px;">
+                            <div class="card-body p-md-1">
+                                <div class="row justify-content-center">
+                                    <div class="col-md-10 col-lg-6 col-xl-7 order-2 order-lg-1">
+                                        <p class="text-center h1 fw-bold mb-2 mx-1 mx-md-4 mt-2">New Appointment</p>
+                                        <form class="mx-1 mx-md-4">
+                                            <div class="row"> 
+                                                <div class="col-6">
+                                                    <div class="d-flex flex-row align-items-center mb-4">
+                                                        <i class="fa fa-user fa-lg me-3 fa-fw"></i>
+                                                        <div class="   mb-0">
+                                                            <input type="text" id="form3Example1c"
+                                                                placeholder="Enter Name" class="form-control" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-6">
+                                                    <div class="d-flex flex-row align-items-center mb-4">
+                                                        <i class="fa fa-phone fa-lg me-3 fa-fw"></i>
+                                                        <div class="   mb-0">
+                                                            <input type="text" id="form3Example1c"
+                                                                placeholder="Enter Mobile No" class="form-control" />
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="col-6">
-                                                <div class="d-flex flex-row align-items-center mb-4">
-                                                    <i class="fa fa-phone fa-lg me-3 fa-fw"></i>
-                                                    <div class="   mb-0">
-                                                        <input type="text" id="form3Example1c"
-                                                            placeholder="Enter Mobile No" class="form-control" />
+                                            <div class="row">
+                                                <div class="col-4">
+                                                    <div class="d-flex flex-row align-items-center mb-4">
+                                                        <i class="fa fa-map-marker fa-lg me-3 fa-fw"></i>
+                                                        <div class="   mb-0">
+                                                            <input type="text" id="form3Example1c"
+                                                                placeholder="Enter City" class="form-control" />
+                                                        </div>
                                                     </div>
                                                 </div>
+                                                <div class="col-4">
+                                                    <div class="d-flex flex-row align-items-center mb-4">
+                                                        <i class="fa fa-calendar fa-lg me-3 fa-fw"></i>
+                                                        <div class="   mb-0">
+                                                            <input type="text" id="form3Example1c"
+                                                                placeholder="Enter Age" class="form-control" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+
                                             </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-4">
-                                                <div class="d-flex flex-row align-items-center mb-4">
-                                                    <i class="fa fa-map-marker fa-lg me-3 fa-fw"></i>
-                                                    <div class="   mb-0">
-                                                        <input type="text" id="form3Example1c" placeholder="Enter City"
-                                                            class="form-control" />
+                                            <div class="row">
+                                                <div class="col-6">
+                                                    <div class="d-flex flex-row align-items-center mb-4">
+                                                        <i class="fa fa-plus-circle fa-lg me-3 fa-fw"></i>
+                                                        <div class=" flex-fill mb-0">
+                                                            <input type="checkbox" id="form3Example3c" /> Is First
+                                                            Time
+                                                        </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                            <div class="col-4">
-                                                <div class="d-flex flex-row align-items-center mb-4">
-                                                    <i class="fa fa-calendar fa-lg me-3 fa-fw"></i>
-                                                    <div class="   mb-0">
-                                                        <input type="text" id="form3Example1c" placeholder="Enter Age"
-                                                            class="form-control" />
+                                                <div class="col-6">
+                                                    <div class="d-flex flex-row align-items-center mb-4">
+
+                                                        <div class="   mb-0">
+                                                            <input type="radio" id="form3Example1c" value="Male" />
+                                                            Male
+                                                            <input type="radio" id="form3Example1c" value="FeMale" /> Fe
+                                                            Male
+                                                        </div>
                                                     </div>
                                                 </div>
+
                                             </div>
 
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-6">
-                                                <div class="d-flex flex-row align-items-center mb-4">
-                                                    <i class="fa fa-plus-circle fa-lg me-3 fa-fw"></i>
-                                                    <div class=" flex-fill mb-0">
-                                                        <input type="checkbox" id="form3Example3c" /> Is First Time
+                                            <div class="row">
+                                                <div class="col-6">
+                                                    <div class="d-flex flex-row align-items-center mb-4">
+                                                        <i class="fa fa-user fa-lg me-3 fa-fw"></i>
+                                                        <div class="   mb-0">
+                                                            <input type="date" id="form3Example1c"
+                                                                class="form-control" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-6">
+                                                    <div class="d-flex flex-row align-items-center mb-4">
+                                                        <i class="fa fa-clock-o fa-lg me-3 fa-fw"></i>
+                                                        <div class="   mb-0">
+                                                            <input type="text" id="form3Example1c"
+                                                                placeholder="Enter Appointment Time"
+                                                                class="form-control" />
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="col-6">
-                                                <div class="d-flex flex-row align-items-center mb-4">
-
-                                                    <div class="   mb-0">
-                                                        <input type="radio" id="form3Example1c" value="Male" /> Male
-                                                        <input type="radio" id="form3Example1c" value="FeMale" /> Fe
-                                                        Male
-                                                    </div>
+                                            <div class="d-flex flex-row align-items-center mb-4">
+                                                <i class="fa fa-file-text fa-lg me-3 fa-fw"></i>
+                                                <div class=" flex-fill mb-0">
+                                                    <textarea placeholder="Enter Naration" rows="3"
+                                                        class="form-control"></textarea>
                                                 </div>
                                             </div>
-                                            
-                                        </div>
-
-                                        <div class="row">
-                                            <div class="col-6">
-                                                <div class="d-flex flex-row align-items-center mb-4">
-                                                    <i class="fa fa-user fa-lg me-3 fa-fw"></i>
-                                                    <div class="   mb-0">
-                                                        <input type="date" id="form3Example1c" class="form-control" />
-                                                    </div>
-                                                </div>
+                                            <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+                                                <button type="button" class="btn btn-primary btn-lg">Book
+                                                    Appointment</button>
                                             </div>
-                                            <div class="col-6">
-                                                <div class="d-flex flex-row align-items-center mb-4">
-                                                    <i class="fa fa-clock-o fa-lg me-3 fa-fw"></i>
-                                                    <div class="   mb-0">
-                                                        <input type="text" id="form3Example1c"
-                                                            placeholder="Enter Appointment Time" class="form-control" />
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="d-flex flex-row align-items-center mb-4">
-                                            <i class="fa fa-file-text fa-lg me-3 fa-fw"></i>
-                                            <div class=" flex-fill mb-0">
-                                                <textarea placeholder="Enter Naration" rows="3"
-                                                    class="form-control"></textarea>
-                                            </div>
-                                        </div>
-                                        <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
-                                            <button type="button" class="btn btn-primary btn-lg">Book Appointment</button>
-                                        </div>
-                                    </form>
-                                </div>
-                                <div class="col-md-10 col-lg-6 col-xl-5 d-flex align-items-center order-1 order-lg-2">
-                                    <img src="back-2.png" class="img-fluid" alt="Sample image">
+                                        </form>
+                                    </div>
+                                    <div
+                                        class="col-md-10 col-lg-6 col-xl-5 d-flex align-items-center order-1 order-lg-2">
+                                        <img src="back-2.png" class="img-fluid" alt="Sample image">
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </div>
+
+
+
 </body>
 
 </html>

@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        body {
+            /*background: linear-gradient(to bottom right, #3C3B3F, #605C3C);*/
+            background: linear-gradient(to bottom right, #103a43, #434343);
+
+        }
+
+        .container {
+            padding: 2rem 1rem 4rem;
+            position: relative;
+            z-index: 1;
+            width: 100%;
+            overflow: hidden;
+            max-height: 900px;
+
+        }
+
+        .container::before,
+        .container::after {
+            content: ' ';
+            display: block;
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            border-radius: 63% 37% 16% 84% / 60% 54% 46% 40%;
+            -webkit-border-radius: 63% 37% 16% 84% / 60% 54% 46% 40%;
+            -moz-border-radius: 63% 37% 16% 84% / 60% 54% 46% 40%;
+            -ms-border-radius: 63% 37% 16% 84% / 60% 54% 46% 40%;
+            -o-border-radius: 63% 37% 16% 84% / 60% 54% 46% 40%;
+            background: linear-gradient(140deg, #bdc3c7, #2C5364);
+            right: 0%;
+            top: 0;
+            transform: translate(20%, 0%);
+            -webkit-transform: translate(20%, 0%);
+            -moz-transform: translate(20%, 0%);
+            -ms-transform: translate(20%, 0%);
+            -o-transform: translate(20%, 0%);
+        }
+
+        .container::after {
+            z-index: -1;
+            top: 50%;
+            right: 80%;
+            border-radius: 59% 41% 60% 40% / 69% 50% 50% 31%;
+            -webkit-border-radius: 59% 41% 60% 40% / 69% 50% 50% 31%;
+            -moz-border-radius: 59% 41% 60% 40% / 69% 50% 50% 31%;
+            -ms-border-radius: 59% 41% 60% 40% / 69% 50% 50% 31%;
+            -o-border-radius: 59% 41% 60% 40% / 69% 50% 50% 31%;
+            background: linear-gradient(140deg, #34e89e, #0f3443);
+        }
+
+        .cart {
+            width: 100%;
+            position: relative;
+            box-shadow: 0 0 2rem #0002;
+            border: 1px solid #fff2;
+            backdrop-filter: blur(15px);
+            border-radius: 1rem;
+            -webkit-border-radius: 1rem;
+            -moz-border-radius: 1rem;
+            -ms-border-radius: 1rem;
+            -o-border-radius: 1rem;
+            padding: .8rem 1rem;
+            color: white;
+            background: linear-gradient(8deg, #fff0, #fff2, #fff3);
+        }
+
+        @media screen and (min-width:576px) {
+            .container {
+                max-width: var(--layout-width);
+                overflow: visible;
+            }
+
+            .cart {
+                max-width: var(--layout-width);
+                margin: 0 auto;
+            }
+        }
+
+        .cart_img {
+            display: block;
+            max-width: 80%;
+            margin: 1rem auto;
+            filter: hue-rotate(10deg);
+            -webkit-filter: hue-rotate(10deg);
+            pointer-events: none;
+        }
+
+        .cart_img-blue {
+            filter: hue-rotate(210deg);
+            -webkit-filter: hue-rotate(210deg);
+        }
+
+        .cart_img-purple {
+            filter: hue-rotate(290deg);
+            -webkit-filter: hue-rotate(290deg);
+        }
+
+        .cart_img-green {
+            filter: hue-rotate(160deg);
+            -webkit-filter: hue-rotate(160deg);
+        }
+
+        .cart_img-red {
+            filter: hue-rotate(10deg);
+            -webkit-filter: hue-rotate(10deg);
+        }
+
+        .cart_title {
+            font-family: inherit;
+            font-weight: bold;
+            text-align: left;
+            font-size: 1.5rem;
+            text-transform: capitalize;
+            margin: 0 0 0;
+        }
+
+        .cart_price {
+            color: #efefef;
+            font-weight: normal;
+            margin: .5rem 0 0;
+        }
+
+        .cart_price sup {
+            text-decoration: line-through;
+            color: #aaa;
+            font-size: .9rem;
+        }
+
+        .productColorsWrapper {
+            display: flex;
+            flex-flow: row nowrap;
+            justify-content: flex-start;
+            margin-top: 0.5rem;
+        }
+
+        .productColorLable {
+            position: relative;
+            display: block;
+            background-color: #FA8F6B;
+            cursor: pointer;
+            text-align: center; 
+            width: 50px;
+            height: 28px;
+            margin-right: 1rem;
+            border-radius: .2rem;
+            -webkit-border-radius: .2rem;
+            -moz-border-radius: .2rem;
+            -ms-border-radius: .2rem;
+            -o-border-radius: .2rem;
+        }
+
+        .productColorLable:nth-of-type(3) {
+            background-color: #ff5c43;
+        }
+
+        .productColorLable:nth-of-type(4) {
+            background-color: #04dc70;
+        }
+
+        .productColorLable:nth-of-type(2) {
+            background-color: #d045ff;
+        }
+
+        .productColorLable:nth-of-type(1) {
+            background-color: #5a94ff;
+        }
+
+        .product_color {
+            position: absolute;
+            pointer-events: none;
+            opacity: 0;
+            clip: rect(0, 0, 0, 0);
+            visibility: hidden;
+        }
+
+        .product_color+span {
+            position: absolute;
+            width: 38px;
+            height: 38px;
+            top: 50%;
+            left: 50%;
+            border-radius: inherit;
+            border: 1px solid #0005;
+            -webkit-border-radius: inherit;
+            -moz-border-radius: inherit;
+            -ms-border-radius: inherit;
+            -o-border-radius: inherit;
+            transform: translate(-50%, -50%);
+            -webkit-transform: translate(-50%, -50%);
+            -moz-transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+            -o-transform: translate(-50%, -50%);
+            transition: opacity .15s linear 0s;
+            -webkit-transition: opacity .15s linear 0s;
+            -moz-transition: opacity .15s linear 0s;
+            -ms-transition: opacity .15s linear 0s;
+            -o-transition: opacity .15s linear 0s;
+            opacity: 0;
+        }
+
+        .product_color:checked+span {
+            opacity: 1;
+        }
+
+        .addToCartBtn {
+            display: block;
+            border-radius: .5rem;
+            text-align: center;
+            margin: 0.5rem 0 0;
+            line-height: 2;
+            text-decoration: none;
+            font-weight: bold;
+            color: white;
+            -webkit-border-radius: .5rem;
+            -moz-border-radius: .5rem;
+            -ms-border-radius: .5rem;
+            -o-border-radius: .5rem;
+            border: 1px solid #fff2;
+            background: linear-gradient(8deg, #fff0, #fff2, #fff3);
+            box-shadow: 0 0 1rem #00000020;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .addToCartBtn::before {
+            content: ' ';
+            position: absolute;
+            display: block;
+            width: 100%;
+            height: 60%;
+            background-color: #ffffff10;
+            top: 0;
+            border-radius: inherit;
+            -webkit-border-radius: inherit;
+            -moz-border-radius: inherit;
+            -ms-border-radius: inherit;
+            -o-border-radius: inherit;
+            z-index: -1;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar fixed-bottom navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">
+                            Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">New Ticket</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"> Tickets List</a>
+                    </li>
+
+                </ul>
+                <form class="d-flex">
+                    <!-- <button class="btn btn-outline-success" type="button">Logout</button> -->
+                </form>
+            </div>
+        </div>
+    </nav>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-3 col-md-3 col-lg-3 pb-1">
+                <div class="cart"> 
+                    <h1 class="cart_title">
+                        Sachin  <small>(9999888877 )</small>
+                    </h1>
+                  
+                    <h3 class="cart_price">
+                        <span><i class="fa fa-inr"></i> 104.31 <sup><i class="fa fa-inr"></i> 124.0</sup></span>
+                    </h3> 
+                    <div class="productColorsWrapper">
+                        <label for="blue" data-color="blue" class="productColorLable">
+                             <i class="fa fa-male"></i>
+                            <span>2</span>
+                        </label>
+                        <label for="purple" data-color="purple" class="productColorLable" id="">
+                            <i class="fa fa-user"></i>
+                            <span>4</span>
+                        </label> 
+                    </div>
+                    <a href="" class="addToCartBtn"> 
+                        <i class="fa fa-times-circle-o px-2"></i>   Cancel
+                    </a>
+                </div>
+            </div>
+            <div class="col-3 col-md-3 col-lg-3 pb-1">
+                <div class="cart"> 
+                    <h1 class="cart_title">
+                        Sachin  <small>(9999888877 )</small>
+                    </h1>
+                  
+                    <h3 class="cart_price">
+                        <span><i class="fa fa-inr"></i> 104.31 <sup><i class="fa fa-inr"></i> 124.0</sup></span>
+                    </h3> 
+                    <div class="productColorsWrapper">
+                        <label for="blue" data-color="blue" class="productColorLable">
+                             <i class="fa fa-male"></i>
+                            <span>2</span>
+                        </label>
+                        <label for="purple" data-color="purple" class="productColorLable" id="">
+                            <i class="fa fa-user"></i>
+                            <span>4</span>
+                        </label> 
+                    </div>
+                    <a href="" class="addToCartBtn"> 
+                        <i class="fa fa-times-circle-o px-2"></i>   Cancel
+                    </a>
+                </div>
+            </div>
+            <div class="col-3 col-md-3 col-lg-3 pb-1">
+                <div class="cart"> 
+                    <h1 class="cart_title">
+                        Sachin  <small>(9999888877 )</small>
+                    </h1>
+                  
+                    <h3 class="cart_price">
+                        <span><i class="fa fa-inr"></i> 104.31 <sup><i class="fa fa-inr"></i> 124.0</sup></span>
+                    </h3> 
+                    <div class="productColorsWrapper">
+                        <label for="blue" data-color="blue" class="productColorLable">
+                             <i class="fa fa-male"></i>
+                            <span>2</span>
+                        </label>
+                        <label for="purple" data-color="purple" class="productColorLable" id="">
+                            <i class="fa fa-user"></i>
+                            <span>4</span>
+                        </label> 
+                    </div>
+                    <a href="" class="addToCartBtn"> 
+                        <i class="fa fa-times-circle-o px-2"></i>   Cancel
+                    </a>
+                </div>
+            </div>
+            <div class="col-3 col-md-3 col-lg-3 pb-1">
+                <div class="cart"> 
+                    <h1 class="cart_title">
+                        Sachin  <small>(9999888877 )</small>
+                    </h1>
+                  
+                    <h3 class="cart_price">
+                        <span><i class="fa fa-inr"></i> 104.31 <sup><i class="fa fa-inr"></i> 124.0</sup></span>
+                    </h3> 
+                    <div class="productColorsWrapper">
+                        <label for="blue" data-color="blue" class="productColorLable">
+                             <i class="fa fa-male"></i>
+                            <span>2</span>
+                        </label>
+                        <label for="purple" data-color="purple" class="productColorLable" id="">
+                            <i class="fa fa-user"></i>
+                            <span>4</span>
+                        </label> 
+                    </div>
+                    <a href="" class="addToCartBtn"> 
+                        <i class="fa fa-times-circle-o px-2"></i>   Cancel
+                    </a>
+                </div>
+            </div>
+            <div class="col-3 col-md-3 col-lg-3 pb-1">
+                <div class="cart"> 
+                    <h1 class="cart_title">
+                        Sachin  <small>(9999888877 )</small>
+                    </h1>
+                  
+                    <h3 class="cart_price">
+                        <span><i class="fa fa-inr"></i> 104.31 <sup><i class="fa fa-inr"></i> 124.0</sup></span>
+                    </h3> 
+                    <div class="productColorsWrapper">
+                        <label for="blue" data-color="blue" class="productColorLable">
+                             <i class="fa fa-male"></i>
+                            <span>2</span>
+                        </label>
+                        <label for="purple" data-color="purple" class="productColorLable" id="">
+                            <i class="fa fa-user"></i>
+                            <span>4</span>
+                        </label> 
+                    </div>
+                    <a href="" class="addToCartBtn"> 
+                        <i class="fa fa-times-circle-o px-2"></i>   Cancel
+                    </a>
+                </div>
+            </div>
+            <div class="col-3 col-md-3 col-lg-3 pb-1">
+                <div class="cart"> 
+                    <h1 class="cart_title">
+                        Sachin  <small>(9999888877 )</small>
+                    </h1>
+                  
+                    <h3 class="cart_price">
+                        <span><i class="fa fa-inr"></i> 104.31 <sup><i class="fa fa-inr"></i> 124.0</sup></span>
+                    </h3> 
+                    <div class="productColorsWrapper">
+                        <label for="blue" data-color="blue" class="productColorLable">
+                             <i class="fa fa-male"></i>
+                            <span>2</span>
+                        </label>
+                        <label for="purple" data-color="purple" class="productColorLable" id="">
+                            <i class="fa fa-user"></i>
+                            <span>4</span>
+                        </label> 
+                    </div>
+                    <a href="" class="addToCartBtn"> 
+                        <i class="fa fa-times-circle-o px-2"></i>   Cancel
+                    </a>
+                </div>
+            </div>
+            <div class="col-3 col-md-3 col-lg-3 pb-1">
+                <div class="cart"> 
+                    <h1 class="cart_title">
+                        Sachin  <small>(9999888877 )</small>
+                    </h1>
+                  
+                    <h3 class="cart_price">
+                        <span><i class="fa fa-inr"></i> 104.31 <sup><i class="fa fa-inr"></i> 124.0</sup></span>
+                    </h3> 
+                    <div class="productColorsWrapper">
+                        <label for="blue" data-color="blue" class="productColorLable">
+                             <i class="fa fa-male"></i>
+                            <span>2</span>
+                        </label>
+                        <label for="purple" data-color="purple" class="productColorLable" id="">
+                            <i class="fa fa-user"></i>
+                            <span>4</span>
+                        </label> 
+                    </div>
+                    <a href="" class="addToCartBtn"> 
+                        <i class="fa fa-times-circle-o px-2"></i>   Cancel
+                    </a>
+                </div>
+            </div>
+            <div class="col-3 col-md-3 col-lg-3 pb-1">
+                <div class="cart"> 
+                    <h1 class="cart_title">
+                        Sachin  <small>(9999888877 )</small>
+                    </h1>
+                  
+                    <h3 class="cart_price">
+                        <span><i class="fa fa-inr"></i> 104.31 <sup><i class="fa fa-inr"></i> 124.0</sup></span>
+                    </h3> 
+                    <div class="productColorsWrapper">
+                        <label for="blue" data-color="blue" class="productColorLable">
+                             <i class="fa fa-male"></i>
+                            <span>2</span>
+                        </label>
+                        <label for="purple" data-color="purple" class="productColorLable" id="">
+                            <i class="fa fa-user"></i>
+                            <span>4</span>
+                        </label> 
+                    </div>
+                    <a href="" class="addToCartBtn"> 
+                        <i class="fa fa-times-circle-o px-2"></i>   Cancel
+                    </a>
+                </div>
+            </div>
+            <div class="col-3 col-md-3 col-lg-3 pb-1">
+                <div class="cart"> 
+                    <h1 class="cart_title">
+                        Sachin  <small>(9999888877 )</small>
+                    </h1>
+                  
+                    <h3 class="cart_price">
+                        <span><i class="fa fa-inr"></i> 104.31 <sup><i class="fa fa-inr"></i> 124.0</sup></span>
+                    </h3> 
+                    <div class="productColorsWrapper">
+                        <label for="blue" data-color="blue" class="productColorLable">
+                             <i class="fa fa-male"></i>
+                            <span>2</span>
+                        </label>
+                        <label for="purple" data-color="purple" class="productColorLable" id="">
+                            <i class="fa fa-user"></i>
+                            <span>4</span>
+                        </label> 
+                    </div>
+                    <a href="" class="addToCartBtn"> 
+                        <i class="fa fa-times-circle-o px-2"></i>   Cancel
+                    </a>
+                </div>
+            </div>
+            <div class="col-3 col-md-3 col-lg-3 pb-1">
+                <div class="cart"> 
+                    <h1 class="cart_title">
+                        Sachin  <small>(9999888877 )</small>
+                    </h1>
+                  
+                    <h3 class="cart_price">
+                        <span><i class="fa fa-inr"></i> 104.31 <sup><i class="fa fa-inr"></i> 124.0</sup></span>
+                    </h3> 
+                    <div class="productColorsWrapper">
+                        <label for="blue" data-color="blue" class="productColorLable">
+                             <i class="fa fa-male"></i>
+                            <span>2</span>
+                        </label>
+                        <label for="purple" data-color="purple" class="productColorLable" id="">
+                            <i class="fa fa-user"></i>
+                            <span>4</span>
+                        </label> 
+                    </div>
+                    <a href="" class="addToCartBtn"> 
+                        <i class="fa fa-times-circle-o px-2"></i>   Cancel
+                    </a>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</body>
+
+</html>
