@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <style> 
+    p {
+    margin-top: 0;
+    margin-bottom: 0 !important;
+}
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #f7f7f7;
+            font-family: 'Cabin', sans-serif;
+            font-weight: 300;
+            transition: all .3s;
+        }
+
+        @color: #ff3c41;
+
+        .fontSizeWeight {
+            font-size: 13px;
+            font-weight: 200;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        input {
+            -webkit-appearance: none;
+            border-radius: 0;
+            border: 0;
+        }
+
+        input[type=button] {
+            background: #ff3c41;
+            color: #fff;
+            cursor: pointer;
+            font-size: 13px;
+            padding: 8px;
+            text-transform: capitalize;
+            transition: 0.3s;
+
+            &:hover {
+                background-color: #fd3136;
+            }
+        }
+
+        form {
+            margin: 0 auto;
+            width: 90%;
+
+            input:not([type=radio]) {
+                border: 0px solid #ccc;
+                background: #fff;
+                color: #333;
+                font-size: 14px;
+                margin: 8px 0;
+                padding: 3% 2%;
+                width: 100%;
+                transition: 0.3s;
+
+                &:focus {
+                    color: #000;
+                }
+            }
+
+            input[type=button] {
+                background: @color;
+                color: #fff;
+                font-size: 15px;
+                padding: 8px;
+                width: 100%;
+            }
+        }
+
+        //Body Style
+        main {
+            max-width: 1440px;
+            margin: 0 auto;
+        }
+
+        #returnDate {
+            display: none;
+        }
+
+        header {
+            background: #fff;
+            text-align: center;
+
+            .planIc {
+                color: #000;
+                font-size: 40px;
+            }
+        }
+
+        .radio-toolbar {
+            position: absolute;
+            top: -36px;
+            left: 0;
+
+            input[type="radio"] {
+                display: none;
+            }
+
+            label {
+                
+                cursor: pointer;
+                display: inline-block;
+                padding: 10px 20px;
+                transition: all .3s;
+               
+            }
+
+            label[for="radioRoundTrip"] {
+                margin-left: -3px;
+            }
+
+            input[type="radio"]:checked+label {
+                background-color: #333;
+            }
+        }
+
+        .styled-checkbox {
+            position: absolute;
+            opacity: 0;
+            transition: all .3s;
+
+            +label {
+                font-size: 14px;
+                cursor: pointer;
+                position: relative;
+                padding: 0;
+            }
+
+            +label:before {
+                background: #ccc;
+                display: inline-block;
+                content: '';
+                height: 20px;
+                margin-right: 10px;
+                vertical-align: text-top;
+                width: 20px;
+            }
+
+           
+            &:checked+label:after {
+                background: white;
+                box-shadow: 2px 0 0 white, 4px 0 0 white, 4px -2px 0 white, 4px -4px 0 white, 4px -6px 0 white, 4px -8px 0 white;
+                -webkit-transform: rotate(45deg);
+                content: '';
+                height: 2px;
+                left: 5px;
+                top: 9px;
+                position: absolute;
+                width: 2px;
+                transform: rotate(45deg);
+            }
+        }
+
+        #bodyCotainer {
+            padding-top: 50px;
+            overflow: hidden;
+        }
+
+        .filterSearchFilter {
+            float: left;
+            margin-left: 4%;
+            width: 26%;
+
+            #flightSearch {
+                background: #333;
+                box-sizing: border-box;
+                padding: 2%;
+                position: relative;
+
+                div {
+                    font-size: 13px;
+                    font-weight: 400;
+                    color: #fff;
+                }
+            }
+
+            .showFilter {
+                background: #fff;
+                box-sizing: border-box;
+                margin: 5% 0;
+
+                h4 {
+                    padding: 5% 5% 0;
+                    font-size: 14px;
+                    font-weight: 500;
+                }
+
+                ul {
+                    padding: 0 5% 5%;
+
+                    li {
+                        margin: 4% 0;
+
+                        &:last-child {
+                            margin-bottom: 0;
+                        }
+                    }
+                }
+            }
+        }
+
+        .sourceDesination {
+            position: relative;
+
+            ul {
+                box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.6);
+                display: none;
+                border: 1px solid #ccc;
+                left: 0.2%;
+                position: absolute;
+                width: 90%;
+                top: 84%;
+                z-index: 99;
+
+                li {
+                    background: #fff;
+                    color: #555;
+                    cursor: pointer;
+                    padding: 8px 5px;
+                }
+            }
+        }
+
+        #FlightResult {
+            float: left;
+            width: 70%;
+
+            .flightOnward,
+            .flightReturn {
+                display: none;
+            }
+
+            table {
+                border-collapse: collapse;
+                text-align: left;
+                width: 100%;
+                table-layout: fixed;
+
+                thead {
+                    border-bottom: 5px solid #fff;
+
+                    th {
+                        color: #555;
+                        padding-left: 9px;
+                        .fontSizeWeight();
+
+                        i {
+                            cursor: pointer;
+                            font-size: 11px;
+                            padding-left: 3px;
+                        }
+
+                        &:last-child {
+                            cursor: pointer;
+                        }
+                    }
+                }
+
+                tbody {
+                    tr {
+                        background: #f7f7f7;
+                        border-bottom: 10px solid #fff;
+
+                        td {
+                            color: #333;
+                            font-size: 13px;
+                            padding: 12px;
+                            margin-bottom: 5px;
+
+                            i {
+                                color: #888;
+                                cursor: pointer;
+                                font-size: 8px;
+                                padding: 0 4px;
+                            }
+
+                            .bookTicBtn {
+                                font-size: 10px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .form-control {
+            border: 1px solid black !important;
+        }
+        .form-select {
+            border: 1px solid black !important;
+        }
+
+        .rounded-btn {
+            border-radius: 20px;
+        }
+        .navbar {
+            background-color: #1e6a99 !important;
+            color: white !important;
+        }
+        .card-body {
+            border: 1px solid gray !important;
+        }
+
+        .beforeSearch {
+            background: #fff;
+            color: #555;
+            font-size: 16px;
+            width: 70%;
+            margin: 0 auto;
+            padding: 2%;
+            text-align: center;
+
+            i {
+                color: #555;
+                font-size: 45px;
+                vertical-align: middle;
+                margin-right: 12px;
+            }
+        }
+
+        .flightResultWrapper {
+            border: 1px solid #e4e4e4;
+            box-sizing: border-box;
+            background: #fff;
+            padding: 5%;
+            position: relative;
+            margin: 0 auto 1%;
+            width: 90%;
+
+            .overLay {
+                background: #fff;
+                bottom: 0;
+                left: 0;
+                opacity: 0.7;
+                position: absolute;
+                right: 0;
+                top: 0;
+                width: 100%;
+                z-index: 99;
+            }
+
+            .flightResultHeader {
+                align-items: center;
+                display: flex;
+                margin-bottom: 20px;
+                overflow: hidden;
+
+                h4 {
+                    color: #333;
+                    font-size: 21px;
+                    font-weight: 500;
+                    text-transform: capitalize;
+                }
+
+                p {
+                    color: #888;
+                    font-size: 12px;
+                }
+
+                >div {
+                    +div {
+                        margin-left: 3%;
+                    }
+                }
+
+                .exchangeIc {
+                    color: #888;
+                    font-size: 20px;
+                }
+            }
+        }
+        form input[type=button] {
+    background: #ff3c41;
+    color: #fff;
+    font-size: 15px;
+    padding: 8px;
+    width: 100%;
+}
+.logo {
+    width: 32px;
+    height: 32px;
+}
+        
+    </style>
+</head>
+
+<body>
+    <!-- Main Content -->
+    <main>
+        <header>
+            <!-- NavBar -->
+            <nav class="navbar navbar-expand-lg navbar-light nav-yellow  border-bottom border-top p-0">
+                <div class="container">
+                    <a class="navbar-brand fs-4 fw-bold " href="#"><i class="fa fa-cart-shopping fs-4"
+                            style="color: #f54242;"></i><span class="text-white">
+                            Railway
+                        </span></a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                        <!--Toggle  -->
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <!-- Nav Items -->
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav ms-auto mb-2 mb-lg-0  text-center ">
+
+                            <li class="nav-item">
+                                <a class="nav-link fw-semibold text-white  me-1" href="#">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link fw-semibold text-white  me-1" href="#">Trains</a>
+                            </li>
+                            <!-- cart -->
+                            <li class="nav-item">
+                                <a class="nav-link fw-semibold  text-white  me-1" href="#">Login</a>
+                            </li>
+
+
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </header>
+        <!-- Body Content Starts -->
+        <section id="bodyCotainer">
+            <!-- Flight Search From Starts -->
+            <div class="filterSearchFilter">
+                <aside id="flightSearch">
+                    <form name="searchFlight">
+                        <div class="radio-toolbar">
+                            <input type="radio" id="radioOneWay" name="trip" value="One Way" checked>
+                            <label for="radioOneWay">One Way</label>
+
+                            <input type="radio" id="radioRoundTrip" name="trip" value="Round Trip">
+                            <label for="radioRoundTrip">Round Trip</label>
+                        </div>
+                        <div class="sourceDesination">
+                            <input type="text" id="fromPlace" placeholder="From"
+                                onkeyup="flight.airportAutoSuggestion(event)" />
+                            <ul id="source"></ul>
+                            <span class="error"></span>
+                        </div>
+                        <div class="sourceDesination">
+                            <input type="text" id="toPlace" placeholder="To"
+                                onkeyup="flight.airportAutoSuggestion(event)" />
+                            <ul id="destination"></ul>
+                            <span class="error"></span>
+                        </div>
+                        <div id="depatureDate">
+                            <input type="text" placeholder="Travel Date" onfocus="(this.type='date')" id="travelDate"
+                                onchange="flight.validateEnteredDate(event)" />
+                        </div>
+                        <div id="returnDate">
+                            <input type="text" placeholder="Return Date" onfocus="(this.type='date')" id="dateOfReturn"
+                                onchange="flight.validateEnteredDate(event)" />
+                        </div>
+                        <div>
+                            <input type="number" id="noOfTravelers" onchange="flight.validateTravelers(event)" min="1"
+                                max="8" placeholder="Number of Travelers">
+                        </div>
+                        <div>
+                            <input id="searchBtn" type="button" onclick="flight.submitValues(event)" value="Submit" />
+                        </div>
+                    </form>
+                </aside>
+                <div class="filterDetails">
+                    <div id="showFilter" class="showFilter"></div>
+                    <div id="showFilterRoundTrip" class="showFilter"></div>
+                </div>
+            </div>
+            <!-- Flight Search From Ends -->
+            <!-- Flight List From Starts -->
+            <div id="FlightResult">
+                 
+                <div class="flightOnward flightResultWrapper" style="display: block;padding: 1% !important;">
+                    <div class=" ">
+                        <div class="row">
+                            <div class="col-5">
+                                <div class="headerStartingDate">
+                                    <h4 class="headStartLoc">Chennai (MAA)</h4>
+                                    <p class="headStartDate">2024-03-06</p>
+                                </div>
+                            </div>
+                            <div class="col-2 text-center">
+                                <i style="padding-top: 25%;" class="exchangeIc fa fa-long-arrow-right"></i>
+                            </div>
+                            <div class="col-5 text-end">
+                                <div class="headeReturnDate">
+                                    <h4 class="headEndLoc">Coimbatore (CJB)</h4>
+                                    <p class="headEndDate">2024-03-06</p>
+                                </div>
+                            </div>
+                        </div> 
+                    </div> 
+                </div>
+                <div class="flightOnward flightResultWrapper" style="display: block;padding: 1% !important;">
+                    <div class="row">
+                        <div class="col-3">
+                            Flight Name
+                        </div>
+                        <div class="col-2">
+                            Departure
+                        </div>
+                        <div class="col-2">
+                            Arrival
+                        </div>
+                        <div class="col-3">
+                            Fare 
+                        </div>
+                        <div class="col-2">
+                             
+                        </div>
+                    </div>
+                </div>
+                <div class="flightOnward flightResultWrapper" style="display: block;padding: 1% !important;">
+                    <div class="row">
+                        <div class="col-3"> 
+                            <div class="row">
+                                <div class="col-4">
+                                    <img class="logo" src="https://imgak.mmtcdn.com/flights/assets/media/dt/common/icons/6E.png?v=18">
+                                </div>
+                                <div class="col-8">
+                                    <div>SpiceJet</div>
+                                    <div> EL-2244</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-2"> 20:22
+                        </div>
+                        <div class="col-2">  19:00
+                        </div>
+                        <div class="col-3"> 2362
+                        </div>
+                        <div class="col-2">
+                            <input type="button" class="bookTicBtn" value="Book Now">
+                        </div>
+                    </div>
+                </div>
+                <div class="flightOnward flightResultWrapper" style="display: block;padding: 1% !important;">
+                    <div class="row">
+                        <div class="col-3"> 
+                            <div class="row">
+                                <div class="col-4">
+                                    <img class="logo" src="https://imgak.mmtcdn.com/flights/assets/media/dt/common/icons/6E.png?v=18">
+                                </div>
+                                <div class="col-8">
+                                    <div>SpiceJet</div>
+                                    <div> EL-2244</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-2"> 20:22
+                        </div>
+                        <div class="col-2">  19:00
+                        </div>
+                        <div class="col-3"> 2362
+                        </div>
+                        <div class="col-2">
+                            <input type="button" class="bookTicBtn" value="Book Now">
+                        </div>
+                    </div>
+                </div>
+                <div class="flightOnward flightResultWrapper" style="display: block;padding: 1% !important;">
+                    <div class="row">
+                        <div class="col-3"> 
+                            <div class="row">
+                                <div class="col-4">
+                                    <img class="logo" src="https://imgak.mmtcdn.com/flights/assets/media/dt/common/icons/6E.png?v=18">
+                                </div>
+                                <div class="col-8">
+                                    <div>SpiceJet</div>
+                                    <div> EL-2244</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-2"> 20:22
+                        </div>
+                        <div class="col-2">  19:00
+                        </div>
+                        <div class="col-3"> 2362
+                        </div>
+                        <div class="col-2">
+                            <input type="button" class="bookTicBtn" value="Book Now">
+                        </div>
+                    </div>
+                </div>
+                <div class="flightOnward flightResultWrapper" style="display: block;padding: 1% !important;">
+                    <div class="row">
+                        <div class="col-3"> 
+                            <div class="row">
+                                <div class="col-4">
+                                    <img class="logo" src="https://imgak.mmtcdn.com/flights/assets/media/dt/common/icons/6E.png?v=18">
+                                </div>
+                                <div class="col-8">
+                                    <div>SpiceJet</div>
+                                    <div> EL-2244</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-2"> 20:22
+                        </div>
+                        <div class="col-2">  19:00
+                        </div>
+                        <div class="col-3"> 2362
+                        </div>
+                        <div class="col-2">
+                            <input type="button" class="bookTicBtn" value="Book Now">
+                        </div>
+                    </div>
+                </div>
+                
+                
+            </div>
+            <!-- Flight List From Ends -->
+        </section>
+    </main>
+</body>
+
+</html>

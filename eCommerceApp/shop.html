@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>ShopWise Demo</title>
     <link rel="stylesheet" href="main.css">
-    <link rel="shortcut icon" href="../ShopWise/product img/favicon.png" type="image/x-icon">
+    <link rel="shortcut icon" href="product_img/favicon.png" type="image/x-icon">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <!-- font awsome icon -->
@@ -18,39 +18,39 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-<script>
-    var newarray = [{
-  Email: "test1@gmail.com",
-  ID: "A"
-}, {
-  Email: "test2@gmail.com",
-  ID: "B"
-}, {
-  Email: "test3@gmail.com",
-  ID: "A"
-}, {
-  Email: "test4@gmail.com",
-  ID: "C"
-}, {
-  Email: "test5@gmail.com",
-  ID: "C"
-}];
-   
-// Array to keep track of duplicates
-var dups = [];
-var arr = newarray.filter(function(el) {
-  // If it is not a duplicate, return true
-  if (dups.indexOf(el.ID) == -1) {
-    dups.push(el.ID);
-    return true;
-  }
+    <script>
+        var newarray = [{
+            Email: "test1@gmail.com",
+            ID: "A"
+        }, {
+            Email: "test2@gmail.com",
+            ID: "B"
+        }, {
+            Email: "test3@gmail.com",
+            ID: "A"
+        }, {
+            Email: "test4@gmail.com",
+            ID: "C"
+        }, {
+            Email: "test5@gmail.com",
+            ID: "C"
+        }];
 
-  return false;
-  
-});
+        // Array to keep track of duplicates
+        var dups = [];
+        var arr = newarray.filter(function (el) {
+            // If it is not a duplicate, return true
+            if (dups.indexOf(el.ID) == -1) {
+                dups.push(el.ID);
+                return true;
+            }
 
-console.log(arr);
-</script>
+            return false;
+
+        });
+
+        console.log(arr);
+    </script>
 </head>
 
 <body>
@@ -60,7 +60,7 @@ console.log(arr);
         <nav class="navbar navbar-expand-lg navbar-light nav-yellow  border-bottom border-top p-0">
             <div class="container">
                 <a class="navbar-brand fs-4 fw-bold " href="#"><i class="fa fa-cart-shopping fs-4"
-                        style="color: #f54242;"></i><span class="textBlur">Shopwise</span></a>
+                        style="color: #f54242;"></i><span class="textBlur">bigBasket</span></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation">
@@ -98,9 +98,9 @@ console.log(arr);
                                 <li><a class="dropdown-item" href="#">Terms and Conditions</a></li>
                             </ul>
                         </li>
-                         
-                        
-                        
+
+
+
                         <li class="nav-item">
                             <a class="nav-link fw-semibold text-uppercase text-black  me-1" href="#">Contact us</a>
                         </li>
@@ -114,14 +114,14 @@ console.log(arr);
                                 data-bs-toggle="dropdown" aria-expanded="false">
                                 <i class="fa fa-cart-shopping fs-5 me-1" style="color: #202122;"></i>
                             </a>
-                             <ul class="dropdown-menu menuOnLeft   rounded-0 mt-2" aria-labelledby="navbarDropdown3">
-                                <li class="p-2"> 
+                            <ul class="dropdown-menu menuOnLeft   rounded-0 mt-2" aria-labelledby="navbarDropdown3">
+                                <li class="p-2">
                                     <div class="d-flex w-100 border-bottom justify-content-evenly">
-                                       <div>
-                                        <img style="height: 80px !important;" class="img-fluid     p-2" src="../ShopWise/product img/cartImg1.jfif"
-                                        alt="">
-                                       </div>
-                                       
+                                        <div>
+                                            <img style="height: 70px !important;width: 100px !important;"
+                                                class="img-fluid     p-2" src="product_img/cartImg1.jfif" alt="">
+                                        </div>
+
 
                                         <div style="">
                                             <a href="#" class="text-decoration-none text-black fw-semibold">
@@ -137,8 +137,8 @@ console.log(arr);
                                 <li class="p-2">
                                     <div class="d-flex w-100 border-bottom justify-content-evenly">
 
-                                        <img style="height: 80px !important;" class="img-fluid  p-2" src="../ShopWise/product img/cartImg2.jfif"
-                                            alt="">
+                                        <img style="height: 70px !important;width: 100px !important;"
+                                            class="img-fluid  p-2" src="product_img/cartImg2.jfif" alt="">
                                         <div>
                                             <a href="#" class="text-decoration-none text-black fw-semibold">
                                                 <p class="m-0 p-0">Ornare consequat</p>
@@ -165,7 +165,7 @@ console.log(arr);
 
                                     </div>
                                 </li>
-                               
+
                             </ul>
                         </li>
                         <li class="nav-item dropdown">
@@ -176,28 +176,242 @@ console.log(arr);
                             </a>
                             <ul class="dropdown-menu" style="left:-50px" aria-labelledby="navbarDropdown">
                                 <li>
-                                    <div class="d-flex justify-content-evenly mt-2"> 
+                                    <div class="d-flex justify-content-evenly mt-2">
                                         <a href="#" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
-                                        aria-controls="offcanvasRight"> <button
-                                            class="btn btn-danger rounded-0 px-3">Login</button></a>
-                                        <a href="#" data-bs-toggle="modal"
-                                        data-bs-target="#exampleModal"> <button
+                                            aria-controls="offcanvasRight"> <button
+                                                class="btn btn-danger rounded-0 px-3">Login</button></a>
+                                        <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal"> <button
                                                 class="btn btn-danger rounded-0 px-3">Register</button></a>
                                     </div>
-                                    
-                                     </li>
-                               
+
+                                </li>
+
                             </ul>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#"> </a>
                         </li>
-                        
+
                     </ul>
                 </div>
             </div>
         </nav>
     </header>
+    <div class="container-fluid py-5">
+        <div class="container py-5">
+            <div class="text-center mx-auto mb-5" style="max-width: 700px;">
+                <h1 class="display-4">Bestseller Products</h1>
+                <p>Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which
+                    looks reasonable.</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-6 col-xl-4">
+                    <div class="p-4 rounded bg-light">
+                        <div class="row align-items-center">
+                            <div class="col-6">
+                                <img src="product_img/best-product-1.jpg" class="img-fluid rounded-circle w-100" alt="">
+                            </div>
+                            <div class="col-6">
+                                <a href="#" class="h5">Organic Tomato</a>
+                                <div class="d-flex my-3">
+                                    <i class="fas fa-star text-primary"></i>
+                                    <i class="fas fa-star text-primary"></i>
+                                    <i class="fas fa-star text-primary"></i>
+                                    <i class="fas fa-star text-primary"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <h4 class="mb-3">3.12 $</h4>
+                                <a href="#" class="btn border border-secondary rounded-pill px-3 text-primary"><i
+                                        class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-xl-4">
+                    <div class="p-4 rounded bg-light">
+                        <div class="row align-items-center">
+                            <div class="col-6">
+                                <img src="product_img/best-product-2.jpg" class="img-fluid rounded-circle w-100" alt="">
+                            </div>
+                            <div class="col-6">
+                                <a href="#" class="h5">Organic Tomato</a>
+                                <div class="d-flex my-3">
+                                    <i class="fas fa-star text-primary"></i>
+                                    <i class="fas fa-star text-primary"></i>
+                                    <i class="fas fa-star text-primary"></i>
+                                    <i class="fas fa-star text-primary"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <h4 class="mb-3">3.12 $</h4>
+                                <a href="#" class="btn border border-secondary rounded-pill px-3 text-primary"><i
+                                        class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-xl-4">
+                    <div class="p-4 rounded bg-light">
+                        <div class="row align-items-center">
+                            <div class="col-6">
+                                <img src="product_img/best-product-3.jpg" class="img-fluid rounded-circle w-100" alt="">
+                            </div>
+                            <div class="col-6">
+                                <a href="#" class="h5">Organic Tomato</a>
+                                <div class="d-flex my-3">
+                                    <i class="fas fa-star text-primary"></i>
+                                    <i class="fas fa-star text-primary"></i>
+                                    <i class="fas fa-star text-primary"></i>
+                                    <i class="fas fa-star text-primary"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <h4 class="mb-3">3.12 $</h4>
+                                <a href="#" class="btn border border-secondary rounded-pill px-3 text-primary"><i
+                                        class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-xl-4">
+                    <div class="p-4 rounded bg-light">
+                        <div class="row align-items-center">
+                            <div class="col-6">
+                                <img src="product_img/best-product-4.jpg" class="img-fluid rounded-circle w-100" alt="">
+                            </div>
+                            <div class="col-6">
+                                <a href="#" class="h5">Organic Tomato</a>
+                                <div class="d-flex my-3">
+                                    <i class="fas fa-star text-primary"></i>
+                                    <i class="fas fa-star text-primary"></i>
+                                    <i class="fas fa-star text-primary"></i>
+                                    <i class="fas fa-star text-primary"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <h4 class="mb-3">3.12 $</h4>
+                                <a href="#" class="btn border border-secondary rounded-pill px-3 text-primary"><i
+                                        class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-xl-4">
+                    <div class="p-4 rounded bg-light">
+                        <div class="row align-items-center">
+                            <div class="col-6">
+                                <img src="product_img/best-product-5.jpg" class="img-fluid rounded-circle w-100" alt="">
+                            </div>
+                            <div class="col-6">
+                                <a href="#" class="h5">Organic Tomato</a>
+                                <div class="d-flex my-3">
+                                    <i class="fas fa-star text-primary"></i>
+                                    <i class="fas fa-star text-primary"></i>
+                                    <i class="fas fa-star text-primary"></i>
+                                    <i class="fas fa-star text-primary"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <h4 class="mb-3">3.12 $</h4>
+                                <a href="#" class="btn border border-secondary rounded-pill px-3 text-primary"><i
+                                        class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-xl-4">
+                    <div class="p-4 rounded bg-light">
+                        <div class="row align-items-center">
+                            <div class="col-6">
+                                <img src="product_img/best-product-6.jpg" class="img-fluid rounded-circle w-100" alt="">
+                            </div>
+                            <div class="col-6">
+                                <a href="#" class="h5">Organic Tomato</a>
+                                <div class="d-flex my-3">
+                                    <i class="fas fa-star text-primary"></i>
+                                    <i class="fas fa-star text-primary"></i>
+                                    <i class="fas fa-star text-primary"></i>
+                                    <i class="fas fa-star text-primary"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <h4 class="mb-3">3.12 $</h4>
+                                <a href="#" class="btn border border-secondary rounded-pill px-3 text-primary"><i
+                                        class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-6 col-xl-3">
+                    <div class="text-center">
+                        <img src="product_img/fruite-item-1.jpg" class="img-fluid rounded" alt="">
+                        <div class="py-4">
+                            <a href="#" class="h5">Organic Tomato</a>
+                            <div class="d-flex my-3 justify-content-center">
+                                <i class="fas fa-star text-primary"></i>
+                                <i class="fas fa-star text-primary"></i>
+                                <i class="fas fa-star text-primary"></i>
+                                <i class="fas fa-star text-primary"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <h4 class="mb-3">3.12 $</h4>
+                            <a href="#" class="btn border border-secondary rounded-pill px-3 text-primary"><i
+                                    class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-6 col-xl-3">
+                    <div class="text-center">
+                        <img src="product_img/fruite-item-2.jpg" class="img-fluid rounded" alt="">
+                        <div class="py-4">
+                            <a href="#" class="h5">Organic Tomato</a>
+                            <div class="d-flex my-3 justify-content-center">
+                                <i class="fas fa-star text-primary"></i>
+                                <i class="fas fa-star text-primary"></i>
+                                <i class="fas fa-star text-primary"></i>
+                                <i class="fas fa-star text-primary"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <h4 class="mb-3">3.12 $</h4>
+                            <a href="#" class="btn border border-secondary rounded-pill px-3 text-primary"><i
+                                    class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-6 col-xl-3">
+                    <div class="text-center">
+                        <img src="product_img/fruite-item-3.jpg" class="img-fluid rounded" alt="">
+                        <div class="py-4">
+                            <a href="#" class="h5">Organic Tomato</a>
+                            <div class="d-flex my-3 justify-content-center">
+                                <i class="fas fa-star text-primary"></i>
+                                <i class="fas fa-star text-primary"></i>
+                                <i class="fas fa-star text-primary"></i>
+                                <i class="fas fa-star text-primary"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <h4 class="mb-3">3.12 $</h4>
+                            <a href="#" class="btn border border-secondary rounded-pill px-3 text-primary"><i
+                                    class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-6 col-xl-3">
+                    <div class="text-center">
+                        <img src="product_img/fruite-item-4.jpg" class="img-fluid rounded" alt="">
+                        <div class="py-2">
+                            <a href="#" class="h5">Organic Tomato</a>
+                            <div class="d-flex my-3 justify-content-center">
+                                <i class="fas fa-star text-primary"></i>
+                                <i class="fas fa-star text-primary"></i>
+                                <i class="fas fa-star text-primary"></i>
+                                <i class="fas fa-star text-primary"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <h4 class="mb-3">3.12 $</h4>
+                            <a href="#" class="btn border border-secondary rounded-pill px-3 text-primary"><i
+                                    class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <!-- nav End-->
 
     <!-- login offcanvas -->
@@ -335,8 +549,8 @@ console.log(arr);
                         <div class="col-lg-3 col-md-6 ">
                             <div class="box-shadow">
                                 <div class="card mt-2">
-                                    <img class="img-fluid" src="../ShopWise/product img/blueDressImg.webp"
-                                        class="card-img-top" alt="...">
+                                    <img class="img-fluid" src="product_img/blueDressImg.webp" class="card-img-top"
+                                        alt="...">
                                     <div class="card-body">
                                         <h5 class="card-title">Blue Dress For Woman</h5>
                                         <p class="card-text"><span
@@ -345,17 +559,19 @@ console.log(arr);
                                         </p>
                                         <div class="row">
                                             <div class="col-6">
-                                                <span><i class="fa-solid fa-star  m-0" style="color: #f1f50f;"></i></span> 
-                                                <span><i class="fa-solid fa-star  m-0" style="color: #f1f50f;"></i></span>
+                                                <span><i class="fa-solid fa-star  m-0"
+                                                        style="color: #f1f50f;"></i></span>
+                                                <span><i class="fa-solid fa-star  m-0"
+                                                        style="color: #f1f50f;"></i></span>
                                                 <span><i class="fa-solid fa-star-half-stroke  m-0"
                                                         style="color: #f1f50f;"></i></span>
                                                 <span class="text-muted">(25)</span>
                                             </div>
                                             <div class="col-6">
                                                 <p class="text-end pb-0 mb-0"><button
-                                                    class="btn  text-end btn-sm btn-success p-2"><i
-                                                        class="fa-solid fa-cart-plus fs-5"
-                                                        style="color: #0c0d0d;"></i></button></p>
+                                                        class="btn  text-end btn-sm btn-success p-2"><i
+                                                            class="fa-solid fa-cart-plus fs-5"
+                                                            style="color: #0c0d0d;"></i></button></p>
                                             </div>
                                         </div>
                                     </div>
@@ -367,8 +583,8 @@ console.log(arr);
                         <div class="col-lg-3 col-md-6">
                             <div class="box-shadow">
                                 <div class="card mt-2">
-                                    <img class="img-fluid" src="../ShopWise/product img/greyMan.webp"
-                                        class="card-img-top" alt="...">
+                                    <img class="img-fluid" src="product_img/greyMan.webp" class="card-img-top"
+                                        alt="...">
 
                                     <div class="card-body">
                                         <h5 class="card-title">Lether Gray Tuxedo</h5>
@@ -378,17 +594,19 @@ console.log(arr);
                                         </p>
                                         <div class="row">
                                             <div class="col-6">
-                                                <span><i class="fa-solid fa-star  m-0" style="color: #f1f50f;"></i></span> 
-                                                <span><i class="fa-solid fa-star  m-0" style="color: #f1f50f;"></i></span>
+                                                <span><i class="fa-solid fa-star  m-0"
+                                                        style="color: #f1f50f;"></i></span>
+                                                <span><i class="fa-solid fa-star  m-0"
+                                                        style="color: #f1f50f;"></i></span>
                                                 <span><i class="fa-solid fa-star-half-stroke  m-0"
                                                         style="color: #f1f50f;"></i></span>
                                                 <span class="text-muted">(25)</span>
                                             </div>
                                             <div class="col-6">
                                                 <p class="text-end pb-0 mb-0"><button
-                                                    class="btn  text-end btn-sm btn-success p-2"><i
-                                                        class="fa-solid fa-cart-plus fs-5"
-                                                        style="color: #0c0d0d;"></i></button></p>
+                                                        class="btn  text-end btn-sm btn-success p-2"><i
+                                                            class="fa-solid fa-cart-plus fs-5"
+                                                            style="color: #0c0d0d;"></i></button></p>
                                             </div>
                                         </div>
                                     </div>
@@ -398,9 +616,9 @@ console.log(arr);
                         <div class="col-lg-3 col-md-6">
                             <div class="box-shadow">
                                 <div class="card mt-2">
-                                    <img class="img-fluid" src="../ShopWise/product img/fullsleeves.webp"
-                                        class="card-img-top" alt="...">
-                                    
+                                    <img class="img-fluid" src="product_img/fullsleeves.webp" class="card-img-top"
+                                        alt="...">
+
 
                                     <div class="card-body">
                                         <h5 class="card-title">Woman Full Sliv Dress</h5>
@@ -409,21 +627,23 @@ console.log(arr);
                                         </p>
                                         <div class="row">
                                             <div class="col-6">
-                                                <span><i class="fa-solid fa-star  m-0" style="color: #f1f50f;"></i></span> 
-                                                <span><i class="fa-solid fa-star  m-0" style="color: #f1f50f;"></i></span>
+                                                <span><i class="fa-solid fa-star  m-0"
+                                                        style="color: #f1f50f;"></i></span>
+                                                <span><i class="fa-solid fa-star  m-0"
+                                                        style="color: #f1f50f;"></i></span>
                                                 <span><i class="fa-solid fa-star-half-stroke  m-0"
                                                         style="color: #f1f50f;"></i></span>
                                                 <span class="text-muted">(25)</span>
                                             </div>
                                             <div class="col-6">
                                                 <p class="text-end pb-0 mb-0"><button
-                                                    class="btn  text-end btn-sm btn-success p-2"><i
-                                                        class="fa-solid fa-cart-plus fs-5"
-                                                        style="color: #0c0d0d;"></i></button></p>
+                                                        class="btn  text-end btn-sm btn-success p-2"><i
+                                                            class="fa-solid fa-cart-plus fs-5"
+                                                            style="color: #0c0d0d;"></i></button></p>
                                             </div>
                                         </div>
-                                      
-                                       
+
+
                                     </div>
                                 </div>
                             </div>
@@ -431,8 +651,8 @@ console.log(arr);
                         <div class="col-lg-3 col-md-6">
                             <div class="box-shadow">
                                 <div class="card mt-2">
-                                    <img class="img-fluid" src="../ShopWise/product img/lightblueshirt.jfif"
-                                        class="card-img-top" alt="...">
+                                    <img class="img-fluid" src="product_img/lightblueshirt.jfif" class="card-img-top"
+                                        alt="...">
                                     <div class="card-body">
                                         <h5 class="card-title">Light Blue Shirt</h5>
                                         <p class="card-text"><span
@@ -441,17 +661,19 @@ console.log(arr);
                                         </p>
                                         <div class="row">
                                             <div class="col-6">
-                                                <span><i class="fa-solid fa-star  m-0" style="color: #f1f50f;"></i></span> 
-                                                <span><i class="fa-solid fa-star  m-0" style="color: #f1f50f;"></i></span>
+                                                <span><i class="fa-solid fa-star  m-0"
+                                                        style="color: #f1f50f;"></i></span>
+                                                <span><i class="fa-solid fa-star  m-0"
+                                                        style="color: #f1f50f;"></i></span>
                                                 <span><i class="fa-solid fa-star-half-stroke  m-0"
                                                         style="color: #f1f50f;"></i></span>
                                                 <span class="text-muted">(25)</span>
                                             </div>
                                             <div class="col-6">
                                                 <p class="text-end pb-0 mb-0"><button
-                                                    class="btn  text-end btn-sm btn-success p-2"><i
-                                                        class="fa-solid fa-cart-plus fs-5"
-                                                        style="color: #0c0d0d;"></i></button></p>
+                                                        class="btn  text-end btn-sm btn-success p-2"><i
+                                                            class="fa-solid fa-cart-plus fs-5"
+                                                            style="color: #0c0d0d;"></i></button></p>
                                             </div>
                                         </div>
                                     </div>
@@ -461,8 +683,8 @@ console.log(arr);
                         <div class="col-lg-3 col-md-6">
                             <div class="box-shadow">
                                 <div class="card mt-2">
-                                    <img class="img-fluid" src="../ShopWise/product img/greyMan.webp"
-                                        class="card-img-top" alt="...">
+                                    <img class="img-fluid" src="product_img/greyMan.webp" class="card-img-top"
+                                        alt="...">
 
                                     <div class="card-body">
                                         <h5 class="card-title">Lether Gray Tuxedo</h5>
@@ -472,17 +694,19 @@ console.log(arr);
                                         </p>
                                         <div class="row">
                                             <div class="col-6">
-                                                <span><i class="fa-solid fa-star  m-0" style="color: #f1f50f;"></i></span> 
-                                                <span><i class="fa-solid fa-star  m-0" style="color: #f1f50f;"></i></span>
+                                                <span><i class="fa-solid fa-star  m-0"
+                                                        style="color: #f1f50f;"></i></span>
+                                                <span><i class="fa-solid fa-star  m-0"
+                                                        style="color: #f1f50f;"></i></span>
                                                 <span><i class="fa-solid fa-star-half-stroke  m-0"
                                                         style="color: #f1f50f;"></i></span>
                                                 <span class="text-muted">(25)</span>
                                             </div>
                                             <div class="col-6">
                                                 <p class="text-end pb-0 mb-0"><button
-                                                    class="btn  text-end btn-sm btn-success p-2"><i
-                                                        class="fa-solid fa-cart-plus fs-5"
-                                                        style="color: #0c0d0d;"></i></button></p>
+                                                        class="btn  text-end btn-sm btn-success p-2"><i
+                                                            class="fa-solid fa-cart-plus fs-5"
+                                                            style="color: #0c0d0d;"></i></button></p>
                                             </div>
                                         </div>
                                     </div>
@@ -492,9 +716,9 @@ console.log(arr);
                         <div class="col-lg-3 col-md-6">
                             <div class="box-shadow">
                                 <div class="card mt-2">
-                                    <img class="img-fluid" src="../ShopWise/product img/fullsleeves.webp"
-                                        class="card-img-top" alt="...">
-                                    
+                                    <img class="img-fluid" src="product_img/fullsleeves.webp" class="card-img-top"
+                                        alt="...">
+
 
                                     <div class="card-body">
                                         <h5 class="card-title">Woman Full Sliv Dress</h5>
@@ -503,21 +727,23 @@ console.log(arr);
                                         </p>
                                         <div class="row">
                                             <div class="col-6">
-                                                <span><i class="fa-solid fa-star  m-0" style="color: #f1f50f;"></i></span> 
-                                                <span><i class="fa-solid fa-star  m-0" style="color: #f1f50f;"></i></span>
+                                                <span><i class="fa-solid fa-star  m-0"
+                                                        style="color: #f1f50f;"></i></span>
+                                                <span><i class="fa-solid fa-star  m-0"
+                                                        style="color: #f1f50f;"></i></span>
                                                 <span><i class="fa-solid fa-star-half-stroke  m-0"
                                                         style="color: #f1f50f;"></i></span>
                                                 <span class="text-muted">(25)</span>
                                             </div>
                                             <div class="col-6">
                                                 <p class="text-end pb-0 mb-0"><button
-                                                    class="btn  text-end btn-sm btn-success p-2"><i
-                                                        class="fa-solid fa-cart-plus fs-5"
-                                                        style="color: #0c0d0d;"></i></button></p>
+                                                        class="btn  text-end btn-sm btn-success p-2"><i
+                                                            class="fa-solid fa-cart-plus fs-5"
+                                                            style="color: #0c0d0d;"></i></button></p>
                                             </div>
                                         </div>
-                                      
-                                       
+
+
                                     </div>
                                 </div>
                             </div>
@@ -525,8 +751,8 @@ console.log(arr);
                         <div class="col-lg-3 col-md-6 ">
                             <div class="box-shadow">
                                 <div class="card mt-2">
-                                    <img class="img-fluid" src="../ShopWise/product img/blueDressImg.webp"
-                                        class="card-img-top" alt="...">
+                                    <img class="img-fluid" src="product_img/blueDressImg.webp" class="card-img-top"
+                                        alt="...">
                                     <div class="card-body">
                                         <h5 class="card-title">Blue Dress For Woman</h5>
                                         <p class="card-text"><span
@@ -535,17 +761,19 @@ console.log(arr);
                                         </p>
                                         <div class="row">
                                             <div class="col-6">
-                                                <span><i class="fa-solid fa-star  m-0" style="color: #f1f50f;"></i></span> 
-                                                <span><i class="fa-solid fa-star  m-0" style="color: #f1f50f;"></i></span>
+                                                <span><i class="fa-solid fa-star  m-0"
+                                                        style="color: #f1f50f;"></i></span>
+                                                <span><i class="fa-solid fa-star  m-0"
+                                                        style="color: #f1f50f;"></i></span>
                                                 <span><i class="fa-solid fa-star-half-stroke  m-0"
                                                         style="color: #f1f50f;"></i></span>
                                                 <span class="text-muted">(25)</span>
                                             </div>
                                             <div class="col-6">
                                                 <p class="text-end pb-0 mb-0"><button
-                                                    class="btn  text-end btn-sm btn-success p-2"><i
-                                                        class="fa-solid fa-cart-plus fs-5"
-                                                        style="color: #0c0d0d;"></i></button></p>
+                                                        class="btn  text-end btn-sm btn-success p-2"><i
+                                                            class="fa-solid fa-cart-plus fs-5"
+                                                            style="color: #0c0d0d;"></i></button></p>
                                             </div>
                                         </div>
                                     </div>
@@ -557,8 +785,8 @@ console.log(arr);
                         <div class="col-lg-3 col-md-6">
                             <div class="box-shadow">
                                 <div class="card mt-2">
-                                    <img class="img-fluid" src="../ShopWise/product img/greyMan.webp"
-                                        class="card-img-top" alt="...">
+                                    <img class="img-fluid" src="product_img/greyMan.webp" class="card-img-top"
+                                        alt="...">
 
                                     <div class="card-body">
                                         <h5 class="card-title">Lether Gray Tuxedo</h5>
@@ -568,17 +796,19 @@ console.log(arr);
                                         </p>
                                         <div class="row">
                                             <div class="col-6">
-                                                <span><i class="fa-solid fa-star  m-0" style="color: #f1f50f;"></i></span> 
-                                                <span><i class="fa-solid fa-star  m-0" style="color: #f1f50f;"></i></span>
+                                                <span><i class="fa-solid fa-star  m-0"
+                                                        style="color: #f1f50f;"></i></span>
+                                                <span><i class="fa-solid fa-star  m-0"
+                                                        style="color: #f1f50f;"></i></span>
                                                 <span><i class="fa-solid fa-star-half-stroke  m-0"
                                                         style="color: #f1f50f;"></i></span>
                                                 <span class="text-muted">(25)</span>
                                             </div>
                                             <div class="col-6">
                                                 <p class="text-end pb-0 mb-0"><button
-                                                    class="btn  text-end btn-sm btn-success p-2"><i
-                                                        class="fa-solid fa-cart-plus fs-5"
-                                                        style="color: #0c0d0d;"></i></button></p>
+                                                        class="btn  text-end btn-sm btn-success p-2"><i
+                                                            class="fa-solid fa-cart-plus fs-5"
+                                                            style="color: #0c0d0d;"></i></button></p>
                                             </div>
                                         </div>
                                     </div>
