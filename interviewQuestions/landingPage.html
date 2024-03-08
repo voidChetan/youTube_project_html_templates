@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="./style.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">Category</a>
+        <a href="#">Questions</a>
+        <a href="#">Contact</a>
+    </nav>
+    <!-- <div class="breadcrumbs">
+        <section class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1>Questions Category</h1>
+                </div>
+                <div class="col-md-12" style="
+        color: #ff7361;
+    ">
+                    <div class="crumbs">
+                        <a href="#">Home</a>
+                        <span class="crumbs-span">/</span>
+                        <span class="current">Questions Category</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div> -->
+    <section class="container main-content pt-1">
+        <div class="row">
+            <div class="col-4">
+                <select class="form-select">
+                    <option>Select Language</option>
+                    <option>Angular</option>
+                    <option>React</option>
+                </select>
+            </div>
+            <div class="col-4">
+                <select class="form-select">
+                    <option>Select Topic</option>
+                    <option>Some Topic</option>
+
+                </select>
+            </div>
+        </div>
+        <div class="row pt-2">
+            <div class="col-md-9">
+                <article class="question question-type-normal">
+                    <h2>
+                        This is my first Question
+                    </h2>
+
+                    <div class="question-author">
+                        <a href="#" original-title="ahmed" class="question-author-img tooltip-n"><span></span><img
+                                alt="" src="https://2code.info/demo/html/ask-me/images/demo/avatar.png"></a>
+                    </div>
+                    <div class="question-inner">
+                        <div class="clearfix"></div>
+                        <p class="question-desc">Duis dapibus aliquam mi, eget euismod sem scelerisque ut. Vivamus at
+                            elit quis urna adipiscing iaculis. Curabitur vitae velit in neque dictum blandit. Proin in
+                            iaculis neque. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac
+                            turpis egestas. Curabitur vitae velit in neque dictum blandit.</p>
+                        <div class="question-details">
+                            <span class="question-answered question-answered-done"><i class="icon-ok"></i>Angular </span>
+                        </div> 
+                       
+                        <span class="question-category"><a href="#"><i
+                                    class="icon-folder-close"></i>Directive</a></span>
+
+                        <div class="clearfix"></div>
+                    </div>
+                </article>
+                <article class="question question-type-normal">
+                    <h2>
+                        This is my first Question
+                    </h2>
+
+                    <div class="question-author">
+                        <a href="#" original-title="ahmed" class="question-author-img tooltip-n"><span></span><img
+                                alt="" src="https://2code.info/demo/html/ask-me/images/demo/avatar.png"></a>
+                    </div>
+                    <div class="question-inner">
+                        <div class="clearfix"></div>
+                        <p class="question-desc">Duis dapibus aliquam mi, eget euismod sem scelerisque ut. Vivamus at
+                            elit quis urna adipiscing iaculis. Curabitur vitae velit in neque dictum blandit. Proin in
+                            iaculis neque. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac
+                            turpis egestas. Curabitur vitae velit in neque dictum blandit.</p>
+                        <div class="question-details">
+                            <span class="question-answered question-answered-done"><i class="icon-ok"></i>Angular</span>
+                        </div>
+                        <span class="question-category"><a href="#"><i
+                                    class="icon-folder-close"></i>Directive</a></span>
+
+                        <div class="clearfix"></div>
+                    </div>
+                </article>
+
+                <a href="#" class="load-questions"><i class="icon-refresh"></i>Load More Questions</a>
+            </div><!-- End main -->
+            <aside class="col-md-3 sidebar">
+                <div class="widget widget_stats">
+                    <h3 class="widget_title">Question Count</h3>
+                    <div class="ul_list ul_list-icon-ok">
+                        <ul>
+                            <li>Reacts ( <span>50</span> )</li>
+                            <li>Javascript ( <span>70</span> )</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="widget widget_highest_points">
+                    <h3 class="widget_title">Top Categories</h3>
+                    <ul>
+                        <li>
+                            <div class="author-img">
+                                <a href="#"><img width="60" height="60"
+                                        src="https://2code.info/demo/html/ask-me/images/demo/admin.jpeg" alt=""></a>
+                            </div>
+                            <h6><a href="#">admin</a></h6>
+                            <span class="comment">12 Points</span>
+                        </li>
+                        <li>
+                            <div class="author-img">
+                                <a href="#"><img width="60" height="60"
+                                        src="https://2code.info/demo/html/ask-me/images/demo/avatar.png" alt=""></a>
+                            </div>
+                            <h6><a href="#">vbegy</a></h6>
+                            <span class="comment">10 Points</span>
+                        </li>
+                        <li>
+                            <div class="author-img">
+                                <a href="#"><img width="60" height="60"
+                                        src="https://2code.info/demo/html/ask-me/images/demo/avatar.png" alt=""></a>
+                            </div>
+                            <h6><a href="#">ahmed</a></h6>
+                            <span class="comment">5 Points</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="widget widget_tag_cloud">
+                    <h3 class="widget_title">Tags</h3>
+                    <a href="#">projects</a>
+                    <a href="#">Portfolio</a>
+                    <a href="#">Wordpress</a>
+                    <a href="#">Html</a>
+                    <a href="#">Css</a>
+                    <a href="#">jQuery</a>
+                    <a href="#">2code</a>
+                    <a href="#">vbegy</a>
+                </div>
+
+                <div class="widget">
+                    <h3 class="widget_title">Recent Questions</h3>
+                    <ul class="related-posts">
+                        <li class="related-item">
+                            <h3><a href="#">This is my first Question</a></h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                            <div class="clear"></div><span>Feb 22, 2014</span>
+                        </li>
+                        <li class="related-item">
+                            <h3><a href="#">This Is My Second Poll Question</a></h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                            <div class="clear"></div><span>Feb 22, 2014</span>
+                        </li>
+                    </ul>
+                </div>
+
+            </aside><!-- End sidebar -->
+        </div><!-- End row -->
+    </section>
+
+</body>
+
+</html>
