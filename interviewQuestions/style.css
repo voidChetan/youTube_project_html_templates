@@ -4,8 +4,7 @@ body {
 	background-size: 100vw;
 	background-color: white;
 	margin: 0px;
-	padding: none;
-	color: white;
+	padding: none; 
 }
 
 nav {
@@ -124,9 +123,7 @@ button:hover {
 	-o-animation: spin 1s linear infinite;
 	animation: spin 1s linear infinite;
 }
-.boxed_body {
-	background: url(images/patterns/bg13.png) repeat;
-}
+ 
 .boxed_body_2 {
 	background: url(https://2code.info/demo/html/ask-me/images/demo/bg_big.jpg) no-repeat center center fixed;
 	background-size: 100% 100%;
