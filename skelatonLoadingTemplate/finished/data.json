@@ -1,0 +1,82 @@
+[
+  {
+    "id": 1,
+    "logoImage": "https://res.cloudinary.com/daily-now/image/upload/t_logo,f_auto/v1/logos/4a287b2e7cb5499bae863f8e7137cdb4",
+    "title": "Writing Cleaner CSS Using BEM ",
+    "details": "Mar 12, 2022 · 4m read time",
+    "coverImage": "https://res.cloudinary.com/daily-now/image/upload/f_auto,q_auto/v1/posts/dd19e7a56475f39ab1c38167c02c7b58",
+    "link": "https://israelmitolu.hashnode.dev/writing-cleaner-css-using-bem-methodology"
+  },
+  {
+    "id": 2,
+    "logoImage": "https://daily-now-res.cloudinary.com/image/upload/t_logo,f_auto/v1628412854/logos/freecodecamp",
+    "title": "The Beginner's Guide to Sass",
+    "details": "Apr 05, 2022 · 8m read time",
+    "coverImage": "https://res.cloudinary.com/daily-now/image/upload/f_auto,q_auto/v1/posts/bec6719be210973098293a32dc732d1e",
+    "link": "https://www.freecodecamp.org/news/the-beginners-guide-to-sass/"
+  },
+  {
+    "id": 3,
+    "logoImage": "https://res.cloudinary.com/daily-now/image/upload/t_logo,f_auto/v1/logos/devto",
+    "title": "I made Squid Game with Javascript",
+    "details": "Oct 25, 2021 · 3m read time",
+    "coverImage": "https://res.cloudinary.com/daily-now/image/upload/f_auto,q_auto/v1/posts/1f947033365381cbe322ddf294ad7169",
+    "link": "https://dev.to/0shuvo0/i-made-squid-game-with-javascript-10j9"
+  },
+  {
+    "id": 4,
+    "logoImage": "https://res.cloudinary.com/daily-now/image/upload/t_logo,f_auto/v1/logos/4a287b2e7cb5499bae863f8e7137cdb4",
+    "title": "Using Custom Cursors with Javascript for a Better User Experience",
+    "details": "Feb 12, 2022 · 9m read time",
+    "coverImage": "https://res.cloudinary.com/daily-now/image/upload/f_auto,q_auto/v1/posts/3d056b99c95b37cd35ae5cfc6a8b38be",
+    "link": "https://israelmitolu.hashnode.dev/using-custom-cursors-with-javascript-for-a-better-user-experience"
+  },
+  {
+    "id": 5,
+    "logoImage": "https://daily-now-res.cloudinary.com/image/upload/t_logo,f_auto/v1628412854/logos/freecodecamp",
+    "title": "React Best Practices - Tips for Writing Better React Code in 2022",
+    "details": "Feb 03, 2022 · 31m read time",
+    "coverImage": "https://res.cloudinary.com/daily-now/image/upload/f_auto,q_auto/v1/posts/5a629fff5583f9ab5f0931d14736b299",
+    "link": "https://www.freecodecamp.org/news/best-practices-for-react/"
+  },
+  {
+    "id": 6,
+    "logoImage": "https://res.cloudinary.com/daily-now/image/upload/t_logo,f_auto/v1/logos/tnw",
+    "title": "You suck at Googling: 5 tips to improve your search skills",
+    "details": "Mar 31, 2022 · 4m read time",
+    "coverImage": "https://res.cloudinary.com/daily-now/image/upload/f_auto,q_auto/v1/posts/e318150ae67c2083ff3585a96f366f7b",
+    "link": "https://thenextweb.com/news/5-tips-to-improve-your-google-search-skills"
+  },
+  {
+    "id": 7,
+    "logoImage": "https://res.cloudinary.com/daily-now/image/upload/t_logo,f_auto/v1/logos/logrocket",
+    "title": "A better way of solving prop drilling in React apps",
+    "details": "Jan 14, 2022 · 13m read time",
+    "coverImage": "https://res.cloudinary.com/daily-now/image/upload/f_auto,q_auto/v1/posts/6fe4c4060bca638b419d8b2c63d8eaf7",
+    "link": "https://blog.logrocket.com/solving-prop-drilling-react-apps/"
+  },
+  {
+    "id": 8,
+    "logoImage": "https://res.cloudinary.com/daily-now/image/upload/t_logo,f_auto/v1/logos/dz",
+    "title": "Golang and Event-Driven Architecture",
+    "details": "Apr 18, 2022 · 6m read time",
+    "coverImage": "https://res.cloudinary.com/daily-now/image/upload/f_auto,q_auto/v1/posts/d06eddd82c62288df6e2600bcda61579",
+    "link": "https://dzone.com/articles/golang-and-event-driven-architecture"
+  },
+  {
+    "id": 9,
+    "logoImage": "https://res.cloudinary.com/daily-now/image/upload/t_logo,f_auto/v1/logos/4a287b2e7cb5499bae863f8e7137cdb4",
+    "title": "Introduction to Git In 16 Minutes",
+    "details": "Mar 18, 2021 · 8m read time",
+    "coverImage": "https://res.cloudinary.com/daily-now/image/upload/f_auto,q_auto/v1/posts/3c02111a8f242f607551500432e17a78",
+    "link": "https://vickyikechukwu.hashnode.dev/introduction-to-git-in-16-minutes"
+  },
+  {
+    "id": 10,
+    "logoImage": "https://res.cloudinary.com/daily-now/image/upload/t_logo,f_auto/v1/logos/4a287b2e7cb5499bae863f8e7137cdb4",
+    "title": "How to Create a Sleek Preloader Animation Using GSAP Timeline",
+    "details": "Jan 25, 2022 · 7m read time",
+    "coverImage": "https://res.cloudinary.com/daily-now/image/upload/f_auto,q_auto/v1/posts/e238c35cb9d41dd9a5475602aef00119",
+    "link": "https://israelmitolu.hashnode.dev/how-to-create-a-sleek-preloader-animation-using-gsap-timeline"
+  }
+]
