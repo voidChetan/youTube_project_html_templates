@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parking Management</title>
+    <style>
+        /* Reset default margin and padding */
+        body,
+        h1,
+        h2,
+        p,
+        ul,
+        li {
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Global styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            color: #333;
+        }
+
+        /* Header styles */
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        /* Sidebar styles */
+        .sidebar {
+            background-color: #222;
+            color: #fff;
+            width: 200px;
+            height: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            overflow-y: auto;
+        }
+
+        .sidebar ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .sidebar ul li {
+            padding: 10px;
+            border-bottom: 1px solid #444;
+        }
+
+        .sidebar ul li a {
+            color: #fff;
+            text-decoration: none;
+            display: block;
+        }
+
+        .sidebar ul li a:hover {
+            background-color: #444;
+        }
+
+        /* Content styles */
+        .content {
+            margin-left: 200px;
+            /* Same width as sidebar */
+            padding: 20px;
+        }
+
+        /* Sample content styles */
+        .parking-lot {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .parking-spot {
+            width: 100px;
+            height: 100px;
+            background-color: #ccc;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2rem;
+            font-weight: bold;
+            color: #555;
+            position: relative;
+        }
+
+        .parking-spot-booked {
+            width: 100px;
+            height: 100px;
+            background-color: #aaffaa;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: end;
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #555;
+            position: relative;
+        }
+
+        .car {
+            font-size: 37px;
+            color: #095cb4;
+            position: absolute;
+            bottom: 35%;
+
+        }
+
+        .car-no {
+            font-size: 12px;
+            color: #095cb4;
+            position: absolute;
+            bottom: 22%;
+        }
+    </style>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header>
+        <h1>Parking Management System</h1>
+    </header>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <ul>
+            <li><a href="#">Dashboard</a></li>
+            <li><a href="#">Parking Lots</a></li>
+            <li><a href="#">Reports</a></li>
+            <li><a href="#">Settings</a></li>
+        </ul>
+    </div>
+
+    <!-- Content -->
+    <div class="content">
+        <div class="row">
+            <div class="col-10 text-center">
+                <div class="btn-group">
+                    <button type="button" class="btn btn-primary">Parking Lot-1</button>
+                    <button type="button" class="btn btn-success">Parking Lot-2</button>
+                    <button type="button" class="btn btn-primary">Parking Lot-3</button>
+                </div>
+            </div>
+            <div class="col-2">
+                <button type="button" class="btn btn-primary"> <i class="fa fa-plus mx-2"></i>New </button>
+            </div>
+        </div>
+        <div class="parking-lot pt-2">
+            <!-- Sample parking spots -->
+            <div class="parking-spot-booked" data-bs-toggle="modal" data-bs-target="#releaseBookModal">
+                <div class="car">
+                    <i class="fa fa-car"></i>
+
+                </div>
+                <div class="car-no">
+                    <small>MH-34-1122</small>
+                </div>
+
+                1
+            </div>
+            <div class="parking-spot" data-bs-toggle="modal" data-bs-target="#bookModal">2</div>
+            <div class="parking-spot-booked">
+                <div class="car">
+                    <i class="fa fa-car"></i>
+                </div>
+                3
+            </div>
+            <div class="parking-spot">4</div>
+            <div class="parking-spot-booked">
+                <div class="car">
+                    <i class="fa fa-car"></i>
+                </div>
+                5
+            </div>
+            <div class="parking-spot">6</div>
+            <div class="parking-spot">7</div>
+            <div class="parking-spot">8</div>
+            <div class="parking-spot-booked">
+                <div class="car">
+                    <i class="fa fa-car"></i>
+                </div>
+                9
+            </div>
+            <div class="parking-spot">10</div>
+        </div>
+    </div>
+
+    <div class="modal" id="bookModal">
+        <div class="modal-dialog modal-md">
+            <div class="modal-content">
+                <div class="modal-header bg-warning">
+                    <h4 class="modal-title">In Entry</h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-6">
+                            <label for="">Spot No</label>
+                            <input type="text" value="2" class="form-control" disabled>
+                        </div>
+                        <div class="col-6">
+                            <label for="">Vehicle No</label>
+                            <input type="text" class="form-control" placeholder="Enter Vehicle No">
+                        </div>
+                        <div class="col-6">
+                            <label for="">In-Time</label>
+                            <input type="text" class="form-control" placeholder="Enter In-Time">
+                        </div>
+                        <div class="col-6">
+                            <label for="">Mobile No</label>
+                            <input type="text" class="form-control" placeholder="Enter Mobile">
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-success" data-bs-dismiss="modal">Book</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="releaseBookModal">
+        <div class="modal-dialog modal-md">
+            <div class="modal-content">
+                <div class="modal-header bg-warning">
+                    <h4 class="modal-title">Out Entry</h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-6">
+                            <label for="">Spot No</label>
+                            <input type="text" value="2" class="form-control" disabled>
+                        </div>
+                        <div class="col-6">
+                            <label for="">Vehicle No</label>
+                            <input type="text" value="MH-22 m-2233" class="form-control" disabled placeholder="Enter Vehicle No">
+                        </div>
+                        <div class="col-6">
+                            <label for="">In-Time</label>
+                            <input type="text" value="12.20" class="form-control" disabled placeholder="Enter In-Time">
+                        </div>
+                        <div class="col-6">
+                            <label for="">Mobile No</label>
+                            <input type="text" value="9988776677" class="form-control" disabled placeholder="Enter Mobile">
+                        </div>
+                        <div class="col-6">
+                            <label for="">Out-Time</label>
+                            <input type="text" value="1.30" class="form-control"  placeholder="Enter In-Time">
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-success" data-bs-dismiss="modal">Mark Out</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
