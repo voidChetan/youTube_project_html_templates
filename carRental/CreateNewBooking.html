@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CRUD Operations</title>
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+    font-family: "Roboto", sans-serif;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f8efef;
+    cursor:default;
+}
+
+.form-container {
+    height: 500px;
+    width: 600px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    background-color: white;
+    overflow: hidden;
+    position: relative;
+}
+
+.login-container,.signup-container {
+    width: 50%;
+    padding: 40px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 15px;
+    transition: all 500ms ease;
+    
+}
+.signup-container{
+  transform:scale(0);
+}
+
+.title{
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.desc {
+    font-size: 12px;
+}
+
+.input-container {
+    margin-top: 10px;
+    width: 100%;
+    height: 40px;
+    border-radius: 5px;
+    border: 2px solid #d6e0eb;
+    display: flex;
+    align-items: center;
+}
+
+input{
+    height: 100%;
+    border: none;
+    margin-left: 5px;
+    outline: none;
+    font-family: "Roboto", sans-serif;
+}
+
+.account-controls {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.account-controls>a {
+    text-decoration: none;
+    color: #5293aa;
+    font-size: 12px;
+}
+
+.account-controls>button {
+    width: 65px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    border: none;
+    background: #046586;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 500ms ease;
+    box-shadow: 0 3px 10px -5px #73aabb;
+    &:hover {
+        transform: scale(1.1);
+    }
+}
+
+.line {
+    width: 100%;
+    height: 2px;
+    background-color: #bfc0c9;
+    border-radius: 10px;
+}
+
+.other-login-text {
+    text-align: center;
+    font-size: 12px;
+    color: #64656a;
+}
+
+.placeholder-banner {
+    width: 50%;
+    height: 100%;
+    position:absolute;
+    right:0;
+    transition: all 500ms ease;
+    z-index:4;
+}
+
+.social-logins {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.social-login {
+
+    height: 40px;
+    aspect-ratio: 1/1;
+    border: 2px solid #bfc0c9;
+    background-color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap:5px;
+    cursor: pointer;
+    transition:transform 500ms ease;
+    &:hover{
+        transform:scale(1.1);
+    }
+}
+.signup-text{
+    margin-top: 5px;
+    font-size: 12px;
+}
+#signup-form-toggler,#login-form-toggler{
+    cursor: pointer;
+    text-decoration: none;
+    color:#046586;
+  &:hover{
+    border-bottom:1px solid;
+  }
+}
+.banner {
+    width: 100%;
+    height: inherit;
+    object-fit: cover;
+    transition: transform 500ms ease;
+}
+    </style>
+  </head>
+  <body>
+    <div class="form-container">
+      <div class="login-container" id="login-container">
+          <h1 class="title">Log In</h1>
+          <p class="desc">Login to your account</p>
+          <div class="input-container">
+              <input type="email" placeholder="Enter Your User Name" autofocus = "on">
+          </div>
+          <div class="input-container">
+            <input type="text" placeholder="Enter Your Password" autofocus = "on">
+        </div>
+          <div class="account-controls">
+              <a href=""> </a>
+              <button>Next <i class="fas fa-solid fa-angle-right"></i></button>
+          </div>
+
+          <span class="line"></span>
+          <!-- <span class="other-login-text">Or log in with</span>
+          <div class="social-logins">
+              <button class="social-login"><i style="color:#1e7bf2" class="fas fa-brands fa-facebook-f"></i></button>
+              <button class="social-login"><i style="color:#ea4335" class="fas fa-brands fa-google"></i></button>
+          </div>
+          <span class="signup-text">Don't have an account yet? <a id = "signup-form-toggler">Sign up</a></span> -->
+      </div>
+      <div class="placeholder-banner"  id="banner">
+          <img src="https://img.freepik.com/free-photo/white-offroader-jeep-parking_114579-4007.jpg?t=st=1715866530~exp=1715870130~hmac=3456407e37b6af36aa8ad02a817227247a1818146e10ee4ec2c6b4a4b80c316e&w=900" alt="" class="banner">
+      </div>
+
+      <div class="signup-container" id="signup-container">
+          <h1 class="title">Signup</h1>
+          <p class="desc">Create your account to upload or download pictures,videos or music</p>
+          <div class="input-container">
+              <input type="email" placeholder="Enter Your Email Address">
+          </div>
+          <div class="input-container">
+              <input type="password" placeholder="Enter Your Password">
+          </div>
+          <div class="account-controls">
+      
+              <button>Next <i class="fas fa-solid fa-angle-right"></i></button>
+          </div>
+          
+          <span class="line"></span>
+          <span class="other-login-text">Or Signup with</span>
+          <div class="social-logins">
+              <button class="social-login"><i style="color:#1e7bf2" class="fas fa-brands fa-facebook-f"></i></button>
+              <button class="social-login"><i style="color:#ea4335" class="fas fa-brands fa-google"></i></button>
+          </div>
+          <span class="signup-text">Already have an account? <a id = "login-form-toggler">Login here</a></span>
+      </div>
+  </div>
+  </body>
+</html>

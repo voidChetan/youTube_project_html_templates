@@ -11,7 +11,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <script>
-        var categoryList = ['Laptop', 'IPad', 'Moniter', 'Camera', 'Headphone'];
+        var categoryList = ['Laptop', 'IPad', 'Moniter', 'Camera', 'Headphones'];
         var productList = [
             { productId: 1, rating: 3, isOffer: false, productName: 'HP Notebook', category: 'Laptop', price: 1099, discount: 12, availableQty: 3, imageUrl: 'https://mdbcdn.b-cdn.net/img/Photos/Horizontal/E-commerce/Products/4.webp' },
             { productId: 2, rating: 1, isOffer: false, productName: 'HP Envy', category: 'Laptop', price: 1250, discount: 20, availableQty: 0, imageUrl: 'https://mdbcdn.b-cdn.net/img/Photos/Horizontal/E-commerce/Products/5.webp' },
@@ -22,9 +22,9 @@
             { productId: 7, rating: 3, isOffer: true, productName: 'HP P-Series', category: 'Laptop', price: 34500, discount: 53, availableQty: 3, imageUrl: 'https://mdbcdn.b-cdn.net/img/Photos/Horizontal/E-commerce/Products/12.webp' },
             { productId: 8, rating: 2, isOffer: false, productName: 'Sony T-RT', category: 'Mobile', price: 23000, discount: 60, availableQty: 0, imageUrl: 'https://mdbcdn.b-cdn.net/img/Photos/Horizontal/E-commerce/Products/8.webp' },
             { productId: 9, rating: 5, isOffer: true, productName: 'Sony Camera', category: 'Camera', price: 43200, discount: 21, availableQty: 1, imageUrl: 'https://mdbcdn.b-cdn.net/img/Photos/Horizontal/E-commerce/Products/9.webp' },
-            { productId: 10, rating: 1, isOffer: false, productName: 'Boat Max-250', category: 'Headphone', price: 3000, discount: 32, availableQty: 2, imageUrl: 'https://mdbcdn.b-cdn.net/img/Photos/Horizontal/E-commerce/Products/10.webp' },
+            { productId: 10, rating: 1, isOffer: false, productName: 'Boat Max-250', category: 'Headphones', price: 3000, discount: 32, availableQty: 2, imageUrl: 'https://mdbcdn.b-cdn.net/img/Photos/Horizontal/E-commerce/Products/10.webp' },
             { productId: 11, rating: 2, isOffer: false, productName: 'Lenovo 32 Moniter', category: 'Moniter', price: 5700, discount: 24, availableQty: 4, imageUrl: 'https://mdbcdn.b-cdn.net/img/Photos/Horizontal/E-commerce/Products/14.webp' },
-            { productId: 12, rating: 4, isOffer: true, productName: 'JBL 500', category: 'Headphone', price: 3560, discount: 54, availableQty: 7, imageUrl: 'https://mdbcdn.b-cdn.net/img/Photos/Horizontal/E-commerce/Products/15.webp' },
+            { productId: 12, rating: 4, isOffer: true, productName: 'JBL 500', category: 'Headphones', price: 3560, discount: 54, availableQty: 7, imageUrl: 'https://mdbcdn.b-cdn.net/img/Photos/Horizontal/E-commerce/Products/15.webp' },
             { productId: 13, rating: 3, isOffer: false, productName: 'Samsung 012', category: 'Camera', price: 3200, discount: 62, availableQty: 2, imageUrl: 'https://mdbcdn.b-cdn.net/img/Photos/Horizontal/E-commerce/Products/16.webp' },
             { productId: 14, rating: 2, isOffer: false, productName: 'Dell Asp-343', category: 'Laptop', price: 67000, discount: 15, availableQty: 8, imageUrl: 'https://mdbcdn.b-cdn.net/img/Photos/Horizontal/E-commerce/Products/7.webp' }
         ]
@@ -47,8 +47,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <!-- Navbar brand -->
                 <a class="navbar-brand mt-2 mt-lg-0" href="#">
-                    <img src="https://mdbcdn.b-cdn.net/img/logo/mdb-transaprent-noshadows.webp" height="15"
-                        alt="MDB Logo" loading="lazy" />
+                    E-commerce App
                 </a>
                 <!-- Left links -->
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
@@ -73,7 +72,7 @@
                     <i class="fa fa-shopping-cart"></i>
                 </a>
                 <div class="dropdown-menu dropdown-menu-end show" style="position: absolute;
-                right: 0;top:60px" aria-labelledby="navbarDropdownMenuAvatar">
+                right: 13px;top:60px" aria-labelledby="navbarDropdownMenuAvatar">
                     <div class="row">
                         <div class="col-8">
                             <h6>Cart Items</h6>
@@ -150,6 +149,13 @@
     <div class="container-fluid" style="background-color: #eee;">
         <section style="background-color: #eee;">
             <div class="container py-5">
+                <div class="rounded-circle d-flex align-items-center justify-content-center">
+                    <button class="btn btn-outline-success mx-2"> Laptop</button>
+                    <button class="btn btn-outline-success mx-2"> Camera</button>
+                    <button class="btn btn-outline-success mx-2"> I-Pad</button>
+                    <button class="btn btn-outline-success mx-2"> Moniter</button>
+                    <button class="btn btn-outline-success mx-2"> Headphones</button>
+                </div>
                 <div class="row">
                     <div class="col-md-12 col-lg-3 pt-2 mb-4 mb-lg-0">
                         <div class="card">
@@ -185,8 +191,154 @@
                                         <i class="fa fa-star"></i>
                                         <i class="fa fa-star"></i>
                                     </div>
-                                    <button type="button" data-mdb-button-init data-mdb-ripple-init
-                                        class="btn btn-primary">Buy now</button>
+                                    <button type="button"  class="btn btn-outline-primary">Buy now</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12 col-lg-3 pt-2 mb-4 mb-lg-0">
+                        <div class="card">
+                           
+                            <div class="bg-danger rounded-circle d-flex align-items-center justify-content-center shadow-1-strong"
+                                style="width: 35px; height: 35px;position: absolute;left: 0;">
+                                <span class="fw-bold">0</span>
+                            </div>
+
+                          
+                            <img src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/E-commerce/Products/4.webp"
+                                class="card-img-top" alt="Laptop" />
+
+                            <div class="card-body pb-1">
+                                <div class="d-flex justify-content-between">
+                                    <p class="small"><a href="#!" class="text-muted">Laptops</a></p>
+                                    <p class="small text-danger"><s>$1099</s></p>
+                                </div>
+
+                                <div class="d-flex justify-content-between mb-3">
+                                    <h5 class="mb-0">HP Notebook</h5>
+                                    <h5 class="text-dark mb-0">$999</h5>
+                                </div>
+
+                                <div class="d-flex justify-content-between mb-0">
+                                    <div class="text-warning">
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                    </div>
+                                    <button type="button" class="btn btn-outline-secondary">Out Of Stock</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12 col-lg-3 pt-2 mb-4 mb-lg-0">
+                        <div class="card">
+                            <div class="bg-info rounded-circle d-flex align-items-center justify-content-center shadow-1-strong"
+                                style="width: 35px; height: 35px;position: absolute;right: 0;">
+                                <p class="text-white mb-0 small">Offer</p>
+                            </div>
+                            <div class="bg-info rounded-circle d-flex align-items-center justify-content-center shadow-1-strong"
+                                style="width: 35px; height: 35px;position: absolute;left: 0;">
+                                <span class="fw-bold">6</span>
+                            </div>
+
+                          
+                            <img src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/E-commerce/Products/4.webp"
+                                class="card-img-top" alt="Laptop" />
+
+                            <div class="card-body pb-1">
+                                <div class="d-flex justify-content-between">
+                                    <p class="small"><a href="#!" class="text-muted">Laptops</a></p>
+                                    <p class="small text-danger"><s>$1099</s></p>
+                                </div>
+
+                                <div class="d-flex justify-content-between mb-3">
+                                    <h5 class="mb-0">HP Notebook</h5>
+                                    <h5 class="text-dark mb-0">$999</h5>
+                                </div>
+
+                                <div class="d-flex justify-content-between mb-0">
+                                    <div class="text-warning">
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                    </div>
+                                    <button type="button"  class="btn btn-outline-primary">Buy now</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12 col-lg-3 pt-2 mb-4 mb-lg-0">
+                        <div class="card">
+                            
+                            <div class="bg-danger rounded-circle d-flex align-items-center justify-content-center shadow-1-strong"
+                                style="width: 35px; height: 35px;position: absolute;left: 0;">
+                                <span class="fw-bold">0</span>
+                            </div>
+
+                          
+                            <img src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/E-commerce/Products/4.webp"
+                                class="card-img-top" alt="Laptop" />
+
+                            <div class="card-body pb-1">
+                                <div class="d-flex justify-content-between">
+                                    <p class="small"><a href="#!" class="text-muted">Laptops</a></p>
+                                    <p class="small text-danger"><s>$1099</s></p>
+                                </div>
+
+                                <div class="d-flex justify-content-between mb-3">
+                                    <h5 class="mb-0">HP Notebook</h5>
+                                    <h5 class="text-dark mb-0">$999</h5>
+                                </div>
+
+                                <div class="d-flex justify-content-between mb-0">
+                                    <div class="text-warning">
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                    </div>
+                                    <button type="button" class="btn btn-outline-secondary">Out Of Stock</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12 col-lg-3 pt-2 mb-4 mb-lg-0">
+                        <div class="card">
+                            
+                            <div class="bg-info rounded-circle d-flex align-items-center justify-content-center shadow-1-strong"
+                                style="width: 35px; height: 35px;position: absolute;left: 0;">
+                                <span class="fw-bold">6</span>
+                            </div>
+
+                          
+                            <img src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/E-commerce/Products/4.webp"
+                                class="card-img-top" alt="Laptop" />
+
+                            <div class="card-body pb-1">
+                                <div class="d-flex justify-content-between">
+                                    <p class="small"><a href="#!" class="text-muted">Laptops</a></p>
+                                    <p class="small text-danger"><s>$1099</s></p>
+                                </div>
+
+                                <div class="d-flex justify-content-between mb-3">
+                                    <h5 class="mb-0">HP Notebook</h5>
+                                    <h5 class="text-dark mb-0">$999</h5>
+                                </div>
+
+                                <div class="d-flex justify-content-between mb-0">
+                                    <div class="text-warning">
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                    </div>
+                                    <button type="button"  class="btn btn-outline-primary">Buy now</button>
                                 </div>
                             </div>
                         </div>
@@ -231,355 +383,8 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6 col-lg-3 pt-2 mb-4 mb-md-0">
-                        <div class="card">
-
-                            <img src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/E-commerce/Products/7.webp"
-                                class="card-img-top" alt="Laptop" />
-                            <div class="card-body pb-1">
-                                <div class="d-flex justify-content-between">
-                                    <p class="small"><a href="#!" class="text-muted">Laptops</a></p>
-                                    <p class="small text-danger"><s>$1199</s></p>
-                                </div>
-
-                                <div class="d-flex justify-content-between mb-3">
-                                    <h5 class="mb-0">HP Envy</h5>
-                                    <h5 class="text-dark mb-0">$1099</h5>
-                                </div>
-
-                                <div class="d-flex justify-content-between mb-0">
-                                    <p class="text-muted mb-0">Available: <span class="fw-bold">7</span></p>
-                                    <div class="ms-auto text-warning">
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="far fa-star"></i>
-                                    </div>
-                                    <button type="button" data-mdb-button-init data-mdb-ripple-init
-                                        class="btn btn-primary">Buy now</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-3 pt-2 mb-4 mb-md-0">
-                        <div class="card">
-                            <img src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/E-commerce/Products/5.webp"
-                                class="card-img-top" alt="Gaming Laptop" />
-                            <div class="card-body pb-1">
-                                <div class="d-flex justify-content-between">
-                                    <p class="small"><a href="#!" class="text-muted">Laptops</a></p>
-                                    <p class="small text-danger"><s>$1399</s></p>
-                                </div>
-
-                                <div class="d-flex justify-content-between mb-3">
-                                    <h5 class="mb-0">Toshiba B77</h5>
-                                    <h5 class="text-dark mb-0">$1299</h5>
-                                </div>
-
-                                <div class="d-flex justify-content-between mb-0">
-                                    <p class="text-muted mb-0">Available: <span class="fw-bold">5</span></p>
-                                    <div class="ms-auto text-warning">
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star-half-alt"></i>
-                                    </div>
-                                    <button type="button" data-mdb-button-init data-mdb-ripple-init
-                                        class="btn btn-primary">Buy now</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-12 col-lg-3 pt-2 mb-4 mb-lg-0">
-                        <div class="card">
-                            <div class="bg-info rounded-circle d-flex align-items-center justify-content-center shadow-1-strong"
-                                style="width: 35px; height: 35px;position: absolute;right: 0;">
-                                <p class="text-white mb-0 small">Offer</p>
-                            </div>
-                            <img src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/E-commerce/Products/4.webp"
-                                class="card-img-top" alt="Laptop" />
-
-                            <div class="card-body pb-1">
-                                <div class="d-flex justify-content-between">
-                                    <p class="small"><a href="#!" class="text-muted">Laptops</a></p>
-                                    <p class="small text-danger"><s>$1099</s></p>
-                                </div>
-
-                                <div class="d-flex justify-content-between mb-3">
-                                    <h5 class="mb-0">HP Notebook</h5>
-                                    <h5 class="text-dark mb-0">$999</h5>
-                                </div>
-
-                                <div class="d-flex justify-content-between mb-0">
-                                    <p class="text-muted mb-0">Available: <span class="fw-bold">6</span></p>
-                                    <div class="ms-auto text-warning">
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                    </div>
-                                    <button type="button" data-mdb-button-init data-mdb-ripple-init
-                                        class="btn btn-primary">Buy now</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-3 pt-2 mb-4 mb-md-0">
-                        <div class="card">
-
-                            <img src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/E-commerce/Products/7.webp"
-                                class="card-img-top" alt="Laptop" />
-                            <div class="card-body pb-1">
-                                <div class="d-flex justify-content-between">
-                                    <p class="small"><a href="#!" class="text-muted">Laptops</a></p>
-                                    <p class="small text-danger"><s>$1199</s></p>
-                                </div>
-
-                                <div class="d-flex justify-content-between mb-3">
-                                    <h5 class="mb-0">HP Envy</h5>
-                                    <h5 class="text-dark mb-0">$1099</h5>
-                                </div>
-
-                                <div class="d-flex justify-content-between mb-0">
-                                    <p class="text-muted mb-0">Available: <span class="fw-bold">7</span></p>
-                                    <div class="ms-auto text-warning">
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="far fa-star"></i>
-                                    </div>
-                                    <button type="button" data-mdb-button-init data-mdb-ripple-init
-                                        class="btn btn-primary">Buy now</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-3 pt-2 mb-4 mb-md-0">
-                        <div class="card">
-                            <img src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/E-commerce/Products/5.webp"
-                                class="card-img-top" alt="Gaming Laptop" />
-                            <div class="card-body pb-1">
-                                <div class="d-flex justify-content-between">
-                                    <p class="small"><a href="#!" class="text-muted">Laptops</a></p>
-                                    <p class="small text-danger"><s>$1399</s></p>
-                                </div>
-
-                                <div class="d-flex justify-content-between mb-3">
-                                    <h5 class="mb-0">Toshiba B77</h5>
-                                    <h5 class="text-dark mb-0">$1299</h5>
-                                </div>
-
-                                <div class="d-flex justify-content-between mb-0">
-                                    <p class="text-muted mb-0">Available: <span class="fw-bold">5</span></p>
-                                    <div class="ms-auto text-warning">
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star-half-alt"></i>
-                                    </div>
-                                    <button type="button" data-mdb-button-init data-mdb-ripple-init
-                                        class="btn btn-primary">Buy now</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-12 col-lg-3 pt-2 mb-4 mb-lg-0">
-                        <div class="card">
-                            <div class="bg-info rounded-circle d-flex align-items-center justify-content-center shadow-1-strong"
-                                style="width: 35px; height: 35px;position: absolute;right: 0;">
-                                <p class="text-white mb-0 small">Offer</p>
-                            </div>
-                            <img src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/E-commerce/Products/4.webp"
-                                class="card-img-top" alt="Laptop" />
-
-                            <div class="card-body pb-1">
-                                <div class="d-flex justify-content-between">
-                                    <p class="small"><a href="#!" class="text-muted">Laptops</a></p>
-                                    <p class="small text-danger"><s>$1099</s></p>
-                                </div>
-
-                                <div class="d-flex justify-content-between mb-3">
-                                    <h5 class="mb-0">HP Notebook</h5>
-                                    <h5 class="text-dark mb-0">$999</h5>
-                                </div>
-
-                                <div class="d-flex justify-content-between mb-0">
-                                    <p class="text-muted mb-0">Available: <span class="fw-bold">6</span></p>
-                                    <div class="ms-auto text-warning">
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                    </div>
-                                    <button type="button" data-mdb-button-init data-mdb-ripple-init
-                                        class="btn btn-primary">Buy now</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-3 pt-2 mb-4 mb-md-0">
-                        <div class="card">
-
-                            <img src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/E-commerce/Products/7.webp"
-                                class="card-img-top" alt="Laptop" />
-                            <div class="card-body pb-1">
-                                <div class="d-flex justify-content-between">
-                                    <p class="small"><a href="#!" class="text-muted">Laptops</a></p>
-                                    <p class="small text-danger"><s>$1199</s></p>
-                                </div>
-
-                                <div class="d-flex justify-content-between mb-3">
-                                    <h5 class="mb-0">HP Envy</h5>
-                                    <h5 class="text-dark mb-0">$1099</h5>
-                                </div>
-
-                                <div class="d-flex justify-content-between mb-0">
-                                    <p class="text-muted mb-0">Available: <span class="fw-bold">7</span></p>
-                                    <div class="ms-auto text-warning">
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="far fa-star"></i>
-                                    </div>
-                                    <button type="button" data-mdb-button-init data-mdb-ripple-init
-                                        class="btn btn-primary">Buy now</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-3 pt-2 mb-4 mb-md-0">
-                        <div class="card">
-                            <img src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/E-commerce/Products/5.webp"
-                                class="card-img-top" alt="Gaming Laptop" />
-                            <div class="card-body pb-1">
-                                <div class="d-flex justify-content-between">
-                                    <p class="small"><a href="#!" class="text-muted">Laptops</a></p>
-                                    <p class="small text-danger"><s>$1399</s></p>
-                                </div>
-
-                                <div class="d-flex justify-content-between mb-3">
-                                    <h5 class="mb-0">Toshiba B77</h5>
-                                    <h5 class="text-dark mb-0">$1299</h5>
-                                </div>
-
-                                <div class="d-flex justify-content-between mb-0">
-                                    <p class="text-muted mb-0">Available: <span class="fw-bold">5</span></p>
-                                    <div class="ms-auto text-warning">
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star-half-alt"></i>
-                                    </div>
-                                    <button type="button" data-mdb-button-init data-mdb-ripple-init
-                                        class="btn btn-primary">Buy now</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-12 col-lg-3 pt-2 mb-4 mb-lg-0">
-                        <div class="card">
-                            <div class="bg-info rounded-circle d-flex align-items-center justify-content-center shadow-1-strong"
-                                style="width: 35px; height: 35px;position: absolute;right: 0;">
-                                <p class="text-white mb-0 small">Offer</p>
-                            </div>
-                            <img src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/E-commerce/Products/4.webp"
-                                class="card-img-top" alt="Laptop" />
-
-                            <div class="card-body pb-1">
-                                <div class="d-flex justify-content-between">
-                                    <p class="small"><a href="#!" class="text-muted">Laptops</a></p>
-                                    <p class="small text-danger"><s>$1099</s></p>
-                                </div>
-
-                                <div class="d-flex justify-content-between mb-3">
-                                    <h5 class="mb-0">HP Notebook</h5>
-                                    <h5 class="text-dark mb-0">$999</h5>
-                                </div>
-
-                                <div class="d-flex justify-content-between mb-0">
-                                    <p class="text-muted mb-0">Available: <span class="fw-bold">6</span></p>
-                                    <div class="ms-auto text-warning">
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                    </div>
-                                    <button type="button" data-mdb-button-init data-mdb-ripple-init
-                                        class="btn btn-primary">Buy now</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-3 pt-2 mb-4 mb-md-0">
-                        <div class="card">
-
-                            <img src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/E-commerce/Products/7.webp"
-                                class="card-img-top" alt="Laptop" />
-                            <div class="card-body pb-1">
-                                <div class="d-flex justify-content-between">
-                                    <p class="small"><a href="#!" class="text-muted">Laptops</a></p>
-                                    <p class="small text-danger"><s>$1199</s></p>
-                                </div>
-
-                                <div class="d-flex justify-content-between mb-3">
-                                    <h5 class="mb-0">HP Envy</h5>
-                                    <h5 class="text-dark mb-0">$1099</h5>
-                                </div>
-
-                                <div class="d-flex justify-content-between mb-0">
-                                    <p class="text-muted mb-0">Available: <span class="fw-bold">7</span></p>
-                                    <div class="ms-auto text-warning">
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="far fa-star"></i>
-                                    </div>
-                                    <button type="button" data-mdb-button-init data-mdb-ripple-init
-                                        class="btn btn-primary">Buy now</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-3 pt-2 mb-4 mb-md-0">
-                        <div class="card">
-                            <img src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/E-commerce/Products/5.webp"
-                                class="card-img-top" alt="Gaming Laptop" />
-                            <div class="card-body pb-1">
-                                <div class="d-flex justify-content-between">
-                                    <p class="small"><a href="#!" class="text-muted">Laptops</a></p>
-                                    <p class="small text-danger"><s>$1399</s></p>
-                                </div>
-
-                                <div class="d-flex justify-content-between mb-3">
-                                    <h5 class="mb-0">Toshiba B77</h5>
-                                    <h5 class="text-dark mb-0">$1299</h5>
-                                </div>
-
-                                <div class="d-flex justify-content-between mb-0">
-                                    <p class="text-muted mb-0">Available: <span class="fw-bold">5</span></p>
-                                    <div class="ms-auto text-warning">
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star-half-alt"></i>
-                                    </div>
-                                    <button type="button" data-mdb-button-init data-mdb-ripple-init
-                                        class="btn btn-primary">Buy now</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                     
+                    
                 </div>
             </div>
         </section>
