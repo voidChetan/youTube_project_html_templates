@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro");
+@import url("https://fonts.googleapis.com/css?family=Varela+Round");
+
+@font-face {
+  font-family: 'Telefon Black';
+  src: url('https://raw.githubusercontent.com/arnabmunshi/fontface/master/TelefonBlack/Telefon-Black.woff2') format('woff2'), url('https://raw.githubusercontent.com/arnabmunshi/fontface/master/TelefonBlack/Telefon-Black.woff') format('woff');
+  font-weight: 900;
+  font-style: normal;
+}
+
+.page-event {
+  background-color: #212121;
+  padding-bottom: 40px;
+  font-family: "Varela Round", sans-serif;
+}
+
+.page-event .cover {
+  background-color: rgb(54, 53, 58);
+  height: 360px;
+  background-image: url('https://goo.gl/NA3iQP');
+  background-position: center center;
+  background-size: cover;
+}
+
+.page-event .cover .heading {
+  font-family: 'Telefon Black';
+  font-size: 243px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-align: center;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: #ccc;
+  transition: font-size 0.3s;
+}
+
+.page-event .cover .heading::first-letter {
+  color: #db2d8e;
+}
+
+.page-event .upcoming-sec {
+  padding: 5vh 0;
+  border-bottom: 1px solid #ccc;
+}
+
+.page-event .upcoming-sec .heading {
+  font-size: 30px;
+  color: #fff;
+}
+
+.page-event .upcoming-event-list {
+  color: #ccc;
+}
+
+.page-event .upcoming-event-list .event-block {
+  padding: 5vh 0;
+  border-bottom: 1px solid #ccc;
+}
+
+.page-event .upcoming-event-list .event-block .sec-1,
+.page-event .upcoming-event-list .event-block .sec-2 {
+  padding-bottom: 3vh;
+}
+
+.page-event .upcoming-event-list .event-block .sec-1 table .month {
+  text-transform: uppercase;
+  color: #db2d8e;
+  font-size: 30px;
+}
+
+.page-event .upcoming-event-list .event-block .sec-1 table .month-date-devider {
+  width: 5vh;
+  margin: 1vh 0;
+  background-color: #3cbfaf;
+  height: 5px;
+}
+
+.page-event .upcoming-event-list .event-block .sec-1 table .date {
+  font-size: 60px;
+  font-weight: bolder;
+  line-height: normal;
+}
+
+.page-event .upcoming-event-list .event-block .sec-1 table .title {
+  padding-left: 20px;
+  vertical-align: top;
+  font-size: 30px;
+}
+
+.page-event .upcoming-event-list .event-block .sec-2 img {
+  width: 100%;
+}
+
+.page-event .upcoming-event-list .event-block .sec-3 .title {
+  font-size: 30px;
+  padding-bottom: 2vh;
+}
+
+.page-event .upcoming-event-list .event-block .sec-3 .venue table td {
+  vertical-align: top;
+}
+
+.page-event .upcoming-event-list .event-block .sec-3 .venue table td i {
+  color: #db2d8e;
+  padding-left: 3px;
+  padding-right: 10px;
+}
+
+.page-event .upcoming-event-list .event-block .sec-3 .venue table td .dim-color a {
+  color: rgba(204, 204, 204, 0.30);
+}
+
+.page-event .upcoming-event-list .event-block .sec-3 .time {
+  padding-bottom: 3vh;
+}
+
+.page-event .upcoming-event-list .event-block .sec-3 .time table td {
+  vertical-align: top;
+}
+
+.page-event .upcoming-event-list .event-block .sec-3 .time table td i {
+  color: #db2d8e;
+  padding-right: 10px;
+}
+
+.page-event .upcoming-event-list .event-block .sec-3 .time table td .dim-color {
+  color: rgba(204, 204, 204, 0.30);
+}
+
+.page-event .upcoming-event-list .event-block .sec-3 .sort-story {
+  display: -webkit-box;
+  overflow: hidden;
+}
+
+.page-event .upcoming-event-list .event-block .sec-3 .group-of-btn {
+  padding-top: 3vh;
+}
+
+.page-event .upcoming-event-list .event-block .sec-3 .group-of-btn .book-ticket {
+  background-color: #3cbfaf;
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+.page-event .page-heading {
+  text-transform: uppercase;
+  color: #fff;
+  padding-bottom: 17px;
+  word-break: break-all;
+  padding: 10px;
+}
+
+.page-event .page-heading::first-letter {
+  color: #db2d8e;
+}
+
+@media (min-width: 992px) {
+  .page-event .upcoming-event-list .event-block .sec-1 table .title {
+    display: none;
+  }
+}
+
+@media (max-width: 991px) {
+  .page-event .cover .heading {
+    font-size: 180px;
+    padding-top: 7vh;
+  }
+  
+  .page-event .upcoming-event-list .event-block .sec-3 .title {
+    display: none;
+  }
+}
+
+@media (max-width: 767px) {
+  .page-event .cover .heading {
+    font-size: 140px;
+    padding-top: 11vh;
+  }
+}
+
+@media (max-width: 575px) {
+  .page-event .cover {
+    height: 214px;
+  }
+  
+  .page-event .cover .heading {
+    font-size: 70px;
+  }
+  
+  .page-event .upcoming-event-list .event-block .sec-1 table .month {
+    font-size: 14px;
+  }
+  
+  .page-event .upcoming-event-list .event-block .sec-1 table .date {
+    font-size: 36px;
+  }
+  
+  .page-event .upcoming-event-list .event-block .sec-1 table .title {
+    padding-left: 20px;
+    font-size: 20px;
+    vertical-align: top;
+  }
+}
+
+    </style>
+</head>
+
+<body>
+    <div class="page-event">
+        <div class="cover">
+            <div class="heading">events</div>
+        </div>
+        <div class="container">
+            <div class="upcoming-sec">
+                <div class="heading">Upcoming Events</div>
+            </div>
+            <div class="upcoming-event-list">
+                <div class="event-block">
+                    <div class="row">
+                        <div class="col-lg-2 sec-1">
+                            <table>
+                                <tr>
+                                    <td>
+                                        <div class="month">jan</div>
+                                        <div class="month-date-devider"></div>
+                                        <div class="date">27</div>
+                                    </td>
+                                    <td class="title">DASTAAN - a tribute to Rekha</td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="col-lg-5 sec-2">
+                            <img
+                                src="https://images.unsplash.com/photo-1475721027785-f74eccf877e2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fGV2ZW50fGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60" />
+                        </div>
+                        <div class="col-lg-5 sec-3">
+                            <div class="title">DASTAAN - a tribute to Rekha</div>
+                            <div class="venue">
+                                <table>
+                                    <tr>
+                                        <td><i class="fa fa-map-marker"></i></td>
+                                        <td>
+                                            <div>Gyan Manch</div>
+                                            <div class="dim-color">
+                                                <a href="https://www.google.co.in" target="blank">Get Directions</a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="time">
+                                <table>
+                                    <tr>
+                                        <td><i class="fa fa-clock-o"></i></td>
+                                        <td>
+                                            <div>Saturday, Jan 27, 2018 at 5:30 PM</div>
+                                            <div data-livestamp="1517054400" class="dim-color"></div>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="sort-story">"For a woman to be complete, she has to be a blend of Paro &
+                                Chandramukhi. I feel that I am that woman." - Rekha</div>
+                            <div class="group-of-btn">
+                                <a href="https://www.google.com" target="blank" class="btn book-ticket">Book Your Entry
+                                    Pass</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
