@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loan Application Form</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        #loanDetails .loan-group {
+            margin-bottom: 1.5rem;
+        }
+
+        #loanDetails .btn {
+            margin-top: 1rem;
+        }
+
+        .form-control {
+            border: 1px solid #22315f !important;
+        }
+        .card {
+            border-radius: 10px !important;
+        }
+        label { 
+    margin-bottom: 0 !important;
+}
+    </style>
+</head>
+
+<body style="background-color: #ececec;">
+    <div class="container-fluid mt-3">
+        <h1 class="text-center mb-2">Loan Application Form</h1>
+        <div class="row">
+            <div class="col-8">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label for="fullName" class="form-label">Full Name:</label>
+                                <input type="text" class="form-control" id="fullName" name="fullName" required>
+                            </div>
+
+                        </div>
+
+                        <div class="row mb-3">
+                            <div class="col-md-4">
+                                <label for="dob" class="form-label">Date of Birth:</label>
+                                <input type="date" class="form-control" id="dob" name="dob" required>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="email" class="form-label">Email:</label>
+                                <input type="email" class="form-control" id="email" name="email" required>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="phone" class="form-label">Phone Number:</label>
+                                <input type="tel" class="form-control" id="phone" name="phone" required>
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <div class="col-md-12">
+                                <label for="address" class="form-label">Address:</label>
+                                <textarea class="form-control"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <div class="col-md-4">
+                                <label for="city" class="form-label">City:</label>
+                                <input type="text" class="form-control" id="city" name="city" required>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="state" class="form-label">State:</label>
+                                <input type="text" class="form-control" id="state" name="state" required>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="zipCode" class="form-label">Zip Code:</label>
+                                <input type="text" class="form-control" id="zipCode" name="zipCode" required>
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+
+                            <div class="col-md-4">
+                                <label for="income" class="form-label">Annual Income:</label>
+                                <input type="number" class="form-control" id="income" name="income" min="10000"
+                                    required>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="employmentStatus" class="form-label">Employment Status:</label>
+                                <select id="employmentStatus" name="employmentStatus" class="form-control" required>
+                                    <option value="employed">Employed</option>
+                                    <option value="self-employed">Self-Employed</option>
+                                    <option value="unemployed">Unemployed</option>
+                                    <option value="retired">Retired</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="creditScore" class="form-label">Credit Score:</label>
+                                <input type="number" class="form-control" id="creditScore" name="creditScore" min="300"
+                                    max="850" required>
+                            </div>
+                        </div>
+
+                        <div class="mb-3 mt-4">
+                            <label for="assets" class="form-label">Assets:</label>
+                            <textarea class="form-control"
+                                placeholder="Describe your assets (e.g., property, vehicle, etc.)"></textarea>
+
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="col-4">
+                <div class="card">
+                    <div class="card-body">
+                        <div id="loanDetails">
+                            <h4 class="mb-3">Current Loans</h4>
+                            <div class="loan-group">
+                                <div class="row mb-3">
+                                    <div class="col-md-4">
+                                        <label for="bankName" class="form-label">Bank Name:</label>
+                                        <input type="text" class="form-control" id="bankName" name="bankName[]"
+                                            required>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label for="loanAmount" class="form-label">Loan Amount:</label>
+                                        <input type="number" class="form-control" id="loanAmount" name="loanAmount[]"
+                                            min="0" required>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label for="emi" class="form-label">EMI:</label>
+                                        <input type="number" class="form-control" id="emi" name="emi[]" min="0"
+                                            required>
+                                    </div>
+                                </div>
+                            </div>
+                            <button type="button" class="btn btn-secondary" id="addLoan">Add Another Loan</button>
+                            <div class="row">
+                                <div class="col-12">
+                                    <table class="table table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th>Sr No</th>
+                                                <th>Bank</th>
+                                                <th>Loan Amount</th>
+                                                <th>EMI</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td class="text-center" colspan="4">No Loans Added yet</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 text-center pt-2">
+                <button type="button" class="btn btn-primary btn-lg">Submit Application</button>
+            </div>
+        </div>
+
+
+
+
+
+
+        
+
+
+        <div id="result" class="mt-4"></div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="scripts.js"></script>
+</body>
+
+</html>

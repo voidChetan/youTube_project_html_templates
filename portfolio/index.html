@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio Website</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      color: #333333;
+    }
+    .jumbotron {
+      background: #3498db;
+      color: white;
+    }
+    .navbar {
+      background: #2ecc71;
+    }
+    .navbar-brand, .nav-link {
+      color: white !important;
+    }
+    .nav-link:hover {
+      color: #e74c3c !important;
+    }
+    .portfolio-item .card {
+      border: none;
+    }
+    .portfolio-item .card-title {
+      color: #3498db;
+    }
+    .portfolio-item .card-text {
+      color: #333333;
+    }
+    .btn-primary {
+      background-color: #3498db;
+      border-color: #3498db;
+    }
+    .btn-primary:hover {
+      background-color: #2980b9;
+      border-color: #2980b9;
+    }
+    .footer {
+      margin-top:20px ;
+      background: #2c3e50;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+    .progress-bar {
+      background-color: #3498db;
+    }
+    .about-img {
+      position: relative;
+      overflow: hidden;
+      border-radius: 50%;
+      width: 200px;
+      height: 200px;
+      margin: 0 auto 20px;
+    }
+    .about-img img {
+      width: 100%;
+      height: 100%;
+      transition: transform 0.3s ease;
+    }
+    .about-img:hover img {
+      transform: scale(1.1);
+    }
+    .social-icons a {
+      color: white;
+      margin: 0 10px;
+      font-size: 24px;
+      transition: color 0.3s ease;
+    }
+    .social-icons a:hover {
+      color: #e74c3c;
+    }
+    .glass-card {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 15px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg">
+    <a class="navbar-brand" href="#">My Portfolio</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="#about">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#skills">Skills</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#portfolio">Portfolio</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#contact">Contact</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Jumbotron -->
+  <div class="jumbotron text-center animate__animated animate__fadeIn">
+    <h1 class="display-4">Hello, I'm [Your Name]</h1>
+    <p class="lead">I am a web developer specializing in front-end development.</p>
+    <a class="btn btn-primary btn-lg" href="#portfolio" role="button">View My Work</a>
+  </div>
+
+  <!-- About Section -->
+  <div id="about" class="container text-center mt-3">
+    <h2 class="animate__animated animate__fadeInUp">About Me</h2>
+    <div class="row">
+        <div class="col-4">
+            <div class="about-img animate__animated animate__fadeInUp animate__delay-1s">
+                <img src="https://via.placeholder.com/200" alt="Your Photo">
+              </div>
+        </div>
+        <div class="col-8">
+            <p class="animate__animated animate__fadeInUp animate__delay-1s">I am passionate about creating beautiful and functional websites. With experience in various web technologies, I strive to deliver the best user experience possible.</p>
+        </div>
+    </div> 
+  </div>
+  <div id="skills" class="container text-center mt-3">
+  
+    <div class="row">
+      <div class="col-6">
+        <h2 class="section-title">Wrok Experience</h2>
+        <div class="row">
+          <div class="col-md-12 pt-2">
+            <div class="card glass-card">
+              <div class="card-body">
+                <h5 class="card-title">HTML/CSS</h5>
+                <p class="card-text">90%</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-12 pt-2">
+            <div class="card glass-card">
+              <div class="card-body">
+                <h5 class="card-title">JavaScript</h5>
+                <p class="card-text">80%</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-12 pt-2">
+            <div class="card glass-card">
+              <div class="card-body">
+                <h5 class="card-title">React</h5>
+                <p class="card-text">70%</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-6">
+        <h2 class="section-title">Education</h2>
+        <div class="row">
+          <div class="col-md-12 pt-2">
+            <div class="card glass-card">
+              <div class="card-body">
+                <h5 class="card-title">HTML/CSS</h5>
+                <p class="card-text">90%</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-12 pt-2">
+            <div class="card glass-card">
+              <div class="card-body">
+                <h5 class="card-title">JavaScript</h5>
+                <p class="card-text">80%</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-12 pt-2">
+            <div class="card glass-card">
+              <div class="card-body">
+                <h5 class="card-title">React</h5>
+                <p class="card-text">70%</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+  <!-- Skills Section -->
+  <div id="skills" class="container text-center mt-3">
+    <h2 class="animate__animated animate__fadeInUp">Skills</h2>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="progress animate__animated animate__fadeInUp animate__delay-1s">
+          <div class="progress-bar" role="progressbar" style="width: 90%;" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100">HTML/CSS - 90%</div>
+        </div>
+        <div class="progress animate__animated animate__fadeInUp animate__delay-2s mt-3">
+          <div class="progress-bar" role="progressbar" style="width: 80%;" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100">JavaScript - 80%</div>
+        </div>
+        <div class="progress animate__animated animate__fadeInUp animate__delay-3s mt-3">
+          <div class="progress-bar" role="progressbar" style="width: 70%;" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100">Angular - 70%</div>
+        </div>
+        <div class="progress animate__animated animate__fadeInUp animate__delay-4s mt-3">
+          <div class="progress-bar" role="progressbar" style="width: 60%;" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100">Bootstrap - 60%</div>
+        </div>
+        <div class="progress animate__animated animate__fadeInUp animate__delay-5s mt-3">
+          <div class="progress-bar" role="progressbar" style="width: 50%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">Node.js - 50%</div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="progress animate__animated animate__fadeInUp animate__delay-1s">
+          <div class="progress-bar" role="progressbar" style="width: 90%;" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100">HTML/CSS - 90%</div>
+        </div>
+        <div class="progress animate__animated animate__fadeInUp animate__delay-2s mt-3">
+          <div class="progress-bar" role="progressbar" style="width: 80%;" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100">JavaScript - 80%</div>
+        </div>
+        <div class="progress animate__animated animate__fadeInUp animate__delay-3s mt-3">
+          <div class="progress-bar" role="progressbar" style="width: 70%;" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100">Angular - 70%</div>
+        </div>
+        <div class="progress animate__animated animate__fadeInUp animate__delay-4s mt-3">
+          <div class="progress-bar" role="progressbar" style="width: 60%;" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100">Bootstrap - 60%</div>
+        </div>
+        <div class="progress animate__animated animate__fadeInUp animate__delay-5s mt-3">
+          <div class="progress-bar" role="progressbar" style="width: 50%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">Node.js - 50%</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Portfolio Section -->
+  <div id="portfolio" class="container mt-3">
+    <h2 class="text-center animate__animated animate__fadeInUp">Portfolio</h2>
+    <div class="row">
+      <div class="col-md-4 portfolio-item animate__animated animate__zoomIn">
+        <div class="card">
+          <img src="https://via.placeholder.com/350x200" class="card-img-top" alt="Project 1">
+          <div class="card-body">
+            <h5 class="card-title">Project 1</h5>
+            <p class="card-text">Description of Project 1.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 portfolio-item animate__animated animate__zoomIn animate__delay-1s">
+        <div class="card">
+          <img src="https://via.placeholder.com/350x200" class="card-img-top" alt="Project 2">
+          <div class="card-body">
+            <h5 class="card-title">Project 2</h5>
+            <p class="card-text">Description of Project 2.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 portfolio-item animate__animated animate__zoomIn animate__delay-2s">
+        <div class="card">
+          <img src="https://via.placeholder.com/350x200" class="card-img-top" alt="Project 3">
+          <div class="card-body">
+            <h5 class="card-title">Project 3</h5>
+            <p class="card-text">Description of Project 3.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Contact Section -->
+  <div id="contact" class="container text-center mt-3">
+    <h2 class="animate__animated animate__fadeInUp">Contact Me</h2>
+    <p class="animate__animated animate__fadeInUp animate__delay-1s">Feel free to reach out to me for any project inquiries or collaborations.</p>
+    <form class="animate__animated animate__fadeInUp animate__delay-2s">
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="Name" required>
+      </div>
+      <div class="form-group">
+        <input type="email" class="form-control" placeholder="Email" required>
+      </div>
+      <div class="form-group">
+        <textarea class="form-control" rows="5" placeholder="Message" required></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary">Send Message</button>
+    </form>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <p>&copy; 2024 [Your Name]. All rights reserved.</p>
+    <div class="social-icons">
+      <a href="https://facebook.com" target="_blank"><i class="fa fa-facebook"></i></a>
+      <a href="https://twitter.com" target="_blank"><i class="fa fa-twitter"></i></a>
+      <a href="https://linkedin.com" target="_blank"><i class="fa fa-linkedin"></i></a>
+      <a href="https://github.com" target="_blank"><i class="fa fa-github"></i></a>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+</body>
+</html>

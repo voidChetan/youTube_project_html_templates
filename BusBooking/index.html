@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bus Booking System</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .search-form {
+          background-color: #F05A58; /* Background color similar to the image */
+          padding: 20px;
+          border-radius: 40px;
+        }
+        .search-form .form-control {
+          border-radius: 20px;
+        }
+        .search-form button {
+          border-radius: 20px;
+        }
+        .search-form .input-group-text {
+          background-color: transparent;
+          border: none;
+        }
+
+        .bus-layout {
+      background-color: #f8f9fa;
+      padding: 20px;
+      border-radius: 10px;
+      width: 400px;
+      margin: auto;
+    }
+    .seat {
+      width: 30px;
+      height: 30px;
+      margin: 5px;
+      border: 2px solid #ddd;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .seat.available {
+      background-color: #fff;
+    }
+    .seat.selected {
+      background-color: #F05A58;
+    }
+    .seat.reserved {
+      background-color: #A9A9A9;
+      cursor: not-allowed;
+    }
+    .driver {
+      width: 30px;
+      height: 30px;
+      margin-right: 10px;
+    }
+      </style>
+</head>
+<body>
+    <div class="container">
+        <header class="my-4">
+            <h1 class="text-center">Bus Booking System</h1>
+        </header>
+
+        <!-- Search Form -->
+        <section>
+            <div class="container mt-5 d-flex justify-content-center">
+                <form class="search-form d-flex align-items-center shadow-lg">
+                  <div class="row w-100 text-white">
+                    <div class="col-md-3 d-flex align-items-center">
+                      <div class="input-group">
+                        <span class="input-group-text"><i class="bi bi-bus-front"></i></span>
+                        <input type="text" class="form-control" placeholder="From" value="Nagpur">
+                      </div>
+                    </div>
+                    <div class="col-md-1 text-center d-flex align-items-center justify-content-center">
+                      <i class="bi bi-arrow-left-right fs-3"></i>
+                    </div>
+                    <div class="col-md-3 d-flex align-items-center">
+                      <div class="input-group">
+                        <span class="input-group-text"><i class="bi bi-bus-front"></i></span>
+                        <input type="text" class="form-control" placeholder="To" value="Pune">
+                      </div>
+                    </div>
+                    <div class="col-md-3 d-flex align-items-center">
+                      <div class="input-group">
+                        <span class="input-group-text"><i class="bi bi-calendar"></i></span>
+                        <input type="text" class="form-control" placeholder="Date" value="17 Aug 2024">
+                      </div>
+                    </div>
+                    <div class="col-md-2 text-center">
+                      <button type="submit" class="btn btn-light text-danger w-100">SEARCH BUSES</button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+        </section>
+
+        <!-- Buses List -->
+        <section id="buses-list" class="my-4">
+            <h2>Available Buses</h2>
+            <div class="row">
+                <div class="col-12">
+                    <div class="card mb-3">
+                        <div class="row g-0">
+                          <div class="col-md-3 d-flex flex-column justify-content-center align-items-center">
+                            <h5 class="card-title">IntrCity SmartBus</h5>
+                            <p class="card-text">A/C Sleeper (2+1)</p>
+                          </div>
+                          <div class="col-md-9">
+                            <div class="card-body row">
+                              <div class="col-md-2">
+                                <p class="card-text"><strong>19:00</strong></p>
+                                <p class="card-text">Departure</p>
+                              </div>
+                              <div class="col-md-2">
+                                <p class="card-text"><strong>13h 55m</strong></p>
+                                <p class="card-text">Duration</p>
+                              </div>
+                              <div class="col-md-2">
+                                <p class="card-text"><strong>08:55</strong></p>
+                                <p class="card-text">Arrival</p>
+                                <p class="text-danger">18-Aug</p>
+                              </div>
+                              <div class="col-md-2">
+                                <p class="card-text"><strong>4.5</strong> ⭐</p>
+                                <p class="card-text">567 Ratings</p>
+                              </div>
+                              <div class="col-md-2">
+                                <p class="card-text"><strong>INR 935</strong></p>
+                                <p class="card-text">8 Seats available</p>
+                              </div>
+                              <div class="col-md-2 text-end">
+                                <button class="btn btn-danger">VIEW SEATS</button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Booking Form -->
+        <section id="booking-form" class="my-4"  >
+            <div class="container mt-5">
+                <div class="row">
+                    
+                    <div class="col-4">
+                        <div class="row">
+                            <div class="col-12 text-end">
+                                <img src="https://cdn-icons-png.flaticon.com/512/2907/2907720.png" alt="Driver Icon" class="driver">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-3">
+                                <div class="seat reserved"></div>
+                            </div>
+                            <div class="col-3">
+                                <div class="seat reserved"></div>
+                            </div>
+                            <div class="col-3">
+                                <div class="seat reserved"></div>
+                            </div>
+                            <div class="col-3">
+                                <div class="seat reserved"></div>
+                            </div>
+                            <div class="col-3">
+                                <div class="seat reserved"></div>
+                            </div>
+                            <div class="col-3">
+                                <div class="seat reserved"></div>
+                            </div>
+                            <div class="col-3">
+                                <div class="seat reserved"></div>
+                            </div>
+                            <div class="col-3">
+                                <div class="seat reserved"></div>
+                            </div>
+                            <div class="col-3">
+                                <div class="seat reserved"></div>
+                            </div>
+                            <div class="col-3">
+                                <div class="seat reserved"></div>
+                            </div>
+                            <div class="col-3">
+                                <div class="seat reserved"></div>
+                            </div>
+                            <div class="col-3">
+                                <div class="seat reserved"></div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    <div class="col-8">
+                        
+                    </div>
+                </div> 
+              </div> 
+        </section>
+
+        <!-- Booking Confirmation -->
+        <section id="confirmation" class="my-4" style="display: none;">
+            <h2>Booking Confirmation</h2>
+            <p id="confirmation-message"></p>
+        </section>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Property Booking Application</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="container mt-5">
+    <h2 class="mb-4">Customer Management</h2>
+
+    <!-- Add Customer Form -->
+    <div class="card mb-4">
+        <div class="card-header">Add Customer</div>
+        <div class="card-body">
+            <form id="customerForm">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" class="form-control" id="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="mobile">Mobile</label>
+                    <input type="text" class="form-control" id="mobile" required>
+                </div>
+                <div class="form-group">
+                    <label for="emailid">Email</label>
+                    <input type="email" class="form-control" id="emailid" required>
+                </div>
+                <div class="form-group">
+                    <label for="address">Address</label>
+                    <input type="text" class="form-control" id="address" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Add Customer</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Customer List -->
+    <div id="customerList" class="row">
+        <!-- Dynamic content will be injected here -->
+    </div>
+</div>
+
+<script>
+    // Customer data array
+    let customers = [];
+
+    // Form submission event
+    document.getElementById('customerForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+        addCustomer();
+    });
+
+    // Add customer function
+    function addCustomer() {
+        const name = document.getElementById('name').value;
+        const mobile = document.getElementById('mobile').value;
+        const emailid = document.getElementById('emailid').value;
+        const address = document.getElementById('address').value;
+
+        const customer = {
+            custId: customers.length + 1,
+            name,
+            mobile,
+            emailid,
+            address
+        };
+
+        customers.push(customer);
+        renderCustomers();
+        document.getElementById('customerForm').reset();
+    }
+
+    // Render customer cards
+    function renderCustomers() {
+        const customerList = document.getElementById('customerList');
+        customerList.innerHTML = '';
+
+        customers.forEach((customer) => {
+            const card = document.createElement('div');
+            card.className = 'col-md-4 mb-4';
+            card.innerHTML = `
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">${customer.name}</h5>
+                        <p class="card-text">Mobile: ${customer.mobile}</p>
+                        <p class="card-text">Email: ${customer.emailid}</p>
+                        <p class="card-text">Address: ${customer.address}</p>
+                        <button class="btn btn-primary" onclick="editCustomer(${customer.custId})">Edit</button>
+                        <button class="btn btn-danger" onclick="deleteCustomer(${customer.custId})">Delete</button>
+                    </div>
+                </div>
+            `;
+            customerList.appendChild(card);
+        });
+    }
+
+    // Edit customer function
+    function editCustomer(id) {
+        const customer = customers.find(cust => cust.custId === id);
+        document.getElementById('name').value = customer.name;
+        document.getElementById('mobile').value = customer.mobile;
+        document.getElementById('emailid').value = customer.emailid;
+        document.getElementById('address').value = customer.address;
+
+        deleteCustomer(id);
+    }
+
+    // Delete customer function
+    function deleteCustomer(id) {
+        customers = customers.filter(cust => cust.custId !== id);
+        renderCustomers();
+    }
+</script>
+
+</body>
+</html>
