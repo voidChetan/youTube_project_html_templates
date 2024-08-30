@@ -14,9 +14,11 @@
             margin: 0;
             padding: 0;
         }
+
         .form-control {
             border: 1px solid #1a5591 !important;
         }
+
         .form-select {
             border: 1px solid #1a5591 !important;
         }
@@ -24,14 +26,12 @@
         /* Banner style */
         .banner {
             width: 100%;
-            height: 150px;
-            background: url('https://via.placeholder.com/1200x150') no-repeat center center;
             background-size: cover;
-            margin-bottom: 20px;
+            margin-bottom: 30px;
         }
 
         /* Container for the form */
-        .form-container { 
+        .form-container {
             margin: 0 auto;
             padding: 20px;
             background-color: #ffffff;
@@ -42,24 +42,30 @@
         h2 {
             text-align: center;
         }
+        label {
+    display: inline-block;
+    margin-bottom: .1rem !important;
+}
     </style>
 </head>
 
 <body>
     <!-- Banner Image at the Top -->
-    <div class="banner"></div>
+    <div class="banner">
+        <img src="./projects era.png" style="width: 100%;" alt="">
+    </div>
 
     <div class="container-fluid">
         <div class="row">
             <div class="col-8 text-center">
-                <h2>College Project Submission Form</h2> 
+                <h2>College Project Submission Form</h2>
             </div>
-            <div class="col-4 text-end"> 
+            <div class="col-4 text-end">
                 <button type="button" class="btn btn-secondary">Reset</button>
                 <button type="submit" class="btn btn-primary">Submit</button>
             </div>
         </div>
-       
+
         <div class="row">
             <div class="col-8">
                 <div class="card">
@@ -68,7 +74,7 @@
                             <div class="col-7">
                                 <label for="studentName">Student Name:</label>
                                 <input type="text" class="form-control" id="studentName" name="studentName" required>
-                            </div> 
+                            </div>
                         </div>
                         <div class="row">
                             <div class="col-6">
@@ -87,21 +93,22 @@
                         <div class="row">
                             <div class="col-4">
                                 <label for="">Project Title</label>
-                                <input  type="text"  class="form-control"/>
+                                <input type="text" class="form-control" />
                             </div>
                             <div class="col-4">
                                 <label for="">Start Date</label>
-                                <input  type="date"  class="form-control"/>
+                                <input type="date" class="form-control" />
                             </div>
                             <div class="col-4">
                                 <label for="">End Date </label>
-                                <input  type="date"  class="form-control"/>
+                                <input type="date" class="form-control" />
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-6">
                                 <label for="department">Department:</label>
-                                <select class="form-control" id="department" name="department" onchange="populateCourses()" required>
+                                <select class="form-control" id="department" name="department"
+                                    onchange="populateCourses()" required>
                                     <option value="">Select Department</option>
                                     <option value="cs">Computer Science</option>
                                     <option value="ee">Electrical Engineering</option>
@@ -118,71 +125,60 @@
                         <div class="form-group pt-2">
                             <label for="projectDescription"> Technologies :</label>
                             <textarea class="form-control" id="projectDescription" name="projectDescription" rows="2"
-                            required></textarea>
+                                required></textarea>
                         </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="card">
+                    <div class="card-body">
+
+
                         <div class="row">
-                            <div class="col-3">
+                            <div class="col-12">
                                 <label for="">Is Synopsis Submitted </label>
                                 <input type="checkbox" name="" id="">
                             </div>
-                            <div class="col-3">
+                            <div class="col-12">
                                 <label for="">Date Of Submission</label>
-                                <input type="date" name="" id="">
+                                <input type="date" class="form-control" name="" id="">
                             </div>
                         </div>
-                       
-                       
-                       
-            
-                        <!-- Textarea for Project Description -->
+                        <div class="row">
+                            <div class="col-12">
+                                <label for="">GitHub Url </label>
+                                <input type="text" class="form-control" id="">
+                            </div>
+                        </div>
                         <div class="form-group">
                             <label for="projectDescription">Project Description:</label>
                             <textarea class="form-control" id="projectDescription" name="projectDescription" rows="4"
                                 required></textarea>
                         </div>
-                    </div>
-                </div>
-              
-               
-    
-            </div>
-            <div class="col-4">
-                <div class="card">
-                    <div class="card-body">
                         <div class="row">
-                            <div class="col-8">
+                            <div class="col-12">
                                 <div class="form-group">
                                     <label for="groupProject">Is this a group project?</label>
-                                    <input type="checkbox" id="groupProject" name="groupProject" onchange="toggleGroupMembers()">
+                                    <input type="checkbox" id="groupProject" name="groupProject"
+                                        onchange="toggleGroupMembers()">
                                 </div>
                             </div>
-                            <div class="col-4">
-                                <button class="btn btn-sm btn-success">  Add More <span class="fa fa-plus"></span></button>
-                              
-                            </div>
-                        </div>
-                       
-                        <div class="row">
-                            <div class="col-6">
-                                <input type="text" placeholder="Group Member 1" class="form-control">
-                            </div>
-                            <div class="col-6">
-                                <input type="text" placeholder="Group Member 2" class="form-control">
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-12  text-end">
-                             
+                            <div class="col-12">
+                                <label for="projectDescription">Project Member:</label>
+                                <textarea class="form-control" placeholder="Enter Comma Seperated Names" id="projectDescription" name="projectDescription"
+                                    rows="4" required></textarea>
                             </div>
                         </div>
                     </div>
                 </div>
-                
             </div>
+
         </div>
-       
+
     </div>
-   
+
 
     <!-- Bootstrap and jQuery Scripts -->
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
@@ -191,52 +187,52 @@
     <!-- Custom Script -->
     <script>
         // Function to populate courses based on selected department
-function populateCourses() {
-    const departmentElement = document.getElementById('department');
-    const courseElement = document.getElementById('course');
-    const selectedDepartment = departmentElement.value;
+        function populateCourses() {
+            const departmentElement = document.getElementById('department');
+            const courseElement = document.getElementById('course');
+            const selectedDepartment = departmentElement.value;
 
-    // Clear existing options
-    courseElement.innerHTML = '<option value="">Select Course</option>';
+            // Clear existing options
+            courseElement.innerHTML = '<option value="">Select Course</option>';
 
-    if (selectedDepartment === 'cs') {
-        const coursesCS = ['Data Structures', 'Algorithms', 'Web Development', 'Machine Learning'];
-        coursesCS.forEach(course => {
-            const option = document.createElement('option');
-            option.value = course.toLowerCase().replace(/\s+/g, '');
-            option.text = course;
-            courseElement.appendChild(option);
-        });
-    } else if (selectedDepartment === 'ee') {
-        const coursesEE = ['Circuit Analysis', 'Electromagnetics', 'Digital Systems', 'Control Systems'];
-        coursesEE.forEach(course => {
-            const option = document.createElement('option');
-            option.value = course.toLowerCase().replace(/\s+/g, '');
-            option.text = course;
-            courseElement.appendChild(option);
-        });
-    } else if (selectedDepartment === 'me') {
-        const coursesME = ['Thermodynamics', 'Fluid Mechanics', 'Solid Mechanics', 'Dynamics'];
-        coursesME.forEach(course => {
-            const option = document.createElement('option');
-            option.value = course.toLowerCase().replace(/\s+/g, '');
-            option.text = course;
-            courseElement.appendChild(option);
-        });
-    }
-}
+            if (selectedDepartment === 'cs') {
+                const coursesCS = ['Data Structures', 'Algorithms', 'Web Development', 'Machine Learning'];
+                coursesCS.forEach(course => {
+                    const option = document.createElement('option');
+                    option.value = course.toLowerCase().replace(/\s+/g, '');
+                    option.text = course;
+                    courseElement.appendChild(option);
+                });
+            } else if (selectedDepartment === 'ee') {
+                const coursesEE = ['Circuit Analysis', 'Electromagnetics', 'Digital Systems', 'Control Systems'];
+                coursesEE.forEach(course => {
+                    const option = document.createElement('option');
+                    option.value = course.toLowerCase().replace(/\s+/g, '');
+                    option.text = course;
+                    courseElement.appendChild(option);
+                });
+            } else if (selectedDepartment === 'me') {
+                const coursesME = ['Thermodynamics', 'Fluid Mechanics', 'Solid Mechanics', 'Dynamics'];
+                coursesME.forEach(course => {
+                    const option = document.createElement('option');
+                    option.value = course.toLowerCase().replace(/\s+/g, '');
+                    option.text = course;
+                    courseElement.appendChild(option);
+                });
+            }
+        }
 
-// Function to show/hide group members field based on checkbox
-function toggleGroupMembers() {
-    const groupProjectCheckbox = document.getElementById('groupProject');
-    const groupMembersField = document.getElementById('groupMembers');
+        // Function to show/hide group members field based on checkbox
+        function toggleGroupMembers() {
+            const groupProjectCheckbox = document.getElementById('groupProject');
+            const groupMembersField = document.getElementById('groupMembers');
 
-    if (groupProjectCheckbox.checked) {
-        groupMembersField.style.display = 'block';
-    } else {
-        groupMembersField.style.display = 'none';
-    }
-}
+            if (groupProjectCheckbox.checked) {
+                groupMembersField.style.display = 'block';
+            } else {
+                groupMembersField.style.display = 'none';
+            }
+        }
 
     </script>
 </body>

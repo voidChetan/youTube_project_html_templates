@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leave Requests Form</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f4f4f9;
+        }
+
+        .form-container {
+            max-width: 900px;
+            margin: 50px auto;
+            padding: 30px;
+            background-color: #ffffff;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            border-radius: 15px;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #343a40;
+        }
+
+        label {
+            font-weight: 500;
+        }
+
+        .form-section-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #495057;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #ffc107;
+            padding-bottom: 5px;
+        }
+
+        .btn-custom {
+            background-color: #ffc107;
+            color: white;
+            border-radius: 5px;
+        }
+
+        .btn-custom:hover {
+            background-color: #e0a800;
+        }
+    </style>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container form-container">
+        <h2>Leave Requests</h2>
+        <form>
+            <div class="row">
+                <!-- Request Information Section -->
+                <div class="col-md-6">
+                    <h3 class="form-section-title">Request Information</h3>
+                    <div class="mb-3">
+                        <label for="employeeId" class="form-label">Employee ID</label>
+                        <input type="number" class="form-control" id="employeeId" placeholder="Enter employee ID" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="leaveTypeId" class="form-label">Leave Type ID</label>
+                        <input type="number" class="form-control" id="leaveTypeId" placeholder="Enter leave type ID" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="startDate" class="form-label">Start Date</label>
+                        <input type="date" class="form-control" id="startDate" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="endDate" class="form-label">End Date</label>
+                        <input type="date" class="form-control" id="endDate" required>
+                    </div>
+                </div>
+
+                <!-- Status and Approval Section -->
+                <div class="col-md-6">
+                    <h3 class="form-section-title">Status and Approval</h3>
+                    <div class="mb-3">
+                        <label for="status" class="form-label">Status</label>
+                        <select class="form-select" id="status" required>
+                            <option value="Pending" selected>Pending</option>
+                            <option value="Approved">Approved</option>
+                            <option value="Rejected">Rejected</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="approvedBy" class="form-label">Approved By (Employee ID)</label>
+                        <input type="number" class="form-control" id="approvedBy" placeholder="Enter approver's employee ID">
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-4">
+                <button type="submit" class="btn btn-custom w-50">Submit</button>
+            </div>
+        </form>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

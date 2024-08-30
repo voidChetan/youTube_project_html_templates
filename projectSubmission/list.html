@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Submissions</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container my-5">
+        <h1 class="text-center mb-4">Project Submissions</h1>
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+
+            <!-- Example card template, repeat this for each record -->
+            <!-- Replace with server-side or client-side loop to generate cards dynamically -->
+            <div class="col">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-header bg-primary text-white">
+                        <h5 class="card-title mb-0">Project Title: Project XYZ</h5>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text"><strong>Student:</strong> John Doe</p>
+                        <p class="card-text"><strong>Department:</strong> Computer Science</p>
+                        <p class="card-text"><strong>Course:</strong> B.Tech</p>
+                        <p class="card-text"><strong>Technologies:</strong> HTML, CSS, JavaScript</p>
+                        <p class="card-text"><strong>Duration:</strong> Jan 2024 - Jun 2024</p>
+                        <p class="card-text"><strong>Synopsis Submitted:</strong> Yes</p>
+                        <!-- Display GitHub link only if available -->
+                        <a href="https://github.com/example/project-xyz" class="btn btn-outline-primary btn-sm" target="_blank">View GitHub</a>
+                        <div class="row">
+                            <div class="col-6">
+                                <button  class="btn btn-outline-danger btn-sm"  >Delete </button>
+                            </div>
+                            <div class="col-6 text-end">
+                                <button  class="btn btn-outline-primary btn-sm"  >Edit</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <small class="text-muted">Status: Completed</small>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Another card variation -->
+            <div class="col">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title">Project: AI Chatbot</h5>
+                        <p class="card-text"><strong>Student:</strong> Jane Smith</p>
+                        <p class="card-text"><strong>Course:</strong> B.Sc IT</p>
+                        <p class="card-text"><strong>Technologies:</strong> Python, NLP</p>
+                        <p class="card-text"><strong>Duration:</strong> Feb 2024 - Jul 2024</p>
+                        <a href="#" class="btn btn-outline-primary btn-sm">More Details</a>
+                    </div>
+                    <div class="card-footer text-center">
+                        <small class="text-muted">Pending Submission</small>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Another card variation with no footer -->
+            <div class="col">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title">Project: Mobile App Development</h5>
+                        <p class="card-text"><strong>Student:</strong> Mike Johnson</p>
+                        <p class="card-text"><strong>Technologies:</strong> React Native, Firebase</p>
+                        <p class="card-text"><strong>Start Date:</strong> March 2024</p>
+                        <p class="card-text"><strong>End Date:</strong> August 2024</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Repeat similar card structure for each record -->
+
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

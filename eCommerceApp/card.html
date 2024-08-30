@@ -29,11 +29,65 @@
             { productId: 14, rating: 2, isOffer: false, productName: 'Dell Asp-343', category: 'Laptop', price: 67000, discount: 15, availableQty: 8, imageUrl: 'https://mdbcdn.b-cdn.net/img/Photos/Horizontal/E-commerce/Products/7.webp' }
         ]
     </script>
+    <style>
+        .product-card {
+            border: 2px solid #007bff; /* Blue border highlight */
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .product-card:hover {
+            transform: scale(1.05); /* Slightly enlarge on hover */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow on hover */
+        }
+
+        .product-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .product-category {
+            font-size: 0.9em;
+            color: #6c757d;
+        }
+
+        .product-price {
+            color: #28a745;
+            font-weight: bold;
+        }
+
+        .add-to-cart-btn {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            width: 100%;
+            padding: 10px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .add-to-cart-btn:hover {
+            background-color: #0056b3; /* Darker blue on hover */
+        }
+        .category-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #ff5722; /* Orange color for badge */
+            color: white;
+            padding: 5px 10px;
+            border-radius: 12px;
+            font-size: 0.8em;
+        }
+    </style>
 </head>
 
 <body>
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-body-tertiary">
+    <nav class="navbar navbar-expand-lg navbar-light bg-body-tertiary" style="background-color: #6262e1;">
         <!-- Container wrapper -->
         <div class="container-fluid">
             <!-- Toggle button -->
@@ -158,41 +212,13 @@
                 </div>
                 <div class="row">
                     <div class="col-md-12 col-lg-3 pt-2 mb-4 mb-lg-0">
-                        <div class="card">
-                            <div class="bg-info rounded-circle d-flex align-items-center justify-content-center shadow-1-strong"
-                                style="width: 35px; height: 35px;position: absolute;right: 0;">
-                                <p class="text-white mb-0 small">Offer</p>
-                            </div>
-                            <div class="bg-info rounded-circle d-flex align-items-center justify-content-center shadow-1-strong"
-                                style="width: 35px; height: 35px;position: absolute;left: 0;">
-                                <span class="fw-bold">6</span>
-                            </div>
-
-                          
-                            <img src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/E-commerce/Products/4.webp"
-                                class="card-img-top" alt="Laptop" />
-
-                            <div class="card-body pb-1">
-                                <div class="d-flex justify-content-between">
-                                    <p class="small"><a href="#!" class="text-muted">Laptops</a></p>
-                                    <p class="small text-danger"><s>$1099</s></p>
-                                </div>
-
-                                <div class="d-flex justify-content-between mb-3">
-                                    <h5 class="mb-0">HP Notebook</h5>
-                                    <h5 class="text-dark mb-0">$999</h5>
-                                </div>
-
-                                <div class="d-flex justify-content-between mb-0">
-                                    <div class="text-warning">
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                    </div>
-                                    <button type="button"  class="btn btn-outline-primary">Buy now</button>
-                                </div>
+                        <div class="card product-card">
+                            <img src="https://via.placeholder.com/350x200" class="card-img-top product-image" alt="Product Image">
+                            <span class="category-badge">Category</span>
+                            <div class="card-body">
+                                <h5 class="card-title">Product Name</h5> 
+                                <p class="product-price">$99.99</p>
+                                <button class="btn add-to-cart-btn">Add to Cart</button>
                             </div>
                         </div>
                     </div>
