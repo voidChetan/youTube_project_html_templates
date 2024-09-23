@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Meeting</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
+<!-- Font Awesome CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container-fluid mt-3">
+        <div class="row">
+            <div class="col-md-7">
+                <div class="card">
+                    <div class="card-header d-flex justify-content-between align-items-center">
+                        <strong>Project Meetings</strong> 
+                        <button type="button" class="btn btn-sm btn-danger"><i class="fa fa-plus"></i> Add new</button>
+                     </div>
+                     <div class="card-body">
+                        <table class="table table-srtipped table-bordered ">
+                            <thead>
+                                <tr>
+                                    <th>Meeting Date</th>
+                                    <th>Start Time </th>
+                                    <th>End Time</th>
+                                    <th>Meeting Medium</th>
+                                    <th>Meeting Title</th>
+                                    <th>Meeting Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                
+                            </tbody>
+                        </table>
+                     </div>
+                </div>
+                
+            </div>
+    
+    
+        <div class="col-md-5">
+            <div class="card">
+                <div class="card-header">
+                   <strong>Add Meeting</strong> 
+                    
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                        <label>Meeting Date :</label>    
+                            <input type="date" placeholder="Select Meeting Date" class="form-control">
+                        </div>
+                        <div class="form-group col-md-6">
+                         <label>Start Time:</label>   
+                            <input type="text" placeholder="Enter Start Time" class="form-control">
+                        </div>
+                    </div>
+                    <div class="row">
+                        
+                        <div class="form-group col-md-6">
+                         <label>End Time :</label>   
+                            <input type="text" placeholder="Enter End Time" class="form-control">
+                        </div>
+                        <div class="form-group col-md-6">
+                          <label>Meeting Medium :</label>  
+                    <input type="text" placeholder="Enter Meeting Medium " class="form-control">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                          <label>Recording Url :</label>  
+                    <input type="text" placeholder="Enter Recording Url" class="form-control">
+                    </div>
+                    <div class="form-group col-md-6 d-flex align-items-center">
+                        <input type="checkbox"  checked style="height: 20px; width: 16px;margin-right: 8px;">
+                        <label>Is Recording Available</label> 
+                      
+                    </div>
+                    <div class="row">
+                       
+                        </div>
+                        <div class="form-group col-md-6">
+                           <label>Employee Strength:</label> 
+                    <input type="text" placeholder="Enter Strength" class="form-control">
+                        </div>
+                        <div class="form-group col-md-6">
+                          <label>Meeting Notes :</label>  
+                            <input type="text" placeholder="Enter Meeting Notes" class="form-control">
+                        </div>
+                    </div>
+                    <div class="row">
+
+                        <div class="form-group col-md-6">
+                           <label>Contact No :</label> 
+                    <input type="text" placeholder="Contact No" class="form-control">
+                        </div>
+                        <div class="form-group col-md-6">
+                          <label>Client Person Name :</label>  
+                            <input type="text" placeholder="Enter Client Person Name" class="form-control">
+
+                        </div>
+                    </div>
+                    <div class="row">
+                        
+                        <div class="form-group col-md-6">
+                         <label>Meeting Title :</label>   
+                    <input type="text" placeholder="Meeting Title" class="form-control">
+                        </div>
+                        <div class="form-group col-md-6">
+                          <label>Meeting Status :</label>  
+                            <input type="text" placeholder="Enter Meeting Status" class="form-control">
+
+                        </div>
+                        
+                    </div>
+                   
+                      
+                </form>
+            </div>
+           
+            <div class="card-footer">
+                <div class="row">
+                    <div class="form-group col-md-12 d-flex justify-content-center">
+                        <button class="btn btn-sm btn-success" style="margin-right: 2px;"><i class="fa fa-save"></i>
+                            Save</button>
+                       <button class="btn btn-sm btn-danger" onclick="hideForm()"><i class="fa fa-close"></i>Cancle</button>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+       
+        
+    </div>
+   
+       
+</div>
+</body>
+</html>

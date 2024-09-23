@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Client Project</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css"
+        integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
+    <!-- Font Awesome CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+    <div class="container-fluid mt-3">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header d-flex justify-content-between align-items-center">
+                        <strong>Client Information</strong>
+                        <button type="button" class="btn btn-sm btn-danger"><i class="fa fa-plus"></i> Add new</button>
+                    </div>
+                    <div class="card-body">
+                        <table class="table table-srtipped table-bordered ">
+                            <thead>
+                                <tr>
+                                    <th>Sr.No</th>
+                                    <th>Contact Person</th>
+                                    <th>Contact Number</th>
+                                    <th>Person EmailId</th>
+                                    <th>Total Employee Working</th>
+                                    <th>Project Name</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-header">
+                        <strong>Add Client Project</strong>
+
+                    </div>
+                    <div class="card-body">
+                        <div className="container">
+                            <div className="row justify-content-center">
+                                <div className="col-md-10 col-lg-8">
+                                    <div className="card mt-4 shadow-sm">
+                                        <div className="card-header bg-primary text-white text-center">
+                                            <h5>Add New Client Project</h5>
+                                        </div>
+                                        <div className="card-body">
+                                            <form className="needs-validation" noValidate
+                                                onSubmit={addNewClientProjects}>
+                                                <div className="row gy-3">
+                                                    <div className="col-md-6">
+                                                        <label htmlFor="projectName" className="form-label">Project
+                                                            Name</label>
+                                                        <input id="projectName" type="text" className="form-control"
+                                                            placeholder="Enter project name"
+                                                            value={addClientproject.projectName} onChange={(event)=>
+                                                        readForm(event, 'projectName')}
+                                                        required
+                                                        />
+                                                        <div className="invalid-feedback">
+                                                            Please enter a project name.
+                                                        </div>
+                                                    </div>
+
+                                                    <div className="col-md-6">
+                                                        <label htmlFor="startDate" className="form-label">Start
+                                                            Date</label>
+                                                        <input id="startDate" type="date" className="form-control" />
+                                                        <div className="invalid-feedback">
+                                                            Please select a start date.
+                                                        </div>
+                                                    </div>
+
+                                                    <div className="col-md-6">
+                                                        <label htmlFor="expectedEndDate" className="form-label">Expected
+                                                            End Date</label>
+                                                        <input id="expectedEndDate" type="date"
+                                                            className="form-control" />
+                                                    </div>
+
+                                                    <div className="col-md-6">
+                                                        <label htmlFor="leadByEmpId" className="form-label">Lead By
+                                                            Employee</label>
+                                                        <select id="leadByEmpId" className="form-control">
+
+                                                        </select>
+                                                    </div>
+
+                                                    <div className="col-md-6">
+                                                        <label htmlFor="contactPerson" className="form-label">Contact
+                                                            Person</label>
+                                                        <input id="contactPerson" type="text" className="form-control"
+                                                            placeholder="Enter contact person name" />
+                                                    </div>
+
+                                                    <div className="col-md-6">
+                                                        <label htmlFor="contactPersonContactNo"
+                                                            className="form-label">Contact Person Contact No.</label>
+                                                        <input id="contactPersonContactNo" type="text"
+                                                            className="form-control"
+                                                            placeholder="Enter contact number" />
+                                                    </div>
+
+                                                    <div className="col-md-6">
+                                                        <label htmlFor="projectCost" className="form-label">Project
+                                                            Cost</label>
+                                                        <input id="projectCost" type="number" className="form-control"
+                                                            placeholder="Enter project cost" />
+                                                    </div>
+
+                                                    <div className="col-md-6">
+                                                        <label htmlFor="clientId" className="form-label">Client</label>
+                                                        <select id="clientId" className="form-control"
+                                                            value={addClientproject.clientId}>
+                                                            <option value="">Select Client</option>
+
+                                                        </select>
+                                                    </div>
+                                                </div>
+
+                                                <div className="d-flex justify-content-between mt-4">
+                                                    <button type="submit" className="btn btn-success">
+
+                                                        Save Client Project
+                                                    </button>
+                                                    <button type="button" className="btn btn-danger"
+                                                        onClick={resetForm}>
+
+                                                        Reset Form
+                                                    </button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                                    
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <div class="row">
+                            <div class="form-group col-md-12 d-flex justify-content-center">
+                                <button class="btn btn-sm btn-success" style="margin-right: 2px;"><i
+                                        class="fa fa-save"></i>
+                                    Save</button>
+                                <button class="btn btn-sm btn-danger"><i class="fa fa-close"></i>Cancle</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+
+            </div>
+
+
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,35 @@
+.card-header{
+    background-color: rgb(235, 212, 13);
+}
+textarea.form-control {
+    height: 45px;
+}
+label{
+    font-size: 14px;
+}
+
+
+    #tblExperience {
+        margin-top: 20px;
+    }
+
+    h5 {
+        color: #333;
+    }
+
+    .table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 10px;
+    }
+
+    th, td {
+        padding: 10px;
+        text-align: center;
+    }
+
+    .btn-container button {
+        margin-right: 5px;
+    }
+
+

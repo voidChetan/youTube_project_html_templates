@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
+<!-- Font Awesome CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container-fluid mt-3">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card" id="tblEmployee">
+                    <div class="card-header d-flex justify-content-between align-items-center">
+                        <strong>Employee Information</strong>
+                        <button type="button" class="btn btn-sm btn-danger" onclick="addEmployee()"><i class="fa fa-plus"></i> Add new</button>
+
+                    </div>
+                    <div class="card-body">
+                        <table class="table table-srtipped table-bordered ">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Designation</th>
+                                    <th>Contact No.</th>
+                                    <th>Total Experience</th>
+                                    <th>City</th>
+                                    <th>Personal Address</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-10">
+                <div class="card" id="frmEmployee" style="display: none;">
+                    <div class="card-header">
+                        <strong>Add Employee</strong>
+
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="form-group col-md-4">
+                                <label>Name :</label> 
+                                <input type="text" placeholder="Enter Name" class="form-control">
+                            </div>
+                            <div class="form-group col-md-4">
+                               <label>Email :</label> 
+                                <input type="text" placeholder="Enter Email" class="form-control">
+                            </div>
+                            <div class="form-group col-md-4">
+                              <label>Password :</label>  
+                                 <input type="password" placeholder="Enter Password" class="form-control">
+                             </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-md-6">
+                               <label>Designation :</label> 
+                                <input type="text" placeholder="Enter Designation" class="form-control">
+                            </div>
+                            <div class="form-group col-md-6">
+                              <label>Contact No :</label>  
+                                <input type="text" placeholder="Enter Contact No" class="form-control">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-md-6">
+                               <label>Alternate Contact No :</label> 
+                                <input type="text" placeholder="Alternate Contact No." class="form-control">
+                            </div>
+                            <div class="form-group col-md-6">
+                              <label>Personal Email ID :</label>  
+                                <input type="text" placeholder="Enter Personal EmailID" class="form-control">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-md-6">
+                               <label>Total Years of Experience :</label> 
+                                <input type="text" placeholder="Enter total Years of Experience" class="form-control">
+                            </div>
+                            <div class="form-group col-md-6">
+                              <label>Total Month of Experience :</label>  
+                                <input type="text" placeholder="Enter month of Experience" class="form-control">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-md-6">
+                               <label>City :</label> 
+                                <input type="text" placeholder="Enter City" class="form-control">
+                            </div>
+                            <div class="form-group col-md-6">
+                              <label>State :</label>  
+                                <input type="text" placeholder="Enter State" class="form-control">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-md-12">
+                               <label>Address :</label> 
+                                <textarea placeholder="Enter Address" class="form-control" ></textarea>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-md-6">
+                              <label>Pincode :</label>  
+                                <input type="text" placeholder="Enter Pincode" class="form-control">
+                            </div>
+                            <div class="form-group col-md-6">
+                             <label>Personal City :</label>   
+                                <input type="text" placeholder="Enter Personal City" class="form-control">
+                            </div>
+
+                        </div>
+                         <div class="row">
+                            
+                            <div class="form-group col-md-6">
+                              <label>Personal State :</label>  
+                                <input type="text" placeholder="Enter Personal State" class="form-control">
+                            </div>
+                            <div class="form-group col-md-6">
+                              <label>Personal Pin Code :</label>  
+                                <input type="text" placeholder="Enter Personal Pin Code" class="form-control">
+                            </div>
+                           
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                              <label>Personal Address :</label>  
+                                <textarea placeholder="Enter Personal Address" class="form-control"></textarea>
+                            </div>
+                        </div>
+                        
+                        <hr>
+                        <div class="form-group mt-2" id="tblSkill">
+                            <div class="container">
+                               <h5>Add Skills -</h5>
+                                <div id="table-container">
+                                    <table class="table table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th>Skill Name</th>
+                                                <th>Total Experience</th>
+                                                <th>Last Version</th>
+                                                <th>Actions</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td >
+                                                    <input type="text" placeholder="Skill" class="form-control">
+                                                </td>
+                                                <td>
+                                                    <input type="text" placeholder="Total Experience" class="form-control"> 
+                                                </td>
+                                                <td>
+                                                    <input type="text" placeholder="Last Version" class="form-control"> 
+
+                                                </td>
+                                              
+                                                <td class="btn-container">
+                                                    <button class="btn btn-sm btn-success"><i class="fa fa-save"></i>
+                                                        Save</button>
+                                                   <button class="btn btn-sm btn-danger"><i class="fa fa-trash"></i>Delete</button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="4">
+                                            <button class="btn btn-sm btn-info" onclick="addSkills()">Add</button>
+
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                        <tfoot>
+                                        </tfoot>
+                                    </table>
+                                    <div class="btn-container d-flex justify-content-end">
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <hr/>
+                        <div class="form-group mt-2" id="tblExperience">
+                            <div class="container">
+                                <h5>Add Experience -</h5>
+                                <div id="table-container">
+                                    <table class="table table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th>Company</th>
+                                                <th>Start Date</th>
+                                                <th>End Date</th>
+                                                <th>Designation</th>
+                                                <th>Project</th>
+                                                <th>Actions</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <input type="text" class="form-control " placeholder="Company">
+                                                </td>
+                                                <td>
+                                                    <input type="date" class="form-control" placeholder="Start Date">
+                                                </td>
+                                                <td>
+                                                    <input type="date" class="form-control" placeholder="End Date">
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control" placeholder="Designation">
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control" placeholder="Project">
+                                                </td>
+                                               
+                                                <td class="col-md-12 btn-container d-flex">
+                                                    <button class="btn btn-sm btn-success">
+                                                        <i class="fa fa-save fa-sm"></i> Save
+                                                    </button>
+                                                    <button class="btn btn-sm btn-danger">
+                                                        <i class="fa fa-trash fa-sm "></i> Delete
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="6">
+                                            <button class="btn btn-sm btn-info" onclick="addExperience()">Add</button>
+
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                        <tfoot>
+                                        </tfoot>
+                                    </table>
+                                   
+                                </div>
+                            </div>
+                           
+                        </div>
+                        </form>
+                    </div>
+                    
+                    <div class="card-footer">
+                        <div class="row">
+                            <div class="form-group col-md-12 d-flex justify-content-center">
+                                <button class="btn btn-sm btn-success" style="margin-right: 2px;"><i class="fa fa-save"></i>
+                                    Save</button>
+                               <button class="btn btn-sm btn-danger" onclick="hideForm()"><i class="fa fa-close"></i>Cancle</button>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+
+           
+
+        </div>
+    </div>
+    <script>
+        function addEmployee(){
+            var formValue = document.getElementById("frmEmployee");
+            var tblEmployee = document.getElementById("tblEmployee");
+            formValue.style.display ='block';
+            tblEmployee.style.display ="none";
+        }
+       
+        function hideForm(){
+            document.getElementById('tblEmployee').style.display = "block";
+            document.getElementById('frmEmployee').style.display = "none";
+        }
+    </script>
+</body>
+
+</html>
