@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container my-4">
+        <div class="row">
+          <!-- Total Employees Widget -->
+          <div class="col-md-4">
+            <div class="card text-white bg-primary mb-3">
+              <div class="card-header">Total Employees</div>
+              <div class="card-body">
+                <h5 class="card-title">Employees</h5>
+                <p class="card-text" id="totalEmployees">0</p>
+              </div>
+            </div>
+          </div>
+      
+          <!-- Total Projects Widget -->
+          <div class="col-md-4">
+            <div class="card text-white bg-success mb-3">
+              <div class="card-header">Total Projects</div>
+              <div class="card-body">
+                <h5 class="card-title">Projects</h5>
+                <p class="card-text" id="totalProjects">0</p>
+              </div>
+            </div>
+          </div>
+      
+          <!-- Active Employees in Projects -->
+          <div class="col-md-4">
+            <div class="card text-white bg-warning mb-3">
+              <div class="card-header">Active Project Employees</div>
+              <div class="card-body">
+                <h5 class="card-title">Active Employees</h5>
+                <p class="card-text" id="activeEmployees">0</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      
+        <div class="row">
+          <!-- Latest Projects -->
+          <div class="col-md-6">
+            <div class="card mb-3">
+              <div class="card-header">Latest Projects</div>
+              <div class="card-body">
+                <ul id="latestProjects" class="list-group">
+                  <!-- List of latest projects will be dynamically inserted here -->
+                </ul>
+              </div>
+            </div>
+          </div>
+      
+          <!-- Recently Hired Employees -->
+          <div class="col-md-6">
+            <div class="card mb-3">
+              <div class="card-header">Recently Hired Employees</div>
+              <div class="card-body">
+                <ul id="recentEmployees" class="list-group">
+                  <!-- List of recent employees will be dynamically inserted here -->
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+</body>
+</html>

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CRUD UI - Property Management</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+  <div class="container mt-5">
+    <h2 class="text-center mb-4">Property Management</h2>
+    <!-- Add/Edit Form -->
+    <div class="card mb-4">
+      <div class="card-header">
+        <h5>Create/Update Property</h5>
+      </div>
+      <div class="card-body">
+        <form>
+          <div class="row mb-3">
+            <div class="col-md-6">
+              <label for="siteId" class="form-label">Site ID</label>
+              <input type="number" class="form-control" id="siteId" placeholder="Enter Site ID">
+            </div>
+            <div class="col-md-6">
+              <label for="siteTitle" class="form-label">Site Title</label>
+              <input type="text" class="form-control" id="siteTitle" placeholder="Enter Site Title">
+            </div>
+          </div>
+
+          <div class="row mb-3">
+            <div class="col-md-6">
+              <label for="location" class="form-label">Location</label>
+              <input type="text" class="form-control" id="location" placeholder="Enter Location">
+            </div>
+            <div class="col-md-6">
+              <label for="propertyTypeId" class="form-label">Property Type ID</label>
+              <input type="number" class="form-control" id="propertyTypeId" placeholder="Enter Property Type ID">
+            </div>
+          </div>
+
+          <div class="row mb-3">
+            <div class="col-md-6">
+              <label for="city" class="form-label">City</label>
+              <input type="text" class="form-control" id="city" placeholder="Enter City">
+            </div>
+            <div class="col-md-6">
+              <label for="pincode" class="form-label">Pincode</label>
+              <input type="text" class="form-control" id="pincode" placeholder="Enter Pincode">
+            </div>
+          </div>
+
+          <div class="row mb-3">
+            <div class="col-md-6">
+              <label for="state" class="form-label">State</label>
+              <input type="text" class="form-control" id="state" placeholder="Enter State">
+            </div>
+            <div class="col-md-6">
+              <label for="totalProperties" class="form-label">Total Properties</label>
+              <input type="number" class="form-control" id="totalProperties" placeholder="Enter Total Properties">
+            </div>
+          </div>
+
+          <div class="row mb-3">
+            <div class="col-md-6">
+              <label for="createdDate" class="form-label">Created Date</label>
+              <input type="datetime-local" class="form-control" id="createdDate">
+            </div>
+            <div class="col-md-6">
+              <label for="lastUpdatedDate" class="form-label">Last Updated Date</label>
+              <input type="datetime-local" class="form-control" id="lastUpdatedDate">
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-primary">Save</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Property List Table -->
+    <div class="card">
+      <div class="card-header">
+        <h5>Properties List</h5>
+      </div>
+      <div class="card-body">
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Site Title</th>
+              <th scope="col">Location</th>
+              <th scope="col">City</th>
+              <th scope="col">State</th>
+              <th scope="col">Pincode</th>
+              <th scope="col">Total Properties</th>
+              <th scope="col">Created Date</th>
+              <th scope="col">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Sample Property -->
+            <tr>
+              <th scope="row">1</th>
+              <td>Example Title</td>
+              <td>Example Location</td>
+              <td>Example City</td>
+              <td>Example State</td>
+              <td>123456</td>
+              <td>10</td>
+              <td>2024-09-14</td>
+              <td>
+                <button class="btn btn-warning btn-sm">Edit</button>
+                <button class="btn btn-danger btn-sm">Delete</button>
+              </td>
+            </tr>
+            <!-- More properties can go here -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

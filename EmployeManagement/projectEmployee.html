@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Management CRUD</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container my-4">
+        
+            <!-- Project Employees Tab -->
+            <div class="tab-pane fade show active" id="project-employees" role="tabpanel">
+                <h2>Project Employees</h2>
+
+                <!-- Project Employee Form -->
+                <form class="mb-4">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label for="projectId" class="form-label">Project ID</label>
+                            <input type="number" class="form-control" id="projectId" placeholder="Enter project ID">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="empId" class="form-label">Employee ID</label>
+                            <input type="number" class="form-control" id="empId" placeholder="Enter employee ID">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label for="assignedDate" class="form-label">Assigned Date</label>
+                            <input type="date" class="form-control" id="assignedDate">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="roleProjectEmployee" class="form-label">Role</label>
+                            <input type="text" class="form-control" id="roleProjectEmployee" placeholder="Enter role">
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary mt-3">Submit</button>
+                </form>
+
+                <!-- Project Employees Table -->
+                <h3>Project Employees List</h3>
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Emp Project ID</th>
+                            <th>Project ID</th>
+                            <th>Employee ID</th>
+                            <th>Assigned Date</th>
+                            <th>Role</th>
+                            <th>Is Active</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Data rows go here -->
+                    </tbody>
+                </table>
+            </div> 
+    </div>
+    <script>
+        
+    </script>
+
+</body>

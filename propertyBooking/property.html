@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Property Details CRUD UI</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+  <div class="container mt-5">
+    <h2 class="text-center mb-4">Property Details Management</h2>
+    <!-- Add/Edit Form -->
+    <div class="card mb-4">
+      <div class="card-header">
+        <h5>Create/Update Property Details</h5>
+      </div>
+      <div class="card-body">
+        <form>
+          <div class="row mb-3">
+            <div class="col-md-6">
+              <label for="propertyId" class="form-label">Property ID</label>
+              <input type="number" class="form-control" id="propertyId" placeholder="Enter Property ID">
+            </div>
+            <div class="col-md-6">
+              <label for="propertyNo" class="form-label">Property Number</label>
+              <input type="number" class="form-control" id="propertyNo" placeholder="Enter Property Number">
+            </div>
+          </div>
+
+          <div class="row mb-3">
+            <div class="col-md-6">
+              <label for="facing" class="form-label">Facing</label>
+              <input type="text" class="form-control" id="facing" placeholder="Enter Facing (e.g., North, East)">
+            </div>
+            <div class="col-md-6">
+              <label for="totalArea" class="form-label">Total Area</label>
+              <input type="text" class="form-control" id="totalArea" placeholder="Enter Total Area (e.g., 1500 sqft)">
+            </div>
+          </div>
+
+          <div class="row mb-3">
+            <div class="col-md-6">
+              <label for="rate" class="form-label">Rate</label>
+              <input type="number" class="form-control" id="rate" placeholder="Enter Rate (e.g., 5000 per sqft)">
+            </div>
+            <div class="col-md-6">
+              <label for="siteId" class="form-label">Site ID</label>
+              <input type="number" class="form-control" id="siteId" placeholder="Enter Site ID">
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-primary">Save</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Property Details List Table -->
+    <div class="card">
+      <div class="card-header">
+        <h5>Properties List</h5>
+      </div>
+      <div class="card-body">
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Property Number</th>
+              <th scope="col">Facing</th>
+              <th scope="col">Total Area</th>
+              <th scope="col">Rate</th>
+              <th scope="col">Site ID</th>
+              <th scope="col">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Sample Property -->
+            <tr>
+              <th scope="row">1</th>
+              <td>101</td>
+              <td>North</td>
+              <td>1500 sqft</td>
+              <td>5000</td>
+              <td>1</td>
+              <td>
+                <button class="btn btn-warning btn-sm">Edit</button>
+                <button class="btn btn-danger btn-sm">Delete</button>
+              </td>
+            </tr>
+            <!-- More properties can go here -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

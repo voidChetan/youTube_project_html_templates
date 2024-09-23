@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Budget Tracker</title>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 50%;
+    margin: 50px auto;
+    background: white;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+.budget-display {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+
+.budget-display div {
+    width: 30%;
+    text-align: center;
+}
+
+form {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+form input, form select, form button {
+    width: 30%;
+    padding: 10px;
+    margin: 5px;
+}
+
+.transaction-history {
+    margin-top: 20px;
+}
+
+.transaction-history ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.transaction-history li {
+    background: #eee;
+    margin: 5px 0;
+    padding: 10px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Budget Tracker</h1>
+        <div class="budget-display">
+            <div class="income">
+                <h2>Total Income: $<span id="total-income">0.00</span></h2>
+            </div>
+            <div class="expense">
+                <h2>Total Expense: $<span id="total-expense">0.00</span></h2>
+            </div>
+            <div class="balance">
+                <h2>Remaining Balance: $<span id="remaining-balance">0.00</span></h2>
+            </div>
+        </div>
+        <form id="transaction-form">
+            <input type="text" id="description" placeholder="Description" required>
+            <input type="number" id="amount" placeholder="Amount" required>
+            <select id="type">
+                <option value="income">Income</option>
+                <option value="expense">Expense</option>
+            </select>
+            <button type="submit">Add Transaction</button>
+        </form>
+        <div class="transaction-history">
+            <h3>Transaction History</h3>
+            <ul id="transaction-list"></ul>
+        </div>
+    </div>
+     <script>
+        // Get elements
+const totalIncomeElement = document.getElementById('total-income');
+const totalExpenseElement = document.getElementById('total-expense');
+const remainingBalanceElement = document.getElementById('remaining-balance');
+const transactionForm = document.getElementById('transaction-form');
+const transactionList = document.getElementById('transaction-list');
+
+let totalIncome = 0;
+let totalExpense = 0;
+let transactions = [];
+
+// Update the budget display
+function updateBudgetDisplay() {
+    totalIncomeElement.textContent = totalIncome.toFixed(2);
+    totalExpenseElement.textContent = totalExpense.toFixed(2);
+    remainingBalanceElement.textContent = (totalIncome - totalExpense).toFixed(2);
+}
+
+// Add a transaction
+function addTransaction(description, amount, type) {
+    const transaction = { description, amount, type };
+    transactions.push(transaction);
+
+    const listItem = document.createElement('li');
+    listItem.innerHTML = `${description} - $${amount.toFixed(2)} <button onclick="removeTransaction(${transactions.length - 1})">Remove</button>`;
+
+    transactionList.appendChild(listItem);
+
+    if (type === 'income') {
+        totalIncome += amount;
+    } else {
+        totalExpense += amount;
+    }
+
+    updateBudgetDisplay();
+}
+
+// Remove a transaction
+function removeTransaction(index) {
+    const transaction = transactions[index];
+    transactions.splice(index, 1);
+
+    if (transaction.type === 'income') {
+        totalIncome -= transaction.amount;
+    } else {
+        totalExpense -= transaction.amount;
+    }
+
+    transactionList.innerHTML = '';
+    transactions.forEach((transaction, index) => {
+        const listItem = document.createElement('li');
+        listItem.innerHTML = `${transaction.description} - $${transaction.amount.toFixed(2)} <button onclick="removeTransaction(${index})">Remove</button>`;
+        transactionList.appendChild(listItem);
+    });
+
+    updateBudgetDisplay();
+}
+
+// Handle form submission
+transactionForm.addEventListener('submit', function (event) {
+    event.preventDefault();
+    const description = document.getElementById('description').value;
+    const amount = parseFloat(document.getElementById('amount').value);
+    const type = document.getElementById('type').value;
+
+    addTransaction(description, amount, type);
+
+    transactionForm.reset();
+});
+
+     </script>
+</body>
+</html>

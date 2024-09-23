@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Management CRUD</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container my-4">
+       
+            <div class="tab-pane fade show active" id="projects" role="tabpanel">
+                <h2>Projects</h2>
+
+                <!-- Project Form -->
+                <form class="mb-4">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label for="projectName" class="form-label">Project Name</label>
+                            <input type="text" class="form-control" id="projectName" placeholder="Enter project name">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="clientName" class="form-label">Client Name</label>
+                            <input type="text" class="form-control" id="clientName" placeholder="Enter client name">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label for="startDate" class="form-label">Start Date</label>
+                            <input type="date" class="form-control" id="startDate">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="leadByEmpId" class="form-label">Lead By Employee ID</label>
+                            <input type="number" class="form-control" id="leadByEmpId" placeholder="Enter lead employee ID">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label for="contactPerson" class="form-label">Contact Person</label>
+                            <input type="text" class="form-control" id="contactPerson" placeholder="Enter contact person name">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="contactNoProject" class="form-label">Contact No</label>
+                            <input type="text" class="form-control" id="contactNoProject" placeholder="Enter contact number">
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary mt-3">Submit</button>
+                </form>
+
+                <!-- Project Table -->
+                <h3>Project List</h3>
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Project ID</th>
+                            <th>Project Name</th>
+                            <th>Client Name</th>
+                            <th>Start Date</th>
+                            <th>Lead By Employee</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Data rows go here -->
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Project Employees Tab -->
+            
+    </div>
+    <script>
+        
+    </script>
+
+</body>
