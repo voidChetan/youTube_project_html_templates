@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bus Schedule Management</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+  <div class="container mt-5">
+    <!-- Bus Schedule Form -->
+    <div class="card">
+      <div class="card-header bg-primary text-white">
+        Bus Schedule Form
+      </div>
+      <div class="card-body">
+        <form id="scheduleForm">
+          <div class="mb-3">
+            <label for="vendorId" class="form-label">Vendor</label>
+            <select class="form-select" id="vendorId">
+              <option value="">Select Vendor</option>
+              <!-- Vendor options will go here -->
+              <option value="1">Vendor 1</option>
+              <option value="2">Vendor 2</option>
+              <!-- Add more vendors as needed -->
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="busName" class="form-label">Bus Name</label>
+            <input type="text" class="form-control" id="busName" placeholder="Enter bus name">
+          </div>
+          <div class="mb-3">
+            <label for="busVehicleNo" class="form-label">Bus Vehicle No</label>
+            <input type="text" class="form-control" id="busVehicleNo" placeholder="Enter bus vehicle number">
+          </div>
+          <div class="mb-3">
+            <label for="fromLocation" class="form-label">From Location</label>
+            <select class="form-select" id="fromLocation">
+              <option value="">Select Location</option>
+              <!-- From Location options -->
+              <option value="1">Location 1</option>
+              <option value="2">Location 2</option>
+              <!-- Add more locations as needed -->
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="toLocation" class="form-label">To Location</label>
+            <select class="form-select" id="toLocation">
+              <option value="">Select Location</option>
+              <!-- To Location options -->
+              <option value="1">Location 1</option>
+              <option value="2">Location 2</option>
+              <!-- Add more locations as needed -->
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="departureTime" class="form-label">Departure Time</label>
+            <input type="datetime-local" class="form-control" id="departureTime">
+          </div>
+          <div class="mb-3">
+            <label for="arrivalTime" class="form-label">Arrival Time</label>
+            <input type="datetime-local" class="form-control" id="arrivalTime">
+          </div>
+          <div class="mb-3">
+            <label for="scheduleDate" class="form-label">Schedule Date</label>
+            <input type="date" class="form-control" id="scheduleDate">
+          </div>
+          <div class="mb-3">
+            <label for="price" class="form-label">Price</label>
+            <input type="number" class="form-control" id="price" placeholder="Enter price">
+          </div>
+          <div class="mb-3">
+            <label for="totalSeats" class="form-label">Total Seats</label>
+            <input type="number" class="form-control" id="totalSeats" placeholder="Enter total seats">
+          </div>
+          <button type="submit" class="btn btn-success">Submit</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Bus Schedule List Table -->
+    <div class="card mt-5">
+      <div class="card-header bg-secondary text-white">
+        Bus Schedule List
+      </div>
+      <div class="card-body">
+        <table class="table table-bordered table-striped">
+          <thead>
+            <tr>
+              <th>Schedule ID</th>
+              <th>Vendor</th>
+              <th>Bus Name</th>
+              <th>From Location</th>
+              <th>To Location</th>
+              <th>Departure Time</th>
+              <th>Arrival Time</th>
+              <th>Schedule Date</th>
+              <th>Price</th>
+              <th>Total Seats</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="scheduleList">
+            <!-- Bus schedule rows will go here -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

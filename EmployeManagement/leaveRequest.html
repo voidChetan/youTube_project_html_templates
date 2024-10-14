@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-4">
+        <h3>Leave Request Form</h3>
+        <form id="leaveRequestForm">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="employeeId">Employee ID</label>
+                <input type="number" class="form-control" id="employeeId" placeholder="Enter Employee ID">
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="leaveTypeId">Leave Type ID</label>
+                <input type="number" class="form-control" id="leaveTypeId" placeholder="Enter Leave Type ID">
+              </div>
+            </div>
+          </div>
+          
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="startDate">Start Date</label>
+                <input type="date" class="form-control" id="startDate">
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="endDate">End Date</label>
+                <input type="date" class="form-control" id="endDate">
+              </div>
+            </div>
+          </div>
+          
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group">
+                <label for="reason">Reason</label>
+                <textarea class="form-control" id="reason" rows="3" placeholder="Enter reason for leave"></textarea>
+              </div>
+            </div>
+          </div>
+      
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="status">Status</label>
+                <input type="text" class="form-control" id="status" placeholder="Enter Status">
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="requestDate">Request Date</label>
+                <input type="date" class="form-control" id="requestDate">
+              </div>
+            </div>
+          </div>
+      
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+        <div class="container mt-5">
+            <h3>Leave Requests</h3>
+            <div class="row">
+              <div class="col-md-4"  >
+                <div class="card mb-4">
+                  
+                  <!-- Card Header with Essential Information -->
+                  <div class="card-header d-flex justify-content-between align-items-center">
+                  
+                    <span><strong>Empployee Name</strong>   </span>
+                  </div>
+          
+                  <!-- Card Body with Minimal Info and Toggle for More Details -->
+                  <div class="card-body">
+                    <div class="row">
+                        <div class="col-6">
+                            <strong>Start Date:</strong>   startDate
+                        </div>
+                        <div class="col-6">
+                            <strong>End Date:</strong>   EndDate
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6">
+                            <strong>Status:</strong>   Status
+                        </div>
+                        <div class="col-6">
+                            <strong>Type:</strong>   Type
+                        </div>
+                    </div>
+                    
+                    <!-- Toggle Button to Show/Hide More Info -->
+                    
+          
+                    <!-- More Information (Shown when toggle is active) -->
+                 
+                  </div>
+          
+                  <!-- Card Footer with Action Buttons -->
+                  <div class="card-footer text-end">
+                    <button class="btn btn-primary btn-sm me-2" (click)="editLeave(leave)">Edit</button>
+                    <button class="btn btn-danger btn-sm" (click)="deleteLeave(leave.leaveId)">Delete</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          
+      </div>
+      
+</body>
+</html>
