@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Ideas Hub</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #007bff;
+            --secondary-color: #6c757d;
+            --background-color: #f8f9fa;
+            --text-color: #343a40;
+        }
+
+        body {
+            background-color: var(--background-color);
+            color: var(--text-color);
+        }
+
+        .navbar {
+            background-color: var(--primary-color);
+        }
+
+        .navbar-brand {
+            color: #fff;
+        }
+
+        .carousel-caption h5 {
+            background-color: rgba(0, 123, 255, 0.8);
+            color: #fff;
+            padding: 5px;
+        }
+
+        .carousel-caption p {
+            background-color: rgba(108, 117, 125, 0.8);
+            color: #fff;
+            padding: 5px;
+        }
+
+        .card {
+            border: 1px solid var(--secondary-color);
+        }
+
+        .card-title {
+            color: var(--primary-color);
+        }
+
+        footer {
+            background-color: var(--primary-color);
+            color: #fff;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            border: none;
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+
+        .project-card {
+            transition: transform 0.3s, box-shadow 0.3s;
+            border-radius: 10px;
+            overflow: hidden;
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .project-card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+
+        .project-card .card-body {
+            padding: 1.25rem;
+        }
+
+        .project-card .card-category {
+            font-weight: bold;
+            color: var(--secondary-color);
+        }
+
+        .project-card .card-footer {
+            background-color: var(--primary-color);
+            color: #fff;
+            text-align: center;
+            padding: 0.75rem;
+        }
+
+        .project-card .btn {
+            background-color: var(--primary-color);
+            color: #fff;
+            border: none;
+        }
+
+        .project-card .btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Project Ideas Hub</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link text-white" href="#projects">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="#batches">Upcoming Batches</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="#submit">Submit Idea</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Carousel -->
+    <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="https://via.placeholder.com/1200x400" class="d-block w-100" alt="Project Idea 1">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>Angular Mini Projects</h5>
+                    <p>Build dynamic and interactive web apps.</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="https://via.placeholder.com/1200x400" class="d-block w-100" alt="Project Idea 2">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>React Mini Projects</h5>
+                    <p>Explore the power of ReactJS for your next project.</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="https://via.placeholder.com/1200x400" class="d-block w-100" alt="Project Idea 3">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>JavaScript Mini Projects</h5>
+                    <p>Learn and implement cool features with JS.</p>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+    <div class="container py-5">
+        <h2 class="text-center mb-4">Projects</h2>
+        <div class="row g-4">
+            <!-- Card 1 -->
+            <div class="col-md-4">
+                <div class="project-card">
+                    <img src="https://via.placeholder.com/400x180" alt="To-Do List App">
+                    <div class="card-body">
+                        <h5 class="card-title">To-Do List App</h5>
+                        <p class="card-category">Category: Productivity</p>
+                        <p class="card-text">A simple Angular app to manage daily tasks with local storage integration.</p>
+                        <p><strong>Technology:</strong> Angular, Bootstrap</p>
+                    </div>
+                    <div class="card-footer">
+                        <button class="btn btn-primary">View Details</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="col-md-4">
+                <div class="project-card">
+                    <img src="https://via.placeholder.com/400x180" alt="Weather Dashboard">
+                    <div class="card-body">
+                        <h5 class="card-title">Weather Dashboard</h5>
+                        <p class="card-category">Category: Utility</p>
+                        <p class="card-text">A React project displaying weather details using an external API.</p>
+                        <p><strong>Technology:</strong> React, CSS</p>
+                    </div>
+                    <div class="card-footer">
+                        <button class="btn btn-primary">View Details</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="col-md-4">
+                <div class="project-card">
+                    <img src="https://via.placeholder.com/400x180" alt="Quiz Application">
+                    <div class="card-body">
+                        <h5 class="card-title">Quiz Application</h5>
+                        <p class="card-category">Category: Education</p>
+                        <p class="card-text">A JavaScript-based quiz app with dynamic question loading and scoring.</p>
+                        <p><strong>Technology:</strong> JavaScript, HTML, CSS</p>
+                    </div>
+                    <div class="card-footer">
+                        <button class="btn btn-primary">View Details</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="col-md-4">
+                <div class="project-card">
+                    <img src="https://via.placeholder.com/400x180" alt="E-Commerce App">
+                    <div class="card-body">
+                        <h5 class="card-title">E-Commerce App</h5>
+                        <p class="card-category">Category: Business</p>
+                        <p class="card-text">Build an online store with product listings, cart, and payment options.</p>
+                        <p><strong>Technology:</strong> React, Node.js, MongoDB</p>
+                    </div>
+                    <div class="card-footer">
+                        <button class="btn btn-primary">View Details</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 5 -->
+            <div class="col-md-4">
+                <div class="project-card">
+                    <img src="https://via.placeholder.com/400x180" alt="Chat Application">
+                    <div class="card-body">
+                        <h5 class="card-title">Chat Application</h5>
+                        <p class="card-category">Category: Communication</p>
+                        <p class="card-text">Real-time chat application with user authentication and message storage.</p>
+                        <p><strong>Technology:</strong> Angular, Firebase</p>
+                    </div>
+                    <div class="card-footer">
+                        <button class="btn btn-primary">View Details</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 6 -->
+            <div class="col-md-4">
+                <div class="project-card">
+                    <img src="https://via.placeholder.com/400x180" alt="Portfolio Website">
+                    <div class="card-body">
+                        <h5 class="card-title">Portfolio Website</h5>
+                        <p class="card-category">Category: Personal</p>
+                        <p class="card-text">Create a stunning personal portfolio to showcase your skills and projects.</p>
+                        <p><strong>Technology:</strong> HTML, CSS, JavaScript</p>
+                    </div>
+                    <div class="card-footer">
+                        <button class="btn btn-primary">View Details</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Upcoming Batches Section -->
+    <section id="batches" class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-4">Upcoming Batches</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Batch 1: Angular Basics</h5>
+                            <p class="card-text">Starts: 15th Jan 2025</p>
+                            <p class="card-text">Duration: 4 weeks</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Batch 2: React Advanced</h5>
+                            <p class="card-text">Starts: 20th Jan 2025</p>
+                            <p class="card-text">Duration: 6 weeks</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Batch 3: JavaScript Mastery</h5>
+                            <p class="card-text">Starts: 25th Jan 2025</p>
+                            <p class="card-text">Duration: 5 weeks</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Submit Idea Section -->
+    <section id="submit" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center mb-4">Submit Your Project Idea</h2>
+            <form>
+                <div class="mb-3">
+                    <label for="name" class="form-label">Your Name</label>
+                    <input type="text" class="form-control" id="name" placeholder="Enter your name">
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email Address</label>
+                    <input type="email" class="form-control" id="email" placeholder="Enter your email">
+                </div>
+                <div class="mb-3">
+                    <label for="projectIdea" class="form-label">Project Idea</label>
+                    <textarea class="form-control" id="projectIdea" rows="4" placeholder="Describe your project idea"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit Idea</button>
+            </form>
+        </div>
+    </section>
+
+    <footer class="bg-dark text-white py-3 text-center">
+        <p>&copy; 2025 Project Ideas Hub. All rights reserved.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

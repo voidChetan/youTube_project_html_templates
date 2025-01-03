@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Container Parking System</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    .spot-card {
+      width: 100px;
+      height: 100px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 10px;
+      border-radius: 8px;
+    }
+
+    /* Colors for different statuses */
+    .booked {
+      background-color: #ff4d4d;
+      color: white;
+    }
+    
+    .available {
+      background-color: #4CAF50;
+      color: white;
+    }
+    
+    .reserved {
+      background-color: #FFC107;
+      color: white;
+    }
+
+    .vacant {
+      background-color: #ADD8E6;
+      color: black;
+    }
+
+    .spot-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .filter-box {
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Container Tracker</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Dashboard</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Vacant Spots</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Container Parking System Layout -->
+  <div class="container my-5">
+    <h2 class="text-center mb-4">Shipping Container Spots</h2>
+
+    <!-- Filter/Search -->
+    <div class="row filter-box">
+      <div class="col-md-4">
+        <input type="text" class="form-control" placeholder="Search by Container ID or Spot">
+      </div>
+      <div class="col-md-3">
+        <button class="btn btn-primary">Search</button>
+      </div>
+    </div>
+
+    <!-- Grid of Spots -->
+    <div class="spot-grid">
+      <!-- Booked Spot -->
+      <div class="spot-card booked">
+        CNT-001<br>
+        Booked
+      </div>
+      
+      <!-- Available Spot -->
+      <div class="spot-card available">
+        Available
+      </div>
+
+      <!-- Reserved Spot -->
+      <div class="spot-card reserved">
+        CNT-002<br>
+        Reserved
+      </div>
+
+      <!-- Vacant Spot -->
+      <div class="spot-card vacant">
+        Vacant
+      </div>
+
+      <!-- Example: Add more spots -->
+      <div class="spot-card booked">
+        CNT-003<br>
+        Booked
+      </div>
+
+      <div class="spot-card available">
+        Available
+      </div>
+
+      <div class="spot-card vacant">
+        Vacant
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

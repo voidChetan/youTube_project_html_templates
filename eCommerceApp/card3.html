@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bootstrap Product Card with Quantity Controls</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+  <div class="container mt-5">
+    <div class="card" style="width: 18rem;">
+      <img src="https://via.placeholder.com/150" class="card-img-top" alt="Product Image">
+      <div class="card-body">
+        <h5 class="card-title">Product Name</h5>
+        <p class="card-text">
+          <strong>Price:</strong> $50 <br>
+          <strong>Discount:</strong> 10% 
+        </p>
+        <div class="input-group mb-3">
+          <button class="btn btn-outline-secondary" type="button" id="decrement">-</button>
+          <input type="text" class="form-control text-center" id="quantity" value="1" readonly>
+          <button class="btn btn-outline-secondary" type="button" id="increment">+</button>
+        </div>
+        <button class="btn btn-primary">Add to Cart</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // JavaScript for quantity control
+    const decrementBtn = document.getElementById('decrement');
+    const incrementBtn = document.getElementById('increment');
+    const quantityInput = document.getElementById('quantity');
+
+    decrementBtn.addEventListener('click', () => {
+      let currentValue = parseInt(quantityInput.value, 10);
+      if (currentValue > 1) {
+        quantityInput.value = currentValue - 1;
+      }
+    });
+
+    incrementBtn.addEventListener('click', () => {
+      let currentValue = parseInt(quantityInput.value, 10);
+      quantityInput.value = currentValue + 1;
+    });
+  </script>
+  
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
