@@ -1,0 +1,133 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Collapsible Sidebar</title>
+  <!-- Bootstrap CSS -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  >
+  <style>
+    /* Sidebar Styles */
+    .sidebar {
+      width: 250px;
+      height: 100vh;
+      background-color: #343a40;
+      color: white;
+      position: fixed;
+      transition: width 0.3s;
+      overflow-x: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .sidebar.collapsed {
+      width: 80px;
+    }
+
+    .sidebar .nav-link {
+      color: white;
+      margin: 10px 0;
+    }
+
+    .sidebar .nav-link:hover {
+      background-color: #495057;
+    }
+
+    /* Footer Section in Sidebar */
+    .sidebar-footer {
+      padding: 10px;
+      text-align: center;
+      border-top: 1px solid #495057;
+    }
+
+    .sidebar-footer .btn {
+      width: 100%;
+    }
+
+    /* Main Content */
+    .content {
+      margin-left: 250px;
+      transition: margin-left 0.3s;
+      padding: 20px;
+    }
+
+    .collapsed + .content {
+      margin-left: 80px;
+    }
+
+    /* Hamburger Icon */
+    .hamburger-icon {
+      position: fixed;
+      top: 10px;
+      left: 10px;
+      z-index: 1000;
+      cursor: pointer;
+      background: none;
+      border: none;
+      color: white;
+      font-size: 1.5rem;
+    }
+  </style>
+</head>
+<body>
+  <!-- Hamburger Icon -->
+  <button class="hamburger-icon btn btn-dark" id="toggleSidebar">
+    ☰
+  </button>
+
+  <!-- Sidebar -->
+  <div class="sidebar" id="sidebar">
+    <!-- Navigation Links -->
+    <ul class="nav flex-column p-2">
+      <li class="nav-item">
+        <a class="nav-link" href="#">Dashboard</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Profile</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Settings</a>
+      </li>
+    </ul>
+
+    <!-- Footer Section -->
+    <div class="sidebar-footer">
+      <p class="mb-2">Hello, <span id="username">John Doe</span></p>
+      <button class="btn btn-danger btn-sm" id="logOffButton">Log Off</button>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <div class="content">
+    <h1>Main Content Area</h1>
+    <p>This is where the main content goes. The sidebar can be toggled using the hamburger icon.</p>
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    // JavaScript to toggle sidebar
+    const toggleSidebar = document.getElementById('toggleSidebar');
+    const sidebar = document.getElementById('sidebar');
+    const content = document.querySelector('.content');
+
+    toggleSidebar.addEventListener('click', () => {
+      sidebar.classList.toggle('collapsed');
+      content.classList.toggle('collapsed');
+    });
+
+    // Log Off button action
+    const logOffButton = document.getElementById('logOffButton');
+    logOffButton.addEventListener('click', () => {
+      alert('You have been logged off!');
+      // Add actual log-off functionality here
+    });
+  </script>
+</body>
+</html>

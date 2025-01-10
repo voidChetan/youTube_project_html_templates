@@ -1,0 +1,317 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Collapsible Sidebar</title>
+  <!-- Bootstrap CSS -->
+  <link
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+  rel="stylesheet"
+/>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <style>
+    /* Sidebar Styles */
+    .sidebar {
+      width: 250px;
+      height: 100vh;
+      background-color: #343a40;
+      color: white;
+      position: fixed;
+      transition: width 0.3s;
+      overflow-x: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .sidebar.collapsed {
+      width: 80px;
+    }
+
+    .sidebar .nav-link {
+      color: white;
+      margin: 10px 0;
+    }
+
+    .sidebar .nav-link:hover {
+      background-color: #495057;
+    }
+
+    /* Footer Section in Sidebar */
+    .sidebar-footer {
+      padding: 10px;
+      text-align: center;
+      border-top: 1px solid #495057;
+    }
+
+    .sidebar-footer .btn {
+      width: 100%;
+    }
+
+    /* Main Content */
+    .content {
+      margin-left: 250px;
+      transition: margin-left 0.3s;
+      padding: 20px;
+    }
+
+    .collapsed + .content {
+      margin-left: 80px;
+    }
+
+    /* Hamburger Icon */
+    .hamburger-icon {
+      position: fixed;
+      top: 10px;
+      left: 10px;
+      z-index: 1000;
+      cursor: pointer;
+      background: none;
+      border: none;
+      color: white;
+      font-size: 1.5rem;
+    }
+  </style>
+  <style>
+    .form-group {
+      display: flex;
+      align-items: center;
+      margin-bottom: 15px;
+      background: rgba(255, 255, 255, 0.7);
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      padding: 5px 10px;
+    }
+  
+    .form-group i {
+      margin-right: 10px;
+      color: #555;
+      font-size: 18px;
+    }
+  
+    .form-group input, .form-group select {
+      flex: 1;
+      border: none;
+      outline: none;
+      background: transparent;
+      font-size: 16px;
+    }
+  
+    .form-group input::placeholder, .form-group select {
+      color: #aaa;
+    }
+  
+    .btn-primary {
+      background-color: #007bff;
+      border-color: #007bff;
+    }
+  
+    .btn-primary:hover {
+      background-color: #0056b3;
+    }
+  
+    .table-container {
+      margin-top: 30px;
+    }
+  
+    .modal-content {
+      border-radius: 10px;
+      backdrop-filter: blur(15px);
+      background: rgba(255, 255, 255, 0.9);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    }
+  </style>
+  
+</head>
+<body>
+  <!-- Hamburger Icon -->
+  <button class="hamburger-icon btn btn-dark" id="toggleSidebar">
+    ☰
+  </button>
+
+  <!-- Sidebar -->
+  <div class="sidebar" id="sidebar">
+    <!-- Navigation Links -->
+    <ul class="nav flex-column p-2">
+      <li class="nav-item">
+        <a class="nav-link" href="#">Dashboard</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Profile</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Settings</a>
+      </li>
+    </ul>
+
+    <!-- Footer Section -->
+    <div class="sidebar-footer">
+      <p class="mb-2">Hello, <span id="username">John Doe</span></p>
+      <button class="btn btn-danger btn-sm" id="logOffButton">Log Off</button>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <div class="content">
+    <div class="container">
+      <!-- Batch Form -->
+      <h3 class="mb-4">New Batch</h3>
+      <form id="batchForm">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <i class="fas fa-layer-group"></i>
+              <input type="text" class="form-control" id="batchName" placeholder="Batch Name" required />
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <i class="fas fa-chalkboard-teacher"></i>
+              <input type="text" class="form-control" id="teacher" placeholder="Teacher Name" required />
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <i class="fas fa-calendar-alt"></i>
+              <input type="date" class="form-control" id="startDate" required />
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <i class="fas fa-calendar-check"></i>
+              <input type="date" class="form-control" id="endDate" required />
+            </div>
+          </div>
+          <div class="col-12 text-end">
+            <button type="submit" class="btn btn-primary">Save Batch</button>
+          </div>
+        </div>
+      </form>
+    
+      <!-- Enrollment Section -->
+      <div class="table-container">
+        <h4>Enrolled Students</h4>
+        <button class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#enrollStudentModal">
+          <i class="fas fa-user-plus"></i> Enroll Student
+        </button>
+        <table class="table table-striped table-bordered">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Student ID</th>
+              <th>Total Fees</th>
+              <th>Discount</th>
+              <th>Narration</th>
+              <th>Enroll Date</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="enrollmentsTable">
+            <!-- Enrollment rows will go here -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+    
+    <!-- Enroll Student Modal -->
+    <div class="modal fade" id="enrollStudentModal" tabindex="-1" aria-labelledby="enrollStudentModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="enrollStudentModalLabel">Enroll Student</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <form id="enrollForm">
+              <div class="form-group">
+                <i class="fas fa-id-card"></i>
+                <input type="number" class="form-control" id="studentId" placeholder="Student ID" required />
+              </div>
+              <div class="form-group">
+                <i class="fas fa-dollar-sign"></i>
+                <input type="text" class="form-control" id="totalFees" placeholder="Total Fees" required />
+              </div>
+              <div class="form-group">
+                <i class="fas fa-percent"></i>
+                <input type="number" class="form-control" id="discount" placeholder="Discount (%)" required />
+              </div>
+              <div class="form-group">
+                <i class="fas fa-pencil-alt"></i>
+                <input type="text" class="form-control" id="narration" placeholder="Narration" />
+              </div>
+              <div class="form-group">
+                <i class="fas fa-calendar-alt"></i>
+                <input type="date" class="form-control" id="enrollDate" required />
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary" form="enrollForm">Enroll</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    const enrollmentsTable = document.getElementById('enrollmentsTable');
+  
+    document.getElementById('enrollForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+      const studentId = document.getElementById('studentId').value;
+      const totalFees = document.getElementById('totalFees').value;
+      const discount = document.getElementById('discount').value;
+      const narration = document.getElementById('narration').value;
+      const enrollDate = document.getElementById('enrollDate').value;
+  
+      // Add row to the table
+      const row = `
+        <tr>
+          <td>${enrollmentsTable.rows.length + 1}</td>
+          <td>${studentId}</td>
+          <td>${totalFees}</td>
+          <td>${discount}</td>
+          <td>${narration}</td>
+          <td>${enrollDate}</td>
+          <td>
+            <button class="btn btn-sm btn-warning"><i class="fas fa-edit"></i></button>
+            <button class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></button>
+          </td>
+        </tr>
+      `;
+      enrollmentsTable.insertAdjacentHTML('beforeend', row);
+  
+      // Close modal and reset form
+      const enrollModal = bootstrap.Modal.getInstance(document.getElementById('enrollStudentModal'));
+      enrollModal.hide();
+      this.reset();
+    });
+  </script>
+  
+  <script>
+    // JavaScript to toggle sidebar
+    const toggleSidebar = document.getElementById('toggleSidebar');
+    const sidebar = document.getElementById('sidebar');
+    const content = document.querySelector('.content');
+
+    toggleSidebar.addEventListener('click', () => {
+      sidebar.classList.toggle('collapsed');
+      content.classList.toggle('collapsed');
+    });
+
+    // Log Off button action
+    const logOffButton = document.getElementById('logOffButton');
+    logOffButton.addEventListener('click', () => {
+      alert('You have been logged off!');
+      // Add actual log-off functionality here
+    });
+  </script>
+</body>
+</html>

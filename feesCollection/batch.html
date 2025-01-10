@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student CRUD</title>
+  <link
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+  rel="stylesheet"
+/>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #ececec, #f0f0f0);
+      margin: 0;
+      padding: 20px;
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .header button {
+      padding: 10px 20px;
+      background: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .header button:hover {
+      background: #0056b3;
+    }
+
+    .card-custom-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .card-custom {
+      background: rgba(255, 255, 255, 0.15);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 15px;
+      backdrop-filter: blur(10px);
+      padding-top: 32px;
+      text-align: center;
+      position: relative;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card-custom:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    }
+
+    .card-custom h3 {
+      margin-bottom: 5px;
+      color: #333;
+    }
+
+    .card-custom p {
+      margin: 2px 0;
+      color: #555;
+    }
+
+    .card-custom button {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 18px;
+    }
+
+    .card-custom button.edit {
+      color: #28a745;
+      right: 75px;
+    }
+
+    .card-custom button.seperator {
+        right: 65px;
+    }
+
+    .card-custom button.delete {
+      color: #dc3545;
+    }
+
+     
+    </style>
+  
+ 
+  <style>
+    .form-group {
+      background: rgba(255, 255, 255, 0.5);
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      padding: 5px 10px;
+      display: flex;
+      align-items: center;
+      margin-bottom: 15px;
+    }
+  
+    .form-group i {
+      color: #555;
+      font-size: 18px;
+      margin-right: 10px;
+    }
+  
+    .form-group input {
+      border: none;
+      outline: none;
+      flex: 1;
+      background: transparent;
+    }
+  
+    .form-group input::placeholder {
+      color: #aaa;
+    }
+  
+    .modal-content {
+      border-radius: 10px;
+      backdrop-filter: blur(15px);
+      background: rgba(255, 255, 255, 0.9);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    }
+  
+    .modal-header {
+      border-bottom: none;
+    }
+  
+    .modal-footer {
+      border-top: none;
+    }
+  
+    .btn-primary {
+      background-color: #007bff;
+      border-color: #007bff;
+    }
+  
+    .btn-primary:hover {
+      background-color: #0056b3;
+      border-color: #004085;
+    }
+  </style>
+  
+</head>
+<body>
+  <div class="header">
+    <h1>Batch CRUD</h1>
+    <button id="addBtn" data-bs-toggle="modal" data-bs-target="#myModal">Add Student</button>
+  </div>
+
+  <div class="row">
+    <div class="col-3">
+        <div class="card-grid" id="cardGrid">
+            <!-- Example card -->
+            <div class="card-custom">
+              <h3>Session-25 CET</h3>
+              <p>Teacher: ABC ABC</p>
+              <p>Phone: 1234567890</p>
+              <p>Fees: $23000</p>
+              <button class="edit">Edit</button>
+              <button class="seperator">|</button>
+              <button class="delete">Delete</button>
+            </div>
+          </div>
+    </div>
+  </div>
+ 
+
+  <!-- Modal -->
+  <!-- Modal -->
+<div class="modal fade" id="studentModal" tabindex="-1" aria-labelledby="studentModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="studentModalLabel">Student Form</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form id="studentForm">
+            <div class="row">
+                <div class="col-6">
+                    <div class="form-group">
+                        <i class="fas fa-user"></i>
+                        <input type="text" class="form-control" id="name" placeholder="Name" required />
+                      </div>
+                </div>
+                <div class="col-6">
+                    <div class="form-group">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" class="form-control" id="email" placeholder="Email" required />
+                      </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <div class="form-group">
+                        <i class="fas fa-phone-alt"></i>
+                        <input type="text" class="form-control" id="phone" placeholder="Phone" required />
+                      </div>
+                </div>
+                <div class="col-6">
+                    <div class="form-group">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <input type="text" class="form-control" id="address" placeholder="Address" required />
+                      </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <div class="form-group">
+                        <i class="fas fa-city"></i>
+                        <input type="text" class="form-control" id="city" placeholder="City" required />
+                      </div>
+                </div>
+                <div class="col-6">
+                    <div class="form-group">
+                        <i class="fas fa-map-pin"></i>
+                        <input type="text" class="form-control" id="pinCode" placeholder="Pin Code" required />
+                      </div>
+                </div>
+            </div>
+           
+         
+            
+           
+            
+           
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-primary" form="studentForm">Save</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  
+
+  <script>
+    // JavaScript to handle modal and CRUD actions
+    const addBtn = document.getElementById('addBtn');
+    const modal = document.getElementById('studentModal');
+    const form = document.getElementById('studentForm');
+    const cardGrid = document.getElementById('cardGrid');
+    const studentModal = new bootstrap.Modal(document.getElementById('studentModal'));
+  
+  // Example: Trigger modal with a button click
+  document.getElementById('addBtn').addEventListener('click', () => {
+    studentModal.show();
+  });
+    addBtn.addEventListener('click', () => {
+      modal.style.display = 'block';
+    });
+
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) modal.style.display = 'none';
+    });
+
+  
+  </script>
+</body>
+</html>

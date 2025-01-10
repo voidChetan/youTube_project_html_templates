@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Playlist</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .form-label {
+    margin-bottom: 0 !important;
+}
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">WebTech Tutorials</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <!-- Left-aligned Links -->
+            <ul class="navbar-nav">
+              <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+              <li class="nav-item"><a class="nav-link" href="pages/playlists.html">Playlists</a></li>
+              <li class="nav-item"><a class="nav-link" href="pages/videos.html">Videos</a></li>
+            </ul>
+            <!-- Right-aligned Links -->
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item"><a class="nav-link" href="pages/login.html">Login</a></li>
+              <li class="nav-item"><a class="nav-link" href="pages/register.html">Register</a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      
+    <div class="container mt-5">
+        <div class="row mb-2">
+            <div class="col-6">
+                <h3 class="text-left">New Playlists</h3>
+            </div>
+            <div class="col-6 text-end">
+                <button type="submit" class="btn btn-warning mt-4">Submit PlayList</button>
+                <button type="button" class="btn btn-success mt-4">List</button>
+            </div>
+        </div> 
+        <hr>
+        <form id="playlistForm" class="mt-4">
+            <div class="row">
+                <div class="col-4">
+                    <div >
+                        <label for="playlistName" class="form-label">Playlist Name</label>
+                        <input type="text" class="form-control" id="playlistName" name="playlistName" placeholder="Enter playlist name" required>
+                    </div>
+        
+                    <div >
+                        <label for="description" class="form-label">Description</label>
+                        <textarea class="form-control" id="description" name="description" placeholder="Enter playlist description"></textarea>
+                    </div>
+                </div>
+                <div class="col-8">
+                    <div class="row">
+                        <div class="col-6">
+                            <h4 class="">Videos</h4>
+                        </div>
+                        <div class="col-6 text-end">
+                            <button type="button" class="btn btn-secondary btn-sm" id="addVideo">Add Another Video</button>
+
+                        </div>
+                    </div>
+                   
+                    <div id="videoList">
+                        <!-- Video 1 -->
+                        <div class="video-item border p-3 mb-3">
+                            <div class="row">
+                                <div class="col-3"> 
+                                        <label for="title" class="form-label">Video Title</label>
+                                        <input type="text" class="form-control" name="title[]" placeholder="Enter video title" required> 
+                                </div>
+                                <div class="col-3"> 
+                                        <label for="videoUrl" class="form-label">Video URL</label>
+                                        <input type="url" class="form-control" name="videoUrl[]" placeholder="Enter video URL" required> 
+                                </div>
+                                <div class="col-3"> 
+                                        <label for="thumbnailUrl" class="form-label">Thumbnail URL</label>
+                                        <input type="url" class="form-control" name="thumbnailUrl[]" placeholder="Enter thumbnail URL"> 
+                                </div>
+                                <div class="col-3"> 
+                                        <button type="button" class="btn btn-danger btn-sm remove-video mt-4">Remove Video</button> 
+                                </div>
+                            </div>
+                           
+                            
+                           
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Playlist Details -->
+           
+
+            <!-- Videos Section -->
+          
+            
+            <!-- Submit Button -->
+        
+        </form>
+    </div>
+
+    <script>
+        // Add video form dynamically
+        document.getElementById('addVideo').addEventListener('click', function () {
+            const videoList = document.getElementById('videoList');
+            const videoItem = document.createElement('div');
+            videoItem.classList.add('video-item', 'border', 'p-3', 'mb-3');
+
+            videoItem.innerHTML = `
+                <div class="row">
+                                <div class="col-3"> 
+                                        <label for="title" class="form-label">Video Title</label>
+                                        <input type="text" class="form-control" name="title[]" placeholder="Enter video title" required> 
+                                </div>
+                                <div class="col-3"> 
+                                        <label for="videoUrl" class="form-label">Video URL</label>
+                                        <input type="url" class="form-control" name="videoUrl[]" placeholder="Enter video URL" required> 
+                                </div>
+                                <div class="col-3"> 
+                                        <label for="thumbnailUrl" class="form-label">Thumbnail URL</label>
+                                        <input type="url" class="form-control" name="thumbnailUrl[]" placeholder="Enter thumbnail URL"> 
+                                </div>
+                                <div class="col-3"> 
+                                        <button type="button" class="btn btn-danger btn-sm remove-video mt-4">Remove Video</button> 
+                                </div>
+                            </div>
+            `;
+
+            videoList.appendChild(videoItem);
+        });
+
+        // Remove video form dynamically
+        document.addEventListener('click', function (e) {
+            if (e.target && e.target.classList.contains('remove-video')) {
+                e.target.closest('.video-item').remove();
+            }
+        });
+
+        // Handle form submission
+        document.getElementById('playlistForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            // Collect form data
+            const formData = new FormData(e.target);
+            const playlist = {
+                playlistName: formData.get('playlistName'),
+                description: formData.get('description'),
+                videos: []
+            };
+
+            const titles = formData.getAll('title[]');
+            const videoUrls = formData.getAll('videoUrl[]');
+            const thumbnailUrls = formData.getAll('thumbnailUrl[]');
+
+            for (let i = 0; i < titles.length; i++) {
+                playlist.videos.push({
+                    title: titles[i],
+                    videoUrl: videoUrls[i],
+                    thumbnailUrl: thumbnailUrls[i]
+                });
+            }
+
+            console.log(playlist);
+
+            // Here, you can send `playlist` object to your API
+            // Example:
+            // fetch('/api/playlists', {
+            //     method: 'POST',
+            //     headers: { 'Content-Type': 'application/json' },
+            //     body: JSON.stringify(playlist)
+            // }).then(response => {
+            //     if (response.ok) {
+            //         alert('Playlist added successfully!');
+            //         e.target.reset();
+            //         document.getElementById('videoList').innerHTML = ''; // Clear video list
+            //     } else {
+            //         alert('Failed to add playlist');
+            //     }
+            // });
+        });
+    </script>
+</body>
+</html>

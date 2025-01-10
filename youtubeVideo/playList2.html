@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compact Playlist List View</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .playlist-card {
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            height: 220px; /* Compact height */
+        }
+        .thumbnail-img {
+            height: 100px; /* Smaller thumbnail */
+            object-fit: cover;
+            border-top-left-radius: 6px;
+            border-top-right-radius: 6px;
+        }
+        .card-body {
+            padding: 10px;
+        }
+        .card-title {
+            font-size: 1rem;
+            margin-bottom: 5px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .card-text {
+            font-size: 0.85rem;
+            height: 40px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">WebTech Tutorials</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <!-- Left-aligned Links -->
+            <ul class="navbar-nav">
+              <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+              <li class="nav-item"><a class="nav-link" href="pages/playlists.html">Playlists</a></li>
+              <li class="nav-item"><a class="nav-link" href="pages/videos.html">Videos</a></li>
+            </ul>
+            <!-- Right-aligned Links -->
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item"><a class="nav-link" href="pages/login.html">Login</a></li>
+              <li class="nav-item"><a class="nav-link" href="pages/register.html">Register</a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      
+    <div class="container mt-4">
+        <div class="row mb-2">
+            <div class="col-6">
+                <h3 class="text-left">Playlists</h3>
+            </div>
+            <div class="col-6 text-end">
+                <button type="button" class="btn btn-primary">Create New Playlist</button>
+            </div>
+        </div>
+        
+        <div class="row row-cols-2 row-cols-md-4 g-3" id="playlistContainer">
+            <!-- Cards will be dynamically generated here -->
+        </div>
+    </div>
+
+    <script>
+        // Sample playlist data
+        const playlists = [
+            {
+                playlistName: "Web Development Tutorials",
+                description: "A collection of web development tutorials for beginners.",
+                thumbnailUrl: "https://via.placeholder.com/300x180.png?text=Thumbnail+1"
+            },
+            {
+                playlistName: "Angular Projects",
+                description: "Step-by-step guides for creating projects in Angular.",
+                thumbnailUrl: "https://via.placeholder.com/300x180.png?text=Thumbnail+2"
+            },
+            {
+                playlistName: "ReactJS Basics",
+                description: "Learn the fundamentals of ReactJS with these videos.",
+                thumbnailUrl: "https://via.placeholder.com/300x180.png?text=Thumbnail+3"
+            },
+            {
+                playlistName: "Full-Stack Development",
+                description: "Build full-stack applications with these in-depth tutorials.",
+                thumbnailUrl: "https://via.placeholder.com/300x180.png?text=Thumbnail+4"
+            },
+            {
+                playlistName: "JavaScript Essentials",
+                description: "Master JavaScript fundamentals with this playlist.",
+                thumbnailUrl: "https://via.placeholder.com/300x180.png?text=Thumbnail+5"
+            },
+            {
+                playlistName: "CSS Design Tricks",
+                description: "Enhance your UI with advanced CSS tricks.",
+                thumbnailUrl: "https://via.placeholder.com/300x180.png?text=Thumbnail+6"
+            },
+        ];
+
+        // Generate playlist cards
+        const playlistContainer = document.getElementById('playlistContainer');
+
+        playlists.forEach(playlist => {
+            const card = document.createElement('div');
+            card.classList.add('col');
+
+            card.innerHTML = `
+                <div class="card playlist-card">
+                    <img src="${playlist.thumbnailUrl}" alt="Thumbnail" class="card-img-top thumbnail-img">
+                    <div class="card-body">
+                        <h5 class="card-title">${playlist.playlistName}</h5>
+                        <p class="card-text">${playlist.description}</p>
+                        <a href="#" class="btn btn-sm btn-primary">Edit</a>
+                        <a href="#" class="btn btn-sm btn-danger">Delete</a>
+                    </div>
+                </div>
+            `;
+
+            playlistContainer.appendChild(card);
+        });
+    </script>
+</body>
+</html>
