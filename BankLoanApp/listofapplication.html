@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bank Application Table</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <style>
+        .heading {
+            color: #1e3c72 !important;
+        }
+
+        .table th,
+        .table td {
+            vertical-align: middle;
+        }
+
+        .addmore {
+            background: linear-gradient(to right, #1e3c72, #2a5298);
+            border: none;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-control::placeholder {
+            font-size: 16px;
+        }
+        .edit-btn {
+    background: linear-gradient(to right, #56ab2f, #a8e063); /* Green Gradient */
+    border: none;
+
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    color: white;
+}
+
+.edit-btn:hover {
+    background: linear-gradient(to right, #3ca55c, #b8e994); /* Darker Green Gradient */
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.delete-btn {
+    background: linear-gradient(to right, #ff6a6a, #ff8c8c); /* Red Gradient */
+    border: none;
+
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    color: white;
+}
+
+.delete-btn:hover {
+    background: linear-gradient(to right, #ff5252, #ff7a7a); /* Darker Red Gradient */
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+    </style>
+</head>
+
+<body>
+    <div class="container my-4 p-4 shadow rounded bg-light">
+        <h2 class="mb-3 fw-bold text-center heading">
+            <span> <i class="bi bi-bank2"></i></span>
+            Bank Application Details
+            <span> <i class="bi bi-bank2"></i></span>
+        </h2>
+        <table class="table table-striped table-bordered">
+            <thead class="table-dark">
+                <tr>
+                    <td><i class="bi bi-person-lines-fill"></i> Full Name</td>
+                    <td><i class="bi bi-telephone-fill"></i> Phone Number</td>
+                    <td><i class="bi bi-credit-card-fill"></i> PAN Card</td>
+                    <td><i class="bi bi-currency-dollar"></i> Annual Income</td>
+                    <td><i class="bi bi-briefcase-fill"></i> Employment Status</td>
+                    <td><i class="bi bi-file-earmark-check-fill"></i> Application Status</td>
+                    <td><i class="bi bi-credit-card-fill"></i> Credit Score</td>
+                    <td><i class="bi bi-archive-fill"></i> Assets</td>
+                    <td><i class="bi bi-tools"></i> Actions</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Assets </td>
+                    <td>Assets </td>
+                    <td>Assets </td>
+                    <td>Assets </td>
+                    <td>Assets </td>
+                    <td>Assets </td>
+                    <td>Assets </td>
+                    <td>Assets </td>
+                    <td>
+                        <div class="row">
+                            <div class="col-6"> <button class="btn btn-sm me-2 text-white edit-btn">
+                                <i class="bi bi-pencil-fill"></i> 
+                            </button></div>
+                            <div class="col-6">         <button class="btn btn-sm text-white delete-btn">
+                                <i class="bi bi-trash-fill"></i> 
+                            </button></div>
+                        </div>
+                       
+               
+                    </td>
+                </tr>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="d-flex justify-content-center gap-2">
+            <button class="btn text-white"
+                style="background: linear-gradient(to right, #00c6ff, #0072ff);">Submit</button>
+            <button class="btn text-white" style="background: linear-gradient(to right, #11998e, #38ef7d);">Patch
+                Form</button>
+            <button class="btn text-white" style="background: linear-gradient(to right, #ff5f6d, #ffc371);">Set
+                Form</button>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
