@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sidebar Navigation</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        .sidebar {
+            width: 250px;
+            height: 100vh;
+            background: #343a40;
+            color: white;
+            transition: width 0.3s;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .sidebar.collapsed {
+            width: 80px;
+        }
+        .sidebar-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px;
+            border-bottom: 1px solid #495057;
+        }
+        .sidebar-header span {
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .sidebar ul {
+            padding-left: 0;
+        }
+        .sidebar ul li {
+            list-style: none;
+            padding: 15px;
+            display: flex;
+            align-items: center;
+        }
+        .sidebar ul li i {
+            width: 30px;
+            text-align: center;
+        }
+        .sidebar ul li span {
+            margin-left: 10px;
+            display: inline-block;
+        }
+        .sidebar.collapsed ul li span {
+            display: none;
+        }
+        .sidebar-footer {
+            padding: 15px;
+            border-top: 1px solid #495057;
+            text-align: center;
+        }
+        .sidebar-footer span {
+            display: block;
+            margin-bottom: 10px;
+        }
+        .sidebar.collapsed .sidebar-footer span {
+            display: none;
+        }
+        .main-content {
+            flex-grow: 1;
+            padding: 20px;
+            background: #f8f9fa;
+            min-height: 100vh;
+        }
+        .btn-icon {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        .table tbody tr:hover {
+            background-color: #f1f1f1;
+            cursor: pointer;
+        }
+        .floating-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            font-size: 24px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            transition: background-color 0.3s ease;
+        }
+        .floating-button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="d-flex">
+        <div class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <span>App Name</span>
+                <button class="btn btn-sm btn-light" id="toggleBtn"><i class="fas fa-bars"></i></button>
+            </div>
+            <ul>
+                <li><i class="fas fa-home"></i> <span>Home</span></li>
+                <li><i class="fas fa-user"></i> <span>Profile</span></li>
+                <li><i class="fas fa-cog"></i> <span>Settings</span></li>
+            </ul>
+            <div class="sidebar-footer">
+                <span id="username">Logged in as: User</span>
+                <button class="btn btn-danger btn-sm"><i class="fas fa-sign-out-alt"></i> <span>Logout</span></button>
+            </div>
+        </div>
+        <div class="main-content" id="mainContent">
+            <div class="container">
+                <h2 class="text-center mb-4">Site Management</h2>
+                <div class="card p-4">
+                    <form id="siteForm">
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label class="form-label">Site Name</label>
+                                <input type="text" class="form-control" id="siteName" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Location</label>
+                                <input type="text" class="form-control" id="location">
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label class="form-label">Client Name</label>
+                                <input type="text" class="form-control" id="clientName">
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Weather Conditions</label>
+                                <input type="text" class="form-control" id="weatherConditions">
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-icon">
+                            <i class="fas fa-plus"></i> Add Site
+                        </button>
+                    </form>
+                </div>
+                <div class="mt-4">
+                    <table class="table table-hover table-bordered text-center">
+                        <thead class="table-primary">
+                            <tr>
+                                <th>Site Name</th>
+                                <th>Location</th>
+                                <th>Client Name</th>
+                                <th>Weather</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="siteTableBody">
+                            <tr>
+                                <td>Example Site</td>
+                                <td>New York</td>
+                                <td>ABC Corp</td>
+                                <td>Sunny</td>
+                                <td>
+                                    <button class="btn btn-warning btn-sm btn-icon"><i class="fas fa-edit"></i></button>
+                                    <button class="btn btn-danger btn-sm btn-icon"><i class="fas fa-trash"></i></button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <button class="floating-button" onclick="openForm()">
+                <i class="fas fa-plus"></i>
+            </button>
+            <script>
+                document.getElementById('siteForm').addEventListener('submit', function(event) {
+                    event.preventDefault();
+                    alert('Site added successfully!');
+                });
+        
+                function openForm() {
+                    document.getElementById('siteName').focus();
+                }
+            </script>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('toggleBtn').addEventListener('click', function() {
+            document.getElementById('sidebar').classList.toggle('collapsed');
+        });
+    </script>
+</body>
+</html>
