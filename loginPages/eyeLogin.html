@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animated Eye Login</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background: #1a1a1a;
+            font-family: Arial, sans-serif;
+        }
+
+        .login-container {
+            background: #fff;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.2);
+            width: 350px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 1.5rem;
+        }
+
+        .input-group {
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        input {
+            width: 100%;
+            padding: 0.8rem;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: #007bff;
+        }
+
+        .eye-container {
+            position: relative;
+            width: 60px;
+            height: 60px;
+            margin: 1rem auto;
+        }
+
+        .eye {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: #fff;
+            border-radius: 50%;
+            border: 2px solid #333;
+            overflow: hidden;
+        }
+
+        .pupil {
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            background: #333;
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            transition: all 0.1s ease;
+        }
+
+        button {
+            width: 100%;
+            padding: 0.8rem;
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background 0.3s;
+        }
+
+        button:hover {
+            background: #0056b3;
+        }
+
+        .password-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        #toggleEye {
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h1>Login</h1>
+        <div class="eye-container">
+            <div class="eye">
+                <div class="pupil" id="pupil"></div>
+            </div>
+        </div>
+        <div class="input-group">
+            <input type="text" id="username" placeholder="Username" required>
+        </div>
+        <div class="input-group">
+            <div class="password-wrapper">
+                <input type="password" id="password" placeholder="Password" required>
+                <button id="toggleEye">👁️</button>
+            </div>
+        </div>
+        <button type="submit">Sign In</button>
+    </div>
+
+    <script>
+        const passwordInput = document.getElementById('password');
+        const pupil = document.getElementById('pupil');
+        const toggleEye = document.getElementById('toggleEye');
+        let isPasswordVisible = false;
+
+        passwordInput.addEventListener('input', (e) => {
+            const inputLength = e.target.value.length;
+            const maxMovement = 15;
+            const position = (inputLength * 3) % (maxMovement * 2) - maxMovement;
+            pupil.style.transform = `translate(${position}px, -50%)`;
+        });
+
+        toggleEye.addEventListener('click', () => {
+            isPasswordVisible = !isPasswordVisible;
+            passwordInput.type = isPasswordVisible ? 'text' : 'password';
+            pupil.style.backgroundColor = isPasswordVisible ? '#007bff' : '#333';
+        });
+
+        // Add focus effects
+        passwordInput.addEventListener('focus', () => {
+            pupil.style.transform = 'scale(1.1) translate(-50%, -50%)';
+        });
+
+        passwordInput.addEventListener('blur', () => {
+            pupil.style.transform = 'scale(1) translate(-50%, -50%)';
+        });
+    </script>
+</body>
+</html>

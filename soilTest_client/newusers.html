@@ -14,16 +14,13 @@
             background: #343a40;
             color: white;
             transition: width 0.3s;
+            /* display: flex; */
             flex-direction: column;
             justify-content: space-between;
         }
 
         .sidebar.collapsed {
             width: 80px;
-        }
-        .sidebar ul li:hover {
-            background-color: #495057;
-            cursor: pointer;
         }
 
         .sidebar-header {
@@ -61,6 +58,11 @@
             display: inline-block;
         }
 
+        .sidebar ul li:hover {
+            background-color: #495057;
+            cursor: pointer;
+        }
+
         .sidebar.collapsed ul li span {
             display: none;
         }
@@ -94,10 +96,11 @@
             gap: 5px;
         }
 
-        /* .table tbody tr:hover {
+        .table tbody tr:hover {
             background-color: #f1f1f1;
             cursor: pointer;
-        } */
+        }
+
         .floating-button {
             position: fixed;
             bottom: 20px;
@@ -117,7 +120,21 @@
             background-color: #0056b3;
         }
 
-        /* Buttons */
+        .heading {
+            color: #003f7f;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+        }
+
+        .heading:hover {
+            color: #007bff;
+            transform: scale(1.05);
+        }
+
         .btn-primary {
             background: linear-gradient(135deg, #007bff, #0056b3);
             border: none;
@@ -151,21 +168,6 @@
             color: #003f7f;
         }
 
-        .heading {
-            color: #003f7f;
-            border: none;
-            padding: 10px 15px;
-            border-radius: 8px;
-            font-weight: bold;
-            transition: all 0.3s ease;
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
-        }
-
-        .heading:hover {
-            color: #007bff;
-            transform: scale(1.05);
-        }
-
         .sidebar.collapsed .sidebar-header span {
             display: none;
         }
@@ -174,16 +176,11 @@
             display: none;
         }
 
-        form i {
+        tr th i {
             color: #003f7f;
         }
 
-        .sidebar ul li:hover {
-            background-color: #495057;
-            cursor: pointer;
-        }
-
-        tr th i {
+        form i {
             color: #003f7f;
         }
     </style>
@@ -204,68 +201,89 @@
                 <li><i class="fas fa-vial"></i> <span>Test</span></li>
                 <li><i class="fas fa-ruler-combined"></i> <span>Measurements</span></li>
             </ul>
-
             <div class="sidebar-footer">
                 <span id="username">Logged in as: User</span>
                 <button class="btn btn-danger w-75">
-                    <i class="fas fa-sign-out-alt"></i> <b>Logout </b> </button>
+                    <i class="fas fa-sign-out-alt"></i> <b>Logout </b></button>
             </div>
         </div>
         <div class="main-content" id="mainContent">
             <div class="container">
-                <h2 class="text-center mb-4 heading">
-                    <i class="fas fa-seedling fw-bold"></i> Site Management
+                <h2 class="text-center mb-4 fw-bold heading">
+                    <i class="fas fa-user"></i> User Management
                 </h2>
                 <div class="card p-4 shadow-lg">
-                    <form id="siteForm">
+                    <form id="userForm">
                         <div class="row mb-3">
                             <div class="col-md-6">
-                                <label class="form-label">Site Name :</label>
-                                <div class="input-group">
-                                    <span class="input-group-text">
-                                        <i class="fas fa-pencil-alt"></i>
-                                    </span>
-                                    <input type="text" class="form-control" id="siteName" placeholder="Enter site name"
-                                        required>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <label class="form-label">Location:</label>
-                                <div class="input-group">
-                                    <span class="input-group-text">
-                                        <i class="fas fa-map-pin"></i>
-                                    </span>
-                                    <input type="text" class="form-control" id="location" placeholder="Enter location">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row mb-3">
-                            <div class="col-md-6">
-                                <label class="form-label">Client Name:</label>
+                                <label class="form-label">Username: </label>
                                 <div class="input-group">
                                     <span class="input-group-text">
                                         <i class="fas fa-user"></i>
                                     </span>
-                                    <input type="text" class="form-control" id="clientName"
-                                        placeholder="Enter client name">
+                                    <input type="text" class="form-control" id="userName" placeholder="Enter username"
+                                        required>
                                 </div>
                             </div>
                             <div class="col-md-6">
-                                <label class="form-label">Weather Conditions:</label>
+                                <label class="form-label">Email:</label>
                                 <div class="input-group">
                                     <span class="input-group-text">
-                                        <i class="fas fa-cloud-sun"></i>
+                                        <i class="fas fa-envelope"></i>
                                     </span>
-                                    <input type="text" class="form-control" id="weatherConditions"
-                                        placeholder="Enter weather conditions">
+                                    <input type="email" class="form-control" id="emailId" placeholder="Enter email"
+                                        required>
                                 </div>
                             </div>
                         </div>
-                        <button type="submit" class="btn btn-primary btn-icon ">
-                            <span><i class="fas fa-plus"></i> Add </span>
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label class="form-label">Full Name :</label>
+                                <div class="input-group">
+                                    <span class="input-group-text">
+                                        <i class="fas fa-user"></i>
+                                    </span>
+                                    <input type="text" class="form-control" id="fullName" placeholder="Enter full name"
+                                        required>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Role:</label>
+                                <div class="input-group">
+                                    <span class="input-group-text">
+                                        <i class="fas fa-user-shield"></i>
+                                    </span>
+                                    <input type="text" class="form-control" id="role" placeholder="Enter role" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label class="form-label">Project Name:</label>
+                                <div class="input-group">
+                                    <span class="input-group-text">
+                                        <i class="fas fa-project-diagram"></i>
+                                    </span>
+                                    <input type="text" class="form-control" id="projectName"
+                                        placeholder="Enter project name">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Password:</label>
+                                <div class="input-group">
+                                    <span class="input-group-text">
+                                        <i class="fas fa-lock"></i>
+                                    </span>
+                                    <input type="password" class="form-control" id="password"
+                                        placeholder="Enter password" required>
+                                </div>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-icon">
+                            <span><i class="fas fa-plus"></i> Add User</span>
                         </button>
-                        <button type="submit" class="btn btn-warning  btn-icon ">
-                            <span><i class="fas fa-edit"></i> Update</span>
+                        <button type="submit" class="btn btn-warning btn-icon">
+                            <span><i class="fas fa-edit"></i> Update User</span>
                         </button>
                     </form>
                 </div>
@@ -274,20 +292,24 @@
                         <thead class="table-primary">
                             <tr>
                                 <th><i class="fas fa-hashtag"></i> Sr no</th>
-                                <th><i class="fas fa-building"></i> Site Name</th>
-                                <th><i class="fas fa-map-pin"></i> Location</th>
-                                <th><i class="fas fa-user"></i> Client Name</th>
-                                <th><i class="fas fa-cloud-sun"></i> Weather</th>
+                                <th><i class="fas fa-user"></i> Username</th>
+                                <th><i class="fas fa-envelope"></i> Email</th>
+                                <th><i class="fas fa-user-tag"></i> Full Name</th>
+                                <th><i class="fas fa-id-badge"></i> Role</th>
+                                <th><i class="fas fa-project-diagram"></i> Project</th>
+                                <th><i class="fas fa-calendar-alt"></i> Created Date</th>
                                 <th><i class="fas fa-cogs"></i> Actions</th>
                             </tr>
                         </thead>
-                        <tbody id="siteTableBody">
+                        <tbody id="userTableBody">
                             <tr>
-                                <th>1</th>
-                                <td>Example Site</td>
-                                <td>New York</td>
-                                <td>ABC Corp</td>
-                                <td>Sunny</td>
+                                <td>1</td>
+                                <td>johndoe</td>
+                                <td>john.doe@example.com</td>
+                                <td>John Doe</td>
+                                <td>Admin</td>
+                                <td>Project X</td>
+                                <td>2025-01-30</td>
                                 <td>
                                     <div class="d-flex justify-content-center">
                                         <button class="btn btn-success btn-sm btn-icon"><i
@@ -309,14 +331,12 @@
                     event.preventDefault();
                     alert('Site added successfully!');
                 });
-
                 function openForm() {
                     document.getElementById('siteName').focus();
                 }
             </script>
         </div>
     </div>
-
     <script>
         document.getElementById('toggleBtn').addEventListener('click', function () {
             document.getElementById('sidebar').classList.toggle('collapsed');

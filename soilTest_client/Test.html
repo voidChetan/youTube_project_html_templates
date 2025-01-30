@@ -7,19 +7,24 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <style>
-        .sidebar {
+       .sidebar {
             width: 250px;
             height: 100vh;
             background: #343a40;
             color: white;
             transition: width 0.3s;
-            display: flex;
             flex-direction: column;
             justify-content: space-between;
         }
+
         .sidebar.collapsed {
             width: 80px;
         }
+        .sidebar ul li:hover {
+            background-color: #495057;
+            cursor: pointer;
+        }
+
         .sidebar-header {
             display: flex;
             align-items: center;
@@ -27,45 +32,59 @@
             padding: 15px;
             border-bottom: 1px solid #495057;
         }
+
         .sidebar-header span {
             font-size: 18px;
             font-weight: bold;
         }
+
         .sidebar ul {
             padding-left: 0;
         }
+
         .sidebar ul li {
             list-style: none;
             padding: 15px;
+            padding-top: 40px;
             display: flex;
             align-items: center;
         }
+
         .sidebar ul li i {
             width: 30px;
             text-align: center;
         }
+
         .sidebar ul li span {
             margin-left: 10px;
             display: inline-block;
         }
+
         .sidebar.collapsed ul li span {
             display: none;
         }
+
         .sidebar-footer {
             padding: 15px;
+
             border-top: 1px solid #495057;
             text-align: center;
         }
+
         .sidebar-footer span {
             display: block;
             margin-bottom: 10px;
         }
+
         .sidebar.collapsed .sidebar-footer span {
             display: none;
         }
+
         .main-content {
             flex-grow: 1;
             padding: 20px;
+            padding-bottom: 0px;
+            padding-top: 0px;
             background: #f8f9fa;
             min-height: 100vh;
         }
@@ -99,6 +118,7 @@
         .testsidebar {
             height: max-content;
             background: #919aa2;
+            margin-top: 22px;
             color: white;
             padding: 10px;
         }
@@ -116,23 +136,53 @@
             border-radius: 5px;
             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
         }
+        label {
+            font-weight: bold;
+            color: #003f7f;
+        }
+
+        .heading {
+            color: #003f7f;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+        }
+
+        .form-control   {
+            border-color: #003f7f !important;
+        }
+        .form-select   {
+            border-color: #003f7f !important;
+        }
+        .sideContent {
+            height: 100vh;
+            overflow-x: auto;
+        }
     </style>
 </head>
 <body>
     <div class="d-flex">
         <div class="sidebar" id="sidebar">
             <div class="sidebar-header">
-                <span>App Name</span>
+                <span class="text-center ps-3">
+                    <i class="fas fa-seedling text-success me-2"></i><span> Soil Test </span>
+                </span>
                 <button class="btn btn-sm btn-light" id="toggleBtn"><i class="fas fa-bars"></i></button>
             </div>
             <ul>
-                <li><i class="fas fa-home"></i> <span>Home</span></li>
-                <li><i class="fas fa-user"></i> <span>Profile</span></li>
-                <li><i class="fas fa-cog"></i> <span>Settings</span></li>
+                <li><i class="fas fa-user-plus"></i> <span>New Users</span></li>
+                <li><i class="fas fa-map-marked-alt"></i> <span>Sites</span></li>
+                <li><i class="fas fa-vial"></i> <span>Test</span></li>
+                <li><i class="fas fa-ruler-combined"></i> <span>Measurements</span></li>
             </ul>
+
             <div class="sidebar-footer">
                 <span id="username">Logged in as: User</span>
-                <button class="btn btn-danger btn-sm"><i class="fas fa-sign-out-alt"></i> <span>Logout</span></button>
+                <button class="btn btn-danger w-75">
+                    <i class="fas fa-sign-out-alt"></i> <b>Logout </b> </button>
             </div>
         </div>
         <div class="main-content" id="mainContent">
@@ -149,33 +199,127 @@
                             <!-- Dynamically added test items -->
                         </div>
                     </div>
-                    <div class="col-md-9 p-4">
+                    <div class="col-md-10 p-4 sideContent">
                         <div class="form-container" id="testFormContainer">
                             <h4>Create / Edit Test</h4>
                             <form id="testForm">
-                                <div class="mb-3">
-                                    <label for="testName" class="form-label">Test Name</label>
-                                    <input type="text" class="form-control" id="testName" required>
+                                <div class="row">
+                                    <div class="col-4">
+                                        <div class="mb-3">
+                                            <label for="testName" class="form-label">Test Name</label>
+                                            <input type="text" class="form-control" id="testName" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-4">
+                                        <div class="mb-3">
+                                            <label for="testDate" class="form-label">Test Date</label>
+                                            <input type="date" class="form-control" id="testDate" required>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="mb-3">
-                                    <label for="testDate" class="form-label">Test Date</label>
-                                    <input type="date" class="form-control" id="testDate" required>
+                                <div class="row">
+                                    <div class="col-4">
+                                        <div class="mb-3">
+                                            <label for="testName" class="form-label"> Site</label>
+                                            <select name="" class="form-select">
+                                                <option value="">Select Site</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-4">
+                                        <div class="mb-3">
+                                            <label for="testName" class="form-label"> Engineer</label>
+                                            <select name="" class="form-select">
+                                                <option value="">Select Engineer</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-4">
+                                        <div class="mb-3">
+                                            <label for="testName" class="form-label"> Test Type</label>
+                                            <select name="" class="form-select">
+                                                <option value="">Select Test Type</option>
+                                            </select>
+                                        </div>
+                                    </div>
                                 </div>
+                               
+                                
+                               
                                 <button type="submit" class="btn btn-primary">Save Test</button>
                             </form>
                         </div>
                         <div class="form-container mt-4" id="measurementFormContainer">
                             <h4>Measurements for Selected Test</h4>
-                            <form id="measurementForm">
-                                <div class="mb-3">
-                                    <label for="excavatedHoleVolume" class="form-label">Excavated Hole Volume</label>
-                                    <input type="number" step="0.01" class="form-control" id="excavatedHoleVolume" required>
+                            <form id="siteForm">
+                                <div class="row mb-3">
+                                    <div class="col-md-4">
+                                        <label class="form-label">Excavated Hole Volume (m³):</label>
+                                        <div class="input-group">
+                                            <span class="input-group-text"><i class="fas fa-cube"></i></span>
+                                            <input type="number" class="form-control" id="excavatedHoleVolume" value="0.01"
+                                                placeholder="Enter volume">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label class="form-label">Wet Soil Weight (kg):</label>
+                                        <div class="input-group">
+                                            <span class="input-group-text"><i class="fas fa-weight"></i></span>
+                                            <input type="number" class="form-control" id="wetSoilWeight" value="0.01"
+                                                placeholder="Enter weight">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label class="form-label">Moisture Content (%):</label>
+                                        <div class="input-group">
+                                            <span class="input-group-text"><i class="fas fa-tint"></i></span>
+                                            <input type="number" class="form-control" id="moistureContent" value="100"
+                                                placeholder="Enter content percentage">
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="mb-3">
-                                    <label for="wetSoilWeight" class="form-label">Wet Soil Weight</label>
-                                    <input type="number" step="0.01" class="form-control" id="wetSoilWeight" required>
+                                <div class="row mb-3">
+        
+                                    <div class="col-md-4">
+                                        <label class="form-label">Dry Soil Weight (kg):</label>
+                                        <div class="input-group">
+                                            <span class="input-group-text"><i class="fas fa-weight-hanging"></i></span>
+                                            <input type="number" class="form-control" id="drySoilWeight" value="0.01"
+                                                placeholder="Enter weight">
+                                        </div>
+                                    </div>
+        
+                                    <div class="col-md-4">
+                                        <label class="form-label">Sand Volume Used (m³):</label>
+                                        <div class="input-group">
+                                            <span class="input-group-text"><i class="fas fa-cubes"></i></span>
+                                            <input type="number" class="form-control" id="sandVolumeUsed" value="0"
+                                                placeholder="Enter volume">
+                                        </div>
+                                    </div>
+        
+                                    <div class="col-md-4">
+                                        <label class="form-label">Dry Density (kg/m³):</label>
+                                        <div class="input-group">
+                                            <span class="input-group-text"><i class="fas fa-weight-hanging"></i></span>
+                                            <input type="number" class="form-control" id="dryDensity" value="0.01"
+                                                placeholder="Enter density">
+                                        </div>
+                                    </div>
                                 </div>
-                                <button type="submit" class="btn btn-primary">Add Measurement</button>
+                                <div class="row mb-3">
+                                    <div class="col-md-6">
+                                        <label class="form-label">Soil Classification:</label>
+                                        <input type="text" class="form-control" id="soilClassification" value="string"
+                                            placeholder="Enter classification">
+                                    </div>
+                                </div>
+                                <button type="submit" class="btn btn-primary btn-icon ">
+                                    <span><i class="fas fa-plus"></i> Add </span>
+                                </button>
+                                <button type="submit" class="btn btn-warning  btn-icon ">
+                                    <span><i class="fas fa-edit"></i> Update</span>
+                                </button>
                             </form>
                             <div class="mt-3">
                                 <h5>Measurements List</h5>
