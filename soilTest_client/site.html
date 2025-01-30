@@ -3,107 +3,192 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Test & Measurement Management</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>Sidebar Navigation</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <style>
-        body {
-            background-color: #f8f9fa;
-        }
         .sidebar {
+            width: 250px;
             height: 100vh;
             background: #343a40;
             color: white;
-            padding: 15px;
+            transition: width 0.3s;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
-        .sidebar .list-group-item {
-            background: transparent;
-            color: white;
+        .sidebar.collapsed {
+            width: 80px;
+        }
+        .sidebar-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px;
+            border-bottom: 1px solid #495057;
+        }
+        .sidebar-header span {
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .sidebar ul {
+            padding-left: 0;
+        }
+        .sidebar ul li {
+            list-style: none;
+            padding: 15px;
+            display: flex;
+            align-items: center;
+        }
+        .sidebar ul li i {
+            width: 30px;
+            text-align: center;
+        }
+        .sidebar ul li span {
+            margin-left: 10px;
+            display: inline-block;
+        }
+        .sidebar.collapsed ul li span {
+            display: none;
+        }
+        .sidebar-footer {
+            padding: 15px;
+            border-top: 1px solid #495057;
+            text-align: center;
+        }
+        .sidebar-footer span {
+            display: block;
+            margin-bottom: 10px;
+        }
+        .sidebar.collapsed .sidebar-footer span {
+            display: none;
+        }
+        .main-content {
+            flex-grow: 1;
+            padding: 20px;
+            background: #f8f9fa;
+            min-height: 100vh;
+        }
+        .btn-icon {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        .table tbody tr:hover {
+            background-color: #f1f1f1;
             cursor: pointer;
         }
-        .sidebar .list-group-item.active {
-            background: #007bff;
+        .floating-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            font-size: 24px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            transition: background-color 0.3s ease;
         }
-        .form-container {
-            background: white;
-            padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        .floating-button:hover {
+            background-color: #0056b3;
         }
     </style>
 </head>
 <body>
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-3 sidebar">
-                <h4>Tests</h4>
-                <button class="btn btn-success w-100 mb-3" onclick="openTestForm()">
-                    <i class="fas fa-plus"></i> Add New Test
-                </button>
-                <div class="list-group" id="testList">
-                    <!-- Dynamically added test items -->
-                </div>
+    <div class="d-flex">
+        <div class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <span>App Name</span>
+                <button class="btn btn-sm btn-light" id="toggleBtn"><i class="fas fa-bars"></i></button>
             </div>
-            <div class="col-md-9 p-4">
-                <div class="form-container" id="testFormContainer">
-                    <h4>Create / Edit Test</h4>
-                    <form id="testForm">
-                        <div class="mb-3">
-                            <label for="testName" class="form-label">Test Name</label>
-                            <input type="text" class="form-control" id="testName" required>
+            <ul>
+                <li><i class="fas fa-home"></i> <span>Home</span></li>
+                <li><i class="fas fa-user"></i> <span>Profile</span></li>
+                <li><i class="fas fa-cog"></i> <span>Settings</span></li>
+            </ul>
+            <div class="sidebar-footer">
+                <span id="username">Logged in as: User</span>
+                <button class="btn btn-danger btn-sm"><i class="fas fa-sign-out-alt"></i> <span>Logout</span></button>
+            </div>
+        </div>
+        <div class="main-content" id="mainContent">
+            <div class="container">
+                <h2 class="text-center mb-4">Site Management</h2>
+                <div class="card p-4">
+                    <form id="siteForm">
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label class="form-label">Site Name</label>
+                                <input type="text" class="form-control" id="siteName" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Location</label>
+                                <input type="text" class="form-control" id="location">
+                            </div>
                         </div>
-                        <div class="mb-3">
-                            <label for="testDate" class="form-label">Test Date</label>
-                            <input type="date" class="form-control" id="testDate" required>
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label class="form-label">Client Name</label>
+                                <input type="text" class="form-control" id="clientName">
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Weather Conditions</label>
+                                <input type="text" class="form-control" id="weatherConditions">
+                            </div>
                         </div>
-                        <button type="submit" class="btn btn-primary">Save Test</button>
+                        <button type="submit" class="btn btn-primary btn-icon">
+                            <i class="fas fa-plus"></i> Add Site
+                        </button>
                     </form>
                 </div>
-                <div class="form-container mt-4" id="measurementFormContainer">
-                    <h4>Measurements for Selected Test</h4>
-                    <form id="measurementForm">
-                        <div class="mb-3">
-                            <label for="excavatedHoleVolume" class="form-label">Excavated Hole Volume</label>
-                            <input type="number" step="0.01" class="form-control" id="excavatedHoleVolume" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="wetSoilWeight" class="form-label">Wet Soil Weight</label>
-                            <input type="number" step="0.01" class="form-control" id="wetSoilWeight" required>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Add Measurement</button>
-                    </form>
-                    <div class="mt-3">
-                        <h5>Measurements List</h5>
-                        <ul class="list-group" id="measurementList">
-                            <!-- Dynamically added measurement items -->
-                        </ul>
-                    </div>
+                <div class="mt-4">
+                    <table class="table table-hover table-bordered text-center">
+                        <thead class="table-primary">
+                            <tr>
+                                <th>Site Name</th>
+                                <th>Location</th>
+                                <th>Client Name</th>
+                                <th>Weather</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="siteTableBody">
+                            <tr>
+                                <td>Example Site</td>
+                                <td>New York</td>
+                                <td>ABC Corp</td>
+                                <td>Sunny</td>
+                                <td>
+                                    <button class="btn btn-warning btn-sm btn-icon"><i class="fas fa-edit"></i></button>
+                                    <button class="btn btn-danger btn-sm btn-icon"><i class="fas fa-trash"></i></button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
+            <button class="floating-button" onclick="openForm()">
+                <i class="fas fa-plus"></i>
+            </button>
+            <script>
+                document.getElementById('siteForm').addEventListener('submit', function(event) {
+                    event.preventDefault();
+                    alert('Site added successfully!');
+                });
+        
+                function openForm() {
+                    document.getElementById('siteName').focus();
+                }
+            </script>
         </div>
     </div>
 
     <script>
-        function openTestForm() {
-            document.getElementById('testFormContainer').style.display = 'block';
-        }
-        
-        document.getElementById('testForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const testName = document.getElementById('testName').value;
-            const testDate = document.getElementById('testDate').value;
-            const testId = Date.now();
-            
-            const testItem = document.createElement('a');
-            testItem.classList.add('list-group-item', 'list-group-item-action');
-            testItem.innerText = testName;
-            testItem.dataset.id = testId;
-            testItem.onclick = function() {
-                document.querySelectorAll('.list-group-item').forEach(item => item.classList.remove('active'));
-                this.classList.add('active');
-            };
-            
-            document.getElementById('testList').appendChild(testItem);
+        document.getElementById('toggleBtn').addEventListener('click', function() {
+            document.getElementById('sidebar').classList.toggle('collapsed');
         });
     </script>
 </body>
