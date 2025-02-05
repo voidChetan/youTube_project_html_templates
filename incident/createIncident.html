@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Incident</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+    <style>
+        body {
+            background-color: #f4f7fc;
+        }
+        .container {
+            max-width: 700px;
+        }
+        .card {
+            border: none;
+            border-radius: 12px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            background: #ffffff;
+        }
+        .form-control, .form-select {
+            border-radius: 8px;
+        }
+        .btn-primary {
+            background-color: #007bff;
+            border: none;
+            border-radius: 8px;
+        }
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+        .btn-secondary {
+            border-radius: 8px;
+        }
+        .icon {
+            font-size: 20px;
+            margin-right: 8px;
+            color: #007bff;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="card p-4">
+            <h4 class="text-center text-primary mb-4"><i class="bi bi-exclamation-circle-fill"></i> Create Incident</h4>
+            <form id="incidentForm">
+                <div class="mb-3">
+                    <label for="title" class="form-label"><i class="bi bi-tag icon"></i> Title:</label>
+                    <input type="text" class="form-control" id="title" placeholder="Enter incident title" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="description" class="form-label"><i class="bi bi-card-text icon"></i> Description:</label>
+                    <textarea class="form-control" id="description" rows="3" placeholder="Enter incident details" required></textarea>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label for="priority" class="form-label"><i class="bi bi-arrow-up-circle icon"></i> Priority:</label>
+                        <select class="form-select" id="priority" required>
+                            <option value="">Select Priority</option>
+                            <option value="Critical">Critical</option>
+                            <option value="High">High</option>
+                            <option value="Medium">Medium</option>
+                            <option value="Low">Low</option>
+                        </select>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="status" class="form-label"><i class="bi bi-list-check icon"></i> Status:</label>
+                        <select class="form-select" id="status" required>
+                            <option value="">Select Status</option>
+                            <option value="Open">Open</option>
+                            <option value="In Progress">In Progress</option>
+                            <option value="Resolved">Resolved</option>
+                            <option value="Closed">Closed</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label for="createdBy" class="form-label"><i class="bi bi-person icon"></i> Created By:</label>
+                        <input type="text" class="form-control" id="createdBy" placeholder="Enter creator name" required>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="assignedTo" class="form-label"><i class="bi bi-person-check icon"></i> Assigned To:</label>
+                        <input type="text" class="form-control" id="assignedTo" placeholder="Enter assignee name (optional)">
+                    </div>
+                </div>
+
+                <div class="text-center mt-3">
+                    <button type="submit" class="btn btn-primary px-4"><i class="bi bi-send"></i> Submit</button>
+                    <button type="reset" class="btn btn-secondary px-4"><i class="bi bi-x-circle"></i> Reset</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

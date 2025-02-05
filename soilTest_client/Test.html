@@ -75,14 +75,16 @@
             display: block;
             margin-bottom: 10px;
         }
-
+        .form-label {
+    margin-bottom: 0rem !important;
+}
         .sidebar.collapsed .sidebar-footer span {
             display: none;
         }
 
         .main-content {
             flex-grow: 1;
-            padding: 20px;
+            padding: 10px;
             padding-bottom: 0px;
             padding-top: 0px;
             background: #f8f9fa;
@@ -137,10 +139,9 @@
             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
         }
         label {
-            font-weight: bold;
-            color: #003f7f;
-        }
-
+    font-weight: 600;
+    color: #003f7f;
+}
         .heading {
             color: #003f7f;
             border: none;
@@ -192,7 +193,7 @@
                 <div class="row">
                     <div class="col-md-2 testsidebar">
                         <h4>Tests</h4>
-                        <button class="btn btn-success w-100 mb-3" onclick="openTestForm()">
+                        <button class="btn btn-success w-100 mb-1" onclick="openTestForm()">
                             <i class="fas fa-plus"></i> Add New Test
                         </button>
                         <div class="list-group" id="testList">
@@ -205,13 +206,13 @@
                             <form id="testForm">
                                 <div class="row">
                                     <div class="col-4">
-                                        <div class="mb-3">
+                                        <div class="mb-1">
                                             <label for="testName" class="form-label">Test Name</label>
                                             <input type="text" class="form-control" id="testName" required>
                                         </div>
                                     </div>
                                     <div class="col-4">
-                                        <div class="mb-3">
+                                        <div class="mb-1">
                                             <label for="testDate" class="form-label">Test Date</label>
                                             <input type="date" class="form-control" id="testDate" required>
                                         </div>
@@ -219,7 +220,7 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-4">
-                                        <div class="mb-3">
+                                        <div class="mb-1">
                                             <label for="testName" class="form-label"> Site</label>
                                             <select name="" class="form-select">
                                                 <option value="">Select Site</option>
@@ -227,7 +228,7 @@
                                         </div>
                                     </div>
                                     <div class="col-4">
-                                        <div class="mb-3">
+                                        <div class="mb-1">
                                             <label for="testName" class="form-label"> Engineer</label>
                                             <select name="" class="form-select">
                                                 <option value="">Select Engineer</option>
@@ -235,7 +236,7 @@
                                         </div>
                                     </div>
                                     <div class="col-4">
-                                        <div class="mb-3">
+                                        <div class="mb-1">
                                             <label for="testName" class="form-label"> Test Type</label>
                                             <select name="" class="form-select">
                                                 <option value="">Select Test Type</option>
@@ -252,7 +253,7 @@
                         <div class="form-container mt-4" id="measurementFormContainer">
                             <h4>Measurements for Selected Test</h4>
                             <form id="siteForm">
-                                <div class="row mb-3">
+                                <div class="row mb-1">
                                     <div class="col-md-4">
                                         <label class="form-label">Excavated Hole Volume (m³):</label>
                                         <div class="input-group">
@@ -278,7 +279,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="row mb-3">
+                                <div class="row mb-1">
         
                                     <div class="col-md-4">
                                         <label class="form-label">Dry Soil Weight (kg):</label>
@@ -307,7 +308,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="row mb-3">
+                                <div class="row mb-1">
                                     <div class="col-md-6">
                                         <label class="form-label">Soil Classification:</label>
                                         <input type="text" class="form-control" id="soilClassification" value="string"

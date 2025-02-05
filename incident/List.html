@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Incident List</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+    <style>
+        body {
+            background-color: #f4f7fc;
+        }
+        .container {
+            max-width: 1000px;
+        }
+        .incident-card {
+            border-radius: 12px;
+            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            transition: transform 0.3s ease;
+        }
+        .incident-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
+        }
+        .card-body {
+            padding: 20px;
+        }
+        .card-header {
+            background-color: #007bff;
+            color: white;
+            text-align: center;
+            font-size: 18px;
+        }
+        .card-footer {
+            background-color: #f8f9fa;
+            text-align: right;
+        }
+        .card-footer .badge {
+            font-size: 14px;
+        }
+        .form-control {
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <h2 class="text-center text-primary mb-4"><i class="bi bi-list-check"></i> Incident List</h2>
+
+        <!-- Search Bar -->
+        <div class="d-flex justify-content-between mb-4">
+            <input type="text" class="form-control w-50" id="search" placeholder="Search incidents by title, priority, or status...">
+            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#filterModal"><i class="bi bi-funnel-fill"></i> Filter</button>
+        </div>
+
+        <!-- Modal for Filters -->
+        <div class="modal fade" id="filterModal" tabindex="-1" aria-labelledby="filterModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="filterModalLabel">Filter Incidents</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <label for="filterPriority" class="form-label">Priority:</label>
+                        <select class="form-select" id="filterPriority">
+                            <option value="">Select Priority</option>
+                            <option value="Critical">Critical</option>
+                            <option value="High">High</option>
+                            <option value="Medium">Medium</option>
+                            <option value="Low">Low</option>
+                        </select>
+
+                        <label for="filterStatus" class="form-label mt-3">Status:</label>
+                        <select class="form-select" id="filterStatus">
+                            <option value="">Select Status</option>
+                            <option value="Open">Open</option>
+                            <option value="In Progress">In Progress</option>
+                            <option value="Resolved">Resolved</option>
+                            <option value="Closed">Closed</option>
+                        </select>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary" onclick="applyFilters()">Apply Filters</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Incident Cards -->
+        <div class="row" id="incidentList">
+            <!-- Incident Cards will be dynamically added here -->
+        </div>
+
+        <!-- Pagination (Optional) -->
+        <div class="d-flex justify-content-center">
+            <nav>
+                <ul class="pagination">
+                    <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const incidents = [
+            {
+                title: "Server Down",
+                description: "The main server is down due to power failure.",
+                priority: "Critical",
+                status: "Open",
+                createdBy: "John Doe",
+                assignedTo: "Jane Smith"
+            },
+            {
+                title: "Database Lag",
+                description: "The database is running slow and needs optimization.",
+                priority: "High",
+                status: "In Progress",
+                createdBy: "Alice Brown",
+                assignedTo: "Bob Johnson"
+            },
+            {
+                title: "UI Bug",
+                description: "There is a bug in the user interface when clicking buttons.",
+                priority: "Medium",
+                status: "Resolved",
+                createdBy: "Tom White",
+                assignedTo: null
+            }
+        ];
+
+        // Render Incidents
+        function renderIncidents(incidentList) {
+            const incidentListContainer = document.getElementById('incidentList');
+            incidentListContainer.innerHTML = ''; // Clear existing incidents
+
+            incidentList.forEach(incident => {
+                const card = `
+                    <div class="col-md-4">
+                        <div class="card incident-card">
+                            <div class="card-header">${incident.title}</div>
+                            <div class="card-body">
+                                <p><strong>Description:</strong> ${incident.description}</p>
+                                <p><strong>Priority:</strong> ${incident.priority}</p>
+                                <p><strong>Status:</strong> <span class="badge bg-${getStatusClass(incident.status)}">${incident.status}</span></p>
+                                <p><strong>Created By:</strong> ${incident.createdBy}</p>
+                                <p><strong>Assigned To:</strong> ${incident.assignedTo || 'Not Assigned'}</p>
+                            </div>
+                            <div class="card-footer">
+                                <button class="btn btn-outline-primary btn-sm">View Details</button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                incidentListContainer.innerHTML += card;
+            });
+        }
+
+        // Get Badge Class for Status
+        function getStatusClass(status) {
+            switch (status) {
+                case 'Open': return 'warning';
+                case 'In Progress': return 'info';
+                case 'Resolved': return 'success';
+                case 'Closed': return 'secondary';
+                default: return 'primary';
+            }
+        }
+
+        // Apply Filters
+        function applyFilters() {
+            const priority = document.getElementById('filterPriority').value;
+            const status = document.getElementById('filterStatus').value;
+
+            const filteredIncidents = incidents.filter(incident => {
+                const priorityMatch = priority ? incident.priority === priority : true;
+                const statusMatch = status ? incident.status === status : true;
+                return priorityMatch && statusMatch;
+            });
+
+            renderIncidents(filteredIncidents);
+            document.getElementById('filterModal').modal('hide');
+        }
+
+        // Initial Render
+        renderIncidents(incidents);
+    </script>
+</body>
+</html>
