@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create RFQ</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        body {
+            background-color: #f4f7fc;
+        }
+        .container {
+            max-width: 900px;
+        }
+        .card {
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        .input-group-text {
+            background-color: #007bff;
+            color: white;
+            border: none;
+        }
+        .rfq-card {
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        background: white;
+        transition: transform 0.3s, box-shadow 0.3s;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .rfq-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+    }
+
+    .rfq-card .card-header {
+        background: linear-gradient(45deg, #007bff, #00c6ff);
+        color: white;
+        padding: 12px;
+        font-weight: bold;
+        text-align: center;
+        font-size: 1.2rem;
+    }
+
+    .rfq-card .card-body {
+        padding: 15px;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .rfq-card .rfq-info {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 1rem;
+        color: #333;
+        background: #f9f9f9;
+        padding: 8px 12px;
+        border-radius: 6px;
+    }
+
+    .rfq-card .rfq-info i {
+        color: #007bff;
+        font-size: 1.2rem;
+    }
+
+    .rfq-card .btn-container {
+        text-align: right;
+        padding: 10px 15px;
+    }
+
+    .rfq-card .btn-view {
+        background: #007bff;
+        color: white;
+        border-radius: 6px;
+        padding: 6px 12px;
+        border: none;
+        transition: background 0.3s;
+    }
+
+    .rfq-card .btn-view:hover {
+        background: #0056b3;
+    }
+        .form-section {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        .form-section .form-group {
+            flex: 1;
+            min-width: 250px;
+        }
+        .navbar-brand img {
+            height: 40px;
+        }
+        .nav-link {
+            font-weight: 500;
+        }
+        .btn-custom {
+            border-radius: 6px;
+            padding: 6px 12px;
+        }
+        .content-wrapper {
+            padding: 40px 20px;
+            text-align: center;
+        }
+        .content-wrapper h2 {
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+        .content-box {
+            max-width: 900px;
+            margin: auto;
+            background: #fff;
+            padding: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
+        <div class="container-fluid">
+            <!-- Logo -->
+            <a class="navbar-brand" href="#">
+                <img src="https://via.placeholder.com/150x40?text=RFQ+Logo" alt="RFQ Logo">
+            </a>
+
+            <!-- Mobile Toggle Button -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <!-- Navigation Links -->
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item"><a class="nav-link" href="#"><i class="fas fa-home"></i> Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#"><i class="fas fa-file-contract"></i> RFQs</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#"><i class="fas fa-industry"></i> Suppliers</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#"><i class="fas fa-handshake"></i> Contracts</a></li>
+                </ul>
+
+                <!-- Right Section: Register/Login or User Info -->
+                <ul class="navbar-nav">
+                    <!-- If User is Not Logged In -->
+                    <li class="nav-item">
+                        <a class="btn btn-outline-primary btn-custom mx-1" href="#"><i class="fas fa-user-plus"></i> Register</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="btn btn-primary btn-custom mx-1" href="#"><i class="fas fa-sign-in-alt"></i> Login</a>
+                    </li>
+
+                    <!-- If User is Logged In (Replace with dynamic check) -->
+                    <!--
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fas fa-user"></i> John Doe
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+                            <li><a class="dropdown-item" href="#"><i class="fas fa-user-circle"></i> Profile</a></li>
+                            <li><a class="dropdown-item" href="#"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+                        </ul>
+                    </li>
+                    -->
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content Area -->
+    <div class="content-wrapper">
+        <h2>Welcome to RFQ Management System</h2>
+        <div class="content-box">
+            <p>This is the main content area where you can display RFQs, Supplier quotes, or Contracts.</p>
+            <p><i class="fas fa-file-invoice-dollar fa-2x text-primary"></i></p>
+        </div>
+        <div class="container my-5">
+            <h2 class="text-center text-primary mb-4"><i class="fas fa-file-alt"></i> Create RFQ</h2>
+        
+            <div class="card p-4">
+                <form id="rfqForm">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="mb-3 input-group">
+                                <span class="input-group-text"><i class="fas fa-tag"></i></span>
+                                <input type="text" class="form-control" id="rfqName" placeholder="RFQ Name" required>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3 input-group">
+                                <span class="input-group-text"><i class="fas fa-cogs"></i></span>
+                                <input type="text" class="form-control" id="partName" placeholder="Part Name" required>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3 input-group">
+                                <span class="input-group-text"><i class="fas fa-sort-numeric-up"></i></span>
+                                <input type="number" class="form-control" id="quantity" placeholder="Quantity" required>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3 input-group">
+                                <span class="input-group-text"><i class="fas fa-ruler"></i></span>
+                                <input type="text" class="form-control" id="dimension" placeholder="Dimension (e.g., 10x20 cm)">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3 input-group">
+                                <span class="input-group-text"><i class="fas fa-calendar-alt"></i></span>
+                                <input type="date" class="form-control" id="requiredByDate" required>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <textarea class="form-control" id="description" rows="2" placeholder="Description (Optional)"></textarea>
+                            </div>
+                        </div>
+                    </div>
+        
+                    <button type="submit" class="btn btn-primary w-100"><i class="fas fa-plus-circle"></i> Create RFQ</button>
+                </form>
+            </div>
+        
+            <h3 class="text-center text-success mt-5"><i class="fas fa-list"></i> Created RFQs</h3>
+            <div id="rfqList" class="row mt-3">
+                <div class="col-md-4">
+                    <div class="rfq-card">
+                        <div class="card-header"><i class="fas fa-file-alt"></i> RFQ: Engine Parts</div>
+                        <div class="card-body">
+                            <div class="rfq-info"><i class="fas fa-cogs"></i> <strong>Part:</strong> Piston Ring</div>
+                            <div class="rfq-info"><i class="fas fa-sort-numeric-up"></i> <strong>Quantity:</strong> 500</div>
+                            <div class="rfq-info"><i class="fas fa-ruler"></i> <strong>Dimension:</strong> 10x5 cm</div>
+                            <div class="rfq-info"><i class="fas fa-calendar-alt"></i> <strong>Required By:</strong> 15 Feb 2025</div>
+                            <div class="rfq-info"><i class="fas fa-align-left"></i> <strong>Description:</strong> High-quality piston ring</div>
+                        </div>
+                        <div class="btn-container">
+                            <button class="btn-view"><i class="fas fa-eye"></i> View Details</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="rfq-card">
+                        <div class="card-header"><i class="fas fa-file-alt"></i> RFQ: Engine Parts</div>
+                        <div class="card-body">
+                            <div class="rfq-info"><i class="fas fa-cogs"></i> <strong>Part:</strong> Piston Ring</div>
+                            <div class="rfq-info"><i class="fas fa-sort-numeric-up"></i> <strong>Quantity:</strong> 500</div>
+                            <div class="rfq-info"><i class="fas fa-ruler"></i> <strong>Dimension:</strong> 10x5 cm</div>
+                            <div class="rfq-info"><i class="fas fa-calendar-alt"></i> <strong>Required By:</strong> 15 Feb 2025</div>
+                            <div class="rfq-info"><i class="fas fa-align-left"></i> <strong>Description:</strong> High-quality piston ring</div>
+                        </div>
+                        <div class="btn-container">
+                            <button class="btn-view"><i class="fas fa-eye"></i> View Details</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+
+<script>
+    document.getElementById("rfqForm").addEventListener("submit", function(event) {
+        event.preventDefault();
+
+        // Get form values
+        let rfqName = document.getElementById("rfqName").value;
+        let partName = document.getElementById("partName").value;
+        let quantity = document.getElementById("quantity").value;
+        let dimension = document.getElementById("dimension").value || "N/A";
+        let requiredByDate = document.getElementById("requiredByDate").value;
+        let description = document.getElementById("description").value || "No description provided";
+
+        // Create card element
+        let card = document.createElement("div");
+        card.classList.add("col-md-4");
+        card.innerHTML = `
+            <div class="card rfq-card p-3 mt-3">
+                <h5 class="text-primary"><i class="fas fa-tag"></i> ${rfqName}</h5>
+                <p><strong><i class="fas fa-cogs"></i> Part:</strong> ${partName}</p>
+                <p><strong><i class="fas fa-sort-numeric-up"></i> Quantity:</strong> ${quantity}</p>
+                <p><strong><i class="fas fa-ruler"></i> Dimension:</strong> ${dimension}</p>
+                <p><strong><i class="fas fa-calendar-alt"></i> Required By:</strong> ${requiredByDate}</p>
+                <p><strong><i class="fas fa-align-left"></i> Description:</strong> ${description}</p>
+            </div>
+        `;
+
+        // Append to list
+        document.getElementById("rfqList").appendChild(card);
+
+        // Reset form
+        document.getElementById("rfqForm").reset();
+    });
+</script>
+
+</body>
+</html>
