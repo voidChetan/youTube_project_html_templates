@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Management</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            display: flex;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .sidebar {
+            width: 250px;
+            height: 100vh;
+            background: #343a40;
+            color: white;
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .sidebar a {
+            color: white;
+            text-decoration: none;
+            padding: 10px;
+            display: block;
+            border-radius: 5px;
+        }
+
+        .sidebar a:hover {
+            background: #495057;
+        }
+
+        .content {
+            flex-grow: 1;
+            padding: 20px;
+            overflow-y: auto;
+            height: 100vh;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="sidebar">
+        <div>
+            <h4>Dashboard</h4>
+            <a href="#">Home</a>
+            <a href="#">Users</a>
+            <a href="#">Settings</a>
+        </div>
+        <div>
+            <p>Logged in as: <strong>User Name</strong></p>
+            <button class="btn btn-danger w-100">Log Off</button>
+        </div>
+    </div>
+    <div class="content">
+        <div class="container mt-4">
+            
+            <div class="card p-3 mb-4">
+                <h5>Add / Edit User</h5>
+                <form id="userForm">
+                    <div class="row">
+                        <div class="col-md-6 ">
+                            <label for="userName" class="form-label">Username</label>
+                            <input type="text" id="userName" class="form-control" required>
+                        </div>
+                        <div class="col-md-6 ">
+                            <label for="fullName" class="form-label">Full Name</label>
+                            <input type="text" id="fullName" class="form-control" required>
+                        </div>
+                        <div class="col-md-6 ">
+                            <label for="emailId" class="form-label">Email</label>
+                            <input type="email" id="emailId" class="form-control" required>
+                        </div>
+                        <div class="col-md-6 ">
+                            <label for="password" class="form-label">Password</label>
+                            <input type="password" id="password" class="form-control" required>
+                        </div>
+                        <div class="col-md-6 ">
+                            <label for="role" class="form-label">Role</label>
+                            <select id="role" class="form-select">
+                                <option value="Admin">Admin</option>
+                                <option value="User">User</option>
+                            </select>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Save User</button>
+                </form>
+            </div>
+
+            <!-- User List -->
+            <div class="card p-3">
+                <h5>User List</h5>
+                <div class="card-container">
+                    <div class="row" id="userList">
+                        <div class='col-3'>
+                            <div class="card user-card p-3">
+                                <h6> fullName role </h6>
+                                <p>Email: user.emailId </p>
+                                <p>Username: user.userName </p>
+                                <button class="btn btn-danger btn-sm">Delete</button>
+                            </div>
+                        </div>
+                        <div class='col-3'>
+                            <div class="card user-card p-3">
+                                <h6> fullName role </h6>
+                                <p>Email: user.emailId </p>
+                                <p>Username: user.userName </p>
+                                <button class="btn btn-danger btn-sm">Delete</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

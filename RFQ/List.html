@@ -104,28 +104,63 @@
             </div>
         </div>
     </nav>
-    <div class="row">
-        <div class="col-8">
 
-        </div>
-    </div>
+ 
 
-    <section class="hero">
-        <div class="container">
-            <h1>Find the Best Quotes for Your Manufacturing Needs</h1>
-            <p>Post your RFQ, receive quotes from suppliers, and get the best deal.</p>
-            <a href="#how-it-works" class="btn btn-primary">Learn More</a>
+    <section id="how-it-works" class="how-it-works text-center">
+        <div class="container mt-4">
+            <h2 class="text-center mb-4">Available RFQs</h2>
+            
+            <!-- Filter Section -->
+            <div class="row mb-4">
+                <div class="col-md-4">
+                    <div class="filter-section">
+                        <h5>Filter RFQs</h5>
+                        <input type="text" class="form-control mb-2" placeholder="Search by Part Name">
+                        <input type="text" class="form-control mb-2" placeholder="Search by Manufacturer">
+                        <select class="form-control mb-2">
+                            <option value="">Select Status</option>
+                            <option value="open">Open</option>
+                            <option value="closed">Closed</option>
+                        </select>
+                        <button class="btn btn-primary w-100">Apply Filters</button>
+                    </div>
+                </div>
+    
+                <!-- RFQ Cards Section -->
+                <div class="col-md-8">
+                    <div class="row">
+                        <div class="col-md-6 mb-4">
+                            <div class="card rfq-card">
+                                <div class="card-body">
+                                    <h5 class="card-title">RFQ Name: Custom Bolt</h5>
+                                    <p class="card-text"><i class="fa fa-industry"></i> Manufacturer: ABC Ltd.</p>
+                                    <p><i class="fa fa-cube"></i> Part Name: Steel Bolt</p>
+                                    <p><i class="fa fa-sort-numeric-up"></i> Quantity: 1000</p>
+                                    <p><i class="fa fa-calendar-alt"></i> Required By: 25th Feb 2025</p>
+                                    <span class="badge bg-success">Open</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            <div class="card rfq-card">
+                                <div class="card-body">
+                                    <h5 class="card-title">RFQ Name: Aluminum Sheet</h5>
+                                    <p class="card-text"><i class="fa fa-industry"></i> Manufacturer: XYZ Corp.</p>
+                                    <p><i class="fa fa-cube"></i> Part Name: Sheet Metal</p>
+                                    <p><i class="fa fa-sort-numeric-up"></i> Quantity: 500</p>
+                                    <p><i class="fa fa-calendar-alt"></i> Required By: 10th March 2025</p>
+                                    <span class="badge bg-danger">Closed</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
-
-    <section class="bg-light text-center py-5">
-        <div class="container">
-            <h2>Start Now</h2>
-            <p>Sign up and start posting RFQs to connect with top suppliers.</p>
-            <a href="#" class="btn btn-success">Get Started</a>
-        </div>
-    </section>
+    
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>

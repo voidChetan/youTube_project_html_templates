@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RFQ Details & Compare Quotes</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 40px auto;
+        }
+        .card {
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .table-container {
+            padding: 20px;
+            border-radius: 10px;
+            background: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- RFQ Details Card -->
+        <div class="card p-4 mb-4">
+            <h2 class="text-center mb-3"><i class="fas fa-file-alt"></i> Open RFQ Details</h2>
+            <p><strong>RFQ Name:</strong> Sample RFQ</p>
+            <p><strong>Part Name:</strong> Custom Gear</p>
+            <p><strong>Quantity:</strong> 500</p>
+            <p><strong>Dimension:</strong> 10x20 cm</p>
+            <p><strong>Required By:</strong> 2025-03-15</p>
+            <p><strong>Description:</strong> Need high-precision gears for machinery.</p>
+        </div>
+        
+        <!-- Quotes Comparison Table -->
+        <div class="table-container">
+            <h2 class="text-center mb-4"><i class="fas fa-list"></i> Compare Quotes Received</h2>
+            <table class="table table-striped table-hover">
+                <thead class="table-dark">
+                    <tr>
+                        <th><i class="fas fa-user"></i> Supplier</th>
+                        <th><i class="fas fa-dollar-sign"></i> Quoted Price</th>
+                        <th><i class="fas fa-calendar-alt"></i> Estimated Delivery</th>
+                        <th><i class="fas fa-comment"></i> Notes</th>
+                        <th><i class="fas fa-check-circle"></i> Select Quote</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>XYZ Ltd.</td>
+                        <td class="text-primary">$5000</td>
+                        <td>2025-03-20</td>
+                        <td>High-quality material used.</td>
+                        <td><button class="btn btn-success btn-sm"><i class="fas fa-check"></i> Award Contract</button></td>
+                    </tr>
+                    <tr>
+                        <td>ABC Corp.</td>
+                        <td class="text-success">$4800</td>
+                        <td>2025-03-18</td>
+                        <td>Fastest delivery with warranty.</td>
+                        <td><button class="btn btn-success btn-sm"><i class="fas fa-check"></i> Award Contract</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

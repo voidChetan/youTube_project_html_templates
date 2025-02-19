@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RFQ Details</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .rfq-details {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 20px;
+            border-radius: 10px;
+            background: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .rfq-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .rfq-header i {
+            font-size: 1.5rem;
+            color: #007bff;
+        }
+        .rfq-content p {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.1rem;
+        }
+        .rfq-content i {
+            color: #007bff;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="rfq-details">
+            <div class="rfq-header">
+                <i class="fas fa-file-alt"></i>
+                <h2>RFQ Details</h2>
+            </div>
+            <hr>
+            <div class="rfq-content">
+                <p><i class="fas fa-tag"></i> <strong>RFQ Name:</strong> Metal Part RFQ</p>
+                <p><i class="fas fa-industry"></i> <strong>Manufacturer:</strong> ABC Industries</p>
+                <p><i class="fas fa-align-left"></i> <strong>Description:</strong> Need high-quality metal parts for machinery.</p>
+                <p><i class="fas fa-cubes"></i> <strong>Quantity:</strong> 500</p>
+                <p><i class="fas fa-ruler-combined"></i> <strong>Dimension:</strong> 10x20 cm</p>
+                <p><i class="fas fa-calendar-alt"></i> <strong>Required By:</strong> 2025-03-15</p>
+                <p><i class="fas fa-hourglass-half"></i> <strong>Status:</strong> Open</p>
+            </div>
+            <div class="text-center mt-4">
+                <a href="#" class="btn btn-primary btn-lg"><i class="fas fa-paper-plane"></i> Send Quote</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

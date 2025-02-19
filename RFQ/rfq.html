@@ -121,6 +121,7 @@
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
             border-radius: 8px;
         }
+        
     </style>
 </head>
 <body>
@@ -172,96 +173,105 @@
         </div>
     </nav>
 
-    <!-- Main Content Area -->
-    <div class="content-wrapper">
-        <h2>Welcome to RFQ Management System</h2>
-        <div class="content-box">
-            <p>This is the main content area where you can display RFQs, Supplier quotes, or Contracts.</p>
-            <p><i class="fas fa-file-invoice-dollar fa-2x text-primary"></i></p>
-        </div>
-        <div class="container my-5">
-            <h2 class="text-center text-primary mb-4"><i class="fas fa-file-alt"></i> Create RFQ</h2>
-        
-            <div class="card p-4">
-                <form id="rfqForm">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="mb-3 input-group">
-                                <span class="input-group-text"><i class="fas fa-tag"></i></span>
-                                <input type="text" class="form-control" id="rfqName" placeholder="RFQ Name" required>
+    <div class="row">
+        <div class="col-8">
+            <div class="container my-5">
+                <h2 class="text-center text-primary mb-4"><i class="fas fa-file-alt"></i> Create RFQ</h2>
+            
+                <div class="card p-4">
+                    <form id="rfqForm">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="mb-3 input-group">
+                                    <span class="input-group-text"><i class="fas fa-tag"></i></span>
+                                    <input type="text" class="form-control" id="rfqName" placeholder="RFQ Name" required>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3 input-group">
+                                    <span class="input-group-text"><i class="fas fa-cogs"></i></span>
+                                    <input type="text" class="form-control" id="partName" placeholder="Part Name" required>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3 input-group">
+                                    <span class="input-group-text"><i class="fas fa-sort-numeric-up"></i></span>
+                                    <input type="number" class="form-control" id="quantity" placeholder="Quantity" required>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3 input-group">
+                                    <span class="input-group-text"><i class="fas fa-ruler"></i></span>
+                                    <input type="text" class="form-control" id="dimension" placeholder="Dimension (e.g., 10x20 cm)">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3 input-group"> 
+                                    <span class="input-group-text"><i class="fas fa-calendar-alt"></i></span>
+                                    <input type="date" class="form-control" id="requiredByDate" required>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="mb-3">
+                                    <textarea class="form-control" id="description" rows="2" placeholder="Description (Optional)"></textarea>
+                                </div>
                             </div>
                         </div>
-                        <div class="col-md-6">
-                            <div class="mb-3 input-group">
-                                <span class="input-group-text"><i class="fas fa-cogs"></i></span>
-                                <input type="text" class="form-control" id="partName" placeholder="Part Name" required>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="mb-3 input-group">
-                                <span class="input-group-text"><i class="fas fa-sort-numeric-up"></i></span>
-                                <input type="number" class="form-control" id="quantity" placeholder="Quantity" required>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="mb-3 input-group">
-                                <span class="input-group-text"><i class="fas fa-ruler"></i></span>
-                                <input type="text" class="form-control" id="dimension" placeholder="Dimension (e.g., 10x20 cm)">
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="mb-3 input-group">
-                                <span class="input-group-text"><i class="fas fa-calendar-alt"></i></span>
-                                <input type="date" class="form-control" id="requiredByDate" required>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="mb-3">
-                                <textarea class="form-control" id="description" rows="2" placeholder="Description (Optional)"></textarea>
-                            </div>
-                        </div>
-                    </div>
-        
-                    <button type="submit" class="btn btn-primary w-100"><i class="fas fa-plus-circle"></i> Create RFQ</button>
-                </form>
-            </div>
-        
-            <h3 class="text-center text-success mt-5"><i class="fas fa-list"></i> Created RFQs</h3>
-            <div id="rfqList" class="row mt-3">
-                <div class="col-md-4">
-                    <div class="rfq-card">
-                        <div class="card-header"><i class="fas fa-file-alt"></i> RFQ: Engine Parts</div>
-                        <div class="card-body">
-                            <div class="rfq-info"><i class="fas fa-cogs"></i> <strong>Part:</strong> Piston Ring</div>
-                            <div class="rfq-info"><i class="fas fa-sort-numeric-up"></i> <strong>Quantity:</strong> 500</div>
-                            <div class="rfq-info"><i class="fas fa-ruler"></i> <strong>Dimension:</strong> 10x5 cm</div>
-                            <div class="rfq-info"><i class="fas fa-calendar-alt"></i> <strong>Required By:</strong> 15 Feb 2025</div>
-                            <div class="rfq-info"><i class="fas fa-align-left"></i> <strong>Description:</strong> High-quality piston ring</div>
-                        </div>
-                        <div class="btn-container">
-                            <button class="btn-view"><i class="fas fa-eye"></i> View Details</button>
-                        </div>
-                    </div>
+            
+                        <button type="submit" class="btn btn-primary w-100"><i class="fas fa-plus-circle"></i> Create RFQ</button>
+                    </form>
                 </div>
-                <div class="col-md-4">
-                    <div class="rfq-card">
-                        <div class="card-header"><i class="fas fa-file-alt"></i> RFQ: Engine Parts</div>
-                        <div class="card-body">
-                            <div class="rfq-info"><i class="fas fa-cogs"></i> <strong>Part:</strong> Piston Ring</div>
-                            <div class="rfq-info"><i class="fas fa-sort-numeric-up"></i> <strong>Quantity:</strong> 500</div>
-                            <div class="rfq-info"><i class="fas fa-ruler"></i> <strong>Dimension:</strong> 10x5 cm</div>
-                            <div class="rfq-info"><i class="fas fa-calendar-alt"></i> <strong>Required By:</strong> 15 Feb 2025</div>
-                            <div class="rfq-info"><i class="fas fa-align-left"></i> <strong>Description:</strong> High-quality piston ring</div>
+            
+                <h3 class="text-center text-success mt-5"><i class="fas fa-list"></i> Created RFQs</h3>
+                <div id="rfqList" class="row mt-3">
+                    <div class="col-md-4">
+                        <div class="rfq-card">
+                            <div class="card-header"><i class="fas fa-file-alt"></i> RFQ: Engine Parts</div>
+                            <div class="card-body">
+                                <div class="rfq-info"><i class="fas fa-cogs"></i> <strong>Part:</strong> Piston Ring</div>
+                                <div class="rfq-info"><i class="fas fa-sort-numeric-up"></i> <strong>Quantity:</strong> 500</div>
+                                <div class="rfq-info"><i class="fas fa-ruler"></i> <strong>Dimension:</strong> 10x5 cm</div>
+                                <div class="rfq-info"><i class="fas fa-calendar-alt"></i> <strong>Required By:</strong> 15 Feb 2025</div>
+                                <div class="rfq-info"><i class="fas fa-align-left"></i> <strong>Description:</strong> High-quality piston ring</div>
+                            </div>
+                            <div class="btn-container">
+                                <button class="btn-view"><i class="fas fa-eye"></i> View Details</button>
+                            </div>
                         </div>
-                        <div class="btn-container">
-                            <button class="btn-view"><i class="fas fa-eye"></i> View Details</button>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="rfq-card">
+                            <div class="card-header"><i class="fas fa-file-alt"></i> RFQ: Engine Parts</div>
+                            <div class="card-body">
+                                <div class="rfq-info"><i class="fas fa-cogs"></i> <strong>Part:</strong> Piston Ring</div>
+                                <div class="rfq-info"><i class="fas fa-sort-numeric-up"></i> <strong>Quantity:</strong> 500</div>
+                                <div class="rfq-info"><i class="fas fa-ruler"></i> <strong>Dimension:</strong> 10x5 cm</div>
+                                <div class="rfq-info"><i class="fas fa-calendar-alt"></i> <strong>Required By:</strong> 15 Feb 2025</div>
+                                <div class="rfq-info"><i class="fas fa-align-left"></i> <strong>Description:</strong> High-quality piston ring</div>
+                            </div>
+                            <div class="btn-container">
+                                <button class="btn-view"><i class="fas fa-eye"></i> View Details</button>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
+        <div class="col-4">
+            <div class="content-wrapper">
+                <h4>Welcome to RFQ Management System</h4>
+                <div class="content-box">
+                    <p>This is the main content area where you can an Rfq as per your Requirment.</p>
+                    <p><i class="fas fa-file-invoice-dollar fa-2x text-primary"></i></p>
+                </div>
+                
+        
+            </div>
+            
+        </div>
     </div>
+    <!-- Main Content Area -->
+  
 
 
 
