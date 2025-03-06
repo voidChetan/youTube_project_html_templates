@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TaskMaster Pro - Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+    <!-- Auth Modal -->
+    <div class="modal fade" id="authModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-body p-4">
+                    <div class="text-center mb-4">
+                        <h4 class="modal-title fw-bold" id="authModalTitle">Welcome Back!</h4>
+                        <button type="button" class="btn-close position-absolute top-0 end-0 m-3" data-bs-dismiss="modal"></button>
+                    </div>
+                    
+                    <!-- Login Form -->
+                    <form id="loginForm" class="needs-validation">
+                        <div class="mb-3">
+                            <input type="email" class="form-control" placeholder="Email" required>
+                        </div>
+                        <div class="mb-3">
+                            <input type="password" class="form-control" placeholder="Password" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100 mb-3">Login</button>
+                        <p class="text-center">
+                            Don't have an account? 
+                            <a href="#" id="showSignup" class="text-decoration-none">Sign Up</a>
+                        </p>
+                    </form>
+
+                    <!-- Signup Form (Hidden by default) -->
+                    <form id="signupForm" class="needs-validation d-none">
+                        <div class="mb-3">
+                            <input type="text" class="form-control" placeholder="Full Name" required>
+                        </div>
+                        <div class="mb-3">
+                            <input type="email" class="form-control" placeholder="Email" required>
+                        </div>
+                        <div class="mb-3">
+                            <input type="password" class="form-control" placeholder="Password" required>
+                        </div>
+                        <div class="mb-3">
+                            <input type="password" class="form-control" placeholder="Confirm Password" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100 mb-3">Sign Up</button>
+                        <p class="text-center">
+                            Already have an account? 
+                            <a href="#" id="showLogin" class="text-decoration-none">Login</a>
+                        </p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="index.html">
+                <i class="fas fa-check-double me-2"></i>TaskMaster Pro
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index.html">Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="tasks.html">Tasks</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="goals.html">Goals</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="reminders.html">Reminders</a>
+                    </li>
+                </ul>
+                <button class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#authModal">
+                    <i class="fas fa-user me-2"></i>Login
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Dashboard Content -->
+    <div class="container py-5">
+        <h1 class="fw-bold mb-4">Dashboard</h1>
+        
+        <!-- Stats Overview -->
+        <div class="row mb-5">
+            <div class="col-md-3 mb-4">
+                <div class="card h-100">
+                    <div class="card-body text-center">
+                        <i class="fas fa-tasks fa-3x mb-3 text-primary"></i>
+                        <h5 class="card-title">Total Tasks</h5>
+                        <h2 class="card-text">12</h2>
+                        <div class="small text-muted">4 completed</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 mb-4">
+                <div class="card h-100">
+                    <div class="card-body text-center">
+                        <i class="fas fa-flag fa-3x mb-3 text-success"></i>
+                        <h5 class="card-title">Active Goals</h5>
+                        <h2 class="card-text">3</h2>
+                        <div class="small text-muted">2 in progress</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 mb-4">
+                <div class="card h-100">
+                    <div class="card-body text-center">
+                        <i class="fas fa-bell fa-3x mb-3 text-warning"></i>
+                        <h5 class="card-title">Reminders</h5>
+                        <h2 class="card-text">5</h2>
+                        <div class="small text-muted">2 upcoming</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 mb-4">
+                <div class="card h-100">
+                    <div class="card-body text-center">
+                        <i class="fas fa-chart-line fa-3x mb-3 text-info"></i>
+                        <h5 class="card-title">Completion Rate</h5>
+                        <h2 class="card-text">75%</h2>
+                        <div class="small text-muted">This week</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Charts Row -->
+        <div class="row mb-5">
+            <div class="col-md-8 mb-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Task Completion Trend</h5>
+                        <div class="card">
+                            <div class="card-body p-0">
+                                <div class="table-responsive">
+                                    <table class="table table-bordered table-fixed mb-0">
+                                        <thead>
+                                            <tr class="text-center">
+                                                <th class="task-name day-header">Task Name</th>
+                                                <th class="day-header">Mon</th>
+                                                <th class="day-header">Tue</th>
+                                                <th class="day-header">Wed</th>
+                                                <th class="day-header">Thu</th>
+                                                <th class="day-header">Fri</th>
+                                                <th class="day-header">Sat</th>
+                                                <th class="day-header">Sun</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr class="task-row">
+                                                <td>
+                                                    <span class="task-icon exercise-icon">
+                                                        <i class="bi bi-bicycle"></i>
+                                                    </span>
+                                                    Morning Exercise
+                                                </td>
+                                                <td class="task-cell text-center completed"><i class="bi bi-check-lg"></i></td>
+                                                <td class="task-cell text-center completed"><i class="bi bi-check-lg"></i></td>
+                                                <td class="task-cell text-center"></td>
+                                                <td class="task-cell text-center"></td>
+                                                <td class="task-cell text-center"></td>
+                                                <td class="task-cell text-center"></td>
+                                                <td class="task-cell text-center"></td>
+                                            </tr>
+                                            <tr class="task-row">
+                                                <td>
+                                                    <span class="task-icon reading-icon">
+                                                        <i class="bi bi-book"></i>
+                                                    </span>
+                                                    Read 30 Minutes
+                                                </td>
+                                                <td class="task-cell text-center completed"><i class="bi bi-check-lg"></i></td>
+                                                <td class="task-cell text-center"></td>
+                                                <td class="task-cell text-center"></td>
+                                                <td class="task-cell text-center"></td>
+                                                <td class="task-cell text-center"></td>
+                                                <td class="task-cell text-center"></td>
+                                                <td class="task-cell text-center"></td>
+                                            </tr>
+                                            <tr class="task-row">
+                                                <td>
+                                                    <span class="task-icon meditation-icon">
+                                                        <i class="bi bi-peace"></i>
+                                                    </span>
+                                                    Meditation
+                                                </td>
+                                                <td class="task-cell text-center completed"><i class="bi bi-check-lg"></i></td>
+                                                <td class="task-cell text-center completed"><i class="bi bi-check-lg"></i></td>
+                                                <td class="task-cell text-center completed"><i class="bi bi-check-lg"></i></td>
+                                                <td class="task-cell text-center"></td>
+                                                <td class="task-cell text-center"></td>
+                                                <td class="task-cell text-center"></td>
+                                                <td class="task-cell text-center"></td>
+                                            </tr>
+                                            <tr class="task-row">
+                                                <td>
+                                                    <span class="task-icon programming-icon">
+                                                        <i class="bi bi-code-slash"></i>
+                                                    </span>
+                                                    Study Programming
+                                                </td>
+                                                <td class="task-cell text-center"></td>
+                                                <td class="task-cell text-center"></td>
+                                                <td class="task-cell text-center"></td>
+                                                <td class="task-cell text-center"></td>
+                                                <td class="task-cell text-center"></td>
+                                                <td class="task-cell text-center"></td>
+                                                <td class="task-cell text-center"></td>
+                                            </tr>
+                                            <tr class="task-row">
+                                                <td>
+                                                    <span class="task-icon plants-icon">
+                                                        <i class="bi bi-flower1"></i>
+                                                    </span>
+                                                    Water Plants
+                                                </td>
+                                                <td class="task-cell text-center"></td>
+                                                <td class="task-cell text-center"></td>
+                                                <td class="task-cell text-center"></td>
+                                                <td class="task-cell text-center"></td>
+                                                <td class="task-cell text-center"></td>
+                                                <td class="task-cell text-center"></td>
+                                                <td class="task-cell text-center"></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Goal Progress</h5>
+                        <canvas id="goalProgressChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Recent Activity -->
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Recent Activity</h5>
+                <div class="list-group">
+                    <div class="list-group-item">
+                        <div class="d-flex w-100 justify-content-between">
+                            <h6 class="mb-1">Completed task: Morning Exercise</h6>
+                            <small class="text-muted">3 hours ago</small>
+                        </div>
+                    </div>
+                    <div class="list-group-item">
+                        <div class="d-flex w-100 justify-content-between">
+                            <h6 class="mb-1">New goal created: Learn Web Development</h6>
+                            <small class="text-muted">Yesterday</small>
+                        </div>
+                    </div>
+                    <div class="list-group-item">
+                        <div class="d-flex w-100 justify-content-between">
+                            <h6 class="mb-1">Added reminder: Team Meeting</h6>
+                            <small class="text-muted">2 days ago</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+    <script>
+        document.querySelectorAll('.task-cell').forEach(cell => {
+            cell.addEventListener('click', () => {
+                cell.classList.toggle('completed');
+                if (cell.classList.contains('completed')) {
+                    cell.innerHTML = '<i class="bi bi-check-lg"></i>';
+                } else {
+                    cell.innerHTML = '';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
