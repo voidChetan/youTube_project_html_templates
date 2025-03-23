@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Testing Interface</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .api-container {
+            max-width: 1200px;
+            margin: 2rem auto;
+        }
+        .method-badge {
+            font-size: 0.8rem;
+            padding: 0.3rem 0.6rem;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+        .method-badge.get { background-color: #28a745; color: white; }
+        .method-badge.post { background-color: #007bff; color: white; }
+        .method-badge.put { background-color: #ffc107; color: black; }
+        .method-badge.delete { background-color: #dc3545; color: white; }
+        
+        .endpoint-url {
+            background-color: #f8f9fa;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            font-family: monospace;
+        }
+        
+        .response-container {
+            background-color: #282c34;
+            color: #abb2bf;
+            border-radius: 6px;
+            padding: 1rem;
+            font-family: monospace;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+        
+        .param-table th {
+            background-color: #f8f9fa;
+        }
+        
+        .test-btn {
+            min-width: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div class="api-container">
+        <h2 class="mb-4">API Testing Interface</h2>
+        
+        <!-- API Endpoint Card -->
+        <div class="card mb-4">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <div>
+                    <span class="method-badge post">POST</span>
+                    <span class="ms-2 endpoint-url">/api/BankLoan/register</span>
+                </div>
+                <button class="btn btn-primary test-btn" onclick="testEndpoint()">Test</button>
+            </div>
+            
+            <div class="card-body">
+                <!-- Request Parameters -->
+                <h5 class="card-title">Request Body</h5>
+                <div class="mb-4">
+                    <div class="form-group">
+                        <textarea class="form-control" id="requestBody" rows="8">{
+    "userId": 0,
+    "emailId": "string",
+    "password": "string",
+    "fullName": "string",
+    "mobileNo": "string"
+}</textarea>
+                    </div>
+                </div>
+
+                <!-- Response Section -->
+                <h5 class="card-title">Response</h5>
+                <div class="response-container" id="responseContainer">
+                    // Response will appear here
+                </div>
+            </div>
+        </div>
+
+        <!-- Documentation -->
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0">Documentation</h5>
+            </div>
+            <div class="card-body">
+                <table class="table param-table">
+                    <thead>
+                        <tr>
+                            <th>Parameter</th>
+                            <th>Type</th>
+                            <th>Description</th>
+                            <th>Required</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>userId</td>
+                            <td>number</td>
+                            <td>Unique identifier for the user</td>
+                            <td>Yes</td>
+                        </tr>
+                        <tr>
+                            <td>emailId</td>
+                            <td>string</td>
+                            <td>User's email address</td>
+                            <td>Yes</td>
+                        </tr>
+                        <tr>
+                            <td>password</td>
+                            <td>string</td>
+                            <td>User's password</td>
+                            <td>Yes</td>
+                        </tr>
+                        <tr>
+                            <td>fullName</td>
+                            <td>string</td>
+                            <td>User's full name</td>
+                            <td>Yes</td>
+                        </tr>
+                        <tr>
+                            <td>mobileNo</td>
+                            <td>string</td>
+                            <td>User's mobile number</td>
+                            <td>Yes</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js"></script>
+    <script>
+        async function testEndpoint() {
+            const responseContainer = document.getElementById('responseContainer');
+            const requestBody = document.getElementById('requestBody').value;
+            
+            try {
+                responseContainer.innerHTML = 'Loading...';
+                
+                const response = await fetch('/api/BankLoan/register', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: requestBody
+                });
+                
+                const data = await response.json();
+                responseContainer.innerHTML = JSON.stringify(data, null, 2);
+            } catch (error) {
+                responseContainer.innerHTML = `Error: ${error.message}`;
+            }
+        }
+    </script>
+</body>
+</html>

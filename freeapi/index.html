@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FreeProjectAPI - Ready-to-Use APIs for Developers</title>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .api-container {
+            max-width: 1200px;
+            margin: 2rem auto;
+        }
+
+        .method-badge {
+            font-size: 0.8rem;
+            padding: 0.3rem 0.6rem;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+
+        .method-badge.get {
+            background-color: #28a745;
+            color: white;
+        }
+
+        .method-badge.post {
+            background-color: #007bff;
+            color: white;
+        }
+
+        .method-badge.put {
+            background-color: #ffc107;
+            color: black;
+        }
+
+        .method-badge.delete {
+            background-color: #dc3545;
+            color: white;
+        }
+
+        .endpoint-url {
+            background-color: #f8f9fa;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            font-family: monospace;
+        }
+
+        .response-container {
+            background-color: #282c34;
+            color: #abb2bf;
+            border-radius: 6px;
+            padding: 1rem;
+            font-family: monospace;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+
+        .param-table th {
+            background-color: #f8f9fa;
+        }
+
+        .test-btn {
+            min-width: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav>
+        <div class="container">
+            <div class="nav-content">
+                <a href="index.html" class="logo">
+                    <i data-lucide="code-2" class="text-blue-500"></i>
+                    <span>FreeProjectAPI</span>
+                </a>
+                <div class="nav-links">
+                    <a href="api.html" class="nav-link">Project APIs</a>
+                    <a href="#docs" class="nav-link">Docs</a>
+                    <button class="btn">Get Started</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="floating-apps">
+            <div class="floating-app">Ecommerce App</div>
+            <div class="floating-app">Employee Payroll</div>
+            <div class="floating-app">Hospital Management</div>
+            <div class="floating-app">Insurance App</div>
+            <div class="floating-app">Ticketing System</div>
+        </div>
+        <div class="container">
+            <h1>Ready-to-Use APIs for <span>Developers</span></h1>
+            <p>Access production-ready APIs to power your applications. Simple integration, comprehensive documentation,
+                and developer-first experience.</p>
+            <div class="search-container">
+                <div class="search-box">
+                    <i data-lucide="search"
+                        style="position: absolute; left: 0.75rem; top: 50%; transform: translateY(-50%); color: #9ca3af;"></i>
+                    <input type="text" placeholder="Search APIs..." id="searchInput">
+                </div>
+                <button class="btn">
+                    <i data-lucide="zap" style="width: 1.25rem; height: 1.25rem; margin-right: 0.5rem;"></i>
+                    Try it Now
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- API Categories -->
+    <section class="categories" id="apis">
+        <div class="container">
+            <div class="category-filters" id="categoryFilters">
+                <button class="category-btn active" data-category="All">All</button>
+                <button class="category-btn" data-category="Authentication">Authentication</button>
+                <button class="category-btn" data-category="Payments">Payments</button>
+                <button class="category-btn" data-category="AI">AI</button>
+                <button class="category-btn" data-category="Data">Data</button>
+                <button class="category-btn" data-category="Storage">Storage</button>
+            </div>
+            <div class="api-grid" id="apiGrid"></div>
+        </div>
+    </section>
+
+    <div class="api-container">
+        <h2 class="mb-4">Sample Example </h2>
+
+        <!-- API Endpoint Card -->
+        <div class="card mb-4">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <div>
+                    <span class="method-badge post">POST</span>
+                    <span class="ms-2 endpoint-url">/api/BankLoan/register</span>
+                </div>
+                <button class="btn btn-primary test-btn" onclick="testEndpoint()">Test</button>
+            </div>
+
+            <div class="card-body">
+                <!-- Request Parameters -->
+                
+
+                <!-- Response Section -->
+                <h5 class="card-title">Response</h5>
+                <div class="response-container" id="responseContainer">API Response will Come over here</div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12 text-center">
+                <a href="api.html" class="btn btn-primary test-btn">Check All Project API</a>
+            </div>
+        </div>
+
+
+    </div>
+    <!-- Features -->
+    <section class="features">
+        <div class="container">
+            <h2>Why Choose FreeProjectAPI?</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i data-lucide="zap" style="color: #3b82f6;"></i>
+                    </div>
+                    <h3>Lightning Fast</h3>
+                    <p>Global CDN ensures your API requests are processed with minimal latency</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i data-lucide="book-open" style="color: #3b82f6;"></i>
+                    </div>
+                    <h3>Well Documented</h3>
+                    <p>Comprehensive documentation with examples in multiple programming languages</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i data-lucide="message-square" style="color: #3b82f6;"></i>
+                    </div>
+                    <h3>24/7 Support</h3>
+                    <p>Developer-friendly support team ready to help you integrate our APIs</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq">
+        <div class="container">
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-container">
+                <details>
+                    <summary>
+                        <span>How do I get started?</span>
+                        <i data-lucide="chevron-down"></i>
+                    </summary>
+                    <div>
+                        Sign up for a free account, get your API key, and start making requests. Check our documentation
+                        for detailed integration guides.
+                    </div>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- New Feature Showcase Section -->
+    <section class="feature-showcase">
+        <div class="container">
+            <h2>Powerful Features for Developers</h2>
+            <div class="feature-cards">
+                <div class="feature-showcase-card">
+                    <img src="https://images.unsplash.com/photo-1555949963-aa79dcee981c?auto=format&fit=crop&w=800&q=80"
+                        alt="API Documentation" class="feature-image">
+                    <div class="feature-content">
+                        <h3>Interactive Documentation</h3>
+                        <p>Explore our comprehensive API documentation with interactive examples and code snippets.</p>
+                    </div>
+                </div>
+                <div class="feature-showcase-card">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80"
+                        alt="Analytics Dashboard" class="feature-image">
+                    <div class="feature-content">
+                        <h3>Real-time Analytics</h3>
+                        <p>Monitor your API usage with detailed analytics and performance metrics.</p>
+                    </div>
+                </div>
+                <div class="feature-showcase-card">
+                    <img src="https://images.unsplash.com/photo-1526374870839-e155464bb9b2?auto=format&fit=crop&w=800&q=80"
+                        alt="Security Features" class="feature-image">
+                    <div class="feature-content">
+                        <h3>Enterprise Security</h3>
+                        <p>Bank-grade security with encryption and advanced authentication options.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section class="contact">
+        <div class="container">
+            <h2>Get in Touch</h2>
+            <form class="contact-form" id="contactForm">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" required></textarea>
+                </div>
+                <button type="submit" class="btn">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <a href="#" class="logo">
+                    <i data-lucide="code-2" style="color: #3b82f6;"></i>
+                    <span>FreeProjectAPI</span>
+                </a>
+                <div class="social-links">
+                    <a href="#" class="social-link">
+                        <i data-lucide="github"></i>
+                    </a>
+                    <a href="#" class="social-link">
+                        <i data-lucide="twitter"></i>
+                    </a>
+                    <a href="#" class="social-link">
+                        <i data-lucide="linkedin"></i>
+                    </a>
+                </div>
+                <div class="copyright">
+                    © 2024 FreeProjectAPI. All rights reserved.
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+
+        // Contact form handling
+        document.getElementById('contactForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            // Add your form handling logic here
+            alert('Message sent successfully!');
+            e.target.reset();
+        });
+
+        // API data
+        const apis = [
+            {
+                id: 1,
+                name: "Auth Service API",
+                description: "Complete authentication and authorization solution with OAuth2 support",
+                category: "Authentication",
+                endpoints: 12,
+                users: 5000,
+            },
+            {
+                id: 2,
+                name: "Payment Gateway API",
+                description: "Process payments securely with multiple provider support",
+                category: "Payments",
+                endpoints: 8,
+                users: 3200,
+            },
+            {
+                id: 3,
+                name: "AI Text Analysis",
+                description: "Advanced NLP capabilities for text analysis and sentiment detection",
+                category: "AI",
+                endpoints: 15,
+                users: 2800,
+            },
+        ];
+
+        const apiGrid = document.getElementById('apiGrid');
+        const categoryFilters = document.getElementById('categoryFilters');
+        const searchInput = document.getElementById('searchInput');
+
+        let selectedCategory = 'All';
+
+        function renderAPIs() {
+            const searchQuery = searchInput.value.toLowerCase();
+            const filteredApis = apis.filter(api =>
+                (selectedCategory === 'All' || api.category === selectedCategory) &&
+                api.name.toLowerCase().includes(searchQuery)
+            );
+
+            apiGrid.innerHTML = filteredApis.map(api => `
+                <div class="api-card">
+                    <h3>${api.name}</h3>
+                    <p>${api.description}</p>
+                    <div class="api-stats">
+                        <span>${api.endpoints} Endpoints</span>
+                        <span>${api.users.toLocaleString()} Users</span>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        categoryFilters.addEventListener('click', (e) => {
+            if (e.target.classList.contains('category-btn')) {
+                document.querySelector('.category-btn.active').classList.remove('active');
+                e.target.classList.add('active');
+                selectedCategory = e.target.dataset.category;
+                renderAPIs();
+            }
+        });
+
+        searchInput.addEventListener('input', renderAPIs);
+
+        renderAPIs();
+    </script>
+    <script>
+        async function testEndpoint() {
+            const responseContainer = document.getElementById('responseContainer'); 
+
+            try {
+                responseContainer.innerHTML = 'Loading...';
+
+                const response = await fetch('https://api.freeprojectapi.com/api/BankLoan/GetAllUsers', {
+                    method: 'GET',
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+
+
+
+                const data = await response.json();
+                responseContainer.innerHTML = JSON.stringify(data, null, 2);
+            } catch (error) {
+                responseContainer.innerHTML = `Error: ${error.message}`;
+            }
+        }
+    </script>
+</body>
+
+</html>

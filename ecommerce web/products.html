@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Products - ShopStyle</title>
+    <link rel="stylesheet" href="/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  </head>
+  <body>
+    <!-- Navbar (same as index.html) -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top shadow-sm">
+      <div class="container">
+        <a class="navbar-brand fw-bold text-primary" href="/">ShopStyle</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav me-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="/">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="/products.html">Products</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Categories</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Deals</a>
+            </li>
+          </ul>
+          <div class="d-flex align-items-center gap-3">
+            <a href="#" class="text-dark position-relative">
+              <i class="bi bi-cart3 fs-5"></i>
+              <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                3
+              </span>
+            </a>
+            <button class="btn btn-outline-primary me-2">Login</button>
+            <button class="btn btn-primary">Sign Up</button>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Products Section -->
+    <div class="container mt-5 pt-4">
+      <div class="row">
+        <!-- Filters Sidebar -->
+        <div class="col-lg-3">
+          <div class="card shadow-sm">
+            <div class="card-body">
+              <h5 class="card-title">Filters</h5>
+              <hr>
+              <h6>Categories</h6>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="electronics">
+                <label class="form-check-label" for="electronics">Electronics</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="fashion">
+                <label class="form-check-label" for="fashion">Fashion</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="home">
+                <label class="form-check-label" for="home">Home & Living</label>
+              </div>
+              
+              <h6 class="mt-4">Price Range</h6>
+              <div class="range">
+                <input type="range" class="form-range" min="0" max="1000" id="priceRange">
+                <div class="d-flex justify-content-between">
+                  <span>$0</span>
+                  <span>$1000</span>
+                </div>
+              </div>
+
+              <h6 class="mt-4">Rating</h6>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="rating" id="rating4">
+                <label class="form-check-label" for="rating4">4★ & above</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="rating" id="rating3">
+                <label class="form-check-label" for="rating3">3★ & above</label>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Products Grid -->
+        <div class="col-lg-9">
+          <div class="d-flex justify-content-between align-items-center mb-4">
+            <h4>All Products</h4>
+            <select class="form-select" style="width: auto;">
+              <option>Sort by: Featured</option>
+              <option>Price: Low to High</option>
+              <option>Price: High to Low</option>
+              <option>Customer Rating</option>
+            </select>
+          </div>
+
+          <div class="row g-4">
+            <!-- Product Cards -->
+            <div class="col-md-4">
+              <div class="card product-card h-100">
+                <a href="/product-detail.html" class="text-decoration-none">
+                  <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=500&auto=format&fit=crop&q=80" class="card-img-top" alt="Wireless Headphones">
+                  <div class="card-body">
+                    <h5 class="card-title text-dark">Wireless Headphones</h5>
+                    <p class="card-text text-muted">$199.99</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                      <button class="btn btn-primary btn-sm">Add to Cart</button>
+                      <div class="rating">
+                        <i class="bi bi-star-fill text-warning"></i>
+                        <i class="bi bi-star-fill text-warning"></i>
+                        <i class="bi bi-star-fill text-warning"></i>
+                        <i class="bi bi-star-fill text-warning"></i>
+                        <i class="bi bi-star text-warning"></i>
+                      </div>
+                    </div>
+                  </div>
+                </a>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card product-card h-100">
+                <a href="/product-detail.html" class="text-decoration-none">
+                  <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=500&auto=format&fit=crop&q=80" class="card-img-top" alt="Smart Watch">
+                  <div class="card-body">
+                    <h5 class="card-title text-dark">Smart Watch</h5>
+                    <p class="card-text text-muted">$299.99</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                      <button class="btn btn-primary btn-sm">Add to Cart</button>
+                      <div class="rating">
+                        <i class="bi bi-star-fill text-warning"></i>
+                        <i class="bi bi-star-fill text-warning"></i>
+                        <i class="bi bi-star-fill text-warning"></i>
+                        <i class="bi bi-star-fill text-warning"></i>
+                        <i class="bi bi-star-half text-warning"></i>
+                      </div>
+                    </div>
+                  </div>
+                </a>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card product-card h-100">
+                <a href="/product-detail.html" class="text-decoration-none">
+                  <img src="https://images.unsplash.com/photo-1546868871-7041f2a55e12?w=500&auto=format&fit=crop&q=80" class="card-img-top" alt="Smart Speaker">
+                  <div class="card-body">
+                    <h5 class="card-title text-dark">Smart Speaker</h5>
+                    <p class="card-text text-muted">$149.99</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                      <button class="btn btn-primary btn-sm">Add to Cart</button>
+                      <div class="rating">
+                        <i class="bi bi-star-fill text-warning"></i>
+                        <i class="bi bi-star-fill text-warning"></i>
+                        <i class="bi bi-star-fill text-warning"></i>
+                        <i class="bi bi-star-fill text-warning"></i>
+                        <i class="bi bi-star text-warning"></i>
+                      </div>
+                    </div>
+                  </div>
+                </a>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card product-card h-100">
+                <a href="/product-detail.html" class="text-decoration-none">
+                  <img src="https://images.unsplash.com/photo-1572569511254-d8f925fe2cbb?w=500&auto=format&fit=crop&q=80" class="card-img-top" alt="Wireless Earbuds">
+                  <div class="card-body">
+                    <h5 class="card-title text-dark">Wireless Earbuds</h5>
+                    <p class="card-text text-muted">$99.99</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                      <button class="btn btn-primary btn-sm">Add to Cart</button>
+                      <div class="rating">
+                        <i class="bi bi-star-fill text-warning"></i>
+                        <i class="bi bi-star-fill text-warning"></i>
+                        <i class="bi bi-star-fill text-warning"></i>
+                        <i class="bi bi-star-fill text-warning"></i>
+                        <i class="bi bi-star text-warning"></i>
+                      </div>
+                    </div>
+                  </div>
+                </a>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card product-card h-100">
+                <a href="/product-detail.html" class="text-decoration-none">
+                  <img src="https://images.unsplash.com/photo-1585298723682-7115561c51b7?w=500&auto=format&fit=crop&q=80" class="card-img-top" alt="Laptop">
+                  <div class="card-body">
+                    <h5 class="card-title text-dark">Premium Laptop</h5>
+                    <p class="card-text text-muted">$1299.99</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                      <button class="btn btn-primary btn-sm">Add to Cart</button>
+                      <div class="rating">
+                        <i class="bi bi-star-fill text-warning"></i>
+                        <i class="bi bi-star-fill text-warning"></i>
+                        <i class="bi bi-star-fill text-warning"></i>
+                        <i class="bi bi-star-fill text-warning"></i>
+                        <i class="bi bi-star-half text-warning"></i>
+                      </div>
+                    </div>
+                  </div>
+                </a>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card product-card h-100">
+                <a href="/product-detail.html" class="text-decoration-none">
+                  <img src="https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?w=500&auto=format&fit=crop&q=80" class="card-img-top" alt="Camera">
+                  <div class="card-body">
+                    <h5 class="card-title text-dark">Digital Camera</h5>
+                    <p class="card-text text-muted">$799.99</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                      <button class="btn btn-primary btn-sm">Add to Cart</button>
+                      <div class="rating">
+                        <i class="bi bi-star-fill text-warning"></i>
+                        <i class="bi bi-star-fill text-warning"></i>
+                        <i class="bi bi-star-fill text-warning"></i>
+                        <i class="bi bi-star-fill text-warning"></i>
+                        <i class="bi bi-star text-warning"></i>
+                      </div>
+                    </div>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Pagination -->
+          <nav class="mt-5">
+            <ul class="pagination justify-content-center">
+              <li class="page-item disabled">
+                <a class="page-link" href="#" tabindex="-1">Previous</a>
+              </li>
+              <li class="page-item active"><a class="page-link" href="#">1</a></li>
+              <li class="page-item"><a class="page-link" href="#">2</a></li>
+              <li class="page-item"><a class="page-link" href="#">3</a></li>
+              <li class="page-item">
+                <a class="page-link" href="#">Next</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer (same as index.html) -->
+    <footer class="bg-dark text-white py-5 mt-5">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-3">
+            <h5>ShopStyle</h5>
+            <p class="text-muted">Your one-stop shop for all things trendy.</p>
+          </div>
+          <div class="col-md-3">
+            <h5>Quick Links</h5>
+            <ul class="list-unstyled">
+              <li><a href="#" class="text-muted">About Us</a></li>
+              <li><a href="#" class="text-muted">Contact</a></li>
+              <li><a href="#" class="text-muted">FAQs</a></li>
+            </ul>
+          </div>
+          <div class="col-md-3">
+            <h5>Categories</h5>
+            <ul class="list-unstyled">
+              <li><a href="#" class="text-muted">Electronics</a></li>
+              <li><a href="#" class="text-muted">Fashion</a></li>
+              <li><a href="#" class="text-muted">Home & Living</a></li>
+            </ul>
+          </div>
+          <div class="col-md-3">
+            <h5>Newsletter</h5>
+            <p class="text-muted">Subscribe for updates and offers.</p>
+            <div class="input-group">
+              <input type="email" class="form-control" placeholder="Email">
+              <button class="btn btn-primary">Subscribe</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script type="module" src="/main.js"></script>
+  </body>
+</html>

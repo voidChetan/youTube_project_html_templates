@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hospital Order System</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="wrapper">
+        <!-- Sidebar -->
+        <nav id="sidebar" class="active">
+            <div class="sidebar-header">
+                <h3><i class="bi bi-hospital"></i> Gov Hospital</h3>
+            </div>
+
+            <ul class="list-unstyled components">
+                <li>
+                    <a href="#" onclick="showPage('dashboard')">
+                        <i class="bi bi-speedometer2"></i> Dashboard
+                    </a>
+                </li>
+                <li>
+                    <a href="#" onclick="showPage('employees')">
+                        <i class="bi bi-people"></i> Employees
+                    </a>
+                </li>
+                <li>
+                    <a href="#" onclick="showPage('orders')">
+                        <i class="bi bi-cart"></i> Orders
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Page Content -->
+        <div id="content">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="container-fluid">
+                    <button type="button" id="sidebarCollapse" class="btn btn-primary">
+                        <i class="bi bi-list"></i>
+                    </button>
+                    <span class="navbar-text ms-3">
+                        <i class="bi bi-hospital"></i> Hospital Order Management System
+                    </span>
+                </div>
+            </nav>
+
+            <!-- Employee Section -->
+            <div id="employees" class="page-content">
+                <div class="container">
+                    <div class="tab-buttons">
+                        <button class="btn btn-primary" onclick="showEmployeeTab('list')">
+                            <i class="bi bi-list-ul"></i> Employee List
+                        </button>
+                        <button class="btn btn-outline-primary" onclick="showEmployeeTab('form')">
+                            <i class="bi bi-person-plus"></i> Add Employee
+                        </button>
+                    </div>
+
+                    <!-- Employee List -->
+                    <div id="employeeList" class="table-container">
+                        <div class="search-box">
+                            <i class="bi bi-search"></i>
+                            <input type="text" class="form-control" placeholder="Search employees...">
+                        </div>
+                        <div class="table-responsive">
+                            <table class="table custom-table">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Name</th>
+                                        <th>Department</th>
+                                        <th>Role</th>
+                                        <th>Email</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>1001</td>
+                                        <td>Dr. John Smith</td>
+                                        <td>Cardiology</td>
+                                        <td>Doctor</td>
+                                        <td>john.smith@hospital.com</td>
+                                        <td class="action-buttons">
+                                            <button class="btn btn-sm btn-primary"><i class="bi bi-pencil"></i></button>
+                                            <button class="btn btn-sm btn-danger"><i class="bi bi-trash"></i></button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>1002</td>
+                                        <td>Sarah Johnson</td>
+                                        <td>Emergency</td>
+                                        <td>Nurse</td>
+                                        <td>sarah.j@hospital.com</td>
+                                        <td class="action-buttons">
+                                            <button class="btn btn-sm btn-primary"><i class="bi bi-pencil"></i></button>
+                                            <button class="btn btn-sm btn-danger"><i class="bi bi-trash"></i></button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- Employee Form -->
+                    <div id="employeeForm" class="form-container" style="display: none;">
+                        <h4 class="mb-4"><i class="bi bi-person-plus"></i> Add New Employee</h4>
+                        <form class="needs-validation" novalidate>
+                            <div class="row mb-3">
+                                <div class="col-md-6">
+                                    <label for="employeeId" class="form-label">Employee ID</label>
+                                    <input type="number" class="form-control" id="employeeId" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="departmentId" class="form-label">Department ID</label>
+                                    <input type="number" class="form-control" id="departmentId" required>
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col-md-6">
+                                    <label for="employeeName" class="form-label">Employee Name</label>
+                                    <input type="text" class="form-control" id="employeeName" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="email" class="form-label">Email</label>
+                                    <input type="email" class="form-control" id="email" required>
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col-md-6">
+                                    <label for="password" class="form-label">Password</label>
+                                    <input type="password" class="form-control" id="password" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="role" class="form-label">Role</label>
+                                    <select class="form-select" id="role" required>
+                                        <option value="">Select Role</option>
+                                        <option value="doctor">Doctor</option>
+                                        <option value="nurse">Nurse</option>
+                                        <option value="pharmacist">Pharmacist</option>
+                                        <option value="department_head">Department Head</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <button type="submit" class="btn btn-primary">
+                                        <i class="bi bi-save"></i> Save Employee
+                                    </button>
+                                    <button type="reset" class="btn btn-secondary">
+                                        <i class="bi bi-x-circle"></i> Reset
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Order Section -->
+            <div id="orders" class="page-content">
+                <div class="container">
+                    <div class="tab-buttons">
+                        <button class="btn btn-primary" onclick="showOrderTab('list')">
+                            <i class="bi bi-list-ul"></i> Order List
+                        </button>
+                        <button class="btn btn-outline-primary" onclick="showOrderTab('form')">
+                            <i class="bi bi-plus-circle"></i> New Order
+                        </button>
+                    </div>
+
+                    <!-- Order List -->
+                    <div id="orderList" class="table-container">
+                        <div class="search-box">
+                            <i class="bi bi-search"></i>
+                            <input type="text" class="form-control" placeholder="Search orders...">
+                        </div>
+                        <div class="table-responsive">
+                            <table class="table custom-table">
+                                <thead>
+                                    <tr>
+                                        <th>Order ID</th>
+                                        <th>Employee</th>
+                                        <th>Department</th>
+                                        <th>Order Date</th>
+                                        <th>Status</th>
+                                        <th>Expected Delivery</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>#ORD001</td>
+                                        <td>Dr. John Smith</td>
+                                        <td>Cardiology</td>
+                                        <td>2024-03-09</td>
+                                        <td><span class="status-badge status-pending">Pending</span></td>
+                                        <td>2024-03-12</td>
+                                        <td class="action-buttons">
+                                            <button class="btn btn-sm btn-primary"><i class="bi bi-eye"></i></button>
+                                            <button class="btn btn-sm btn-success"><i class="bi bi-check-circle"></i></button>
+                                            <button class="btn btn-sm btn-danger"><i class="bi bi-x-circle"></i></button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>#ORD002</td>
+                                        <td>Sarah Johnson</td>
+                                        <td>Emergency</td>
+                                        <td>2024-03-08</td>
+                                        <td><span class="status-badge status-approved">Approved</span></td>
+                                        <td>2024-03-11</td>
+                                        <td class="action-buttons">
+                                            <button class="btn btn-sm btn-primary"><i class="bi bi-eye"></i></button>
+                                            <button class="btn btn-sm btn-success"><i class="bi bi-check-circle"></i></button>
+                                            <button class="btn btn-sm btn-danger"><i class="bi bi-x-circle"></i></button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- Order Form -->
+                    <div id="orderForm" class="form-container" style="display: none;">
+                        <h4 class="mb-4"><i class="bi bi-plus-circle"></i> Create New Order</h4>
+                        <form class="needs-validation" novalidate>
+                            <div class="row mb-3">
+                                <div class="col-md-4">
+                                    <label for="orderId" class="form-label">Order ID</label>
+                                    <input type="number" class="form-control" id="orderId" required>
+                                </div>
+                                <div class="col-md-4">
+                                    <label for="orderEmployeeId" class="form-label">Employee ID</label>
+                                    <input type="number" class="form-control" id="orderEmployeeId" required>
+                                </div>
+                                <div class="col-md-4">
+                                    <label for="orderDepartmentId" class="form-label">Department ID</label>
+                                    <input type="number" class="form-control" id="orderDepartmentId" required>
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col-md-4">
+                                    <label for="orderDate" class="form-label">Order Date</label>
+                                    <input type="datetime-local" class="form-control" id="orderDate" required>
+                                </div>
+                                <div class="col-md-4">
+                                    <label for="status" class="form-label">Status</label>
+                                    <select class="form-select" id="status" required>
+                                        <option value="">Select Status</option>
+                                        <option value="pending">Pending</option>
+                                        <option value="approved">Approved</option>
+                                        <option value="rejected">Rejected</option>
+                                        <option value="delivered">Delivered</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-4">
+                                    <label for="expectedDeliveryDate" class="form-label">Expected Delivery Date</label>
+                                    <input type="datetime-local" class="form-control" id="expectedDeliveryDate">
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="rejectionReason" class="form-label">Rejection Reason</label>
+                                <textarea class="form-control" id="rejectionReason" rows="2"></textarea>
+                            </div>
+
+                            <!-- Order Details Section -->
+                            <h4 class="mb-3">Order Details</h4>
+                            <div id="orderDetails">
+                                <div class="order-detail-item row mb-3">
+                                    <div class="col-md-3">
+                                        <label class="form-label">Medicine ID</label>
+                                        <input type="number" class="form-control" name="medicineId[]" required>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label class="form-label">Quantity</label>
+                                        <input type="number" class="form-control" name="quantity[]" required>
+                                    </div>
+                                    <div class="col-md-3 d-flex align-items-end">
+                                        <button type="button" class="btn btn-danger btn-remove-item" onclick="removeOrderDetail(this)">
+                                            <i class="bi bi-trash"></i> Remove
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <button type="button" class="btn btn-secondary mb-3" onclick="addOrderDetail()">
+                                <i class="bi bi-plus"></i> Add Medicine
+                            </button>
+
+                            <div class="row">
+                                <div class="col">
+                                    <button type="submit" class="btn btn-primary">
+                                        <i class="bi bi-save"></i> Submit Order
+                                    </button>
+                                    <button type="reset" class="btn btn-secondary">
+                                        <i class="bi bi-x-circle"></i> Reset
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dashboard -->
+            <div id="dashboard" class="page-content">
+                <div class="container">
+                    <h2 class="mb-4"><i class="bi bi-speedometer2"></i> Dashboard</h2>
+                    <div class="row">
+                        <div class="col-md-3 mb-4">
+                            <div class="card dashboard-card">
+                                <div class="card-body">
+                                    <h5 class="card-title"><i class="bi bi-hourglass"></i> Pending Orders</h5>
+                                    <p class="card-text display-4">5</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 mb-4">
+                            <div class="card dashboard-card">
+                                <div class="card-body">
+                                    <h5 class="card-title"><i class="bi bi-check-circle"></i> Approved Orders</h5>
+                                    <p class="card-text display-4">12</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 mb-4">
+                            <div class="card dashboard-card">
+                                <div class="card-body">
+                                    <h5 class="card-title"><i class="bi bi-x-circle"></i> Rejected Orders</h5>
+                                    <p class="card-text display-4">3</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 mb-4">
+                            <div class="card dashboard-card">
+                                <div class="card-body">
+                                    <h5 class="card-title"><i class="bi bi-truck"></i> Delivered Orders</h5>
+                                    <p class="card-text display-4">8</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Recent Orders -->
+                    <div class="row mt-4">
+                        <div class="col-12">
+                            <div class="table-container">
+                                <h4 class="mb-4"><i class="bi bi-clock-history"></i> Recent Orders</h4>
+                                <div class="table-responsive">
+                                    <table class="table custom-table">
+                                        <thead>
+                                            <tr>
+                                                <th>Order ID</th>
+                                                <th>Employee</th>
+                                                <th>Department</th>
+                                                <th>Status</th>
+                                                <th>Date</th>
+                                                <th>Actions</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>#ORD003</td>
+                                                <td>Dr. Emily White</td>
+                                                <td>Pediatrics</td>
+                                                <td><span class="status-badge status-pending">Pending</span></td>
+                                                <td>2024-03-09</td>
+                                                <td class="action-buttons">
+                                                    <button class="btn btn-sm btn-primary"><i class="bi bi-eye"></i></button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>#ORD004</td>
+                                                <td>Michael Brown</td>
+                                                <td>Surgery</td>
+                                                <td><span class="status-badge status-approved">Approved</span></td>
+                                                <td>2024-03-08</td>
+                                                <td class="action-buttons">
+                                                    <button class="btn btn-sm btn-primary"><i class="bi bi-eye"></i></button>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

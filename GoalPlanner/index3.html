@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-gradient: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+        }
+        
+        body {
+            background-color: #f8fafc;
+        }
+
+        .dashboard-header {
+            background: var(--primary-gradient);
+            color: white;
+            padding: 2rem 0;
+            margin-bottom: 2rem;
+            border-radius: 0 0 2rem 2rem;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .floating-apps {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+        }
+
+        .floating-app {
+            position: absolute;
+            font-size: 0.9rem;
+            padding: 0.5rem 1rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            animation: float 6s ease-in-out infinite;
+            opacity: 0.7;
+        }
+
+        .floating-app:nth-child(1) { top: 20%; left: 10%; animation-delay: 0s; }
+        .floating-app:nth-child(2) { top: 60%; left: 20%; animation-delay: -1s; }
+        .floating-app:nth-child(3) { top: 30%; left: 70%; animation-delay: -2s; }
+        .floating-app:nth-child(4) { top: 70%; left: 80%; animation-delay: -3s; }
+        .floating-app:nth-child(5) { top: 40%; left: 40%; animation-delay: -4s; }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) rotate(0deg);
+            }
+            25% {
+                transform: translateY(-15px) rotate(2deg);
+            }
+            75% {
+                transform: translateY(15px) rotate(-2deg);
+            }
+        }
+
+        .task-cell {
+            cursor: pointer;
+            transition: all 0.3s ease;
+            height: 60px;
+            position: relative;
+        }
+
+        .task-cell:hover {
+            background-color: #f1f5f9;
+            transform: translateY(-2px);
+        }
+
+        .completed {
+            background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%) !important;
+            animation: completedPulse 0.5s ease-out;
+        }
+
+        @keyframes completedPulse {
+            0% {
+                transform: scale(0.8);
+                opacity: 0.5;
+            }
+            50% {
+                transform: scale(1.1);
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .completed i.bi-check-lg {
+            color: white;
+            font-size: 1.5rem;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .table-fixed {
+            table-layout: fixed;
+        }
+
+        .task-name {
+            width: 250px;
+        }
+
+        .table > :not(caption) > * > * {
+            padding: 1rem;
+        }
+
+        .task-icon {
+            display: inline-block;
+            width: 32px;
+            height: 32px;
+            line-height: 32px;
+            text-align: center;
+            border-radius: 8px;
+            margin-right: 0.75rem;
+            transition: transform 0.3s ease;
+        }
+
+        .task-row:hover .task-icon {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .task-row {
+            vertical-align: middle;
+            animation: slideIn 0.5s ease-out forwards;
+            opacity: 0;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .task-row:nth-child(1) { animation-delay: 0.1s; }
+        .task-row:nth-child(2) { animation-delay: 0.2s; }
+        .task-row:nth-child(3) { animation-delay: 0.3s; }
+        .task-row:nth-child(4) { animation-delay: 0.4s; }
+        .task-row:nth-child(5) { animation-delay: 0.5s; }
+
+        .day-header {
+            background: #f8fafc;
+            font-weight: 600;
+            color: #475569;
+            animation: fadeIn 0.5s ease-out forwards;
+            opacity: 0;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .card {
+            border: none;
+            border-radius: 1rem;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+            animation: slideUp 0.5s ease-out forwards;
+            opacity: 0;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .stats-container {
+            margin-bottom: 2rem;
+        }
+
+        .stat-card {
+            background: white;
+            border-radius: 1rem;
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+            text-align: center;
+            animation: scaleIn 0.5s ease-out forwards;
+            opacity: 0;
+        }
+
+        @keyframes scaleIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .stat-card:nth-child(1) { animation-delay: 0.1s; }
+        .stat-card:nth-child(2) { animation-delay: 0.2s; }
+        .stat-card:nth-child(3) { animation-delay: 0.3s; }
+        .stat-card:nth-child(4) { animation-delay: 0.4s; }
+
+        .stat-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            animation: bounce 2s ease infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .stat-value {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: #64748b;
+            font-size: 0.875rem;
+        }
+
+        /* Task-specific colors */
+        .exercise-icon { background-color: #fee2e2; color: #ef4444; }
+        .reading-icon { background-color: #dbeafe; color: #3b82f6; }
+        .meditation-icon { background-color: #fef3c7; color: #f59e0b; }
+        .programming-icon { background-color: #f3e8ff; color: #9333ea; }
+        .plants-icon { background-color: #dcfce7; color: #22c55e; }
+    </style>
+</head>
+<body>
+    <div class="dashboard-header">
+        <div class="floating-apps">
+            <div class="floating-app">Ecommerce App</div>
+            <div class="floating-app">Employee Payroll</div>
+            <div class="floating-app">Hospital Management</div>
+            <div class="floating-app">Insurance App</div>
+            <div class="floating-app">Ticketing System</div>
+        </div>
+        <div class="container">
+            <h1 class="display-5 mb-0">Weekly Task Dashboard</h1>
+            <p class="lead mb-0">Track your daily progress</p>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="stats-container">
+            <div class="row g-4">
+                <div class="col-md-3">
+                    <div class="stat-card">
+                        <i class="bi bi-check-circle stat-icon text-success"></i>
+                        <div class="stat-value">6</div>
+                        <div class="stat-label">Tasks Completed</div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="stat-card">
+                        <i class="bi bi-calendar-week stat-icon text-primary"></i>
+                        <div class="stat-value">75%</div>
+                        <div class="stat-label">Weekly Progress</div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="stat-card">
+                        <i class="bi bi-graph-up stat-icon text-warning"></i>
+                        <div class="stat-value">3</div>
+                        <div class="stat-label">Day Streak</div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="stat-card">
+                        <i class="bi bi-star stat-icon text-info"></i>
+                        <div class="stat-value">12</div>
+                        <div class="stat-label">Total Points</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-body p-0">
+                <div class="table-responsive">
+                    <table class="table table-bordered table-fixed mb-0">
+                        <thead>
+                            <tr class="text-center">
+                                <th class="task-name day-header">Task Name</th>
+                                <th class="day-header">Mon</th>
+                                <th class="day-header">Tue</th>
+                                <th class="day-header">Wed</th>
+                                <th class="day-header">Thu</th>
+                                <th class="day-header">Fri</th>
+                                <th class="day-header">Sat</th>
+                                <th class="day-header">Sun</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="task-row">
+                                <td>
+                                    <span class="task-icon exercise-icon">
+                                        <i class="bi bi-bicycle"></i>
+                                    </span>
+                                    Morning Exercise
+                                </td>
+                                <td class="task-cell text-center completed"><i class="bi bi-check-lg"></i></td>
+                                <td class="task-cell text-center completed"><i class="bi bi-check-lg"></i></td>
+                                <td class="task-cell text-center"></td>
+                                <td class="task-cell text-center"></td>
+                                <td class="task-cell text-center"></td>
+                                <td class="task-cell text-center"></td>
+                                <td class="task-cell text-center"></td>
+                            </tr>
+                            <tr class="task-row">
+                                <td>
+                                    <span class="task-icon reading-icon">
+                                        <i class="bi bi-book"></i>
+                                    </span>
+                                    Read 30 Minutes
+                                </td>
+                                <td class="task-cell text-center completed"><i class="bi bi-check-lg"></i></td>
+                                <td class="task-cell text-center"></td>
+                                <td class="task-cell text-center"></td>
+                                <td class="task-cell text-center"></td>
+                                <td class="task-cell text-center"></td>
+                                <td class="task-cell text-center"></td>
+                                <td class="task-cell text-center"></td>
+                            </tr>
+                            <tr class="task-row">
+                                <td>
+                                    <span class="task-icon meditation-icon">
+                                        <i class="bi bi-peace"></i>
+                                    </span>
+                                    Meditation
+                                </td>
+                                <td class="task-cell text-center completed"><i class="bi bi-check-lg"></i></td>
+                                <td class="task-cell text-center completed"><i class="bi bi-check-lg"></i></td>
+                                <td class="task-cell text-center completed"><i class="bi bi-check-lg"></i></td>
+                                <td class="task-cell text-center"></td>
+                                <td class="task-cell text-center"></td>
+                                <td class="task-cell text-center"></td>
+                                <td class="task-cell text-center"></td>
+                            </tr>
+                            <tr class="task-row">
+                                <td>
+                                    <span class="task-icon programming-icon">
+                                        <i class="bi bi-code-slash"></i>
+                                    </span>
+                                    Study Programming
+                                </td>
+                                <td class="task-cell text-center"></td>
+                                <td class="task-cell text-center"></td>
+                                <td class="task-cell text-center"></td>
+                                <td class="task-cell text-center"></td>
+                                <td class="task-cell text-center"></td>
+                                <td class="task-cell text-center"></td>
+                                <td class="task-cell text-center"></td>
+                            </tr>
+                            <tr class="task-row">
+                                <td>
+                                    <span class="task-icon plants-icon">
+                                        <i class="bi bi-flower1"></i>
+                                    </span>
+                                    Water Plants
+                                </td>
+                                <td class="task-cell text-center"></td>
+                                <td class="task-cell text-center"></td>
+                                <td class="task-cell text-center"></td>
+                                <td class="task-cell text-center"></td>
+                                <td class="task-cell text-center"></td>
+                                <td class="task-cell text-center"></td>
+                                <td class="task-cell text-center"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.querySelectorAll('.task-cell').forEach(cell => {
+            cell.addEventListener('click', () => {
+                cell.classList.toggle('completed');
+                if (cell.classList.contains('completed')) {
+                    cell.innerHTML = '<i class="bi bi-check-lg"></i>';
+                } else {
+                    cell.innerHTML = '';
+                }
+            });
+        });
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

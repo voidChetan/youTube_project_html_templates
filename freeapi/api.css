@@ -1,0 +1,118 @@
+.parent {
+    display: flex; 
+    background-color: #121212;
+    color: white;
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+}
+
+#sidebar {
+    width: 250px;
+    background: #1e1e1e;
+    padding: 15px;
+    overflow-y: auto;
+    border-right: 1px solid #333;
+}
+
+#sidebar h4 {
+    color: #fff;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #333;
+}
+#controllerList a.active {
+    color: white;
+    background-color: rebeccapurple;
+    font-weight: bold;
+}
+#sidebar a {
+    color: white;
+    text-decoration: none;
+    display: block;
+    padding: 10px;
+    border-radius: 5px; 
+    margin-bottom: 5px;
+    transition: background-color 0.2s ease;
+}
+
+#sidebar a:hover {
+    background: #333;
+}
+
+#main-content {
+    flex-grow: 1;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+.card {
+    background: #1e1e1e;
+    border: 1px solid #333;
+    margin-bottom: 15px;
+}
+
+.card-header {
+    background: #252525;
+    border-bottom: 1px solid #333;
+}
+
+.card-body {
+    background: #1e1e1e;
+    color: #fff;
+}
+
+.btn-test { 
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    margin-top: 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.btn-test:hover {
+    background: #0056b3;
+}
+
+.form-control {
+    background: #2a2a2a;
+    border: 1px solid #444;
+    color: white;
+    padding: 8px 12px;
+}
+
+.form-control:focus {
+    background: #333;
+    border-color: #007bff;
+    color: white;
+    box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
+}
+
+pre {
+    background: #252525;
+    padding: 15px;
+    border-radius: 4px;
+    overflow-x: auto;
+}
+
+.method-badge {
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.method-get { background: #61affe; }
+.method-post { background: #49cc90; }
+.method-put { background: #fca130; }
+.method-delete { background: #f93e3e; }
+
+.response-container {
+    margin-top: 15px;
+    border-top: 1px solid #333;
+    padding-top: 15px;
+    height: 250px;
+    overflow-y: scroll;
+}

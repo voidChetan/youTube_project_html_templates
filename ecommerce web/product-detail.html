@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Product Detail - ShopStyle</title>
+    <link rel="stylesheet" href="/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  </head>
+  <body>
+    <!-- Navbar (same as other pages) -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top shadow-sm">
+      <div class="container">
+        <a class="navbar-brand fw-bold text-primary" href="/">ShopStyle</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav me-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="/">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/products.html">Products</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Categories</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Deals</a>
+            </li>
+          </ul>
+          <div class="d-flex align-items-center gap-3">
+            <a href="#" class="text-dark position-relative">
+              <i class="bi bi-cart3 fs-5"></i>
+              <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                3
+              </span>
+            </a>
+            <button class="btn btn-outline-primary me-2">Login</button>
+            <button class="btn btn-primary">Sign Up</button>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Product Detail Section -->
+    <div class="container mt-5 pt-4">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="/">Home</a></li>
+          <li class="breadcrumb-item"><a href="/products.html">Products</a></li>
+          <li class="breadcrumb-item active">Wireless Earbuds Pro</li>
+        </ol>
+      </nav>
+
+      <div class="row">
+        <!-- Product Images -->
+        <div class="col-md-6">
+          <div class="product-images">
+            <div class="main-image mb-3">
+              <img src="https://images.unsplash.com/photo-1572569511254-d8f925fe2cbb?w=800&auto=format&fit=crop&q=80" alt="Product" class="img-fluid rounded-3">
+            </div>
+            <div class="thumbnail-images d-flex gap-2">
+              <img src="https://images.unsplash.com/photo-1572569511254-d8f925fe2cbb?w=150&auto=format&fit=crop&q=80" alt="Thumbnail" class="img-thumbnail">
+              <img src="https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=150&auto=format&fit=crop&q=80" alt="Thumbnail" class="img-thumbnail">
+              <img src="https://images.unsplash.com/photo-1608156639585-b3a032ef9689?w=150&auto=format&fit=crop&q=80" alt="Thumbnail" class="img-thumbnail">
+              <img src="https://images.unsplash.com/photo-1631867675167-90a456a90863?w=150&auto=format&fit=crop&q=80" alt="Thumbnail" class="img-thumbnail">
+            </div>
+          </div>
+        </div>
+
+        <!-- Product Info -->
+        <div class="col-md-6">
+          <h2 class="mb-3">Wireless Earbuds Pro</h2>
+          <div class="d-flex align-items-center gap-3 mb-3">
+            <div class="rating">
+              <i class="bi bi-star-fill text-warning"></i>
+              <i class="bi bi-star-fill text-warning"></i>
+              <i class="bi bi-star-fill text-warning"></i>
+              <i class="bi bi-star-fill text-warning"></i>
+              <i class="bi bi-star-half text-warning"></i>
+              <span class="ms-2">4.5 (128 reviews)</span>
+            </div>
+          </div>
+          <h3 class="text-primary mb-4">$199.99</h3>
+          
+          <!-- Product Attributes -->
+          <div class="mb-4">
+            <h6>Color</h6>
+            <div class="d-flex gap-2">
+              <button class="btn btn-outline-dark rounded-circle p-2"></button>
+              <button class="btn btn-outline-primary rounded-circle p-2"></button>
+              <button class="btn btn-outline-secondary rounded-circle p-2"></button>
+            </div>
+          </div>
+
+          <div class="mb-4">
+            <h6>Size</h6>
+            <div class="btn-group">
+              <button class="btn btn-outline-dark">S</button>
+              <button class="btn btn-outline-dark">M</button>
+              <button class="btn btn-outline-dark">L</button>
+            </div>
+          </div>
+
+          <div class="mb-4">
+            <h6>Quantity</h6>
+            <div class="input-group" style="width: 130px;">
+              <button class="btn btn-outline-dark">-</button>
+              <input type="text" class="form-control text-center" value="1">
+              <button class="btn btn-outline-dark">+</button>
+            </div>
+          </div>
+
+          <div class="d-grid gap-2">
+            <button class="btn btn-primary btn-lg">Add to Cart</button>
+            <button class="btn btn-outline-primary btn-lg">Buy Now</button>
+          </div>
+
+          <!-- Product Description -->
+          <div class="mt-4">
+            <h5>Product Description</h5>
+            <p>Experience premium sound quality with our latest Wireless Earbuds Pro. Featuring active noise cancellation, transparency mode, and up to 24 hours of battery life with the charging case.</p>
+            
+            <div class="mt-4">
+              <h6>Key Features</h6>
+              <ul class="list-unstyled">
+                <li><i class="bi bi-check2-circle text-primary me-2"></i>Active Noise Cancellation</li>
+                <li><i class="bi bi-check2-circle text-primary me-2"></i>Transparency Mode</li>
+                <li><i class="bi bi-check2-circle text-primary me-2"></i>24-hour Battery Life</li>
+                <li><i class="bi bi-check2-circle text-primary me-2"></i>Wireless Charging</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Related Products -->
+      <section class="py-5">
+        <h3>You May Also Like</h3>
+        <div class="row g-4">
+          <div class="col-6 col-md-3">
+            <div class="card product-card h-100">
+              <a href="/product-detail.html" class="text-decoration-none">
+                <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=500&auto=format&fit=crop&q=80" class="card-img-top" alt="Wireless Headphones">
+                <div class="card-body">
+                  <h5 class="card-title text-dark">Wireless Headphones</h5>
+                  <p class="card-text text-muted">$149.99</p>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <button class="btn btn-primary btn-sm">Add to Cart</button>
+                    <div class="rating">
+                      <i class="bi bi-star-fill text-warning"></i>
+                      <i class="bi bi-star-fill text-warning"></i>
+                      <i class="bi bi-star-fill text-warning"></i>
+                      <i class="bi bi-star-fill text-warning"></i>
+                      <i class="bi bi-star text-warning"></i>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+          <div class="col-6 col-md-3">
+            <div class="card product-card h-100">
+              <a href="/product-detail.html" class="text-decoration-none">
+                <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=500&auto=format&fit=crop&q=80" class="card-img-top" alt="Smart Watch">
+                <div class="card-body">
+                  <h5 class="card-title text-dark">Smart Watch</h5>
+                  <p class="card-text text-muted">$299.99</p>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <button class="btn btn-primary btn-sm">Add to Cart</button>
+                    <div class="rating">
+                      <i class="bi bi-star-fill text-warning"></i>
+                      <i class="bi bi-star-fill text-warning"></i>
+                      <i class="bi bi-star-fill text-warning"></i>
+                      <i class="bi bi-star-fill text-warning"></i>
+                      <i class="bi bi-star-half text-warning"></i>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+          <div class="col-6 col-md-3">
+            <div class="card product-card h-100">
+              <a href="/product-detail.html" class="text-decoration-none">
+                <img src="https://images.unsplash.com/photo-1546868871-7041f2a55e12?w=500&auto=format&fit=crop&q=80" class="card-img-top" alt="Smart Speaker">
+                <div class="card-body">
+                  <h5 class="card-title text-dark">Smart Speaker</h5>
+                  <p class="card-text text-muted">$149.99</p>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <button class="btn btn-primary btn-sm">Add to Cart</button>
+                    <div class="rating">
+                      <i class="bi bi-star-fill text-warning"></i>
+                      <i class="bi bi-star-fill text-warning"></i>
+                      <i class="bi bi-star-fill text-warning"></i>
+                      <i class="bi bi-star-fill text-warning"></i>
+                      <i class="bi bi-star text-warning"></i>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+          <div class="col-6 col-md-3">
+            <div class="card product-card h-100">
+              <a href="/product-detail.html" class="text-decoration-none">
+                <img src="https://images.unsplash.com/photo-1585298723682-7115561c51b7?w=500&auto=format&fit=crop&q=80" class="card-img-top" alt="Laptop">
+                <div class="card-body">
+                  <h5 class="card-title text-dark">Premium Laptop</h5>
+                  <p class="card-text text-muted">$1299.99</p>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <button class="btn btn-primary btn-sm">Add to Cart</button>
+                    <div class="rating">
+                      <i class="bi bi-star-fill text-warning"></i>
+                      <i class="bi bi-star-fill text-warning"></i>
+                      <i class="bi bi-star-fill text-warning"></i>
+                      <i class="bi bi-star-fill text-warning"></i>
+                      <i class="bi bi-star-half text-warning"></i>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- Footer (same as other pages) -->
+    <footer class="bg-dark text-white py-5 mt-5">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-3">
+            <h5>ShopStyle</h5>
+            <p class="text-muted">Your one-stop shop for all things trendy.</p>
+          </div>
+          <div class="col-md-3">
+            <h5>Quick Links</h5>
+            <ul class="list-unstyled">
+              <li><a href="#" class="text-muted">About Us</a></li>
+              <li><a href="#" class="text-muted">Contact</a></li>
+              <li><a href="#" class="text-muted">FAQs</a></li>
+            </ul>
+          </div>
+          <div class="col-md-3">
+            <h5>Categories</h5>
+            <ul class="list-unstyled">
+              <li><a href="#" class="text-muted">Electronics</a></li>
+              <li><a href="#" class="text-muted">Fashion</a></li>
+              <li><a href="#" class="text-muted">Home & Living</a></li>
+            </ul>
+          </div>
+          <div class="col-md-3">
+            <h5>Newsletter</h5>
+            <p class="text-muted">Subscribe for updates and offers.</p>
+            <div class="input-group">
+              <input type="email" class="form-control" placeholder="Email">
+              <button class="btn btn-primary">Subscribe</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script type="module" src="/main.js"></script>
+  </body>
+</html>
